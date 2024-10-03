@@ -3,4 +3,5 @@ export interface DogBreed {
     name: string;
     description: string;
     imageUrl: string;
+    slug: string;
 }

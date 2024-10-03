@@ -1,18 +1,15 @@
-
+// src/App.tsx
 import React from 'react';
-import DogBreedDetail from './components/DogBreedDetail';
-import { mockDogBreeds } from './data/mockDogBreeds';
+import { Routes, Route } from 'react-router-dom';
+import DogBreedGallery from './components/DogBreedGallery';
+import DogBreedDetailWrapper from './components/DogBreedDetailWrapper';
 
 function App() {
-  
-  const testBreed = mockDogBreeds[0];
-  const testBreedTwo = mockDogBreeds[1]
-
   return (
-    <div className="App">
-      <DogBreedDetail breed={testBreed} />
-      <DogBreedDetail breed={testBreedTwo} />
-    </div>
+    <Routes>
+      <Route path="/" element={<DogBreedGallery />} />
+      <Route path="/:slug" element={<DogBreedDetailWrapper />} />
+    </Routes>
   );
 }
 
