@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { DogBreed } from '../types/DogBreed';
+import '../style/DogCard.css'
 
 interface DogBreedDetailProps {
   breed: DogBreed;
