@@ -1,0 +1,24 @@
+#navbar{
+    background-color: #929A6D;
+    display: flex;
+    justify-content: left;
+    font-size: 3vh;
+    color: #28271B;
+}
+
+#navbar>*{
+    padding: 2%;
+    text-decoration: none;
+    color: #28271B;
+}
+
+#navbar>*:hover{
+    text-decoration: none;
+    background-color: #495A4D;
+    color:#EDE0D9;
+}
+
+#navbar>*:active{
+    text-decoration: none;
+    color: #929A6D;
+}

@@ -1,0 +1,13 @@
+.breed-card{
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    margin: 1%;
+}
+
+.dog-breed-gallery{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

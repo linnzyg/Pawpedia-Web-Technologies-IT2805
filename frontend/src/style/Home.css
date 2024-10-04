@@ -1,0 +1,11 @@
+#homeBody{
+    padding: 2%;
+}
+
+#homeBody>*{
+    padding: 2%;
+}
+
+footer{
+    background-color: #887153;
+}
