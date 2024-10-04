@@ -1,4 +1,4 @@
-// src/components/DogBreedDetailWrapper.tsx
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import DogBreedDetail from './DogBreedDetail';
