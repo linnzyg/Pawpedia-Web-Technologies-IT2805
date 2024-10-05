@@ -6,7 +6,6 @@ function Navbar() {
     <section id="navbar">
       <NavLink to="/home">Home</NavLink>
       <NavLink to="/">All dogs</NavLink>
-      <input type="text" placeholder="Search.."></input>
     </section>
   );
 }
