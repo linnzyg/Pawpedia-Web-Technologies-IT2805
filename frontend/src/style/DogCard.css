@@ -11,3 +11,19 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.favorite-button{
+  display: flex;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.favorite-icon {
+  height: auto;
+  width: 50px;
+  max-width: auto;
+}
+
