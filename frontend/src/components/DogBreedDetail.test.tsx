@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import DogBreedDetail from './DogBreedDetail';
@@ -17,20 +16,16 @@ describe('DogBreedDetail Component', () => {
   it('renders the breed name, image, and description', () => {
     render(<DogBreedDetail breed={mockBreed} />);
 
-   
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Golden Retriever');
 
-   
     const image = screen.getByAltText('Golden Retriever');
     expect(image).toBeInTheDocument();
     expect(image).toHaveAttribute('src', mockBreed.imageUrl);
 
-   
     expect(screen.getByText('Friendly, intelligent family dog')).toBeInTheDocument();
   });
 
   it('has the correct slug property', () => {
-    
     expect(mockBreed.slug).toBe('golden-retriever');
   });
 

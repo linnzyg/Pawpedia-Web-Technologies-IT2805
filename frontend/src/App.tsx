@@ -9,14 +9,13 @@ import Navbar from './components/Navbar.tsx';
 function App() {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/home" element={<Home />} />
         <Route path="/" element={<DogBreedGallery />} />
         <Route path="/:slug" element={<DogBreedDetailWrapper />} />
       </Routes>
     </>
-    
   );
 }
 

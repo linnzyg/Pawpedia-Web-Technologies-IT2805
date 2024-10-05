@@ -1,11 +1,11 @@
-#sortOrFilter{
-    display: flex;
-    flex-direction: row;
-    background-color: #887153;
-    color: white;
-    padding: 0.5%;
+#sortOrFilter {
+  display: flex;
+  flex-direction: row;
+  background-color: #887153;
+  color: white;
+  padding: 0.5%;
 }
 
-#sortOrFilter>*{
-    margin: 0.5%;
+#sortOrFilter > * {
+  margin: 0.5%;
 }

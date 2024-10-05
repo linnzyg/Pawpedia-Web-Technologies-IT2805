@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -6,13 +5,12 @@ import DogBreedGallery from './DogBreedGallery';
 import { mockDogBreeds } from '../data/mockDogBreeds';
 import { describe, it, expect } from 'vitest';
 
-
 describe('DogBreedGallery Component', () => {
   it('renders the correct number of breed cards', () => {
     render(
       <MemoryRouter>
         <DogBreedGallery />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const breedCards = screen.getAllByRole('heading', { level: 2 });
@@ -23,14 +21,12 @@ describe('DogBreedGallery Component', () => {
     render(
       <MemoryRouter>
         <DogBreedGallery />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     mockDogBreeds.forEach((breed) => {
-     
       expect(screen.getByText(breed.name)).toBeInTheDocument();
 
-   
       const image = screen.getByAltText(breed.name);
       expect(image).toBeInTheDocument();
       expect(image).toHaveAttribute('src', breed.imageUrl);
@@ -41,7 +37,7 @@ describe('DogBreedGallery Component', () => {
     render(
       <MemoryRouter>
         <DogBreedGallery />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     mockDogBreeds.forEach((breed) => {
