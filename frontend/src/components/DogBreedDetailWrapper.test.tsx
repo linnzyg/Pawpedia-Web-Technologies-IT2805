@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
@@ -15,10 +14,9 @@ describe('DogBreedDetailWrapper Component', () => {
         <Routes>
           <Route path="/:slug" element={<DogBreedDetailWrapper />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-   
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(mockDogBreeds[0].name);
   });
 
@@ -30,10 +28,9 @@ describe('DogBreedDetailWrapper Component', () => {
         <Routes>
           <Route path="/:slug" element={<DogBreedDetailWrapper />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    
     expect(screen.getByText('Breed not found')).toBeInTheDocument();
   });
 
@@ -43,10 +40,9 @@ describe('DogBreedDetailWrapper Component', () => {
         <Routes>
           <Route path="/" element={<DogBreedDetailWrapper />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-   
     expect(screen.getByText('Breed not found')).toBeInTheDocument();
   });
 });
