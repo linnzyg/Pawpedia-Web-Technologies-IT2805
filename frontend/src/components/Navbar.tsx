@@ -4,8 +4,11 @@ import '../style/Navbar.css';
 function Navbar() {
   return (
     <section id="navbar">
+      <section className="nav-links">
       <NavLink to="/home">Home</NavLink>
       <NavLink to="/">All dogs</NavLink>
+      </section>
+      <img src="/src/assets/paw.png" alt="Logo" className="navbar-logo" />
     </section>
   );
 }
