@@ -71,7 +71,7 @@ const DogBreedGallery: React.FC = () => {
   return (
     <>
       <header id="sortOrFilter">
-        <p>Sort by</p>
+        <label htmlFor="sort">Sort by</label>
         <select ref={sortRef} name="sort" id="sort" onChange={optionClicked} defaultValue="chooseSorting">
           <option value="chooseSorting" disabled>
             Choose...
@@ -79,7 +79,7 @@ const DogBreedGallery: React.FC = () => {
           <option value="alpha">Alphabetically</option>
           <option value="favorites">Favorites</option>
         </select>
-        <p>Filter by</p>
+        <label htmlFor="filter">Filter by</label>
         <select ref={filterRef} name="filter" id="filter" onChange={optionClicked} defaultValue="chooseFilter">
           <option value="chooseFilter" disabled>
             Choose...
