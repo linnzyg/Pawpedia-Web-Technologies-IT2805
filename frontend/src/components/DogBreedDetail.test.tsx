@@ -1,7 +1,9 @@
+
+
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import DogBreedDetail from './DogBreedDetail';
-import { DogBreed } from '../types/DogBreed';
+import { DogBreed, Size } from '../types/DogBreed';
 import { describe, it, expect } from 'vitest';
 
 describe('DogBreedDetail Component', () => {
@@ -11,6 +13,8 @@ describe('DogBreedDetail Component', () => {
     description: 'Friendly, intelligent family dog',
     imageUrl: '/assets/golden-retriever.jpeg',
     slug: 'golden-retriever',
+    favorite: false,
+    size: Size.Large,
   };
 
   it('renders the breed name, image, and description', () => {
@@ -32,7 +36,7 @@ describe('DogBreedDetail Component', () => {
   it('image has correct alt text', () => {
     render(<DogBreedDetail breed={mockBreed} />);
 
-    const image = screen.getByRole('img');
+    const image = screen.getByAltText('Golden Retriever');
     expect(image).toHaveAttribute('alt', 'Golden Retriever');
   });
 });
