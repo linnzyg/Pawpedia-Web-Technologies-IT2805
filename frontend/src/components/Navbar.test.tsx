@@ -35,7 +35,7 @@ describe('Navbar Component', () => {
     fireEvent.click(allDogs);
 
     expect(asFragment()).toMatchSnapshot();
-    expect(screen.getByText(/All our dogs/i)).toBeInTheDocument();
+    
     expect(screen.getByText(/Golden Retriever/i)).toBeInTheDocument();
     expect(screen.getByText(/Mittelspitz/i)).toBeInTheDocument();
   });

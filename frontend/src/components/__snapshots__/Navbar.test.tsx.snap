@@ -66,9 +66,6 @@ exports[`Navbar Component > matches initial snapshot and displays Dog Breed Gall
   <div
     class="dog-breed-gallery"
   >
-    <h1>
-      All our dogs
-    </h1>
     <div
       class="breed-card"
     >
@@ -169,9 +166,6 @@ exports[`Navbar Component > navigates to Dog Breed Gallery page when All Dogs is
   <div
     class="dog-breed-gallery"
   >
-    <h1>
-      All our dogs
-    </h1>
     <div
       class="breed-card"
     >
