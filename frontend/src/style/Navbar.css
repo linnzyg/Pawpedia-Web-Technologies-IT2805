@@ -1,0 +1,36 @@
+#navbar {
+  background-color: #929a6d;
+  display: flex;
+  justify-content: space-between; /* Separates links and logo */
+  align-items: center;
+  font-size: 4vh;
+  color: #28271b;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  padding: 30px 40px;
+  text-decoration: none;
+  color: #28271b;
+  display: block; /* Full width and height hover effect */
+  background-color: transparent; /* Default background */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #495a4d; /* Change background on hover */
+  color: #ede0d9;
+}
+
+.nav-links a:active {
+  background-color: #929a6d;
+  color: #ede0d9;
+}
+
+.navbar-logo {
+  height: 60px;
+  padding-right: 20px;  
+}

@@ -1,0 +1,451 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DogBreedGallery Component > filters large dogs correctly 1`] = `
+<DocumentFragment>
+  <header
+    id="sortOrFilter"
+  >
+    <label
+      for="sort"
+    >
+      Sort by
+    </label>
+    <select
+      id="sort"
+      name="sort"
+    >
+      <option
+        disabled=""
+        selected=""
+        value="chooseSorting"
+      >
+        Choose...
+      </option>
+      <option
+        value="alpha"
+      >
+        Alphabetically
+      </option>
+      <option
+        value="favorites"
+      >
+        Favorites
+      </option>
+    </select>
+    <label
+      for="filter"
+    >
+      Filter by
+    </label>
+    <select
+      id="filter"
+      name="filter"
+    >
+      <option
+        disabled=""
+        selected=""
+        value="chooseFilter"
+      >
+        Choose...
+      </option>
+      <option
+        value="bigDogs"
+      >
+        Big dogs
+      </option>
+      <option
+        value="smallDogs"
+      >
+        Small dogs
+      </option>
+    </select>
+    <input
+      placeholder="Search..."
+      type="text"
+      value=""
+    />
+    <button>
+      Reset
+    </button>
+  </header>
+  <div
+    class="dog-breed-gallery"
+  >
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Golden Retriever
+      </h2>
+      <a
+        href="/golden-retriever"
+      >
+        <img
+          alt="Golden Retriever"
+          src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        A test dog
+      </h2>
+      <a
+        href="/golden-retriever"
+      >
+        <img
+          alt="A test dog"
+          src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`DogBreedGallery Component > filters small dogs correctly 1`] = `
+<DocumentFragment>
+  <header
+    id="sortOrFilter"
+  >
+    <label
+      for="sort"
+    >
+      Sort by
+    </label>
+    <select
+      id="sort"
+      name="sort"
+    >
+      <option
+        disabled=""
+        selected=""
+        value="chooseSorting"
+      >
+        Choose...
+      </option>
+      <option
+        value="alpha"
+      >
+        Alphabetically
+      </option>
+      <option
+        value="favorites"
+      >
+        Favorites
+      </option>
+    </select>
+    <label
+      for="filter"
+    >
+      Filter by
+    </label>
+    <select
+      id="filter"
+      name="filter"
+    >
+      <option
+        disabled=""
+        selected=""
+        value="chooseFilter"
+      >
+        Choose...
+      </option>
+      <option
+        value="bigDogs"
+      >
+        Big dogs
+      </option>
+      <option
+        value="smallDogs"
+      >
+        Small dogs
+      </option>
+    </select>
+    <input
+      placeholder="Search..."
+      type="text"
+      value=""
+    />
+    <button>
+      Reset
+    </button>
+  </header>
+  <div
+    class="dog-breed-gallery"
+  >
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Mittelspitz
+      </h2>
+      <a
+        href="/mittelspitz"
+      >
+        <img
+          alt="Mittelspitz"
+          src="/src/assets/mittelspitz.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Z test dog
+      </h2>
+      <a
+        href="/golden-retriever"
+      >
+        <img
+          alt="Z test dog"
+          src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`DogBreedGallery Component > sorts dogs alphabetically 1`] = `
+<DocumentFragment>
+  <header
+    id="sortOrFilter"
+  >
+    <label
+      for="sort"
+    >
+      Sort by
+    </label>
+    <select
+      id="sort"
+      name="sort"
+    >
+      <option
+        disabled=""
+        selected=""
+        value="chooseSorting"
+      >
+        Choose...
+      </option>
+      <option
+        value="alpha"
+      >
+        Alphabetically
+      </option>
+      <option
+        value="favorites"
+      >
+        Favorites
+      </option>
+    </select>
+    <label
+      for="filter"
+    >
+      Filter by
+    </label>
+    <select
+      id="filter"
+      name="filter"
+    >
+      <option
+        disabled=""
+        selected=""
+        value="chooseFilter"
+      >
+        Choose...
+      </option>
+      <option
+        value="bigDogs"
+      >
+        Big dogs
+      </option>
+      <option
+        value="smallDogs"
+      >
+        Small dogs
+      </option>
+    </select>
+    <input
+      placeholder="Search..."
+      type="text"
+      value=""
+    />
+    <button>
+      Reset
+    </button>
+  </header>
+  <div
+    class="dog-breed-gallery"
+  >
+    <div
+      class="breed-card"
+    >
+      <h2>
+        A test dog
+      </h2>
+      <a
+        href="/golden-retriever"
+      >
+        <img
+          alt="A test dog"
+          src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Golden Retriever
+      </h2>
+      <a
+        href="/golden-retriever"
+      >
+        <img
+          alt="Golden Retriever"
+          src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Mittelspitz
+      </h2>
+      <a
+        href="/mittelspitz"
+      >
+        <img
+          alt="Mittelspitz"
+          src="/src/assets/mittelspitz.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Z test dog
+      </h2>
+      <a
+        href="/golden-retriever"
+      >
+        <img
+          alt="Z test dog"
+          src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`sorts dogs by favorites 1`] = `
+<DocumentFragment>
+  <header
+    id="sortOrFilter"
+  >
+    <label
+      for="sort"
+    >
+      Sort by
+    </label>
+    <select
+      id="sort"
+      name="sort"
+    >
+      <option
+        disabled=""
+        selected=""
+        value="chooseSorting"
+      >
+        Choose...
+      </option>
+      <option
+        value="alpha"
+      >
+        Alphabetically
+      </option>
+      <option
+        value="favorites"
+      >
+        Favorites
+      </option>
+    </select>
+    <label
+      for="filter"
+    >
+      Filter by
+    </label>
+    <select
+      id="filter"
+      name="filter"
+    >
+      <option
+        disabled=""
+        selected=""
+        value="chooseFilter"
+      >
+        Choose...
+      </option>
+      <option
+        value="bigDogs"
+      >
+        Big dogs
+      </option>
+      <option
+        value="smallDogs"
+      >
+        Small dogs
+      </option>
+    </select>
+    <input
+      placeholder="Search..."
+      type="text"
+      value=""
+    />
+    <button>
+      Reset
+    </button>
+  </header>
+  <div
+    class="dog-breed-gallery"
+  >
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Golden Retriever
+      </h2>
+      <a
+        href="/golden-retriever"
+      >
+        <img
+          alt="Golden Retriever"
+          src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        A test dog
+      </h2>
+      <a
+        href="/golden-retriever"
+      >
+        <img
+          alt="A test dog"
+          src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
