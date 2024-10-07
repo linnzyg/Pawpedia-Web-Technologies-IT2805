@@ -5,52 +5,75 @@ exports[`Navbar Component > matches initial snapshot and displays Dog Breed Gall
   <section
     id="navbar"
   >
-    <a
-      class=""
-      href="/home"
+    <section
+      class="nav-links"
     >
-      Home
-    </a>
-    <a
-      aria-current="page"
-      class="active"
-      href="/"
-    >
-      All dogs
-    </a>
-    <input
-      placeholder="Search.."
-      type="text"
+      <a
+        class=""
+        href="/home"
+      >
+        Home
+      </a>
+      <a
+        aria-current="page"
+        class="active"
+        href="/"
+      >
+        All dogs
+      </a>
+    </section>
+    <img
+      alt="Logo"
+      class="navbar-logo"
+      src="/src/assets/paw.png"
     />
   </section>
   <header
     id="sortOrFilter"
   >
-    <p>
+    <label
+      for="sort"
+    >
       Sort by
-    </p>
+    </label>
     <select
       id="sort"
       name="sort"
     >
+      <option
+        disabled=""
+        selected=""
+        value="chooseSorting"
+      >
+        Choose...
+      </option>
       <option
         value="alpha"
       >
         Alphabetically
       </option>
       <option
-        value="2"
+        value="favorites"
       >
-        2
+        Favorites
       </option>
     </select>
-    <p>
+    <label
+      for="filter"
+    >
       Filter by
-    </p>
+    </label>
     <select
       id="filter"
       name="filter"
     >
+      <option
+        disabled=""
+        selected=""
+        value="chooseFilter"
+      >
+        Choose...
+      </option>
       <option
         value="bigDogs"
       >
@@ -62,10 +85,33 @@ exports[`Navbar Component > matches initial snapshot and displays Dog Breed Gall
         Small dogs
       </option>
     </select>
+    <input
+      placeholder="Search..."
+      type="text"
+      value=""
+    />
+    <button>
+      Reset
+    </button>
   </header>
   <div
     class="dog-breed-gallery"
   >
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Mittelspitz
+      </h2>
+      <a
+        href="/mittelspitz"
+      >
+        <img
+          alt="Mittelspitz"
+          src="/src/assets/mittelspitz.jpeg"
+        />
+      </a>
+    </div>
     <div
       class="breed-card"
     >
@@ -85,14 +131,29 @@ exports[`Navbar Component > matches initial snapshot and displays Dog Breed Gall
       class="breed-card"
     >
       <h2>
-        Mittelspitz
+        A test dog
       </h2>
       <a
-        href="/mittelspitz"
+        href="/golden-retriever"
       >
         <img
-          alt="Mittelspitz"
-          src="/src/assets/mittelspitz.jpeg"
+          alt="A test dog"
+          src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Z test dog
+      </h2>
+      <a
+        href="/golden-retriever"
+      >
+        <img
+          alt="Z test dog"
+          src="/src/assets/golden-retriever.jpeg"
         />
       </a>
     </div>
@@ -105,52 +166,75 @@ exports[`Navbar Component > navigates to Dog Breed Gallery page when All Dogs is
   <section
     id="navbar"
   >
-    <a
-      class=""
-      href="/home"
+    <section
+      class="nav-links"
     >
-      Home
-    </a>
-    <a
-      aria-current="page"
-      class="active"
-      href="/"
-    >
-      All dogs
-    </a>
-    <input
-      placeholder="Search.."
-      type="text"
+      <a
+        class=""
+        href="/home"
+      >
+        Home
+      </a>
+      <a
+        aria-current="page"
+        class="active"
+        href="/"
+      >
+        All dogs
+      </a>
+    </section>
+    <img
+      alt="Logo"
+      class="navbar-logo"
+      src="/src/assets/paw.png"
     />
   </section>
   <header
     id="sortOrFilter"
   >
-    <p>
+    <label
+      for="sort"
+    >
       Sort by
-    </p>
+    </label>
     <select
       id="sort"
       name="sort"
     >
+      <option
+        disabled=""
+        selected=""
+        value="chooseSorting"
+      >
+        Choose...
+      </option>
       <option
         value="alpha"
       >
         Alphabetically
       </option>
       <option
-        value="2"
+        value="favorites"
       >
-        2
+        Favorites
       </option>
     </select>
-    <p>
+    <label
+      for="filter"
+    >
       Filter by
-    </p>
+    </label>
     <select
       id="filter"
       name="filter"
     >
+      <option
+        disabled=""
+        selected=""
+        value="chooseFilter"
+      >
+        Choose...
+      </option>
       <option
         value="bigDogs"
       >
@@ -162,10 +246,33 @@ exports[`Navbar Component > navigates to Dog Breed Gallery page when All Dogs is
         Small dogs
       </option>
     </select>
+    <input
+      placeholder="Search..."
+      type="text"
+      value=""
+    />
+    <button>
+      Reset
+    </button>
   </header>
   <div
     class="dog-breed-gallery"
   >
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Mittelspitz
+      </h2>
+      <a
+        href="/mittelspitz"
+      >
+        <img
+          alt="Mittelspitz"
+          src="/src/assets/mittelspitz.jpeg"
+        />
+      </a>
+    </div>
     <div
       class="breed-card"
     >
@@ -185,14 +292,29 @@ exports[`Navbar Component > navigates to Dog Breed Gallery page when All Dogs is
       class="breed-card"
     >
       <h2>
-        Mittelspitz
+        A test dog
       </h2>
       <a
-        href="/mittelspitz"
+        href="/golden-retriever"
       >
         <img
-          alt="Mittelspitz"
-          src="/src/assets/mittelspitz.jpeg"
+          alt="A test dog"
+          src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Z test dog
+      </h2>
+      <a
+        href="/golden-retriever"
+      >
+        <img
+          alt="Z test dog"
+          src="/src/assets/golden-retriever.jpeg"
         />
       </a>
     </div>
@@ -205,22 +327,27 @@ exports[`Navbar Component > navigates to Home page when Home is clicked 1`] = `
   <section
     id="navbar"
   >
-    <a
-      aria-current="page"
-      class="active"
-      href="/home"
+    <section
+      class="nav-links"
     >
-      Home
-    </a>
-    <a
-      class=""
-      href="/"
-    >
-      All dogs
-    </a>
-    <input
-      placeholder="Search.."
-      type="text"
+      <a
+        aria-current="page"
+        class="active"
+        href="/home"
+      >
+        Home
+      </a>
+      <a
+        class=""
+        href="/"
+      >
+        All dogs
+      </a>
+    </section>
+    <img
+      alt="Logo"
+      class="navbar-logo"
+      src="/src/assets/paw.png"
     />
   </section>
   <section

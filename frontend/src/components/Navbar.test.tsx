@@ -38,6 +38,10 @@ describe('Navbar Component', () => {
     
     expect(screen.getByText(/Golden Retriever/i)).toBeInTheDocument();
     expect(screen.getByText(/Mittelspitz/i)).toBeInTheDocument();
+    expect(screen.getByText(/A test dog/i)).toBeInTheDocument();
+    expect(screen.getByText(/Z test dog/i)).toBeInTheDocument();
+
+
   });
 
   it('navigates to Home page when Home is clicked', () => {
