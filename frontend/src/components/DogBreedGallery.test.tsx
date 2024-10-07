@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import DogBreedGallery from './DogBreedGallery';
 import { mockDogBreeds } from '../data/mockDogBreeds';
@@ -114,3 +114,49 @@ it('sorts dogs by favorites', async () => {
   expect(displayedDogs).toEqual(favoriteDogs);
   expect(asFragment()).toMatchSnapshot();
 });
+
+it('searches for correct dogs', async () => {
+  const { asFragment} = render(
+    <MemoryRouter>
+      <DogBreedGallery />
+    </MemoryRouter>
+  )
+  const input = screen.getByPlaceholderText('Search...');
+  fireEvent.change(input, { target: { value: 'Mit' } });
+
+  await waitFor(() => {
+    expect(screen.getByText('Mittelspitz')).toBeInTheDocument();
+  });
+
+  expect(asFragment()).toMatchSnapshot();
+});
+
+it('resets everything back to normal', async () => {
+  const { asFragment } = render (
+    <MemoryRouter>
+      <DogBreedGallery />
+    </MemoryRouter>
+  )
+  const input = screen.getByPlaceholderText('Search...') as HTMLInputElement;
+  fireEvent.change(input, { target: { value: 'Mit' } });
+
+  const filterDropdown = screen.getByLabelText(/filter by/i) as HTMLSelectElement;
+  fireEvent.change(filterDropdown, { target: { value: 'bigDogs' } });
+
+  const sortDropdown = screen.getByLabelText(/sort by/i) as HTMLSelectElement;
+  fireEvent.change(sortDropdown, { target: { value: 'alpha' } });
+
+  const resetButton = screen.getByRole('button', { name: /reset/i });
+  fireEvent.click(resetButton);
+
+  expect(input.value).toBe(''); 
+  expect(filterDropdown.value).toBe('chooseFilter'); 
+  expect(sortDropdown.value).toBe('chooseSorting');
+
+  expect(asFragment()).toMatchSnapshot();
+});
+
+
+
+
+

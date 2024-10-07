@@ -90,7 +90,9 @@ exports[`Navbar Component > matches initial snapshot and displays Dog Breed Gall
       type="text"
       value=""
     />
-    <button>
+    <button
+      id="reset-btn"
+    >
       Reset
     </button>
   </header>
@@ -251,7 +253,9 @@ exports[`Navbar Component > navigates to Dog Breed Gallery page when All Dogs is
       type="text"
       value=""
     />
-    <button>
+    <button
+      id="reset-btn"
+    >
       Reset
     </button>
   </header>
