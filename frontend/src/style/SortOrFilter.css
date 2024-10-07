@@ -1,11 +1,82 @@
 #sortOrFilter {
   display: flex;
-  flex-direction: row;
+  gap: 20px;
+  align-items: center;
   background-color: #887153;
-  color: white;
-  padding: 0.5%;
+  padding: 20px;
 }
 
-#sortOrFilter > * {
-  margin: 0.5%;
+#filter {
+  padding: 10px; 
+  font-size: 1rem;
+  color: #887153;
+  background-color: #ede0d9;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#filter:focus {
+  border: none;
+  outline: none; 
+  box-shadow: none; 
+}
+
+#sort {
+  padding: 10px; 
+  font-size: 1rem;
+  color: #887153;
+  background-color: #ede0d9;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#sort:focus {
+  border: none;
+  outline: none; 
+  box-shadow: none; 
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 1rem; 
+  color: #887153;
+  background-color: #ede0d9;
+  border: none;
+  border-radius: 5px; 
+}
+
+input[type="text"]:focus {
+  border: none;
+  outline: none; 
+  box-shadow: none; 
+}
+
+input[type="text"]::placeholder {
+  color: #887153;
+}
+
+#reset-btn {
+  padding: 10px;
+  font-size: 1rem; 
+  color: #887153;
+  background-color: #ede0d9;
+  border: none;
+  border-radius: 5px; 
+}
+
+#reset-btn:hover {
+  background-color: #64543e;
+  color: #ede0d9;
+}
+
+#reset-btn:active {
+  transform: scale(0.95);
+  background-color: #3a3224; 
+}
+
+@media (max-width: 768px) {
+  #sortOrFilter {
+    flex-direction: column;
+    align-content: center;
+  }
 }

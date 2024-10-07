@@ -4,15 +4,36 @@
   align-items: center;
   padding: 2%;
   margin: 1%;
+  text-align: center;
 }
 
 .dog-breed-gallery {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
 }
 
-.favorite-button{
+@media (max-width: 1024px) {
+  .dog-breed-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dog-breed-gallery {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 480px) {
+  .dog-breed-gallery {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px; 
+  }
+}
+
+.favorite-button {
   display: flex;
   justify-content: center;
   background: none;
@@ -26,4 +47,3 @@
   width: 50px;
   max-width: auto;
 }
-

@@ -88,7 +88,7 @@ const DogBreedGallery: React.FC = () => {
           <option value="smallDogs">Small dogs</option>
         </select>
         <input type="text" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
-        <button onClick={resetFiltersAndSorting}>Reset</button>
+        <button id="reset-btn" onClick={resetFiltersAndSorting}>Reset</button>
       </header>
       <div className="dog-breed-gallery">
         {sortedDogs.map((breed) => (
