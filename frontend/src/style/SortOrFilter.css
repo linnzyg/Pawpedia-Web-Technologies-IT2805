@@ -4,6 +4,9 @@
   align-items: center;
   background-color: #887153;
   padding: 20px;
+  margin: 1%;
+  border-radius: 50px;
+  color: white;
 }
 
 #filter {
@@ -59,7 +62,7 @@ input[type="text"]::placeholder {
   padding: 10px;
   font-size: 1rem; 
   color: #887153;
-  background-color: #ede0d9;
+  background-color: pink;
   border: none;
   border-radius: 5px; 
 }

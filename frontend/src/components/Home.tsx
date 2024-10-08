@@ -6,7 +6,7 @@ function Home() {
     <>
       <section id="homeBody">
         <header>
-          <h3>Welcome to the dog breeds database!</h3>
+          <h1>Welcome to the dog breeds database!</h1>
         </header>
 
         <section>
@@ -36,7 +36,7 @@ function Home() {
           amet ipsum sollicitudin, pretium nisl ut, luctus turpis.
         </section>
 
-        <footer>About us: We love dogs yayayyaayayayya dogs are cute and cool yayayyaya so many breeds #whatt</footer>
+        <footer>Contact information: 98765432</footer>
       </section>
     </>
   );
