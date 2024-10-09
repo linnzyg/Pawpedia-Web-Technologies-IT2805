@@ -1,6 +1,8 @@
 # Pawpedia
 
-Pawpedia is an application designed to showcase various dog breeds. It uses static, [mocked dog data](frontend\src\data\mockDogBreeds.ts), and presents this information in a gallery.
+Pawpedia is an application designed to showcase various dog breeds. The first version uses static mocked data to display dog breeds in a gallery view. The gallery view can lead the user to the detailed view about each dog breed by pressing the pictures of the dogs.
+
+The coming versions of Pawpedia will contain a database running a backend meaning more data and dog breeds. Each breed will also have more details and information about the breed itself. Styling will also be done using third party libraries such as shadcn. 
 
 ## Features
 * Gallery View: Browse all dog breeds in an easy-to-navigate gallery
@@ -26,22 +28,29 @@ npm run dev
 ```
 
 ## Showcase
-Insert link to VM
+Link to VM will be available next version, as it is not required for the first task
 
 ## Documentation and choices
-Not finished
+The choice of making a dog application was made due to dogs being cute, and motivated all four developers to work on this project with love.
 
 ## Tech Stack
 * React: Frontend framework
 * Language: TypeScript 
 
 ## Testing and code quality
-We use snapshot tests to ensure that user interactions like filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
+We use snapshot tests to ensure that user interactions such as filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
 
-Not finished
+Each component also contains component tests using Vitest. It follows the arrange, act, assert pattern using the describe, it, expect methods within Vitest.
 
 ### How to test
-Navigate to frontend folder, then run the following command:
+Navigate to frontend folder:
+
+```bash
+cd frontend
+```
+
+
+then run the following command:
 
 ```bash
 npm run test
