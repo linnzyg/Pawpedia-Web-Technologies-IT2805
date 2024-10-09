@@ -1,0 +1,32 @@
+.dog-breed-detail{
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 900px) {
+    .dog-breed-detail{
+        width: 100%;
+        height: auto;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.dog-breed-detail>*{
+    flex-grow: 1;
+}
+
+#dogInfo :not(:first-child){
+    padding: 2%;
+}
+
+#dogInfo h1{
+    background-color: #495a4d;
+    padding: 5%;
+    margin-top: 0px;
+    color:white
+}
