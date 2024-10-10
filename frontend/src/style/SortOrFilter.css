@@ -4,6 +4,9 @@
   align-items: center;
   background-color: #887153;
   padding: 20px;
+  margin: 1%;
+  border-radius: 50px;
+  color: white;
 }
 
 #filter {
@@ -58,8 +61,8 @@ input[type="text"]::placeholder {
 #reset-btn {
   padding: 10px;
   font-size: 1rem; 
-  color: #887153;
-  background-color: #ede0d9;
+  color: #3a3224;
+  background-color: rgb(177, 154, 204);
   border: none;
   border-radius: 5px; 
 }

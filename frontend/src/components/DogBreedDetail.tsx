@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { DogBreed } from '../types/DogBreed';
+import '../style/DogCard.css';
+import favorite from '../assets/favorite.png';
+import notFavorite from '../assets/notFavorite.png';
+import '../style/DogBreedDetail.css'
 import Commentary from './Comment';
 
 interface DogBreedDetailProps {
@@ -18,13 +22,22 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
     setComments((prevComments) => [...prevComments, { name, text: comment }]);
   };
 
-  return (
+  return (  
     <div className="w-full max-w-3xl mx-auto my-8 p-4 bg-white shadow-lg rounded-md">
       <h1 className="text-3xl font-bold">{breed.name}</h1>
       <div className="dog-breed-detail">
-        <img src={breed.imageUrl} alt={breed.name} className="w-full h-64 object-cover rounded-md mb-4" />
-        <p className="text-lg">{breed.description}</p>
-      </div>
+      <img className="dogImage" src={breed.imageUrl} alt={breed.name} />
+      <section id="dogInfo">
+        <h1>{breed.name}</h1>
+        <p>{breed.description}</p>
+        <button className="favorite-button">
+          {breed.favorite ? ( 
+            <img src={favorite} className="favorite-icon" alt="favorite icon" />
+          ) : (
+            <img src={notFavorite} className="favorite-icon" alt="not favorite icon" />
+          )}
+        </button>
+      </section>
 
       
       <div className="commentary-section mt-6">
