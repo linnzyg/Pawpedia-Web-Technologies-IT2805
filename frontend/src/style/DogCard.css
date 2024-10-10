@@ -11,6 +11,13 @@
     object-fit: cover;
 }
 
+.breed-card img:hover{
+    height: 42vh;
+    width: 42vh;
+    object-fit: cover;
+    transition: 0.5s ease-in-out;
+}
+
 .breed-card h2{
     position: absolute;
     background-color: rgb(0, 0, 0, 0.5);
