@@ -6,8 +6,8 @@ export default defineConfig({
     globals: true,
     setupFiles: "./src/setupTests.ts",
     coverage: {
-      provider: 'istanbul',
-      reporter: ['text', 'json', 'html'],
+      provider: "istanbul",
+      reporter: ["text", "json", "html"],
     },
   },
 });

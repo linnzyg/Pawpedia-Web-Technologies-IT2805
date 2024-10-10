@@ -7,7 +7,6 @@ describe('Comment Component', () => {
   it('renders input fields and button', () => {
     render(<Comment onAddComment={vi.fn()} />);
 
-   
     expect(screen.getByPlaceholderText('Your name')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Your comment')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /submit comment/i })).toBeInTheDocument();
@@ -21,17 +20,13 @@ describe('Comment Component', () => {
     const commentInput = screen.getByPlaceholderText('Your comment');
     const submitButton = screen.getByRole('button', { name: /submit comment/i });
 
-    
     fireEvent.change(nameInput, { target: { value: 'John Doe' } });
     fireEvent.change(commentInput, { target: { value: 'This is a test comment.' } });
 
-
     fireEvent.click(submitButton);
 
-  
     expect(mockAddComment).toHaveBeenCalledWith('John Doe', 'This is a test comment.');
 
-   
     expect(nameInput).toHaveValue('');
     expect(commentInput).toHaveValue('');
   });
