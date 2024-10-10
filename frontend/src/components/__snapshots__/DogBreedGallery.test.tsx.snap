@@ -92,14 +92,29 @@ exports[`DogBreedGallery Component > filters large dogs correctly 1`] = `
       class="breed-card"
     >
       <h2>
-        A test dog
+        Husky
       </h2>
       <a
-        href="/golden-retriever"
+        href="/husky"
       >
         <img
-          alt="A test dog"
-          src="/src/assets/golden-retriever.jpeg"
+          alt="Husky"
+          src="/src/assets/husky.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Samoyed
+      </h2>
+      <a
+        href="/samoyed"
+      >
+        <img
+          alt="Samoyed"
+          src="/src/assets/samoyed.jpeg"
         />
       </a>
     </div>
@@ -199,14 +214,14 @@ exports[`DogBreedGallery Component > filters small dogs correctly 1`] = `
       class="breed-card"
     >
       <h2>
-        Z test dog
+        Pomeranian
       </h2>
       <a
-        href="/golden-retriever"
+        href="/pomeranian"
       >
         <img
-          alt="Z test dog"
-          src="/src/assets/golden-retriever.jpeg"
+          alt="Pomeranian"
+          src="/src/assets/pomeranian.jpeg"
         />
       </a>
     </div>
@@ -291,21 +306,6 @@ exports[`DogBreedGallery Component > sorts dogs alphabetically 1`] = `
       class="breed-card"
     >
       <h2>
-        A test dog
-      </h2>
-      <a
-        href="/golden-retriever"
-      >
-        <img
-          alt="A test dog"
-          src="/src/assets/golden-retriever.jpeg"
-        />
-      </a>
-    </div>
-    <div
-      class="breed-card"
-    >
-      <h2>
         Golden Retriever
       </h2>
       <a
@@ -314,6 +314,21 @@ exports[`DogBreedGallery Component > sorts dogs alphabetically 1`] = `
         <img
           alt="Golden Retriever"
           src="/src/assets/golden-retriever.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Husky
+      </h2>
+      <a
+        href="/husky"
+      >
+        <img
+          alt="Husky"
+          src="/src/assets/husky.jpeg"
         />
       </a>
     </div>
@@ -336,14 +351,44 @@ exports[`DogBreedGallery Component > sorts dogs alphabetically 1`] = `
       class="breed-card"
     >
       <h2>
-        Z test dog
+        Pomeranian
       </h2>
       <a
-        href="/golden-retriever"
+        href="/pomeranian"
       >
         <img
-          alt="Z test dog"
-          src="/src/assets/golden-retriever.jpeg"
+          alt="Pomeranian"
+          src="/src/assets/pomeranian.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Poodle
+      </h2>
+      <a
+        href="/poodle"
+      >
+        <img
+          alt="Poodle"
+          src="/src/assets/poodle.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Samoyed
+      </h2>
+      <a
+        href="/samoyed"
+      >
+        <img
+          alt="Samoyed"
+          src="/src/assets/samoyed.jpeg"
         />
       </a>
     </div>
@@ -458,14 +503,14 @@ exports[`resets everything back to normal 1`] = `
       class="breed-card"
     >
       <h2>
-        A test dog
+        Husky
       </h2>
       <a
-        href="/golden-retriever"
+        href="/husky"
       >
         <img
-          alt="A test dog"
-          src="/src/assets/golden-retriever.jpeg"
+          alt="Husky"
+          src="/src/assets/husky.jpeg"
         />
       </a>
     </div>
@@ -473,14 +518,44 @@ exports[`resets everything back to normal 1`] = `
       class="breed-card"
     >
       <h2>
-        Z test dog
+        Poodle
       </h2>
       <a
-        href="/golden-retriever"
+        href="/poodle"
       >
         <img
-          alt="Z test dog"
-          src="/src/assets/golden-retriever.jpeg"
+          alt="Poodle"
+          src="/src/assets/poodle.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Samoyed
+      </h2>
+      <a
+        href="/samoyed"
+      >
+        <img
+          alt="Samoyed"
+          src="/src/assets/samoyed.jpeg"
+        />
+      </a>
+    </div>
+    <div
+      class="breed-card"
+    >
+      <h2>
+        Pomeranian
+      </h2>
+      <a
+        href="/pomeranian"
+      >
+        <img
+          alt="Pomeranian"
+          src="/src/assets/pomeranian.jpeg"
         />
       </a>
     </div>
@@ -672,14 +747,14 @@ exports[`sorts dogs by favorites 1`] = `
       class="breed-card"
     >
       <h2>
-        A test dog
+        Husky
       </h2>
       <a
-        href="/golden-retriever"
+        href="/husky"
       >
         <img
-          alt="A test dog"
-          src="/src/assets/golden-retriever.jpeg"
+          alt="Husky"
+          src="/src/assets/husky.jpeg"
         />
       </a>
     </div>

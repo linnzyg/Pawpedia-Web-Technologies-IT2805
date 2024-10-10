@@ -35,13 +35,13 @@ describe('Navbar Component', () => {
     fireEvent.click(allDogs);
 
     expect(asFragment()).toMatchSnapshot();
-    
+
     expect(screen.getByText(/Golden Retriever/i)).toBeInTheDocument();
     expect(screen.getByText(/Mittelspitz/i)).toBeInTheDocument();
-    expect(screen.getByText(/A test dog/i)).toBeInTheDocument();
-    expect(screen.getByText(/Z test dog/i)).toBeInTheDocument();
-
-
+    expect(screen.getByText(/Husky/i)).toBeInTheDocument();
+    expect(screen.getByText(/Poodle/i)).toBeInTheDocument();
+    expect(screen.getByText(/Pomeranian/i)).toBeInTheDocument();
+    expect(screen.getByText(/Samoyed/i)).toBeInTheDocument();
   });
 
   it('navigates to Home page when Home is clicked', () => {
