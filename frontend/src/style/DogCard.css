@@ -5,12 +5,6 @@
   text-align: center;
 }
 
-.breed-card img:hover{
-    height: 42vh;
-    width: 42vh;
-    transition: width 1s ease-in-out, height 1s ease-in-out;
-}
-
 .breed-card img{
     height: 40vh;
     width: 40vh;
@@ -65,4 +59,5 @@
 .favorite-icon {
   height: auto;
   width: 50px;
-  max-width: aut
+  max-width: auto;
+}
