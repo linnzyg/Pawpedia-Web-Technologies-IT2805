@@ -1,32 +1,135 @@
-.dog-breed-detail{
+.dog-breed-detail {
+  width: 100%;
+  height: auto;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 900px) {
+  .dog-breed-detail {
     width: 100%;
     height: auto;
     margin: 0px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+  }
 }
 
-@media (max-width: 900px) {
-    .dog-breed-detail{
-        width: 100%;
-        height: auto;
-        margin: 0px;
-        display: flex;
-        flex-direction: column;
-    }
+.dog-breed-detail > * {
+  flex-grow: 1;
+  box-shadow: grey 0px 5px 15px;
+  z-index: -1;
 }
 
-.dog-breed-detail>*{
-    flex-grow: 1;
+#dogInfo {
+  background-color: white;
 }
 
-#dogInfo :not(:first-child){
-    padding: 2%;
+#dogInfo :not(:first-child) {
+  padding: 2%;
 }
 
-#dogInfo h1{
-    background-color: #495a4d;
-    padding: 5%;
-    margin-top: 0px;
-    color:white
+#dogInfo h1 {
+  background-color: #495a4d;
+  padding: 5%;
+  margin-top: 0px;
+  color: white;
+}
+
+/* comment-area */
+
+.commentHeader {
+  margin: 1%;
+  padding: 1%;
+  background-color: #887153;
+  border-radius: 20px;
+}
+
+.commentHeader > h2 {
+  color: white;
+  margin: 1%;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment-form * {
+  padding: 0.5%;
+  width: 60%;
+  box-sizing: border-box;
+}
+
+.comment-form input,
+textarea {
+  background-color: white;
+  border: none;
+  text-decoration: none;
+}
+
+.comment-form input:hover,
+textarea:hover {
+  background-color: rgb(231, 223, 213);
+  border: none;
+  text-decoration: none;
+}
+
+.comment-form input {
+  border-radius: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.comment-form textarea {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #887153;
+  font-family: inherit;
+}
+
+.comment-form button {
+  margin: 1%;
+  padding: 1%;
+  background-color: rgb(177, 154, 204);
+  border: none;
+  border-radius: 5px;
+  color: #28271b;
+  font-size: 110%;
+}
+
+.comment-form button:hover {
+  box-shadow: #28271b 0 0 5px;
+  background-color: rgb(95, 75, 119);
+  color: white;
+}
+
+.comment-form button:active {
+  background-color: rgb(177, 154, 204);
+}
+
+.commentSection {
+  margin: 2%;
+}
+
+.commentElement {
+  background-color: white;
+  box-shadow: #28271b 0px;
+  border-radius: 5px;
+  margin: 1%;
+  padding: 1%;
+  box-shadow: grey 0px 0px 5px;
+}
+
+.commentElement p {
+  margin: 0.5%;
+  padding: 0.5%;
+}
+
+.commentName {
+  border-bottom: #929a6d solid 2px;
+  font-size: 120%;
+  font-weight: bold;
 }
