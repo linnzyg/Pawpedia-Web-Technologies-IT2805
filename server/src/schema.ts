@@ -15,6 +15,7 @@ export const typeDefs = `#graphql
     }
     type Comment {
         id: ID!
+        breedId: String!
         username: String
         comment: String!
         timestamp: String!
@@ -22,5 +23,13 @@ export const typeDefs = `#graphql
     type Query {
         breeds: [Breed!]!
         breed(id: ID!): Breed
+    }
+    type Mutation {
+        addComment(comment: AddCommentInput): Comment
+    }
+    input AddCommentInput {
+        breedId: ID!
+        username: String
+        comment: String!
     }
     `

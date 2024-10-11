@@ -2,6 +2,7 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { Db, MongoClient, ObjectId } from 'mongodb';
 import { typeDefs } from './schema';
+import { time } from 'console';
 
 const uri = 'mongodb://admin:1234@it2810-35.idi.ntnu.no:27017/admin';
 const client = new MongoClient(uri);
@@ -39,11 +40,26 @@ const resolvers = {
       }
     },
     Breed: {
+        // handling related data
         async comments(parent: any) {
             const collection = db.collection('Comment');
             return (await collection.find().toArray()).filter((c) => c.breedId === parent._id.toString());
         }
-      }
+    },
+    Mutation: {
+        addComment(_: any, args: { comment: { breedId: string; username?: string; comment: string; } }){
+            const collection = db.collection('Comment');
+            const comment = {
+                breedId: args.comment.breedId,
+                username: args.comment.username,
+                comment: args.comment.comment,
+                timestamp: new Date().toISOString()
+            };
+            collection.insertOne(comment);
+            return comment;
+        }
+    }
+
   };
 
 const server = new ApolloServer({
