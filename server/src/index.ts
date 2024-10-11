@@ -1,7 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { ApolloServerPluginLandingPageDisabled } from '@apollo/server/plugin/disabled';
-import { Db, MongoClient } from 'mongodb';
+import { Db, MongoClient, ObjectId } from 'mongodb';
+import { typeDefs } from './schema';
 
 const uri = 'mongodb://admin:1234@it2810-35.idi.ntnu.no:27017/admin';
 const client = new MongoClient(uri);
@@ -19,30 +19,10 @@ const startMongo = async () => {
 
 startMongo();
 
-const typeDefs = `#graphql
-  type ImageObject {
-    filename: String!
-    contentType: String!
-    gridFSId: String!
-  }
-  type Breeds {
-    id: ID!
-    name: String!
-    description: String!
-    image: ImageObject!
-    slug: String!
-    size: String!
-  }
-
-  type Query {
-    breeds: [Breeds!]!
-  }
-`;
-
 const resolvers = {
     Query: {
       breeds: async () => {
-        const collection = db.collection('Breeds');
+        const collection = db.collection('Breed');
         const breeds = await collection.find().toArray();
         return breeds.map((breed) => ({
             id: breed._id.toString(), // Convert ObjectId to string
@@ -53,13 +33,22 @@ const resolvers = {
             size: breed.size,
           }));
       },
+      breed: async (_: any, args: any) => {
+        const breed = await db.collection('Breed').findOne({ _id: ObjectId.createFromHexString(args.id) });
+        return breed
+      }
     },
+    Breed: {
+        async comments(parent: any) {
+            const collection = db.collection('Comment');
+            return (await collection.find().toArray()).filter((c) => c.breedId === parent._id.toString());
+        }
+      }
   };
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
-  plugins: [ApolloServerPluginLandingPageDisabled()],
+  resolvers
 });
 
 const startServer = async () => {
