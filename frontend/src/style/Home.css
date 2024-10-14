@@ -1,11 +1,23 @@
 #homeBody {
-  padding: 2%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #homeBody > * {
   padding: 2%;
+  flex-grow: 1;
+}
+
+#homeBody > header {
+  background-image: url(../assets/aboutimage.jpg);
+  color: white;
+  text-shadow: black;
+  background-size: 100%;
 }
 
 footer {
   background-color: #887153;
+  margin: 0px;
+  color: white;
 }

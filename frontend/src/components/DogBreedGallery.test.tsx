@@ -116,11 +116,11 @@ it('sorts dogs by favorites', async () => {
 });
 
 it('searches for correct dogs', async () => {
-  const { asFragment} = render(
+  const { asFragment } = render(
     <MemoryRouter>
       <DogBreedGallery />
-    </MemoryRouter>
-  )
+    </MemoryRouter>,
+  );
   const input = screen.getByPlaceholderText('Search...');
   fireEvent.change(input, { target: { value: 'Mit' } });
 
@@ -132,11 +132,11 @@ it('searches for correct dogs', async () => {
 });
 
 it('resets everything back to normal', async () => {
-  const { asFragment } = render (
+  const { asFragment } = render(
     <MemoryRouter>
       <DogBreedGallery />
-    </MemoryRouter>
-  )
+    </MemoryRouter>,
+  );
   const input = screen.getByPlaceholderText('Search...') as HTMLInputElement;
   fireEvent.change(input, { target: { value: 'Mit' } });
 
@@ -149,14 +149,9 @@ it('resets everything back to normal', async () => {
   const resetButton = screen.getByRole('button', { name: /reset/i });
   fireEvent.click(resetButton);
 
-  expect(input.value).toBe(''); 
-  expect(filterDropdown.value).toBe('chooseFilter'); 
+  expect(input.value).toBe('');
+  expect(filterDropdown.value).toBe('chooseFilter');
   expect(sortDropdown.value).toBe('chooseSorting');
 
   expect(asFragment()).toMatchSnapshot();
 });
-
-
-
-
-

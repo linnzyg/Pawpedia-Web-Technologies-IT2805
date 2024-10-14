@@ -4,10 +4,13 @@
   align-items: center;
   background-color: #887153;
   padding: 20px;
+  margin: 1%;
+  border-radius: 50px;
+  color: white;
 }
 
 #filter {
-  padding: 10px; 
+  padding: 10px;
   font-size: 1rem;
   color: #887153;
   background-color: #ede0d9;
@@ -17,12 +20,12 @@
 
 #filter:focus {
   border: none;
-  outline: none; 
-  box-shadow: none; 
+  outline: none;
+  box-shadow: none;
 }
 
 #sort {
-  padding: 10px; 
+  padding: 10px;
   font-size: 1rem;
   color: #887153;
   background-color: #ede0d9;
@@ -32,36 +35,36 @@
 
 #sort:focus {
   border: none;
-  outline: none; 
-  box-shadow: none; 
+  outline: none;
+  box-shadow: none;
 }
 
-input[type="text"] {
+input[type='text'] {
   padding: 10px;
-  font-size: 1rem; 
+  font-size: 1rem;
   color: #887153;
   background-color: #ede0d9;
   border: none;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
-input[type="text"]:focus {
+input[type='text']:focus {
   border: none;
-  outline: none; 
-  box-shadow: none; 
+  outline: none;
+  box-shadow: none;
 }
 
-input[type="text"]::placeholder {
+input[type='text']::placeholder {
   color: #887153;
 }
 
 #reset-btn {
   padding: 10px;
-  font-size: 1rem; 
-  color: #887153;
-  background-color: #ede0d9;
+  font-size: 1rem;
+  color: #3a3224;
+  background-color: rgb(177, 154, 204);
   border: none;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 #reset-btn:hover {
@@ -71,7 +74,7 @@ input[type="text"]::placeholder {
 
 #reset-btn:active {
   transform: scale(0.95);
-  background-color: #3a3224; 
+  background-color: #3a3224;
 }
 
 @media (max-width: 768px) {

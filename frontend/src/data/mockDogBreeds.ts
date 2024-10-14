@@ -67,6 +67,4 @@ export const mockDogBreeds: DogBreed[] = [
     favorite: false,
     size: Size.Small,
   },
-
-
 ];

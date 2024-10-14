@@ -1,26 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DogBreed } from '../types/DogBreed';
 import '../style/DogCard.css';
 import favorite from '../assets/favorite.png';
 import notFavorite from '../assets/notFavorite.png';
+import '../style/DogBreedDetail.css';
+import Commentary from './Comment';
 
 interface DogBreedDetailProps {
   breed: DogBreed;
 }
 
+interface Comment {
+  name: string;
+  text: string;
+}
+
 const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
+  const [comments, setComments] = useState<Comment[]>([]);
+
+  const handleAddComment = (name: string, comment: string) => {
+    setComments((prevComments) => [...prevComments, { name, text: comment }]);
+  };
+
   return (
-    <div className="dog-breed-detail">
-      <h1>{breed.name}</h1>
-      <img src={breed.imageUrl} alt={breed.name} />
-      <p>{breed.description}</p>
-      <button className="favorite-button">
-        {breed.favorite ? ( 
-          <img src={favorite} className="favorite-icon" alt="favorite icon" />
-        ) : (
-          <img src={notFavorite} className="favorite-icon" alt="not favorite icon" />
-        )}
-      </button>
+    <div className="w-full max-w-3xl mx-auto my-8 p-4 bg-white shadow-lg rounded-md">
+      <div className="dog-breed-detail">
+        <img className="dogImage" src={breed.imageUrl} alt={breed.name} />
+        <section id="dogInfo">
+          <h1>{breed.name}</h1>
+          <p>{breed.description}</p>
+          <button className="favorite-button">
+            {breed.favorite ? (
+              <img src={favorite} className="favorite-icon" alt="favorite icon" />
+            ) : (
+              <img src={notFavorite} className="favorite-icon" alt="not favorite icon" />
+            )}
+          </button>
+        </section>
+      </div>
+      <div className="commentary-section mt-6">
+        <header className="commentHeader">
+          <h2 className="text-2xl font-semibold mb-4">Leave a Comment on {breed.name}</h2>
+          <Commentary onAddComment={handleAddComment} />
+        </header>
+        <section className="commentSection">
+          <h3 className="text-xl font-semibold mt-8">Comments:</h3>
+          {comments.length > 0 ? (
+            <>
+              {comments.map((comment, index) => (
+                <section key={index} className="commentElement">
+                  <p className="commentName">{comment.name} : </p>
+                  <p className="commentText">{comment.text}</p>
+                </section>
+              ))}
+            </>
+          ) : (
+            <p className="mt-4 text-gray-600">No comments yet. Be the first to comment!</p>
+          )}
+        </section>
+      </div>
     </div>
   );
 };
