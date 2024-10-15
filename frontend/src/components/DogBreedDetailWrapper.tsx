@@ -1,17 +1,23 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import DogBreedDetail from './DogBreedDetail';
-import { mockDogBreeds } from '../data/mockDogBreeds';
+import { useQuery } from '@apollo/client';
+import { DogBreed } from '../types/DogBreed';
+import { GET_BREED } from '../api/queries';
 
 const DogBreedDetailWrapper: React.FC = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const breed = mockDogBreeds.find((b) => b.slug === slug);
+  const { id } = useParams<{ id: string }>();
+  const { loading, error, data } = useQuery<{ breed: DogBreed }>(GET_BREED, {
+    variables: { id },
+  });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
-  if (!breed) {
+  if (!data || !data.breed) {
     return <div>Breed not found</div>;
   }
 
-  return <DogBreedDetail breed={breed} />;
+  return <DogBreedDetail breed={data.breed} />;
 };
 
 export default DogBreedDetailWrapper;

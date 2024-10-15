@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DogBreed } from '../types/DogBreed';
 import '../style/DogCard.css';
 import favorite from '../assets/favorite.png';
@@ -10,22 +10,15 @@ interface DogBreedDetailProps {
   breed: DogBreed;
 }
 
-interface Comment {
-  name: string;
-  text: string;
-}
-
 const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
-  const [comments, setComments] = useState<Comment[]>([]);
-
-  const handleAddComment = (name: string, comment: string) => {
-    setComments((prevComments) => [...prevComments, { name, text: comment }]);
-  };
+  const handleAddComment = () => {};
+  // comment objektet har et timestamp også, hvis man ønsker å vise dette
+  // hvis dette ikke ønskes slett kommentaren min -eirin
+  // for testing purpose: only mittelspitz have comment for now
 
   return (
     <div className="w-full max-w-3xl mx-auto my-8 p-4 bg-white shadow-lg rounded-md">
       <div className="dog-breed-detail">
-        <img className="dogImage" src={breed.imageUrl} alt={breed.name} />
         <section id="dogInfo">
           <h1>{breed.name}</h1>
           <p>{breed.description}</p>
@@ -45,12 +38,12 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
         </header>
         <section className="commentSection">
           <h3 className="text-xl font-semibold mt-8">Comments:</h3>
-          {comments.length > 0 ? (
+          {(breed.comments ?? []).length > 0 ? (
             <>
-              {comments.map((comment, index) => (
+              {(breed.comments ?? []).map((comment: { username: string; comment: string }, index) => (
                 <section key={index} className="commentElement">
-                  <p className="commentName">{comment.name} : </p>
-                  <p className="commentText">{comment.text}</p>
+                  <p className="commentName">{comment.username} : </p>
+                  <p className="commentText">{comment.comment}</p>
                 </section>
               ))}
             </>

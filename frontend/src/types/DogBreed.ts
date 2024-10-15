@@ -1,11 +1,21 @@
 export interface DogBreed {
-  id: number;
+  id: string;
   name: string;
-  description: string;
-  imageUrl: string;
-  slug: string;
+  description?: string;
+  image: Image;
   favorite?: boolean;
+  comments?: {
+    username: string;
+    comment: string;
+    timestamp: string;
+  }[];
   size: Size;
+}
+
+interface Image {
+  filename: string;
+  contentType: string;
+  GridFSId: string;
 }
 
 export enum Size {

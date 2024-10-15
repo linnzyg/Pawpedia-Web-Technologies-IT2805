@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { mockDogBreeds } from '../data/mockDogBreeds';
 import '../style/SortOrFilter.css';
+import { useQuery } from '@apollo/client';
+import { GET_BREEDS } from '../api/queries';
+import { DogBreed } from '../types/DogBreed';
 
 const DogBreedGallery: React.FC = () => {
-  const [originalDogs] = useState(mockDogBreeds);
-  const [sortedDogs, setSortedDogs] = useState(originalDogs);
+  const { loading, error, data } = useQuery<{ breeds: DogBreed[] }>(GET_BREEDS);
+  const [sortedDogs, setSortedDogs] = useState<DogBreed[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [filtering, setFiltering] = useState('');
   const [sorting, setSorting] = useState('');
@@ -18,26 +20,27 @@ const DogBreedGallery: React.FC = () => {
   };
 
   useEffect(() => {
-    let updatedDogs = [...originalDogs];
+    if (data && data.breeds) {
+      let updatedDogs = [...data.breeds];
 
-    if (filtering === 'bigDogs') {
-      updatedDogs = updatedDogs.filter((dog) => dog.size === 'Large');
-    } else if (filtering === 'smallDogs') {
-      updatedDogs = updatedDogs.filter((dog) => dog.size === 'Small');
+      if (filtering === 'bigDogs') {
+        updatedDogs = updatedDogs.filter((dog) => dog.size === 'Large');
+      } else if (filtering === 'smallDogs') {
+        updatedDogs = updatedDogs.filter((dog) => dog.size === 'Small');
+      }
+
+      if (sorting === 'alpha') {
+        updatedDogs.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (sorting === 'favorites') {
+        updatedDogs = updatedDogs.filter((dog) => dog.favorite);
+      }
+
+      if (searchQuery) {
+        updatedDogs = updatedDogs.filter((dog) => dog.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      }
+      setSortedDogs(updatedDogs);
     }
-
-    if (sorting === 'alpha') {
-      updatedDogs.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sorting === 'favorites') {
-      updatedDogs = updatedDogs.filter((dog) => dog.favorite);
-    }
-
-    if (searchQuery) {
-      updatedDogs = updatedDogs.filter((dog) => dog.name.toLowerCase().includes(searchQuery.toLowerCase()));
-    }
-
-    setSortedDogs(updatedDogs);
-  }, [filtering, sorting, searchQuery, originalDogs]);
+  }, [filtering, sorting, searchQuery, data]);
 
   const optionClicked = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newOption = event.target.value;
@@ -53,11 +56,14 @@ const DogBreedGallery: React.FC = () => {
     setSearchQuery('');
     setFiltering('');
     setSorting('');
-    setSortedDogs(originalDogs);
+    setSortedDogs(data == undefined ? [] : data.breeds);
 
     if (filterRef.current) filterRef.current.value = 'chooseFilter';
     if (sortRef.current) sortRef.current.value = 'chooseSorting';
   };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
@@ -84,14 +90,17 @@ const DogBreedGallery: React.FC = () => {
         </button>
       </header>
       <div className="dog-breed-gallery">
-        {sortedDogs.map((breed) => (
-          <div key={breed.id} className="breed-card">
-            <h2>{breed.name}</h2>
-            <Link to={`/${breed.slug}`}>
-              <img src={breed.imageUrl} alt={breed.name} />
-            </Link>
-          </div>
-        ))}
+        {sortedDogs.length > 0 ? (
+          sortedDogs.map((breed) => (
+            <div key={breed.id} className="breed-card">
+              <Link to={`/${breed.id}`}>
+                <h2>{breed.name}</h2>
+              </Link>
+            </div>
+          ))
+        ) : (
+          <p>No breeds found.</p>
+        )}
       </div>
     </>
   );
