@@ -6,11 +6,7 @@ export const GET_BREEDS = gql`
     breeds {
       id
       name
-      image {
-        filename
-        contentType
-        gridFSId
-      }
+      image 
       size
     }
   }
@@ -22,11 +18,7 @@ export const GET_BREED = gql`
     breed(id: $id) {
       name
       description
-      image {
-        filename
-        contentType
-        gridFSId
-      }
+      image 
       comments {
         username
         comment

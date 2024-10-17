@@ -95,6 +95,7 @@ const DogBreedGallery: React.FC = () => {
             <div key={breed.id} className="breed-card">
               <Link to={`/${breed.id}`}>
                 <h2>{breed.name}</h2>
+                <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
               </Link>
             </div>
           ))
