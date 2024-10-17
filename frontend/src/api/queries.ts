@@ -6,7 +6,7 @@ export const GET_BREEDS = gql`
     breeds {
       id
       name
-      image 
+      image
       size
     }
   }
@@ -18,7 +18,7 @@ export const GET_BREED = gql`
     breed(id: $id) {
       name
       description
-      image 
+      image
       comments {
         username
         comment

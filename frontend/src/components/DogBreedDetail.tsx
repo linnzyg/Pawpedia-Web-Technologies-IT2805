@@ -1,7 +1,7 @@
 import React from 'react';
 import { DogBreed } from '../types/DogBreed';
 import '../style/DogCard.css';
-import favorite from "../assets/favorite.png";
+import favorite from '../assets/favorite.png';
 import notFavorite from '../assets/notFavorite.png';
 import '../style/DogBreedDetail.css';
 import Commentary from './Comment';
@@ -19,7 +19,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
   return (
     <div className="w-full max-w-3xl mx-auto my-8 p-4 bg-white shadow-lg rounded-md">
       <div className="dog-breed-detail">
-      <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
+        <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
         <section id="dogInfo">
           <h1>{breed.name}</h1>
           <p>{breed.description}</p>
