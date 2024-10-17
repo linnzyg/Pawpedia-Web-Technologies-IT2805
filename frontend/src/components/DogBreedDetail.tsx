@@ -19,6 +19,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
   return (
     <div className="w-full max-w-3xl mx-auto my-8 p-4 bg-white shadow-lg rounded-md">
       <div className="dog-breed-detail">
+        <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
         <section id="dogInfo">
           <h1>{breed.name}</h1>
           <p>{breed.description}</p>

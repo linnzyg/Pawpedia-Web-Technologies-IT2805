@@ -1,14 +1,10 @@
 export const typeDefs = `#graphql
-    type ImageObject {
-        filename: String!
-        contentType: String!
-        gridFSId: String!
-    }
+
     type Breed {
         id: ID!
         name: String!
         description: String!
-        image: ImageObject!
+        image: String!
         slug: String!
         size: String!
         comments: [Comment!]
