@@ -2,32 +2,6 @@
 
 exports[`Navbar Component > matches initial snapshot and displays Dog Breed Gallery 1`] = `
 <DocumentFragment>
-  <section
-    id="navbar"
-  >
-    <section
-      class="nav-links"
-    >
-      <a
-        class=""
-        href="/home"
-      >
-        Home
-      </a>
-      <a
-        aria-current="page"
-        class="active"
-        href="/"
-      >
-        All dogs
-      </a>
-    </section>
-    <img
-      alt="Logo"
-      class="navbar-logo"
-      src="/src/assets/paw.png"
-    />
-  </section>
   <header
     id="sortOrFilter"
   >
@@ -102,99 +76,34 @@ exports[`Navbar Component > matches initial snapshot and displays Dog Breed Gall
     <div
       class="breed-card"
     >
-      <h2>
-        Mittelspitz
-      </h2>
       <a
-        href="/mittelspitz"
+        href="/1"
       >
+        <h2>
+          Golden Retriever
+        </h2>
         <img
-          alt="Mittelspitz"
-          src="/src/assets/mittelspitz.jpeg"
+          alt="Picture of our dog breed: Golden Retriever"
+          src="/images/golden-retriever.jpeg"
         />
       </a>
     </div>
     <div
       class="breed-card"
     >
-      <h2>
-        Golden Retriever
-      </h2>
       <a
-        href="/golden-retriever"
+        href="/2"
       >
+        <h2>
+          Mittelspitz
+        </h2>
         <img
-          alt="Golden Retriever"
-          src="/src/assets/golden-retriever.jpeg"
-        />
-      </a>
-    </div>
-    <div
-      class="breed-card"
-    >
-      <h2>
-        Husky
-      </h2>
-      <a
-        href="/husky"
-      >
-        <img
-          alt="Husky"
-          src="/src/assets/husky.jpeg"
-        />
-      </a>
-    </div>
-    <div
-      class="breed-card"
-    >
-      <h2>
-        Poodle
-      </h2>
-      <a
-        href="/poodle"
-      >
-        <img
-          alt="Poodle"
-          src="/src/assets/poodle.jpeg"
-        />
-      </a>
-    </div>
-    <div
-      class="breed-card"
-    >
-      <h2>
-        Samoyed
-      </h2>
-      <a
-        href="/samoyed"
-      >
-        <img
-          alt="Samoyed"
-          src="/src/assets/samoyed.jpeg"
-        />
-      </a>
-    </div>
-    <div
-      class="breed-card"
-    >
-      <h2>
-        Pomeranian
-      </h2>
-      <a
-        href="/pomeranian"
-      >
-        <img
-          alt="Pomeranian"
-          src="/src/assets/pomeranian.jpeg"
+          alt="Picture of our dog breed: Mittelspitz"
+          src="/images/mittelspitz.jpeg"
         />
       </a>
     </div>
   </div>
-</DocumentFragment>
-`;
-
-exports[`Navbar Component > navigates to Dog Breed Gallery page when All Dogs is clicked 1`] = `
-<DocumentFragment>
   <section
     id="navbar"
   >
@@ -220,220 +129,6 @@ exports[`Navbar Component > navigates to Dog Breed Gallery page when All Dogs is
       class="navbar-logo"
       src="/src/assets/paw.png"
     />
-  </section>
-  <header
-    id="sortOrFilter"
-  >
-    <label
-      for="sort"
-    >
-      Sort by
-    </label>
-    <select
-      id="sort"
-      name="sort"
-    >
-      <option
-        disabled=""
-        selected=""
-        value="chooseSorting"
-      >
-        Choose...
-      </option>
-      <option
-        value="alpha"
-      >
-        Alphabetically
-      </option>
-      <option
-        value="favorites"
-      >
-        Favorites
-      </option>
-    </select>
-    <label
-      for="filter"
-    >
-      Filter by
-    </label>
-    <select
-      id="filter"
-      name="filter"
-    >
-      <option
-        disabled=""
-        selected=""
-        value="chooseFilter"
-      >
-        Choose...
-      </option>
-      <option
-        value="bigDogs"
-      >
-        Big dogs
-      </option>
-      <option
-        value="smallDogs"
-      >
-        Small dogs
-      </option>
-    </select>
-    <input
-      placeholder="Search..."
-      type="text"
-      value=""
-    />
-    <button
-      id="reset-btn"
-    >
-      Reset
-    </button>
-  </header>
-  <div
-    class="dog-breed-gallery"
-  >
-    <div
-      class="breed-card"
-    >
-      <h2>
-        Mittelspitz
-      </h2>
-      <a
-        href="/mittelspitz"
-      >
-        <img
-          alt="Mittelspitz"
-          src="/src/assets/mittelspitz.jpeg"
-        />
-      </a>
-    </div>
-    <div
-      class="breed-card"
-    >
-      <h2>
-        Golden Retriever
-      </h2>
-      <a
-        href="/golden-retriever"
-      >
-        <img
-          alt="Golden Retriever"
-          src="/src/assets/golden-retriever.jpeg"
-        />
-      </a>
-    </div>
-    <div
-      class="breed-card"
-    >
-      <h2>
-        Husky
-      </h2>
-      <a
-        href="/husky"
-      >
-        <img
-          alt="Husky"
-          src="/src/assets/husky.jpeg"
-        />
-      </a>
-    </div>
-    <div
-      class="breed-card"
-    >
-      <h2>
-        Poodle
-      </h2>
-      <a
-        href="/poodle"
-      >
-        <img
-          alt="Poodle"
-          src="/src/assets/poodle.jpeg"
-        />
-      </a>
-    </div>
-    <div
-      class="breed-card"
-    >
-      <h2>
-        Samoyed
-      </h2>
-      <a
-        href="/samoyed"
-      >
-        <img
-          alt="Samoyed"
-          src="/src/assets/samoyed.jpeg"
-        />
-      </a>
-    </div>
-    <div
-      class="breed-card"
-    >
-      <h2>
-        Pomeranian
-      </h2>
-      <a
-        href="/pomeranian"
-      >
-        <img
-          alt="Pomeranian"
-          src="/src/assets/pomeranian.jpeg"
-        />
-      </a>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Navbar Component > navigates to Home page when Home is clicked 1`] = `
-<DocumentFragment>
-  <section
-    id="navbar"
-  >
-    <section
-      class="nav-links"
-    >
-      <a
-        aria-current="page"
-        class="active"
-        href="/home"
-      >
-        Home
-      </a>
-      <a
-        class=""
-        href="/"
-      >
-        All dogs
-      </a>
-    </section>
-    <img
-      alt="Logo"
-      class="navbar-logo"
-      src="/src/assets/paw.png"
-    />
-  </section>
-  <section
-    id="homeBody"
-  >
-    <header>
-      <h1>
-        Welcome to the dog breeds database!
-      </h1>
-    </header>
-    <section>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at nibh nec augue vehicula mollis id et est. Cras lacus ex, maximus nec tellus vitae, aliquam facilisis velit. Sed aliquam a arcu scelerisque pharetra. Nunc quis venenatis ex. Aliquam dapibus venenatis rutrum. Cras maximus magna mauris. Pellentesque et leo sem. Aenean sit amet laoreet nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur felis purus, placerat nec dapibus quis, tristique a massa. Vivamus consequat metus id ex egestas feugiat. Nullam sed dui ac enim iaculis sodales. Vestibulum venenatis massa id consequat ultrices. Donec rhoncus justo eu felis sagittis, sed pellentesque nisl sagittis.
-      <br />
-      <br />
-      Nulla non mauris aliquet, sagittis urna a, imperdiet ex. Donec convallis sollicitudin purus, nec condimentum quam pretium ut. Mauris venenatis leo at neque consequat rhoncus. Maecenas quis imperdiet tellus, eget mollis elit. Proin quis hendrerit eros. Aenean nec elit ac metus sollicitudin consequat. Integer condimentum bibendum velit, ac euismod lectus varius et. Curabitur fringilla, lectus eget blandit porta, ipsum diam varius nibh, quis molestie sem sapien ornare justo. Quisque lobortis urna sit amet dui feugiat, sed pharetra leo congue. Maecenas a felis neque. Etiam magna purus, tempor at orci id, tempus pellentesque tellus. Sed at ornare magna. Donec elementum, mi non vehicula commodo, nulla elit aliquam lectus, quis tristique augue nisi porta nisl.
-      <br />
-      <br />
-      Phasellus suscipit tortor non commodo egestas. Proin iaculis dapibus leo at dignissim. Aliquam faucibus ex nisl, sit amet tempor lectus porta quis. Suspendisse ut lorem semper, rutrum elit eu, vehicula justo. Duis volutpat maximus interdum. Aliquam dapibus nisl dapibus, posuere mauris nec, pretium eros. Pellentesque sit amet gravida risus, accumsan euismod erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque suscipit dictum. Nam interdum vulputate mattis. Duis cursus erat a elit auctor gravida. Ut sit amet ipsum sollicitudin, pretium nisl ut, luctus turpis.
-    </section>
-    <footer>
-      Contact information: 98765432
-    </footer>
   </section>
 </DocumentFragment>
 `;

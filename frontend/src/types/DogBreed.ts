@@ -2,7 +2,8 @@ export interface DogBreed {
   id: string;
   name: string;
   description?: string;
-  image: Image;
+  image: string;
+  slug: string;
   favorite?: boolean;
   comments?: {
     username: string;
@@ -12,11 +13,7 @@ export interface DogBreed {
   size: Size;
 }
 
-interface Image {
-  filename: string;
-  contentType: string;
-  GridFSId: string;
-}
+
 
 export enum Size {
   Small = 'Small',
