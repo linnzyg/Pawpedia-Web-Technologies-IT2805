@@ -4,12 +4,20 @@ import DogBreedDetail from './DogBreedDetail';
 import { useQuery } from '@apollo/client';
 import { DogBreed } from '../types/DogBreed';
 import { GET_BREED } from '../api/queries';
+import { mockDogBreeds } from '../data/mockDogBreeds'; 
 
 const DogBreedDetailWrapper: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
+  const breed = mockDogBreeds.find((b) => b.slug === slug);
+
+  if (!breed) {
+    return <div>Breed not found</div>;
+  }
+
   const { loading, error, data } = useQuery<{ breed: DogBreed }>(GET_BREED, {
-    variables: { id },
+    variables: { id: breed.id },
   });
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 

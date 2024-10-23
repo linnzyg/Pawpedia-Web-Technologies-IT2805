@@ -6,10 +6,10 @@ import { describe, it, expect } from 'vitest';
 
 describe('DogBreedDetail Component', () => {
   const mockBreed: DogBreed = {
-    id: 1,
+    id: '1',
     name: 'Golden Retriever',
     description: 'Friendly, intelligent family dog',
-    imageUrl: '/assets/golden-retriever.jpeg',
+    image: 'golden-retriever.jpeg', 
     slug: 'golden-retriever',
     favorite: false,
     size: Size.Large,
@@ -20,21 +20,17 @@ describe('DogBreedDetail Component', () => {
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Golden Retriever');
 
-    const image = screen.getByAltText('Golden Retriever');
+    const image = screen.getByAltText('Picture of our dog breed: Golden Retriever');
     expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute('src', mockBreed.imageUrl);
+    expect(image).toHaveAttribute('src', `/images/${mockBreed.image}`);
 
     expect(screen.getByText('Friendly, intelligent family dog')).toBeInTheDocument();
   });
 
-  it('has the correct slug property', () => {
-    expect(mockBreed.slug).toBe('golden-retriever');
-  });
-
-  it('image has correct alt text', () => {
+  it('renders the image with the correct alt text', () => {
     render(<DogBreedDetail breed={mockBreed} />);
 
-    const image = screen.getByAltText('Golden Retriever');
-    expect(image).toHaveAttribute('alt', 'Golden Retriever');
+    const image = screen.getByAltText('Picture of our dog breed: Golden Retriever');
+    expect(image).toHaveAttribute('alt', 'Picture of our dog breed: Golden Retriever');
   });
 });
