@@ -2,7 +2,7 @@ export interface DogBreed {
   id: string;
   name: string;
   description?: string;
-  image: Image;
+  image: string;
   favorite?: boolean;
   comments?: {
     username: string;
@@ -10,12 +10,6 @@ export interface DogBreed {
     timestamp: string;
   }[];
   size: Size;
-}
-
-interface Image {
-  filename: string;
-  contentType: string;
-  GridFSId: string;
 }
 
 export enum Size {
