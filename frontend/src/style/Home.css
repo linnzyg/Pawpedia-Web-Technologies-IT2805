@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
+li{
+  display: list-item;
+}
+
 #homeBody > * {
   padding: 2%;
   flex-grow: 1;
@@ -11,13 +15,33 @@
 
 #homeBody > header {
   background-image: url(../assets/aboutimage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
+#homeBody h1{
+  position: relative;
+  top: 200px;
   color: white;
-  text-shadow: black;
-  background-size: 100%;
+  font-size: 40px;
+  text-shadow: 0px 0px 10px black;
 }
 
 footer {
-  background-color: #887153;
+  background-color: var(--brown);
   margin: 0px;
   color: white;
 }
+
+@media (max-width: 860px){
+  #homeBody > header {
+    background-size: cover;
+    background-position: 50%;
+  }
+
+  #homeBody h1{
+    top: 150px;
+  }
+}
+

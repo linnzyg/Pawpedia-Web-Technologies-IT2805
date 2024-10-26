@@ -1,21 +1,14 @@
 .breed-card {
   justify-content: center;
   align-items: center;
-  margin: 1%;
+  margin: 2%;
   text-align: center;
 }
 
 .breed-card img {
-  height: 40vh;
-  width: 40vh;
+  height: 300px;
+  width: 300px;
   object-fit: cover;
-}
-
-.breed-card img:hover {
-  height: 42vh;
-  width: 42vh;
-  object-fit: cover;
-  transition: 0.5s ease-in-out;
 }
 
 .breed-card h2 {
@@ -28,25 +21,25 @@
 }
 
 .dog-breed-gallery {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(4, 1fr);
-  justify-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1300px) {
   .dog-breed-gallery {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .dog-breed-gallery {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .dog-breed-gallery {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 10px;
