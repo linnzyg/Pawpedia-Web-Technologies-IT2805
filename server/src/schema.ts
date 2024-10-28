@@ -16,9 +16,24 @@ export const typeDefs = `#graphql
         comment: String!
         timestamp: String!
     }
+    type BreedConnection {
+        edges: [BreedEdge!]!
+        pageInfo: PageInfo!
+        totalCount: Int!
+    }
+    type BreedEdge {
+        cursor: String!
+        node: Breed!
+    }
+    type PageInfo {
+        hasNextPage: Boolean!
+        hasPreviousPage: Boolean!
+        startCursor: String
+        endCursor: String
+    }
     type Query {
-        breeds: [Breed!]!
         breed(id: ID!): Breed
+        breeds(first: Int!, after: String, filterBySize: String): BreedConnection
     }
     type Mutation {
         addComment(comment: AddCommentInput): Comment
