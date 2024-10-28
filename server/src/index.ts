@@ -2,7 +2,6 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { Db, MongoClient, ObjectId } from 'mongodb';
 import { typeDefs } from './schema';
-import { S } from 'vite/dist/node/types.d-aGj9QkWt';
 
 const uri = 'mongodb://admin:1234@it2810-35.idi.ntnu.no:27017/admin';
 const client = new MongoClient(uri);

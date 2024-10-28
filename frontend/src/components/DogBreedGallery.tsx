@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
@@ -44,9 +44,7 @@ const DogBreedGallery: React.FC = () => {
     if (query === '') {
       setSortedDogs(applyFilter(allDogs, filterBySize));
     } else {
-      const searchedDogs = allDogs.filter((breed) =>
-        breed.name.toLowerCase().includes(query)
-      );
+      const searchedDogs = allDogs.filter((breed) => breed.name.toLowerCase().includes(query));
       setSortedDogs(applyFilter(searchedDogs, filterBySize));
     }
   };
@@ -75,16 +73,14 @@ const DogBreedGallery: React.FC = () => {
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return previousResult;
-  
+
           const newBreeds = fetchMoreResult.breeds.edges.map((edge) => edge.node);
           const uniqueBreeds = newBreeds.filter(
-            (newBreed) => !allDogs.some((existingBreed) => existingBreed.id === newBreed.id)
+            (newBreed) => !allDogs.some((existingBreed) => existingBreed.id === newBreed.id),
           );
-  
+
           setAllDogs((prevDogs) => [...prevDogs, ...uniqueBreeds]);
-          setSortedDogs((prevDogs) => [
-            ...applyFilter([...prevDogs, ...uniqueBreeds], filterBySize),
-          ]);
+          setSortedDogs((prevDogs) => [...applyFilter([...prevDogs, ...uniqueBreeds], filterBySize)]);
           setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
           setSortBy('');
           return fetchMoreResult;
@@ -92,6 +88,27 @@ const DogBreedGallery: React.FC = () => {
       });
     }
   };
+
+  //useffect that fetches eight first breeds when the page loades initially
+  useEffect(() => {
+    if (allDogs.length === 0) {
+      fetchMore({
+        variables: {
+          first: 8,
+          after: null,
+        },
+        updateQuery: (previousResult, { fetchMoreResult }) => {
+          if (!fetchMoreResult) return previousResult;
+  
+          const initialBreeds = fetchMoreResult.breeds.edges.map((edge) => edge.node);
+          setAllDogs(initialBreeds);
+          setSortedDogs(initialBreeds);
+          setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
+          return fetchMoreResult;
+        },
+      });
+    }
+  }, []);
 
   const resetFiltersAndSorting = () => {
     setSearchQuery('');
