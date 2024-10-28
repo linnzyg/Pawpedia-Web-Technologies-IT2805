@@ -3,6 +3,7 @@ export interface DogBreed {
   name: string;
   description?: string;
   image: string;
+  slug: string;
   favorite?: boolean;
   comments?: {
     username: string;
