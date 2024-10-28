@@ -1,8 +1,6 @@
 # Pawpedia
 
-Pawpedia is an application designed to showcase various dog breeds. The first version uses static mocked data to display dog breeds in a gallery view. The gallery view can lead the user to the detailed view about each dog breed by pressing the pictures of the dogs.
-
-The coming versions of Pawpedia will contain a database running a backend meaning more data and dog breeds. Each breed will also have more details and information about the breed itself. Styling will also be done using third party libraries such as shadcn. 
+Pawpedia is an application designed to showcase various dog breeds. There is a gallery view displaying dog breeds fetched from a database. The gallery view can lead the user to the detailed view about each dog breed by pressing the pictures of the dogs, where you can also read and leave comments about the bread.
 
 ## Features
 * Gallery View: Browse all dog breeds in an easy-to-navigate gallery
@@ -10,6 +8,7 @@ The coming versions of Pawpedia will contain a database running a backend meanin
 * Sorting Options: Sort breeds alphabetically or by your favorites
 * Filters: Filter breeds by size—small or large dogs
 * Search: Quickly search for dog breeds by name
+* COMING SOON: Favorites. For the next version there will be possible to add favorites, that gets stored in your browser. 
 
 ## How to run
 ### Prerequisites
@@ -21,10 +20,20 @@ Clone the project in your favorite IDE, navigate to the frontend folder, and the
 npm install
 ```
 
-### Start the development server:
+Navigate to the server folder, and then install dependencies using:
+```bash
+npm install
+```
 
+### Start the development server:
+To run the frontend locally, use this command in the frontend folder:
 ```bash
 npm run dev
+```
+
+To run the server locally, remember to connect to NTNU through VPN or be connected to the NTNU network, then use this command in the server folder:
+```bash
+npx ts-node src/index.ts
 ```
 
 ## Showcase
@@ -34,8 +43,10 @@ Link to VM will be available next version, as it is not required for the first t
 The choice of making a dog application was made due to dogs being cute, and motivated all four developers to work on this project with love.
 
 ## Tech Stack
-* React: Frontend framework
-* Language: TypeScript 
+* React with TypeScript: Frontend framework
+* Apollo Client: For handling GraphQL queries and managing local/global app state.
+* GraphQL: API query language used to fetch dog breed data from the server.
+* MongoDB: Database for storing dog breed information.
 
 ## Testing and code quality
 We use snapshot tests to ensure that user interactions such as filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
