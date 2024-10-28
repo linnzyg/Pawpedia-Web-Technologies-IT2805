@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 
 interface CommentProps {
-  onAddComment: (name: string, comment: string) => void;
+  onAddComment: (breedId: string, username: string, comment: string) => void;
+  breedId: string;
 }
 
-const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
+const Comment: React.FC<CommentProps> = ({ onAddComment, breedId }) => {
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (name.trim() && comment.trim()) {
-      onAddComment(name, comment);
+      onAddComment(breedId, name, comment);
       setName('');
       setComment('');
     }
