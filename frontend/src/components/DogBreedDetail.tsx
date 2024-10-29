@@ -5,16 +5,34 @@ import favorite from '../assets/favorite.png';
 import notFavorite from '../assets/notFavorite.png';
 import '../style/DogBreedDetail.css';
 import Commentary from './Comment';
+import { useMutation } from '@apollo/client';
+import { ADD_COMMENT } from '../api/mutations';
+import { GET_BREED } from '../api/queries';
 
 interface DogBreedDetailProps {
   breed: DogBreed;
+  id: string;
 }
 
-const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
-  const handleAddComment = () => {};
-  // comment objektet har et timestamp også, hvis man ønsker å vise dette
-  // hvis dette ikke ønskes slett kommentaren min -eirin
-  // for testing purpose: only mittelspitz have comment for now
+const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
+  const [addComment] = useMutation(ADD_COMMENT, {
+    refetchQueries: [{ query: GET_BREED, variables: { id: id } }],
+    onError: (error) => {
+      console.error("Error adding comment:", error);
+    },
+  });
+
+  const handleAddComment = (username: string, comment: string) => {
+    addComment({
+      variables: {
+        comment: {
+          breedId: id,
+          username,
+          comment,
+        },
+      },
+    });
+  };
 
   return (
     <div className="w-full max-w-3xl mx-auto my-8 p-4 bg-white shadow-lg rounded-md">
@@ -35,7 +53,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
       <div className="commentary-section mt-6">
         <header className="commentHeader">
           <h2 className="text-2xl font-semibold mb-4">Leave a Comment on {breed.name}</h2>
-          <Commentary onAddComment={handleAddComment} />
+          <Commentary breedId={id} onAddComment={handleAddComment} />
         </header>
         <section className="commentSection">
           <h3 className="text-xl font-semibold mt-8">Comments:</h3>

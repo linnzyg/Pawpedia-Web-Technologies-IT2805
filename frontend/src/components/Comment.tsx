@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 interface CommentProps {
-  onAddComment: (name: string, comment: string) => void;
+  onAddComment: (username: string, comment: string) => void;
+  breedId: string;
 }
 
 const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
