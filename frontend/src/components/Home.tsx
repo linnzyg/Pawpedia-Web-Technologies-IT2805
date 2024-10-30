@@ -1,42 +1,72 @@
 import React from 'react';
 import '../style/Home.css';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
     <>
       <section id="homeBody">
         <header>
-          <h1>Welcome to the dog breeds database!</h1>
+          <h1>Welcome to Pawpedia!</h1>
         </header>
 
         <section>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at nibh nec augue vehicula mollis id et est. Cras
-          lacus ex, maximus nec tellus vitae, aliquam facilisis velit. Sed aliquam a arcu scelerisque pharetra. Nunc
-          quis venenatis ex. Aliquam dapibus venenatis rutrum. Cras maximus magna mauris. Pellentesque et leo sem.
-          Aenean sit amet laoreet nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur felis
-          purus, placerat nec dapibus quis, tristique a massa. Vivamus consequat metus id ex egestas feugiat. Nullam sed
-          dui ac enim iaculis sodales. Vestibulum venenatis massa id consequat ultrices. Donec rhoncus justo eu felis
-          sagittis, sed pellentesque nisl sagittis.
-          <br />
-          <br />
-          Nulla non mauris aliquet, sagittis urna a, imperdiet ex. Donec convallis sollicitudin purus, nec condimentum
-          quam pretium ut. Mauris venenatis leo at neque consequat rhoncus. Maecenas quis imperdiet tellus, eget mollis
-          elit. Proin quis hendrerit eros. Aenean nec elit ac metus sollicitudin consequat. Integer condimentum bibendum
-          velit, ac euismod lectus varius et. Curabitur fringilla, lectus eget blandit porta, ipsum diam varius nibh,
-          quis molestie sem sapien ornare justo. Quisque lobortis urna sit amet dui feugiat, sed pharetra leo congue.
-          Maecenas a felis neque. Etiam magna purus, tempor at orci id, tempus pellentesque tellus. Sed at ornare magna.
-          Donec elementum, mi non vehicula commodo, nulla elit aliquam lectus, quis tristique augue nisi porta nisl.
-          <br />
-          <br />
-          Phasellus suscipit tortor non commodo egestas. Proin iaculis dapibus leo at dignissim. Aliquam faucibus ex
-          nisl, sit amet tempor lectus porta quis. Suspendisse ut lorem semper, rutrum elit eu, vehicula justo. Duis
-          volutpat maximus interdum. Aliquam dapibus nisl dapibus, posuere mauris nec, pretium eros. Pellentesque sit
-          amet gravida risus, accumsan euismod erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          pellentesque suscipit dictum. Nam interdum vulputate mattis. Duis cursus erat a elit auctor gravida. Ut sit
-          amet ipsum sollicitudin, pretium nisl ut, luctus turpis.
+          <h2>About Us</h2>
+          <p>
+            Welcome to Pawpedia, your ultimate destination for exploring, learning about, and discovering the perfect dog breed 
+            that matches your lifestyle and preferences.
+          </p>
+          <p>
+            At Pawpedia, we believe that finding the right dog breed goes beyond appearance. It’s about personality, compatibility, 
+            and building a lasting bond. Our app is designed to help dog enthusiasts, potential adopters, and curious learners connect 
+            with a variety of breeds in a way that’s engaging, informative, and fun.
+          </p>
+          <h3>Why We Created Pawpedia</h3>
+          <p>
+            Our passion for dogs inspired us to create a platform that caters to every kind of dog lover. Whether you’re a first-time 
+            dog owner looking for a low-maintenance companion or an experienced dog parent eager to explore new breeds, our goal is to 
+            empower you with reliable, detailed insights that help you make an informed choice.
+          </p>
+          <h3>What We Offer</h3>
+          <ul>
+            <li>
+              <strong>Breed Profiles:</strong> Our extensive database includes detailed information on various dog breeds—from physical 
+              characteristics and personality traits to health needs and grooming requirements.
+            </li>
+            <li>
+              <strong>Easy Filtering:</strong> Find a breed that fits your lifestyle with advanced filtering tools that allow sorting by 
+              size, temperament, energy level, and more.
+            </li>
+            <li>
+              <strong>Favorites and Discover:</strong> Save and revisit breeds you love, and try our “Try Your Luck” button to discover 
+              random breeds you might not have considered.
+            </li>
+          </ul>
+          <h3>Our Vision</h3>
+          <p>
+            At Pawpedia, we’re committed to building a community of informed and responsible dog owners. We aim to foster connections 
+            between people and the dogs that will bring them joy, companionship, and loyalty. With every breed explored, every dog found, 
+            and every life enriched, we’re reminded of why we started this journey—to make it easier for people and pets to find each other.
+          </p>
+          <p>
+            Whether you’re here to find a new friend or simply to learn more about the world’s diverse dog breeds, we’re thrilled to have 
+            you with us. Dive in, explore, and let us help you find the perfect dog breed that suits your unique personality and lifestyle.
+          </p>
+          <p>
+            <Link to="/" className="viewAllBreedsLink">See all our breeds &rarr;</Link>
+          </p>
         </section>
 
-        <footer>Contact information: 98765432</footer>
+        <footer>
+        <h3>Contact us</h3>
+          <p>
+            <strong>Phone:</strong> 98765432
+          </p>
+          <p>
+            <strong>Email:</strong> <a>info@pawpedia.com</a>
+          </p>
+          <p>We’d love to hear from you!</p>
+        </footer>
       </section>
     </>
   );
