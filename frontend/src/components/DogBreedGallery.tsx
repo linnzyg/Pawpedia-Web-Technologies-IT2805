@@ -54,12 +54,11 @@ const DogBreedGallery: React.FC = () => {
     setSortBy(sortType);
     const sortedList = [...sortedDogs];
 
-    if (sortType === 'alpha') {
+    if (sortType === 'a-z') {
       sortedList.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortType === 'favorites') {
-      sortedList.sort((a, b) => (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0));
+    } else if (sortType === 'z-a') {
+      sortedList.sort((a, b) => a.name.localeCompare(b.name) * (-1));
     }
-
     setSortedDogs(sortedList);
   };
 
@@ -133,8 +132,9 @@ const DogBreedGallery: React.FC = () => {
           <option value="" disabled>
             Choose...
           </option>
-          <option value="alpha">Alphabetically</option>
-          <option value="favorites">Favorites</option>
+          <option value="a-z">A-Z</option>
+          <option value="z-a">Z-A</option>
+
         </select>
         <label htmlFor="filter">Filter by Size:</label>
         <select ref={filterRef} name="filter" id="filter" onChange={handleFilterChange} value={filterBySize || ''}>
