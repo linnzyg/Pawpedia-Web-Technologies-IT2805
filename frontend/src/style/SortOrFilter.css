@@ -10,7 +10,8 @@
   justify-content: space-between;
 }
 
-#firstRow, #secondRow{
+#firstRow,
+#secondRow {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -88,7 +89,7 @@
 }
 
 @media (max-width: 768px) {
-  #sortOrFilter{
+  #sortOrFilter {
     flex-direction: column;
     gap: 10px;
     border-radius: 20px;

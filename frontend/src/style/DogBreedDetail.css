@@ -6,7 +6,7 @@
   flex-direction: row;
 }
 
-.dog-breed-detail img{
+.dog-breed-detail img {
   max-height: 400px;
   object-fit: cover;
   width: 40%;
@@ -20,15 +20,14 @@
     flex-direction: column;
   }
 
-  .dog-breed-detail img{
+  .dog-breed-detail img {
     width: 100%;
   }
 
-  #dogInfo{
+  #dogInfo {
     min-width: 100%;
     object-fit: cover;
   }
-
 }
 
 .dog-breed-detail > * {
@@ -57,7 +56,7 @@
 
 /* comment-area */
 
-.commentHeader{
+.commentHeader {
   justify-content: center;
   margin: 1%;
   padding: 1%;
@@ -69,12 +68,10 @@
   align-items: center;
 }
 
-
-.comment-form input, .comment-form textarea{
+.comment-form input,
+.comment-form textarea {
   border: 2px solid var(--green);
 }
-
-
 
 .comment-form button {
   margin: 1%;

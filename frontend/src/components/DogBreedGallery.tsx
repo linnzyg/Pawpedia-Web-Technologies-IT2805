@@ -4,15 +4,8 @@ import '../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardTitle,
-} from "@/components/ui/card"
-import {
-  Menubar
-} from "@/components/ui/menubar"
+import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
+import { Menubar } from '@/components/ui/menubar';
 
 const DogBreedGallery: React.FC = () => {
   const { loading, error, data } = useQuery<{ breeds: DogBreed[] }>(GET_BREEDS);
@@ -81,7 +74,7 @@ const DogBreedGallery: React.FC = () => {
           <label htmlFor="sort">Sort by</label>
           <select ref={sortRef} name="sort" id="sort" onChange={optionClicked} defaultValue="chooseSorting">
             <option value="chooseSorting" disabled>
-            Choose...
+              Choose...
             </option>
             <option value="alpha">Alphabetically</option>
             <option value="favorites">Favorites</option>
@@ -107,8 +100,8 @@ const DogBreedGallery: React.FC = () => {
       <section className="dog-breed-gallery">
         {sortedDogs.length > 0 ? (
           sortedDogs.map((breed) => (
-            <Link to={`/${breed.id}`}> 
-              <Card key={breed.id} className="breed-card" >
+            <Link to={`/${breed.id}`}>
+              <Card key={breed.id} className="breed-card">
                 <CardTitle>
                   <p>{breed.name}</p>
                 </CardTitle>

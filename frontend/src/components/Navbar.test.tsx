@@ -35,10 +35,9 @@ describe('Navbar Component', () => {
           </Routes>
           <Navbar />
         </MemoryRouter>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
-    
     await waitFor(() => {
       expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
     });

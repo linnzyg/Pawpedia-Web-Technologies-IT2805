@@ -9,7 +9,7 @@ describe('DogBreedDetail Component', () => {
     id: '1',
     name: 'Golden Retriever',
     description: 'Friendly, intelligent family dog',
-    image: 'golden-retriever.jpeg', 
+    image: 'golden-retriever.jpeg',
     slug: 'golden-retriever',
     favorite: false,
     size: Size.Large,

@@ -28,13 +28,11 @@ describe('DogBreedGallery Component', () => {
         <MemoryRouter>
           <DogBreedGallery />
         </MemoryRouter>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
-    
     await waitFor(() => expect(screen.queryByText('Loading...')).not.toBeInTheDocument());
 
-    
     await userEvent.selectOptions(screen.getByLabelText(/filter by/i), 'smallDogs');
 
     // Wait for the filter to be applied and check results
@@ -51,7 +49,7 @@ describe('DogBreedGallery Component', () => {
         <MemoryRouter>
           <DogBreedGallery />
         </MemoryRouter>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     await waitFor(() => expect(screen.queryByText('Loading...')).not.toBeInTheDocument());
@@ -71,7 +69,7 @@ describe('DogBreedGallery Component', () => {
         <MemoryRouter>
           <DogBreedGallery />
         </MemoryRouter>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     await waitFor(() => expect(screen.queryByText('Loading...')).not.toBeInTheDocument());
@@ -85,15 +83,13 @@ describe('DogBreedGallery Component', () => {
     });
   });
 
-  
-
   it('searches for correct dogs', async () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
         <MemoryRouter>
           <DogBreedGallery />
         </MemoryRouter>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     await waitFor(() => expect(screen.queryByText('Loading...')).not.toBeInTheDocument());
@@ -112,7 +108,7 @@ describe('DogBreedGallery Component', () => {
         <MemoryRouter>
           <DogBreedGallery />
         </MemoryRouter>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     await waitFor(() => expect(screen.queryByText('Loading...')).not.toBeInTheDocument());

@@ -32,26 +32,26 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
           </button>
         </section>
       </div>
-      <section className='commentHeader'>
+      <section className="commentHeader">
         <h2 className="text-xl mt-8">Leave a Comment on {breed.name}:</h2>
         <Commentary onAddComment={handleAddComment} />
       </section>
-        
-        <section className="commentSection">
-          <h3 className="text-xl mt-8">Comments:</h3>
-          {(breed.comments ?? []).length > 0 ? (
-            <>
-              {(breed.comments ?? []).map((comment: { username: string; comment: string }, index) => (
-                <section key={index} className="commentElement">
-                  <p className="commentName">{comment.username} : </p>
-                  <p className="commentText">{comment.comment}</p>
-                </section>
-              ))}
-            </>
-          ) : (
-            <p className="mt-4 text-gray-600">No comments yet. Be the first to comment!</p>
-          )}
-        </section>
+
+      <section className="commentSection">
+        <h3 className="text-xl mt-8">Comments:</h3>
+        {(breed.comments ?? []).length > 0 ? (
+          <>
+            {(breed.comments ?? []).map((comment: { username: string; comment: string }, index) => (
+              <section key={index} className="commentElement">
+                <p className="commentName">{comment.username} : </p>
+                <p className="commentText">{comment.comment}</p>
+              </section>
+            ))}
+          </>
+        ) : (
+          <p className="mt-4 text-gray-600">No comments yet. Be the first to comment!</p>
+        )}
+      </section>
     </section>
   );
 };

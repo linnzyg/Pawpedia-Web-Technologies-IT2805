@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 
-li{
+li {
   display: list-item;
 }
 
@@ -20,7 +20,7 @@ li{
   height: 300px;
 }
 
-#homeBody h1{
+#homeBody h1 {
   position: relative;
   top: 200px;
   color: white;
@@ -34,14 +34,13 @@ footer {
   color: white;
 }
 
-@media (max-width: 860px){
+@media (max-width: 860px) {
   #homeBody > header {
     background-size: cover;
     background-position: 50%;
   }
 
-  #homeBody h1{
+  #homeBody h1 {
     top: 150px;
   }
 }
-
