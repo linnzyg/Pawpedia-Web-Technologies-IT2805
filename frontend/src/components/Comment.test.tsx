@@ -37,7 +37,7 @@ describe('Comment Component', () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
         <Comment breedId={breedId} onAddComment={vi.fn()} />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     expect(screen.getByPlaceholderText('Your name')).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe('Comment Component', () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
         <Comment breedId={breedId} onAddComment={mockAddComment} />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     const nameInput = screen.getByPlaceholderText('Your name');

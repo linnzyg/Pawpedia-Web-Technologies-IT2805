@@ -7,8 +7,9 @@
   color: #28271b;
   position: sticky;
   top: 0;
-  width:100%;
+  width: 100%;
   justify-content: space-between;
+  z-index: 1000;
 }
 
 .navbar a {
@@ -18,7 +19,7 @@
   color: #28271b;
   display: inline;
   background-color: transparent;
-  border: 3px solid transparent
+  border: 3px solid transparent;
 }
 
 .navbar a:hover {
@@ -38,7 +39,6 @@
 }
 
 @media (max-width: 768px) {
-
   .navbar a {
     padding: 15px;
     width: 100%;
@@ -50,4 +50,3 @@
     margin-bottom: 10px;
   }
 }
-

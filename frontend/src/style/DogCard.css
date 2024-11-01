@@ -1,17 +1,15 @@
 .breed-card {
   justify-content: center;
   align-items: center;
-  margin: 2%;
+  margin: 10px;
   text-align: center;
+  padding: 1%;
+  padding-top: 2px;
 }
 
-.breed-card p {
+.breed-card h2 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-weight: lighter;
-}
-
-.breed-card * {
-  padding-top: 2%;
+  font-size: 20px;
 }
 
 .breed-card img {
@@ -33,7 +31,8 @@
 
 .dog-breed-gallery > :hover {
   background-color: var(--green);
-  transition: 0.5s;
+  transition: 0.4s;
+  color: white;
 }
 
 @media (max-width: 1300px) {
@@ -68,4 +67,16 @@
   height: auto;
   width: 50px;
   max-width: auto;
+}
+
+.loadButton {
+  margin: 2%;
+  padding: 1%;
+  background-color: var(--purple);
+  border-radius: 5px;
+}
+
+.loadButton:hover {
+  background-color: #382f3f;
+  color: white;
 }

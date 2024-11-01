@@ -44,3 +44,32 @@ footer {
     top: 150px;
   }
 }
+
+.aboutUs * {
+  margin: 20px;
+}
+
+.aboutUs h2 {
+  font-weight: bold;
+  background-color: var(--brown);
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+.aboutUs h3 {
+  font-weight: bold;
+  border-bottom: 3px solid var(--purple);
+  padding: 20px;
+}
+
+.viewAllBreedsLink {
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.viewAllBreedsLink:hover {
+  color: var(--purple);
+  border-color: var(--purple);
+}
