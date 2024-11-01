@@ -2,12 +2,22 @@ import { gql } from '@apollo/client';
 
 // GraphQL query to get all breeds
 export const GET_BREEDS = gql`
-  query breedsquery {
-    breeds {
-      id
-      name
-      image
-      size
+  query GetBreeds($first: Int!, $after: String, $filterBySize: String) {
+    breeds(first: $first, after: $after, filterBySize: $filterBySize) {
+      edges {
+        cursor
+        node {
+          id
+          name
+          image
+          size
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      totalCount
     }
   }
 `;

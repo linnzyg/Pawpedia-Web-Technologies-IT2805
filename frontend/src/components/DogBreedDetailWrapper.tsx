@@ -17,7 +17,7 @@ const DogBreedDetailWrapper: React.FC = () => {
     return <div>Breed not found</div>;
   }
 
-  return <DogBreedDetail breed={data.breed} />;
+  return <DogBreedDetail breed={data.breed} id={id ?? ''} />;
 };
 
 export default DogBreedDetailWrapper;

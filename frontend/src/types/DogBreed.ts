@@ -13,8 +13,6 @@ export interface DogBreed {
   size: Size;
 }
 
-
-
 export enum Size {
   Small = 'Small',
   Medium = 'Medium',
