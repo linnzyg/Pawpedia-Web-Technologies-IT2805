@@ -6,13 +6,27 @@
   flex-direction: row;
 }
 
+.dog-breed-detail img {
+  max-height: 400px;
+  object-fit: cover;
+  width: 40%;
+}
+
 @media (max-width: 900px) {
   .dog-breed-detail {
-    width: 100%;
     height: auto;
     margin: 0px;
     display: flex;
     flex-direction: column;
+  }
+
+  .dog-breed-detail img {
+    width: 100%;
+  }
+
+  #dogInfo {
+    min-width: 100%;
+    object-fit: cover;
   }
 }
 
@@ -24,6 +38,7 @@
 
 #dogInfo {
   background-color: white;
+  width: 60%;
 }
 
 #dogInfo :not(:first-child) {
@@ -31,24 +46,20 @@
 }
 
 #dogInfo h1 {
-  background-color: #495a4d;
-  padding: 5%;
-  margin-top: 0px;
-  color: white;
+  border-bottom: solid 2px var(--green);
+  padding: 2%;
+  padding-bottom: 0.5%;
+  margin: 15px;
+  font-size: 25px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 /* comment-area */
 
 .commentHeader {
+  justify-content: center;
   margin: 1%;
   padding: 1%;
-  background-color: #887153;
-  border-radius: 20px;
-}
-
-.commentHeader > h2 {
-  color: white;
-  margin: 1%;
 }
 
 .comment-form {
@@ -57,37 +68,9 @@
   align-items: center;
 }
 
-.comment-form * {
-  padding: 0.5%;
-  width: 60%;
-  box-sizing: border-box;
-}
-
 .comment-form input,
-textarea {
-  background-color: white;
-  border: none;
-  text-decoration: none;
-}
-
-.comment-form input:hover,
-textarea:hover {
-  background-color: rgb(231, 223, 213);
-  border: none;
-  text-decoration: none;
-}
-
-.comment-form input {
-  border-radius: 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
 .comment-form textarea {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  color: #887153;
-  font-family: inherit;
+  border: 2px solid var(--green);
 }
 
 .comment-form button {
@@ -118,9 +101,9 @@ textarea:hover {
   background-color: white;
   box-shadow: #28271b 0px;
   border-radius: 5px;
-  margin: 1%;
   padding: 1%;
   box-shadow: grey 0px 0px 5px;
+  margin-bottom: 1.5%;
 }
 
 .commentElement p {

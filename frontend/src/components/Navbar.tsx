@@ -1,11 +1,10 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../style/Navbar.css';
 
 function Navbar() {
   return (
-    <section id="navbar">
-      <section className="nav-links">
+    <section className="navbar">
+      <section>
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/">All dogs</NavLink>
       </section>

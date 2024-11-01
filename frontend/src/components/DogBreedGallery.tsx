@@ -4,6 +4,7 @@ import '../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
+import { Card } from './ui/card';
 
 const DogBreedGallery: React.FC = () => {
   const [allDogs, setAllDogs] = useState<DogBreed[]>([]);
@@ -57,7 +58,7 @@ const DogBreedGallery: React.FC = () => {
     if (sortType === 'a-z') {
       sortedList.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortType === 'z-a') {
-      sortedList.sort((a, b) => a.name.localeCompare(b.name) * (-1));
+      sortedList.sort((a, b) => a.name.localeCompare(b.name) * -1);
     }
     setSortedDogs(sortedList);
   };
@@ -73,9 +74,9 @@ const DogBreedGallery: React.FC = () => {
         updateQuery: (previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return previousResult;
 
-          const newBreeds = fetchMoreResult.breeds.edges.map((edge) => edge.node);
+          const newBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
           const uniqueBreeds = newBreeds.filter(
-            (newBreed) => !allDogs.some((existingBreed) => existingBreed.id === newBreed.id),
+            (newBreed: { id: string }) => !allDogs.some((existingBreed) => existingBreed.id === newBreed.id),
           );
 
           setAllDogs((prevDogs) => [...prevDogs, ...uniqueBreeds]);
@@ -98,8 +99,8 @@ const DogBreedGallery: React.FC = () => {
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return previousResult;
-  
-          const initialBreeds = fetchMoreResult.breeds.edges.map((edge) => edge.node);
+
+          const initialBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
           setAllDogs(initialBreeds);
           setSortedDogs(initialBreeds);
           setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
@@ -126,46 +127,53 @@ const DogBreedGallery: React.FC = () => {
 
   return (
     <>
-      <header id="sortOrFilter">
-        <label htmlFor="sort">Sort by</label>
-        <select ref={sortRef} name="sort" id="sort" value={sortBy || ''} onChange={handleSortChange}>
-          <option value="" disabled>
-            Choose...
-          </option>
-          <option value="a-z">A-Z</option>
-          <option value="z-a">Z-A</option>
+      <section id="sortOrFilter">
+        <section id="firstRow">
+          <label htmlFor="sort">Sort by</label>
+          <select ref={sortRef} name="sort" id="sort" value={sortBy || ''} onChange={handleSortChange}>
+            <option value="" disabled>
+              Choose...
+            </option>
+            <option value="a-z">A-Z</option>
+            <option value="z-a">Z-A</option>
+          </select>
+          <label htmlFor="filter">Filter by Size:</label>
+          <select ref={filterRef} name="filter" id="filter" onChange={handleFilterChange} value={filterBySize || ''}>
+            <option value="" disabled>
+              Choose...
+            </option>
+            <option value="Small">Small dogs</option>
+            <option value="Medium">Medium dogs</option>
+            <option value="Large">Large dogs</option>
+            <option value="Giant">Giant dogs</option>
+          </select>
+        </section>
 
-        </select>
-        <label htmlFor="filter">Filter by Size:</label>
-        <select ref={filterRef} name="filter" id="filter" onChange={handleFilterChange} value={filterBySize || ''}>
-          <option value="" disabled>
-            Choose...
-          </option>
-          <option value="Small">Small dogs</option>
-          <option value="Medium">Medium dogs</option>
-          <option value="Large">Large dogs</option>
-          <option value="Giant">Giant dogs</option>
-        </select>
-        <input type="text" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
-        <button id="reset-btn" onClick={resetFiltersAndSorting}>
-          Reset
-        </button>
-      </header>
-      <div className="dog-breed-gallery">
+        <section id="secondRow">
+          <input type="text" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
+          <button id="reset-btn" onClick={resetFiltersAndSorting}>
+            Reset
+          </button>
+        </section>
+      </section>
+
+      <section className="dog-breed-gallery">
         {sortedDogs.length > 0 ? (
           sortedDogs.map((breed) => (
-            <div key={breed.id} className="breed-card">
+            <Card key={breed.id} className="breed-card">
               <Link to={`/${breed.id}`}>
                 <h2>{breed.name}</h2>
                 <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
               </Link>
-            </div>
+            </Card>
           ))
         ) : (
           <p>No breeds found.</p>
         )}
-      </div>
-      <button onClick={handleLoadMore}>Load More</button>
+      </section>
+      <button className="loadButton" onClick={handleLoadMore}>
+        Load 4 more
+      </button>
     </>
   );
 };

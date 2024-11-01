@@ -2,18 +2,29 @@
   display: flex;
   gap: 20px;
   align-items: center;
-  background-color: #887153;
-  padding: 20px;
+  background-color: #6b6255;
+  padding: 0.5%;
   margin: 1%;
   border-radius: 50px;
   color: white;
+  justify-content: space-between;
+}
+
+#firstRow,
+#secondRow {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 #filter {
   padding: 10px;
   font-size: 1rem;
   color: #887153;
-  background-color: #ede0d9;
+  background-color: white;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -28,7 +39,7 @@
   padding: 10px;
   font-size: 1rem;
   color: #887153;
-  background-color: #ede0d9;
+  background-color: white;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -39,22 +50,22 @@
   box-shadow: none;
 }
 
-input[type='text'] {
+#sortOrFilter input[type='text'] {
   padding: 10px;
   font-size: 1rem;
   color: #887153;
-  background-color: #ede0d9;
+  background-color: white;
   border: none;
   border-radius: 5px;
 }
 
-input[type='text']:focus {
+#sortOrFilter input[type='text']:focus {
   border: none;
   outline: none;
   box-shadow: none;
 }
 
-input[type='text']::placeholder {
+#sortOrFilter input[type='text']::placeholder {
   color: #887153;
 }
 
@@ -62,7 +73,7 @@ input[type='text']::placeholder {
   padding: 10px;
   font-size: 1rem;
   color: #3a3224;
-  background-color: rgb(177, 154, 204);
+  background-color: var(--purple);
   border: none;
   border-radius: 5px;
 }
@@ -80,6 +91,7 @@ input[type='text']::placeholder {
 @media (max-width: 768px) {
   #sortOrFilter {
     flex-direction: column;
-    align-content: center;
+    gap: 10px;
+    border-radius: 20px;
   }
 }
