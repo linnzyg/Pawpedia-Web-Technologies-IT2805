@@ -76,33 +76,33 @@ const DogBreedGallery: React.FC = () => {
 
   return (
     <>
-    <section id="sortOrFilter">
-      <section id="firstRow">
-        <label htmlFor="sort">Sort by</label>
-        <select ref={sortRef} name="sort" id="sort" onChange={optionClicked} defaultValue="chooseSorting">
-          <option value="chooseSorting" disabled>
-          Choose...
-          </option>
-          <option value="alpha">Alphabetically</option>
-          <option value="favorites">Favorites</option>
-        </select>
-        <label htmlFor="filter">Filter by</label>
-        <select ref={filterRef} name="filter" id="filter" onChange={optionClicked} defaultValue="chooseFilter">
-          <option value="chooseFilter" disabled>
+      <section id="sortOrFilter">
+        <section id="firstRow">
+          <label htmlFor="sort">Sort by</label>
+          <select ref={sortRef} name="sort" id="sort" onChange={optionClicked} defaultValue="chooseSorting">
+            <option value="chooseSorting" disabled>
             Choose...
-          </option>
-          <option value="bigDogs">Big dogs</option>
-          <option value="smallDogs">Small dogs</option>
-        </select>
-      </section>
+            </option>
+            <option value="alpha">Alphabetically</option>
+            <option value="favorites">Favorites</option>
+          </select>
+          <label htmlFor="filter">Filter by</label>
+          <select ref={filterRef} name="filter" id="filter" onChange={optionClicked} defaultValue="chooseFilter">
+            <option value="chooseFilter" disabled>
+              Choose...
+            </option>
+            <option value="bigDogs">Big dogs</option>
+            <option value="smallDogs">Small dogs</option>
+          </select>
+        </section>
 
-      <section id="secondRow">
-        <input type="text" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
-        <button id="reset-btn" onClick={resetFiltersAndSorting}>
-          Reset
-        </button>
+        <section id="secondRow">
+          <input type="text" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
+          <button id="reset-btn" onClick={resetFiltersAndSorting}>
+            Reset
+          </button>
+        </section>
       </section>
-    </section>
 
       <section className="dog-breed-gallery">
         {sortedDogs.length > 0 ? (

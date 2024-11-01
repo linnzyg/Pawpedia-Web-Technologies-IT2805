@@ -17,7 +17,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
   // for testing purpose: only mittelspitz have comment for now
 
   return (
-    <div className="w-full max-w-3xl mx-auto my-8 p-4 bg-white shadow-lg rounded-md">
+    <section>
       <div className="dog-breed-detail">
         <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
         <section id="dogInfo">
@@ -32,13 +32,13 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
           </button>
         </section>
       </div>
-      <div className="commentary-section mt-6">
-        <header className="commentHeader">
-          <h2 className="text-2xl font-semibold mb-4">Leave a Comment on {breed.name}</h2>
-          <Commentary onAddComment={handleAddComment} />
-        </header>
+      <section className='commentHeader'>
+        <h2 className="text-xl mt-8">Leave a Comment on {breed.name}:</h2>
+        <Commentary onAddComment={handleAddComment} />
+      </section>
+        
         <section className="commentSection">
-          <h3 className="text-xl font-semibold mt-8">Comments:</h3>
+          <h3 className="text-xl mt-8">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
               {(breed.comments ?? []).map((comment: { username: string; comment: string }, index) => (
@@ -52,8 +52,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed }) => {
             <p className="mt-4 text-gray-600">No comments yet. Be the first to comment!</p>
           )}
         </section>
-      </div>
-    </div>
+    </section>
   );
 };
 
