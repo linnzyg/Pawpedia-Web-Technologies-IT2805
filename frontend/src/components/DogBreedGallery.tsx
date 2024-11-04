@@ -36,7 +36,10 @@ const DogBreedGallery: React.FC = () => {
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newSizeFilter = event.target.value;
     setFilterBySize(newSizeFilter);
-    fetchBreeds(8, newSizeFilter, false);
+    if(newSizeFilter === 'All'){
+      setFilterBySize(null);
+      fetchBreeds(8, null, false);
+    } else fetchBreeds(8, newSizeFilter, false);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -130,6 +133,7 @@ const DogBreedGallery: React.FC = () => {
             <option value="" disabled>
               Choose...
             </option>
+            <option value="All">All</option>
             <option value="Small">Small dogs</option>
             <option value="Medium">Medium dogs</option>
             <option value="Large">Large dogs</option>
