@@ -47,10 +47,9 @@ describe('DogBreedDetailWrapper Component', () => {
             <Route path="/:slug" element={<DogBreedDetailWrapper />} />
           </Routes>
         </MemoryRouter>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
-    
     expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent(mockDogBreeds[0].name);
   });
 
@@ -64,10 +63,9 @@ describe('DogBreedDetailWrapper Component', () => {
             <Route path="/:slug" element={<DogBreedDetailWrapper />} />
           </Routes>
         </MemoryRouter>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
-    
     expect(await screen.findByText('Breed not found')).toBeInTheDocument();
   });
 
@@ -79,10 +77,9 @@ describe('DogBreedDetailWrapper Component', () => {
             <Route path="/" element={<DogBreedDetailWrapper />} />
           </Routes>
         </MemoryRouter>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
-    
     expect(await screen.findByText('Breed not found')).toBeInTheDocument();
   });
 });
