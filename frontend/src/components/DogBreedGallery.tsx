@@ -6,6 +6,12 @@ import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
 import { Card } from './ui/card';
 
+/**
+ * DogBreedGallery Component
+ * - Displays a gallery of dog breeds with functionalities to filter, sort, and search breeds.
+ * - Allows users to load more breeds and reset filters/sorting.
+ */
+
 const DogBreedGallery: React.FC = () => {
   const [allDogs, setAllDogs] = useState<DogBreed[]>([]);
   const [sortedDogs, setSortedDogs] = useState<DogBreed[]>([]);
@@ -13,6 +19,7 @@ const DogBreedGallery: React.FC = () => {
   const [sortBy, setSortBy] = useState<string | null>(null);
   const [cursor, setCursor] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [hasNextPage, setHasNextPage] = useState<boolean>(true);
 
   const filterRef = useRef<HTMLSelectElement>(null);
   const sortRef = useRef<HTMLSelectElement>(null);
@@ -26,27 +33,22 @@ const DogBreedGallery: React.FC = () => {
     fetchPolicy: 'network-only',
   });
 
-  const applyFilter = (dogs: DogBreed[], filter: string | null) => {
-    if (!filter) return dogs;
-    return dogs.filter((dog) => dog.size === filter);
-  };
-
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newSizeFilter = event.target.value;
     setFilterBySize(newSizeFilter);
-    const filteredDogs = applyFilter(allDogs, newSizeFilter);
-    setSortedDogs(filteredDogs);
+    if (newSizeFilter === 'All') {
+      setFilterBySize(null);
+      fetchBreeds(8, null, false);
+    } else fetchBreeds(8, newSizeFilter, false);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value.toLowerCase();
     setSearchQuery(query);
 
-    if (query === '') {
-      setSortedDogs(applyFilter(allDogs, filterBySize));
-    } else {
+    if (query !== '') {
       const searchedDogs = allDogs.filter((breed) => breed.name.toLowerCase().includes(query));
-      setSortedDogs(applyFilter(searchedDogs, filterBySize));
+      setSortedDogs(searchedDogs);
     }
   };
 
@@ -64,51 +66,45 @@ const DogBreedGallery: React.FC = () => {
   };
 
   const handleLoadMore = () => {
-    if (!loading) {
-      fetchMore({
-        variables: {
-          first: 4,
-          after: cursor,
-          filterBySize: filterBySize || undefined,
-        },
-        updateQuery: (previousResult, { fetchMoreResult }) => {
-          if (!fetchMoreResult) return previousResult;
-
-          const newBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
-          const uniqueBreeds = newBreeds.filter(
-            (newBreed: { id: string }) => !allDogs.some((existingBreed) => existingBreed.id === newBreed.id),
-          );
-
-          setAllDogs((prevDogs) => [...prevDogs, ...uniqueBreeds]);
-          setSortedDogs((prevDogs) => [...applyFilter([...prevDogs, ...uniqueBreeds], filterBySize)]);
-          setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
-          setSortBy('');
-          return fetchMoreResult;
-        },
-      });
-    }
+    if (!loading && hasNextPage) fetchBreeds(4, filterBySize, true);
   };
 
   //useffect that fetches eight first breeds when the page loades initially
   useEffect(() => {
     if (allDogs.length === 0) {
-      fetchMore({
-        variables: {
-          first: 8,
-          after: null,
-        },
-        updateQuery: (previousResult, { fetchMoreResult }) => {
-          if (!fetchMoreResult) return previousResult;
-
-          const initialBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
-          setAllDogs(initialBreeds);
-          setSortedDogs(initialBreeds);
-          setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
-          return fetchMoreResult;
-        },
-      });
+      fetchBreeds(8, null, false);
     }
   }, []);
+
+  const fetchBreeds = (amount: number, filter: string | null, usePrevious: boolean) => {
+    fetchMore({
+      variables: {
+        first: amount,
+        after: usePrevious ? cursor : null,
+        filterBySize: filter,
+      },
+      updateQuery: (previousResult, { fetchMoreResult }) => {
+        if (!fetchMoreResult) return previousResult;
+
+        const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
+
+        //if previous result should be included, add the previous fetched breeds to the new result
+        const newAllDogs = usePrevious
+          ? [
+              ...allDogs,
+              ...resultBreeds.filter(
+                (newBreed: { id: string }) => !allDogs.some((existingBreed) => existingBreed.id === newBreed.id),
+              ),
+            ]
+          : resultBreeds;
+        setAllDogs(newAllDogs);
+        setSortedDogs(newAllDogs);
+        setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
+        setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
+        return fetchMoreResult;
+      },
+    });
+  };
 
   const resetFiltersAndSorting = () => {
     setSearchQuery('');
@@ -117,6 +113,8 @@ const DogBreedGallery: React.FC = () => {
     setSortedDogs([]);
     setAllDogs([]);
     setCursor(null);
+    fetchBreeds(8, null, false);
+    setHasNextPage(true);
 
     if (filterRef.current) filterRef.current.value = '';
     if (sortRef.current) sortRef.current.value = '';
@@ -142,6 +140,7 @@ const DogBreedGallery: React.FC = () => {
             <option value="" disabled>
               Choose...
             </option>
+            <option value="All">All</option>
             <option value="Small">Small dogs</option>
             <option value="Medium">Medium dogs</option>
             <option value="Large">Large dogs</option>
@@ -171,9 +170,11 @@ const DogBreedGallery: React.FC = () => {
           <p>No breeds found.</p>
         )}
       </section>
-      <button className="loadButton" onClick={handleLoadMore}>
-        Load 4 more
-      </button>
+      {hasNextPage && (
+        <button className="loadButton" onClick={handleLoadMore}>
+          Load more
+        </button>
+      )}
     </>
   );
 };
