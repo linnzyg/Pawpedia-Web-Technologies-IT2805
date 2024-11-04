@@ -33,28 +33,19 @@ const DogBreedGallery: React.FC = () => {
     fetchPolicy: 'network-only',
   });
 
-  const applyFilter = (dogs: DogBreed[], filter: string | null) => {
-    if (!filter) return dogs;
-    return dogs.filter((dog) => dog.size === filter);
-  };
-
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newSizeFilter = event.target.value;
     setFilterBySize(newSizeFilter);
-    const filteredDogs = applyFilter(allDogs, newSizeFilter);
-    setSortedDogs(filteredDogs);
-    handleLoadMore();
+    fetchBreeds(8, newSizeFilter, false);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value.toLowerCase();
     setSearchQuery(query);
 
-    if (query === '') {
-      setSortedDogs(applyFilter(allDogs, filterBySize));
-    } else {
+    if (query !== '') {
       const searchedDogs = allDogs.filter((breed) => breed.name.toLowerCase().includes(query));
-      setSortedDogs(applyFilter(searchedDogs, filterBySize));
+      setSortedDogs(searchedDogs);
     }
   };
 
@@ -72,50 +63,34 @@ const DogBreedGallery: React.FC = () => {
   };
 
   const handleLoadMore = () => {
-    if (!loading) {
-      fetchMore({
-        variables: {
-          first: 4,
-          after: cursor,
-          filterBySize: filterBySize || undefined,
-        },
-        updateQuery: (previousResult, { fetchMoreResult }) => {
-          if (!fetchMoreResult) return previousResult;
-
-          const newBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
-          const uniqueBreeds = newBreeds.filter(
-            (newBreed: { id: string }) => !allDogs.some((existingBreed) => existingBreed.id === newBreed.id),
-          );
-
-          setAllDogs((prevDogs) => [...prevDogs, ...uniqueBreeds]);
-          setSortedDogs((prevDogs) => [...applyFilter([...prevDogs, ...uniqueBreeds], filterBySize)]);
-          setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
-          setSortBy('');
-          return fetchMoreResult;
-        },
-      });
-    }
+    if (!loading) fetchBreeds(4, filterBySize, true);
   };
 
   //useffect that fetches eight first breeds when the page loades initially
   useEffect(() => {
     if (allDogs.length === 0) {
-      fetchInitial();
+      fetchBreeds(8, null, false);
     }
   }, []);
 
-  const fetchInitial = () => {
+  const fetchBreeds = (amount: number, filter: string | null, usePrevious: boolean ) => {
     fetchMore({
       variables: {
-        first: 8,
-        after: null,
+        first: amount,
+        after: usePrevious ? cursor : null,
+        filterBySize: filter,
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         if (!fetchMoreResult) return previousResult;
 
-        const initialBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
-        setAllDogs(initialBreeds);
-        setSortedDogs(initialBreeds);
+        const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
+        
+        //if previous result should be included, add the previous fetched breeds to the new result
+        const newAllDogs = usePrevious ? [...allDogs, ...resultBreeds.filter(
+          (newBreed: { id: string }) => !allDogs.some((existingBreed) => existingBreed.id === newBreed.id),
+        )] : resultBreeds;
+        setAllDogs(newAllDogs);
+        setSortedDogs(newAllDogs);
         setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
         return fetchMoreResult;
       },
@@ -129,7 +104,7 @@ const DogBreedGallery: React.FC = () => {
     setSortedDogs([]);
     setAllDogs([]);
     setCursor(null);
-    fetchInitial();
+    fetchBreeds(8, null, false);
 
     if (filterRef.current) filterRef.current.value = '';
     if (sortRef.current) sortRef.current.value = '';
