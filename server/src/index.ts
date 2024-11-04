@@ -84,7 +84,7 @@ const resolvers = {
     },
   },
 };
-
+// Create Apollo Server instance with type definitions and resolvers
 const server = new ApolloServer({
   typeDefs,
   resolvers,

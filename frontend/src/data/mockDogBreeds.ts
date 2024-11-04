@@ -7,10 +7,22 @@ const pomeranianImg = '/images/pomeranian.jpeg';
 const poodleImg = '/images/poodle.jpeg';
 const samoyedImg = '/images/samoyed.jpeg';
 
+
+/**
+ * Utility function to generate slugs from breed names
+ * - Converts name to lowercase and replaces spaces with dashes
+ */
+
 function generateSlug(name: string): string {
   return name.toLowerCase().replace(/\s+/g, '-');
 }
 
+
+/**
+ * Mock data representing different dog breeds
+ * - Used for testing and initial setup purposes
+ * - Contains hardcoded breed data such as id, name, description, image, etc.
+ */
 
   export const mockDogBreeds: DogBreed[] = [
     {

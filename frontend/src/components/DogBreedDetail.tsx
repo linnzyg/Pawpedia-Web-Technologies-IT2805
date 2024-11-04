@@ -9,10 +9,24 @@ import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../api/mutations';
 import { GET_BREED } from '../api/queries';
 
+
+/**
+ * Props interface for the DogBreedDetail component.
+ * - `breed`: The breed information that includes details like name, description, image, etc.
+ * - `id`: The unique ID of the breed.
+ */
+
 interface DogBreedDetailProps {
   breed: DogBreed;
   id: string;
 }
+
+/**
+ * DogBreedDetail Component
+ * - Displays detailed information about a specific breed.
+ * - Allows users to add comments to the breed.
+ * - Uses GraphQL mutation to add comments to the backend.
+ */
 
 const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
   const [addComment] = useMutation(ADD_COMMENT, {
@@ -21,7 +35,8 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
       console.error('Error adding comment:', error);
     },
   });
-
+  
+  // Handle the addition of a new comment, using the `addComment` mutation
   const handleAddComment = (username: string, comment: string) => {
     addComment({
       variables: {

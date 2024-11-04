@@ -6,6 +6,13 @@ import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
 import { Card } from './ui/card';
 
+
+/**
+ * DogBreedGallery Component
+ * - Displays a gallery of dog breeds with functionalities to filter, sort, and search breeds.
+ * - Allows users to load more breeds and reset filters/sorting.
+ */
+
 const DogBreedGallery: React.FC = () => {
   const [allDogs, setAllDogs] = useState<DogBreed[]>([]);
   const [sortedDogs, setSortedDogs] = useState<DogBreed[]>([]);
