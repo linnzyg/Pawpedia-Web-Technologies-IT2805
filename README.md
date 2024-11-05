@@ -42,6 +42,9 @@ Link to VM will be available next version, as it is not required for the first t
 ## Documentation and choices
 The choice of making a dog application was made due to dogs being cute, and motivated all four developers to work on this project with love.
 
+### Static images
+Our images are stored in a public folder as static files since there are no user features in the app that require uploading or downloading images. This makes it simple to manage images, as they’re uploaded only when needed. 
+
 ## Tech Stack
 * React with TypeScript: Frontend framework
 * Apollo Client: For handling GraphQL queries and managing local/global app state.
@@ -59,7 +62,6 @@ Navigate to frontend folder:
 ```bash
 cd frontend
 ```
-
 
 then run the following command:
 
