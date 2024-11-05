@@ -1,0 +1,7 @@
+.favorites-grid {
+  width: 100%;
+  height: auto;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+}

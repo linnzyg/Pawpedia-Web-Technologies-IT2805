@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { DogBreed } from '../types/DogBreed';
 import '../style/DogCard.css';
 import favorite from '../assets/favorite.png';
@@ -29,6 +29,7 @@ interface DogBreedDetailProps {
  */
 
 const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
+  const [isFavorite, setIsFavorite] = useState(breed.favorite);
   const [addComment] = useMutation(ADD_COMMENT, {
     refetchQueries: [{ query: GET_BREED, variables: { id: id } }],
     onError: (error) => {
@@ -49,6 +50,28 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
     });
   };
 
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    setIsFavorite(favorites.some((fav: DogBreedDetailProps) => fav.id === id));
+  }, [id]);
+
+  const handleFavoriteClicked = () => {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+    if (isFavorite) {
+      const newFavorites = favorites.filter((fav: { id: string }) => fav.id !== id);
+      localStorage.setItem('favorites', JSON.stringify(newFavorites));
+      console.log('Removed from favorites:', newFavorites);
+    } else {
+      const newFavorite = { id, name: breed.name, image: breed.image };
+      const updatedFavorites = [...favorites, newFavorite];
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      console.log('Added to favorites:', newFavorite);
+    }
+
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <section>
       <div className="dog-breed-detail">
@@ -56,12 +79,8 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
         <section id="dogInfo">
           <h1>{breed.name}</h1>
           <p>{breed.description}</p>
-          <button className="favorite-button">
-            {breed.favorite ? (
-              <img src={favorite} className="favorite-icon" alt="favorite icon" />
-            ) : (
-              <img src={notFavorite} className="favorite-icon" alt="not favorite icon" />
-            )}
+          <button onClick={handleFavoriteClicked} id="favorite-btn">
+            <img src={isFavorite ? favorite : notFavorite} alt={isFavorite ? 'Favorite' : 'Unavorite'} />
           </button>
         </section>
       </div>
@@ -74,9 +93,9 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           <h3 className="text-xl mt-8">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
-              {(breed.comments ?? []).map((comment: { username: string; comment: string }, index) => (
+              {breed.comments.map((comment, index) => (
                 <section key={index} className="commentElement">
-                  <p className="commentName">{comment.username} : </p>
+                  <p className="commentName">{comment.username}:</p>
                   <p className="commentText">{comment.comment}</p>
                 </section>
               ))}

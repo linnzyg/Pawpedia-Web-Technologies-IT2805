@@ -14,7 +14,10 @@ function Navbar() {
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/">All dogs</NavLink>
       </section>
-      <img src="/src/assets/paw.png" alt="Logo" className="navbar-logo" />
+      <section id="navbar">
+        <NavLink to="/favorites">Favorites</NavLink>
+        <img src="/src/assets/paw.png" alt="Logo" className="navbar-logo" />
+      </section>
     </section>
   );
 }
