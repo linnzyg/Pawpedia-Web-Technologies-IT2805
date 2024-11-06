@@ -13,13 +13,31 @@ describe('Navbar Component', () => {
     {
       request: {
         query: GET_BREEDS,
+        variables: {
+          first: 4,
+          after: null,
+          filterBySize: undefined,
+        },
       },
       result: {
         data: {
-          breeds: [
-            { id: '1', name: 'Golden Retriever', image: 'golden-retriever.jpeg', size: 'Large', favorite: true },
-            { id: '2', name: 'Mittelspitz', image: 'mittelspitz.jpeg', size: 'Small', favorite: false },
-          ],
+          breeds: {
+            edges: [
+              {
+                cursor: '1',
+                node: { id: '1', name: 'Golden Retriever', image: 'golden-retriever.jpeg', size: 'Large', favorite: true },
+              },
+              {
+                cursor: '2',
+                node: { id: '2', name: 'Mittelspitz', image: 'mittelspitz.jpeg', size: 'Small', favorite: false },
+              },
+            ],
+            pageInfo: {
+              hasNextPage: false,
+              endCursor: '2',
+            },
+            totalCount: 2,
+          },
         },
       },
     },
@@ -38,10 +56,12 @@ describe('Navbar Component', () => {
       </MockedProvider>,
     );
 
+    // Wait until the data has loaded
     await waitFor(() => {
       expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
     });
 
+    // Take the snapshot after the data is loaded
     expect(asFragment()).toMatchSnapshot();
   });
 });
