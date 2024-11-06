@@ -21,7 +21,7 @@ startMongo();
 
 const resolvers = {
   Query: {
-    breeds: async (_: any, { first, after, filterBySize }: { first: number; after?: string; filterBySize?:string;}) => {
+    breeds: async (_: any, { first, after, filterBySize }: { first: number; after?: string; filterBySize?:string; }) => {
       const collection = db.collection('Breed');
       const query: any = {};
 
@@ -67,16 +67,20 @@ const resolvers = {
   Breed: {
     async comments(parent: any) {
       const collection = db.collection('Comment');
-      return (await collection.find().toArray()).filter((c) => c.breedId === parent._id.toString());
+      return await collection
+        .find({ breedId: parent._id.toString() })
+        .sort({ rating: -1 }) 
+        .toArray();
     },
   },
   Mutation: {
-    addComment(_: any, args: { comment: { breedId: string; username?: string; comment: string; } }) {
+    addComment(_: any, args: { comment: { breedId: string; username?: string; comment: string; rating: number } }) {
       const collection = db.collection('Comment');
       const comment = {
         breedId: args.comment.breedId,
         username: args.comment.username,
         comment: args.comment.comment,
+        rating: args.comment.rating, 
         timestamp: new Date().toISOString(),
       };
       collection.insertOne(comment);

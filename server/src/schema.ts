@@ -42,5 +42,6 @@ export const typeDefs = `#graphql
         breedId: ID!
         username: String
         comment: String!
+        rating: Int!
     }
     `
