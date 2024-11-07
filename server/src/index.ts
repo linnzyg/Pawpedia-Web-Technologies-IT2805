@@ -21,7 +21,7 @@ startMongo();
 
 const resolvers = {
   Query: {
-    breeds: async (_: any, { first, after, filterBySize }: { first: number; after?: string; filterBySize?:string;}) => {
+    breeds: async (_: any, { first, after, filterBySize, searchByName }: { first: number; after?: string; filterBySize?:string; searchByName?:string;}) => {
       const collection = db.collection('Breed');
       const query: any = {};
 
@@ -31,6 +31,10 @@ const resolvers = {
 
       if (filterBySize) {
         query.size = filterBySize;
+      }
+
+      if (searchByName) {
+        query.name = { $regex: searchByName, $options: 'i' };
       }
 
       const breeds = await collection.find(query).limit(first + 1).toArray();
