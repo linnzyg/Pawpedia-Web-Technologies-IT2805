@@ -51,6 +51,12 @@ Our images are stored in a public folder as static files since there are no user
 * GraphQL: API query language used to fetch dog breed data from the server.
 * MongoDB: Database for storing dog breed information.
 
+## Accessibility
+Several considerations and actions have been taken to ensure the accessibility of this application. All interactive elements can be reached and interacted with by using the keyboard. Unnecessary tabbing through elements with confusing screen reader descriptions are prevented by trying to use as many semantic HTML elements as possible. Other actions taken are using htmlFor attribute to tie together labels and interactive elements. There is also added alt-text to all dog images. Functional testing with screen reader on windows have been performed to confirm these cosiderations.
+
+### WCAG
+TODO
+
 ## Testing and code quality
 We use snapshot tests to ensure that user interactions such as filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
 
