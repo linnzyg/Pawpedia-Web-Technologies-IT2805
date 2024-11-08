@@ -6,7 +6,7 @@ export const ADD_COMMENT = gql`
       breedId
       username
       comment
-      rating  
+      rating
       timestamp
     }
   }

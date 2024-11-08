@@ -33,6 +33,7 @@ export const GET_BREED = gql`
         username
         comment
         timestamp
+        rating
       }
       size
     }

@@ -15,6 +15,7 @@ export const typeDefs = `#graphql
         username: String
         comment: String!
         timestamp: String!
+        rating: Int
     }
     type BreedConnection {
         edges: [BreedEdge!]!
@@ -42,6 +43,6 @@ export const typeDefs = `#graphql
         breedId: ID!
         username: String
         comment: String!
-        rating: Int!
+        rating: Int
     }
     `

@@ -30,7 +30,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           breedId: id,
           username,
           comment,
-          rating, 
+          rating,
         },
       },
     });
@@ -62,16 +62,17 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           <h3 className="text-xl mt-8">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
-              {(breed.comments ?? []).map(
-                (comment: { username: string; comment: string; rating?: number }, index) => (
-                  <section key={index} className="commentElement">
-                    <p className="commentName">
-                      {comment.username} ({comment.rating ?? 0} ★): 
-                    </p>
-                    <p className="commentText">{comment.comment}</p>
-                  </section>
-                )
-              )}
+              {(breed.comments ?? []).map((comment: { username: string; comment: string; rating?: number }, index) => (
+                <section key={index} className="commentElement">
+                  <p className="commentName">
+                    {comment.rating === null || comment.rating === undefined
+                      ? `${comment.username}`
+                      : `${comment.username} (${comment.rating} ★)`}
+                    :
+                  </p>
+                  <p className="commentText">{comment.comment}</p>
+                </section>
+              ))}
             </>
           ) : (
             <p className="mt-4 text-gray-600">No comments yet. Be the first to comment!</p>
