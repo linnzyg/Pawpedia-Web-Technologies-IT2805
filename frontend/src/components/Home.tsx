@@ -2,6 +2,14 @@ import React from 'react';
 import '../style/Home.css';
 import { Link } from 'react-router-dom';
 
+/**
+ * Home Component
+ * - Displays an introduction and information about the Pawpedia platform.
+ * - Provides a welcoming and informative experience for first-time visitors.
+ */
+
+
+
 function Home() {
   return (
     <>

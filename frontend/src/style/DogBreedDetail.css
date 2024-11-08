@@ -33,7 +33,6 @@
 .dog-breed-detail > * {
   flex-grow: 1;
   box-shadow: grey 0px 5px 15px;
-  z-index: -1;
 }
 
 #dogInfo {
@@ -115,4 +114,17 @@
   border-bottom: #929a6d solid 2px;
   font-size: 120%;
   font-weight: bold;
+}
+
+#favorite-btn {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-button img {
+  width: 20px;
+  height: 20px;
 }
