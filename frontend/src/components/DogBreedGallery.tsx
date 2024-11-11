@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../api/queries';
-import { DogBreed } from '../types/DogBreed';
+import { DogBreed, Size } from '../types/DogBreed';
 import { Card } from './ui/card';
+import SizeFiltering from './SizeFiltering';
 
 /**
  * DogBreedGallery Component
@@ -15,7 +16,7 @@ import { Card } from './ui/card';
 const DogBreedGallery: React.FC = () => {
   const [allDogs, setAllDogs] = useState<DogBreed[]>([]);
   const [sortedDogs, setSortedDogs] = useState<DogBreed[]>([]);
-  const [filterBySize, setFilterBySize] = useState<string | null>(null);
+  const [filterBySize, setFilterBySize] = useState<string[] | null>(null);
   const [sortBy, setSortBy] = useState<string | null>(null);
   const [cursor, setCursor] = useState<string | null>(null);
   const [searchByName, setSearchByName] = useState('');
@@ -35,12 +36,9 @@ const DogBreedGallery: React.FC = () => {
   });
 
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newSizeFilter = event.target.value;
-    setFilterBySize(newSizeFilter);
-    if (newSizeFilter === 'All') {
-      setFilterBySize(null);
-      fetchBreeds(8, null, false, null);
-    } else fetchBreeds(8, newSizeFilter, false, null);
+    const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
+    setFilterBySize(selectedOptions.length > 0 ? selectedOptions : null);
+    fetchBreeds(8, selectedOptions.length > 0 ? selectedOptions : null, false, null);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,35 +76,39 @@ const DogBreedGallery: React.FC = () => {
     }
   }, []);
 
-  const fetchBreeds = (amount: number, filter: string | null, usePrevious: boolean, search: string | null) => {
-    fetchMore({
-      variables: {
-        first: amount,
-        after: usePrevious ? cursor : null,
-        filterBySize: filter,
-        searchByName: search
-      },
-      updateQuery: (previousResult, { fetchMoreResult }) => {
-        if (!fetchMoreResult) return previousResult;
+  const fetchBreeds = (amount: number, filter: string[] | null, usePrevious: boolean, search: string | null) => {
+    try {
+      fetchMore({
+        variables: {
+          first: amount,
+          after: usePrevious ? cursor : null,
+          filterBySize: filter,
+          searchByName: search
+        },
+        updateQuery: (previousResult, { fetchMoreResult }) => {
+          if (!fetchMoreResult) return previousResult;
 
-        const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
+          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
 
-        //if previous result should be included, add the previous fetched breeds to the new result
-        const newAllDogs = usePrevious
-          ? [
-              ...allDogs,
-              ...resultBreeds.filter(
-                (newBreed: { id: string }) => !allDogs.some((existingBreed) => existingBreed.id === newBreed.id),
-              ),
-            ]
-          : resultBreeds;
-        setAllDogs(newAllDogs);
-        setSortedDogs(newAllDogs);
-        setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
-        setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
-        return fetchMoreResult;
-      },
-    });
+          //if previous result should be included, add the previous fetched breeds to the new result
+          const newAllDogs = usePrevious
+            ? [
+                ...allDogs,
+                ...resultBreeds.filter(
+                  (newBreed: { id: string }) => !allDogs.some((existingBreed) => existingBreed.id === newBreed.id),
+                ),
+              ]
+            : resultBreeds;
+          setAllDogs(newAllDogs);
+          setSortedDogs(newAllDogs);
+          setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
+          setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
+          return fetchMoreResult;
+        },
+      });
+    } catch (error) {
+      console.error('Error fetching breeds:', error);
+    }
   };
 
   const resetFiltersAndSorting = () => {
@@ -139,17 +141,17 @@ const DogBreedGallery: React.FC = () => {
             <option value="z-a">Z-A</option>
           </select>
           <label htmlFor="filter">Filter by Size:</label>
-          <select ref={filterRef} name="filter" id="filter" onChange={handleFilterChange} value={filterBySize || ''}>
-            <option value="" disabled>
-              Choose...
-            </option>
-            <option value="All">All</option>
+            <select ref={filterRef} name="filter" id="filter" onChange={handleFilterChange} value={filterBySize || []} multiple>
+              <option value="" disabled>
+                Choose...
+              </option>
             <option value="Small">Small dogs</option>
             <option value="Medium">Medium dogs</option>
             <option value="Large">Large dogs</option>
             <option value="Giant">Giant dogs</option>
-          </select>
+            </select>
         </section>
+        <SizeFiltering />
 
         <section id="secondRow">
           <input type="text" placeholder="Search..." value={searchByName || ''} onChange={handleSearchChange} />
