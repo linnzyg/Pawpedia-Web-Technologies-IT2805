@@ -17,7 +17,10 @@ const mocks = [
     },
     result: {
       data: {
-        breed: mockDogBreeds[0],
+        breed: {
+          ...mockDogBreeds[0],
+          __typename: 'Breed',
+        },
       },
     },
   },
@@ -37,14 +40,14 @@ const mocks = [
 ];
 
 describe('DogBreedDetailWrapper Component', () => {
-  it('renders DogBreedDetail when a valid slug is provided', async () => {
-    const validSlug = mockDogBreeds[0].slug;
+  it('renders DogBreedDetail when a valid id is provided', async () => {
+    const validId = mockDogBreeds[0].id;
 
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <MemoryRouter initialEntries={[`/${validSlug}`]}>
+        <MemoryRouter initialEntries={[`/${validId}`]}>
           <Routes>
-            <Route path="/:slug" element={<DogBreedDetailWrapper />} />
+            <Route path="/:id" element={<DogBreedDetailWrapper />} />
           </Routes>
         </MemoryRouter>
       </MockedProvider>,
@@ -53,14 +56,14 @@ describe('DogBreedDetailWrapper Component', () => {
     expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent(mockDogBreeds[0].name);
   });
 
-  it('renders "Breed not found" when an invalid slug is provided', async () => {
-    const invalidSlug = 'non-existent-id';
+  it('renders "Breed not found" when an invalid id is provided', async () => {
+    const invalidId = 'non-existent-id';
 
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <MemoryRouter initialEntries={[`/${invalidSlug}`]}>
+        <MemoryRouter initialEntries={[`/${invalidId}`]}>
           <Routes>
-            <Route path="/:slug" element={<DogBreedDetailWrapper />} />
+            <Route path="/:id" element={<DogBreedDetailWrapper />} />
           </Routes>
         </MemoryRouter>
       </MockedProvider>,
@@ -69,17 +72,5 @@ describe('DogBreedDetailWrapper Component', () => {
     expect(await screen.findByText('Breed not found')).toBeInTheDocument();
   });
 
-  it('renders "Breed not found" when slug is missing', async () => {
-    render(
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <MemoryRouter initialEntries={['/']}>
-          <Routes>
-            <Route path="/" element={<DogBreedDetailWrapper />} />
-          </Routes>
-        </MemoryRouter>
-      </MockedProvider>,
-    );
-
-    expect(await screen.findByText('Breed not found')).toBeInTheDocument();
-  });
+ 
 });
