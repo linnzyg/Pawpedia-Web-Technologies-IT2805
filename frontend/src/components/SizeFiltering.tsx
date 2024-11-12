@@ -26,7 +26,7 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange }) => {
   const isFirstRender = React.useRef(true);
 
   useEffect(() => {
-    let filters: string[] = []
+    const filters: string[] = []
     if (smallSelected) filters.push("Small")
     if (mediumSelected) filters.push("Medium")
     if (largeSelected) filters.push("Large")

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../api/queries';
-import { DogBreed, Size } from '../types/DogBreed';
+import { DogBreed } from '../types/DogBreed';
 import { Card } from './ui/card';
 import SizeFiltering from './SizeFiltering';
 
@@ -85,7 +85,7 @@ const DogBreedGallery: React.FC = () => {
         updateQuery: (previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return previousResult;
 
-          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: any }) => edge.node);
+          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: DogBreed }) => edge.node);
 
           //if previous result should be included, add the previous fetched breeds to the new result
           const newAllDogs = usePrevious
