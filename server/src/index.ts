@@ -21,7 +21,7 @@ startMongo();
 
 const resolvers = {
   Query: {
-    breeds: async (_: any, { first, after, filterBySize }: { first: number; after?: string; filterBySize?:string;}) => {
+    breeds: async (_: any, { first, after, filterBySize, searchByName }: { first: number; after?: string; filterBySize?: string[]; searchByName?: string; }) => {
       const collection = db.collection('Breed');
       const query: any = {};
 
@@ -29,8 +29,12 @@ const resolvers = {
         query._id = { $gt: new ObjectId(after) };
       }
 
-      if (filterBySize) {
-        query.size = filterBySize;
+      if (filterBySize && filterBySize.length > 0) {
+        query.size = { $in: filterBySize };
+      }
+
+      if (searchByName) {
+        query.name = { $regex: searchByName, $options: 'i' };
       }
 
       const breeds = await collection.find(query).limit(first + 1).toArray();
@@ -84,7 +88,7 @@ const resolvers = {
     },
   },
 };
-
+// Create Apollo Server instance with type definitions and resolvers
 const server = new ApolloServer({
   typeDefs,
   resolvers,
