@@ -1,9 +1,24 @@
 import React, { useState } from 'react';
 
+
+/**
+ * Props interface for the Comment component.
+ * - `onAddComment`: Function to be called when a new comment is submitted.
+ * - `breedId`: The ID of the breed to which the comment belongs.
+ */
+
 interface CommentProps {
   onAddComment: (username: string, comment: string, rating: number) => void;
   breedId: string;
 }
+
+
+/**
+ * Comment Component
+ * - Displays a form to collect a user's name and comment.
+ * - Submits the comment through the `onAddComment` callback.
+ * - Clears input fields after submission.
+ */
 
 const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
   const [name, setName] = useState('');
@@ -12,11 +27,13 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     if (name.trim() && comment.trim() && rating > 0) {
       onAddComment(name, comment, rating);
       setName('');
       setComment('');
       setRating(0);
+
     }
   };
 
