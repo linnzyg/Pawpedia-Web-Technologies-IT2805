@@ -21,8 +21,6 @@ const DogBreedGallery: React.FC = () => {
   const [cursor, setCursor] = useState<string | null>(null);
   const [searchByName, setSearchByName] = useState('');
   const [hasNextPage, setHasNextPage] = useState<boolean>(true);
-
-  const filterRef = useRef<HTMLSelectElement>(null);
   const sortRef = useRef<HTMLSelectElement>(null);
 
   const { loading, error, fetchMore } = useQuery(GET_BREEDS, {
@@ -35,10 +33,9 @@ const DogBreedGallery: React.FC = () => {
     fetchPolicy: 'network-only',
   });
 
-  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
-    setFilterBySize(selectedOptions.length > 0 ? selectedOptions : null);
-    fetchBreeds(8, selectedOptions.length > 0 ? selectedOptions : null, false, null);
+  const handleFilterChange = (filters: string[]) => {
+    setFilterBySize(filters.length > 0 ? filters : null);
+    fetchBreeds(8, filters.length > 0 ? filters : null, false, null);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -121,7 +118,6 @@ const DogBreedGallery: React.FC = () => {
     fetchBreeds(8, null, false, null);
     setHasNextPage(true);
 
-    if (filterRef.current) filterRef.current.value = '';
     if (sortRef.current) sortRef.current.value = '';
   };
 
@@ -140,18 +136,8 @@ const DogBreedGallery: React.FC = () => {
             <option value="a-z">A-Z</option>
             <option value="z-a">Z-A</option>
           </select>
-          <label htmlFor="filter">Filter by Size:</label>
-            <select ref={filterRef} name="filter" id="filter" onChange={handleFilterChange} value={filterBySize || []} multiple>
-              <option value="" disabled>
-                Choose...
-              </option>
-            <option value="Small">Small dogs</option>
-            <option value="Medium">Medium dogs</option>
-            <option value="Large">Large dogs</option>
-            <option value="Giant">Giant dogs</option>
-            </select>
         </section>
-        <SizeFiltering />
+        <SizeFiltering onFilterChange={handleFilterChange}/>
 
         <section id="secondRow">
           <input type="text" placeholder="Search..." value={searchByName || ''} onChange={handleSearchChange} />

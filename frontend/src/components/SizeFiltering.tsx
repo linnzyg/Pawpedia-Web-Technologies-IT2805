@@ -1,8 +1,5 @@
-"use client"
-
 import * as React from "react"
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
-
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -12,43 +9,63 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useEffect } from "react";
 
 
-const SizeFiltering: React.FC = () => {
+interface FilteringProps {
+  onFilterChange: (filters: string[]) => void;
+}
+
+const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange }) => {
   type Checked = DropdownMenuCheckboxItemProps["checked"]
-  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true)
-  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false)
-  const [showPanel, setShowPanel] = React.useState<Checked>(false)
+  const [smallSelected, setSmallSelected] = React.useState<Checked>(false)
+  const [mediumSelected, setMediumSelected] = React.useState<Checked>(false)
+  const [largeSelected, setLargeSelected] = React.useState<Checked>(false)
+  const [giantSelected, setGiantSelected] = React.useState<Checked>(false)
+
+  const isFirstRender = React.useRef(true);
+
+  useEffect(() => {
+    let filters: string[] = []
+    if (smallSelected) filters.push("Small")
+    if (mediumSelected) filters.push("Medium")
+    if (largeSelected) filters.push("Large")
+    if (giantSelected) filters.push("Giant")  
+    if(filters.length > 0 || !isFirstRender.current) {
+      onFilterChange(filters)
+      isFirstRender.current = false;
+    } 
+  }, [smallSelected, mediumSelected, largeSelected, giantSelected]);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <Button variant="secondary">Choose size</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+        <DropdownMenuLabel>Filter</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuCheckboxItem
-          checked={showStatusBar}
-          onCheckedChange={setShowStatusBar}
+          checked={smallSelected}
+          onCheckedChange={setSmallSelected}
         >
           Small dogs
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
-          checked={showPanel}
-          onCheckedChange={setShowPanel}
+          checked={mediumSelected}
+          onCheckedChange={setMediumSelected}
         >
           Medium dogs
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
-          checked={showPanel}
-          onCheckedChange={setShowPanel}
+          checked={largeSelected}
+          onCheckedChange={setLargeSelected}
         >
           Large dogs
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
-          checked={showPanel}
-          onCheckedChange={setShowPanel}
+          checked={giantSelected}
+          onCheckedChange={setGiantSelected}
         >
           Giant dogs
         </DropdownMenuCheckboxItem>
