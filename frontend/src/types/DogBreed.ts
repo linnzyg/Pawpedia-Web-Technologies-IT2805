@@ -11,6 +11,7 @@ export interface DogBreed {
     timestamp: string;
   }[];
   size: Size;
+  averageRating?: number;
 }
 
 export enum Size {

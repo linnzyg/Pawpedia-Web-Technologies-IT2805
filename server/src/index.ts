@@ -21,7 +21,7 @@ startMongo();
 
 const resolvers = {
   Query: {
-    breeds: async (_: any, { first, after, filterBySize }: { first: number; after?: string; filterBySize?:string; }) => {
+    breeds: async (_: any, { first, after, filterBySize }: { first: number; after?: string; filterBySize?: string; }) => {
       const collection = db.collection('Breed');
       const query: any = {};
 
@@ -35,6 +35,17 @@ const resolvers = {
 
       const breeds = await collection.find(query).limit(first + 1).toArray();
 
+      // Calculate average rating for each breed
+      for (const breed of breeds) {
+        const comments = await db.collection('Comment').find({ breedId: breed._id.toString() }).toArray();
+        if (comments.length > 0) {
+          const totalRating = comments.reduce((sum, comment) => sum + (comment.rating || 0), 0);
+          breed.averageRating = totalRating / comments.length;
+        } else {
+          breed.averageRating = 0; 
+        }
+      }
+
       const edges = breeds.slice(0, first).map((breed) => ({
         cursor: breed._id.toString(),
         node: {
@@ -44,6 +55,7 @@ const resolvers = {
           image: breed.image,
           slug: breed.slug,
           size: breed.size,
+          averageRating: breed.averageRating,
         },
       }));
 

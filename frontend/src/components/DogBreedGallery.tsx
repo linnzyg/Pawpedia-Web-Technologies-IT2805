@@ -59,6 +59,10 @@ const DogBreedGallery: React.FC = () => {
       sortedList.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortType === 'z-a') {
       sortedList.sort((a, b) => a.name.localeCompare(b.name) * -1);
+    } else if (sortType === 'rating-high') {
+      sortedList.sort((a, b) => (b.averageRating ?? 0) - (a.averageRating ?? 0));
+    } else if (sortType === 'rating-low') {
+      sortedList.sort((a, b) => (a.averageRating ?? 0) - (b.averageRating ?? 0));
     }
     setSortedDogs(sortedList);
   };
@@ -89,7 +93,6 @@ const DogBreedGallery: React.FC = () => {
     }
   };
 
-  //useffect that fetches eight first breeds when the page loades initially
   useEffect(() => {
     if (allDogs.length === 0) {
       fetchMore({
@@ -136,6 +139,8 @@ const DogBreedGallery: React.FC = () => {
             </option>
             <option value="a-z">A-Z</option>
             <option value="z-a">Z-A</option>
+            <option value="rating-high">Highest Rating</option>
+            <option value="rating-low">Lowest Rating</option>
           </select>
           <label htmlFor="filter">Filter by Size:</label>
           <select ref={filterRef} name="filter" id="filter" onChange={handleFilterChange} value={filterBySize || ''}>
@@ -164,6 +169,7 @@ const DogBreedGallery: React.FC = () => {
               <Link to={`/${breed.id}`}>
                 <h2>{breed.name}</h2>
                 <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
+                <p>Rating: {breed.averageRating ? breed.averageRating.toFixed(1) : 'No ratings yet'}</p>
               </Link>
             </Card>
           ))

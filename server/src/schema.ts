@@ -8,6 +8,7 @@ export const typeDefs = `#graphql
         slug: String!
         size: String!
         comments: [Comment!]
+        averageRating: Float
     }
     type Comment {
         id: ID!
