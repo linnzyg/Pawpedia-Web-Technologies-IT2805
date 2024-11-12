@@ -33,6 +33,10 @@ const resolvers = {
         query.size = filterBySize;
       }
 
+      if (searchByName) {
+        query.name = { $regex: searchByName, $options: 'i' };
+      }
+
       const breeds = await collection.find(query).limit(first + 1).toArray();
 
       // Calculate average rating for each breed
@@ -100,7 +104,7 @@ const resolvers = {
     },
   },
 };
-
+// Create Apollo Server instance with type definitions and resolvers
 const server = new ApolloServer({
   typeDefs,
   resolvers,

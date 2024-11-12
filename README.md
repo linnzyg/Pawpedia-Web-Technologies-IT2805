@@ -42,11 +42,20 @@ Link to VM will be available next version, as it is not required for the first t
 ## Documentation and choices
 The choice of making a dog application was made due to dogs being cute, and motivated all four developers to work on this project with love.
 
+### Static images
+Our images are stored in a public folder as static files since there are no user features in the app that require uploading or downloading images. This makes it simple to manage images, as they’re uploaded only when needed. 
+
 ## Tech Stack
 * React with TypeScript: Frontend framework
 * Apollo Client: For handling GraphQL queries and managing local/global app state.
 * GraphQL: API query language used to fetch dog breed data from the server.
 * MongoDB: Database for storing dog breed information.
+
+## Accessibility
+Several considerations and actions have been taken to ensure the accessibility of this application. All interactive elements can be reached and interacted with by using the keyboard. Unnecessary tabbing through elements with confusing screen reader descriptions are prevented by trying to use as many semantic HTML elements as possible. Other actions taken are using htmlFor attribute to tie together labels and interactive elements. There is also added alt-text to all dog images. Functional testing with screen reader on windows have been performed to confirm these cosiderations.
+
+### WCAG
+TODO
 
 ## Testing and code quality
 We use snapshot tests to ensure that user interactions such as filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
@@ -59,7 +68,6 @@ Navigate to frontend folder:
 ```bash
 cd frontend
 ```
-
 
 then run the following command:
 
