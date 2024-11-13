@@ -51,7 +51,7 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
           required
           className="w-full p-2 border border-gray-300 rounded-md"
         />
-        <button type="submit" className="w-full p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+        <button type="submit" className="submitComment">
           Submit Comment
         </button>
       </form>

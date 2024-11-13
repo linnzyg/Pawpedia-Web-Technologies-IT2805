@@ -77,10 +77,9 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
       <Box
         className="dog-breed-detail"
         sx={{
-          backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#424242' : '#ffffff'),
+          backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff'),
           color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
           padding: 2,
-          borderRadius: 2,
           boxShadow: 1,
         }}
       >
@@ -96,13 +95,13 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
       <div className="commentary-section mt-6">
         <Box className="commentHeader"
           sx={{
-            backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#424242' : '#ffffff',
+            backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff',
             color: (theme) => theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
             padding: 2,
             borderRadius: 2,
             boxShadow: 1,
           }}>
-          <h2 className="text-xl mt-8">Leave a Comment on {breed.name}:</h2>
+          <h2 className="text-xl">Leave a Comment on {breed.name}:</h2>
           <Commentary onAddComment={handleAddComment} breedId={breed.id} />
         </Box>
         <section className="commentSection">
@@ -112,7 +111,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
               {breed.comments.map((comment, index) => (
                 <Box key={index} className="commentElement"
                   sx={{
-                    backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#424242' : '#ffffff',
+                    backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff',
                     color: (theme) => theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
                     padding: 2,
                     borderRadius: 2,

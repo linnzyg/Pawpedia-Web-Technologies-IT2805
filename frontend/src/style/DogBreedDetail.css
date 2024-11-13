@@ -54,39 +54,37 @@
 
 /* comment-area */
 
-.commentHeader {
-  justify-content: center;
-  margin: 1%;
-  padding: 1%;
-}
-
 .comment-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.commentHeader *{
+  margin: 1%;
+}
 
-.comment-form button {
+
+.submitComment {
   margin: 1%;
   padding: 1%;
   background-color: rgb(177, 154, 204);
   border: none;
   border-radius: 5px;
   color: #28271b;
-  font-size: 110%;
+  width: 98%;
 }
 
-.comment-form button:hover {
+.submitComment:hover {
   background-color: rgb(95, 75, 119);
   color: white;
 }
 
-.comment-form button:active {
+.submitComment:active {
   background-color: rgb(177, 154, 204);
 }
 
-.commentSection {
+.commentary-section {
   margin: 2%;
 }
 
@@ -95,7 +93,7 @@
   box-shadow: #28271b 0px;
   border-radius: 5px;
   padding: 1%;
-  margin-bottom: 1.5%;
+  margin-bottom: 20px;
 }
 
 .commentElement p {
@@ -106,6 +104,7 @@
 .commentName {
   font-size: 120%;
   font-weight: bold;
+  border-bottom: solid 2px var(--green);
 }
 
 #favorite-btn {
