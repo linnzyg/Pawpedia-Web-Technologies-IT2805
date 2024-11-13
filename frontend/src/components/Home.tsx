@@ -64,7 +64,10 @@ function Home() {
             your unique personality and lifestyle.
           </p>
           <p>
-            <Link to="/" className="viewAllBreedsLink">
+            <Link to="/" className="viewAllBreedsLink"
+            style={{
+              borderColor: (theme: { palette: { mode: string; }; }) => (theme.palette.mode === 'dark' ? '#424242' : '#ffffff'),
+            }}>
               See all our breeds &rarr;
             </Link>
           </p>

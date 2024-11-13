@@ -8,7 +8,7 @@ import Commentary from './Comment';
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../api/mutations';
 import { GET_BREED } from '../api/queries';
-
+import Box from '@mui/material/Box';
 
 /**
  * Props interface for the DogBreedDetail component.
@@ -36,7 +36,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
       console.error('Error adding comment:', error);
     },
   });
-  
+
   // Handle the addition of a new comment, using the `addComment` mutation
   const handleAddComment = (username: string, comment: string) => {
     addComment({
@@ -73,31 +73,54 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
   };
 
   return (
-    <section>
-      <div className="dog-breed-detail">
+    <>
+      <Box
+        className="dog-breed-detail"
+        sx={{
+          backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#424242' : '#ffffff'),
+          color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
+          padding: 2,
+          borderRadius: 2,
+          boxShadow: 1,
+        }}
+      >
         <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
         <section id="dogInfo">
           <h1>{breed.name}</h1>
           <p>{breed.description}</p>
           <button onClick={handleFavoriteClicked} id="favorite-btn">
-            <img src={isFavorite ? favorite : notFavorite} alt={isFavorite ? 'Favorite' : 'Unavorite'} />
+            <img src={isFavorite ? favorite : notFavorite} alt={isFavorite ? 'Favorite' : 'Unfavorite'} />
           </button>
         </section>
-      </div>
+      </Box>
       <div className="commentary-section mt-6">
-        <header className="commentHeader">
+        <Box className="commentHeader"
+          sx={{
+            backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#424242' : '#ffffff',
+            color: (theme) => theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
+            padding: 2,
+            borderRadius: 2,
+            boxShadow: 1,
+          }}>
           <h2 className="text-xl mt-8">Leave a Comment on {breed.name}:</h2>
           <Commentary onAddComment={handleAddComment} breedId={breed.id} />
-        </header>
+        </Box>
         <section className="commentSection">
           <h3 className="text-xl mt-8">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
               {breed.comments.map((comment, index) => (
-                <section key={index} className="commentElement">
+                <Box key={index} className="commentElement"
+                  sx={{
+                    backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#424242' : '#ffffff',
+                    color: (theme) => theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
+                    padding: 2,
+                    borderRadius: 2,
+                    boxShadow: 1,
+                  }}>
                   <p className="commentName">{comment.username}:</p>
                   <p className="commentText">{comment.comment}</p>
-                </section>
+                </Box>
               ))}
             </>
           ) : (
@@ -105,7 +128,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           )}
         </section>
       </div>
-    </section>
+    </>
   );
 };
 

@@ -32,11 +32,10 @@
 
 .dog-breed-detail > * {
   flex-grow: 1;
-  box-shadow: grey 0px 5px 15px;
 }
 
 #dogInfo {
-  background-color: white;
+  background-color: default;
   width: 60%;
 }
 
@@ -67,10 +66,6 @@
   align-items: center;
 }
 
-.comment-form input,
-.comment-form textarea {
-  border: 2px solid var(--green);
-}
 
 .comment-form button {
   margin: 1%;
@@ -83,7 +78,6 @@
 }
 
 .comment-form button:hover {
-  box-shadow: #28271b 0 0 5px;
   background-color: rgb(95, 75, 119);
   color: white;
 }
@@ -101,7 +95,6 @@
   box-shadow: #28271b 0px;
   border-radius: 5px;
   padding: 1%;
-  box-shadow: grey 0px 0px 5px;
   margin-bottom: 1.5%;
 }
 
@@ -111,7 +104,6 @@
 }
 
 .commentName {
-  border-bottom: #929a6d solid 2px;
   font-size: 120%;
   font-weight: bold;
 }

@@ -30,7 +30,7 @@
   border-radius: 12px;
 }
 
-.dog-breed-gallery > :hover {
+.breed-card:hover {
   background-color: var(--green);
   transition: 0.4s;
   color: white;

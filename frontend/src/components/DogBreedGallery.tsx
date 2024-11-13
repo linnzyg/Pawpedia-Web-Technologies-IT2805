@@ -4,7 +4,7 @@ import '../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
-import { Card } from './ui/card';
+import Card from '@mui/material/Card';
 import SizeFiltering from './SizeFiltering';
 
 /**
