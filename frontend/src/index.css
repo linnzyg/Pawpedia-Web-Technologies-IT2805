@@ -10,7 +10,7 @@ body {
   color: #28271b;
   font-family: sans-serif;
   max-width: 100%;
-  overflow-x: hidden;
+  overscroll-behavior: contain;
 }
 
 @layer base {

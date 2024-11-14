@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { DogBreed } from '../types/DogBreed';
 import '../style/DogCard.css';
-import favorite from '../assets/favorite.png';
-import notFavorite from '../assets/notFavorite.png';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import '../style/DogBreedDetail.css';
 import Commentary from './Comment';
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../api/mutations';
 import { GET_BREED } from '../api/queries';
 import Box from '@mui/material/Box';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import Tab from '@mui/material/Tab';
+import TabPanel from '@mui/lab/TabPanel';
 
 /**
  * Props interface for the DogBreedDetail component.
@@ -50,6 +54,13 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
     });
   };
 
+  const [tableValue, setTableValue] = React.useState('1');
+
+  const handleChange = (_event: React.SyntheticEvent, newTableValue: string) => {
+    setTableValue(newTableValue);
+  };
+
+
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     setIsFavorite(favorites.some((fav: DogBreedDetailProps) => fav.id === id));
@@ -84,40 +95,68 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
         }}
       >
         <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
-        <section id="dogInfo">
-          <h1>{breed.name}</h1>
-          <p>{breed.description}</p>
-          <button onClick={handleFavoriteClicked} id="favorite-btn">
-            <img src={isFavorite ? favorite : notFavorite} alt={isFavorite ? 'Favorite' : 'Unfavorite'} />
-          </button>
-        </section>
+        <Box id="dogInfo">
+          <header>
+            <h1>{breed.name}</h1>
+            <button onClick={handleFavoriteClicked} id="favorite-btn">
+              {isFavorite ? (
+                <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
+              ) : (
+                <FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" />
+              )}
+            </button>
+          </header>
+          <Box>
+            <Box sx={{ width: '100%', typography: 'body1' }}>
+              <TabContext value={tableValue}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                  <TabList onChange={handleChange} aria-label="Dog detail tabs">
+                    <Tab label="Description" value="1" />
+                    <Tab label="Personality stats" value="2" />
+                    <Tab label="Health stats" value="3" />
+                  </TabList>
+                </Box>
+                <TabPanel value="1"><p>{breed.description}</p></TabPanel>
+                <TabPanel value="2">stats</TabPanel>
+                <TabPanel value="3">health</TabPanel>
+              </TabContext>
+            </Box>
+          </Box>
+        </Box>
       </Box>
-      <div className="commentary-section mt-6">
-        <Box className="commentHeader"
-          sx={{
-            backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff',
-            color: (theme) => theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
-            padding: 2,
-            borderRadius: 2,
-            boxShadow: 1,
-          }}>
-          <h2 className="text-xl">Leave a Comment on {breed.name}:</h2>
-          <Commentary onAddComment={handleAddComment} breedId={breed.id} />
+      <section className="comment-area mt-6">
+        <Box>
+          <Box
+            id="commentHeader"
+            sx={{
+              backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff'),
+              color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
+              padding: 2,
+              borderRadius: 2,
+              boxShadow: 1,
+            }}
+          >
+            <h2 className="text-xl">Leave a Comment on {breed.name}:</h2>
+            <Commentary onAddComment={handleAddComment} breedId={breed.id} />
+          </Box>
         </Box>
         <section className="commentSection">
-          <h3 className="text-xl mt-8">Comments:</h3>
+          <h3 className="text-xl pb-5">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
               {breed.comments.map((comment, index) => (
-                <Box key={index} className="commentElement"
+                <Box
+                  key={index}
+                  className="commentElement"
                   sx={{
-                    backgroundColor: (theme) => theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff',
-                    color: (theme) => theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
+                    backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff'),
+                    color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
                     padding: 2,
                     borderRadius: 2,
                     boxShadow: 1,
-                  }}>
-                  <p className="commentName">{comment.username}:</p>
+                  }}
+                >
+                  <p className="commentName">{comment.username}</p>
                   <p className="commentText">{comment.comment}</p>
                 </Box>
               ))}
@@ -126,7 +165,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
             <p className="mt-4 text-gray-600">No comments yet. Be the first to comment!</p>
           )}
         </section>
-      </div>
+      </section>
     </>
   );
 };

@@ -33,7 +33,7 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
   };
 
   return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='comment-form'>
         <TextField
           placeholder="Your name"
           value={name}

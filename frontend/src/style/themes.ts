@@ -26,5 +26,24 @@ export const styletheme = createTheme({
         }),
       },
     },
+    MuiTabs: {
+      styleOverrides: {
+        indicator: ({ theme }) => ({
+          backgroundColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // Indicator color based on mode
+        }),
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // Tab text color based on mode
+          '&.Mui-selected': {
+            color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // Selected tab text color based on mode
+            backgroundColor: "rgba(177, 154, 204, 0.3) !important",
+            
+          },
+        }),
+      },
+    },
   },
 });

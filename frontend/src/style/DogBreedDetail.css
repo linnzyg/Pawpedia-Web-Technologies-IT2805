@@ -12,24 +12,6 @@
   width: 40%;
 }
 
-@media (max-width: 900px) {
-  .dog-breed-detail {
-    height: auto;
-    margin: 0px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .dog-breed-detail img {
-    width: 100%;
-  }
-
-  #dogInfo {
-    min-width: 100%;
-    object-fit: cover;
-  }
-}
-
 .dog-breed-detail > * {
   flex-grow: 1;
 }
@@ -44,12 +26,25 @@
 }
 
 #dogInfo h1 {
-  border-bottom: solid 2px var(--green);
-  padding: 2%;
-  padding-bottom: 0.5%;
-  margin: 15px;
   font-size: 25px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#dogInfo>header{
+  border-bottom: solid 2px var(--green);
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1%;
+}
+
+#heartIcon{
+  font-size: 30px;
+}
+
+.MuiTabs-indicator{
+  display: none;
 }
 
 /* comment-area */
@@ -60,10 +55,14 @@
   align-items: center;
 }
 
-.commentHeader *{
-  margin: 1%;
+#commentHeader{
+  position: sticky;
+  top: 100px;
 }
 
+#commentHeader * {
+  margin: 0.5%;
+}
 
 .submitComment {
   margin: 1%;
@@ -84,8 +83,14 @@
   background-color: rgb(177, 154, 204);
 }
 
-.commentary-section {
+.comment-area {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-area > * {
   margin: 2%;
+  flex-grow: 1;
 }
 
 .commentElement {
@@ -118,4 +123,31 @@
 .favorite-button img {
   width: 20px;
   height: 20px;
+}
+
+@media (max-width: 900px) {
+  .dog-breed-detail {
+    height: auto;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dog-breed-detail img {
+    width: 100%;
+  }
+
+  #dogInfo {
+    min-width: 100%;
+    object-fit: cover;
+  }
+
+  #commentHeader{
+    position: static;
+  }
+
+  .comment-area {
+    flex-direction: column;
+    align-items: center;
+  }
 }
