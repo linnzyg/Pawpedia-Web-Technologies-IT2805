@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { MockedProvider } from '@apollo/client/testing';
 import DogBreedDetail from './DogBreedDetail';
 import { DogBreed, Size } from '../types/DogBreed';
 import { describe, it, expect } from 'vitest';
@@ -16,7 +17,11 @@ describe('DogBreedDetail Component', () => {
   };
 
   it('renders the breed name, image, and description', () => {
-    render(<DogBreedDetail breed={mockBreed} />);
+    render(
+      <MockedProvider mocks={[]} addTypename={false}>
+        <DogBreedDetail breed={mockBreed} id="1" />
+      </MockedProvider>
+    );
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Golden Retriever');
 
@@ -28,7 +33,11 @@ describe('DogBreedDetail Component', () => {
   });
 
   it('renders the image with the correct alt text', () => {
-    render(<DogBreedDetail breed={mockBreed} />);
+    render(
+      <MockedProvider mocks={[]} addTypename={false}>
+        <DogBreedDetail breed={mockBreed} id="1" />
+      </MockedProvider>
+    );
 
     const image = screen.getByAltText('Picture of our dog breed: Golden Retriever');
     expect(image).toHaveAttribute('alt', 'Picture of our dog breed: Golden Retriever');
