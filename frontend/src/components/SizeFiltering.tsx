@@ -27,10 +27,23 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange }) => {
 
   useEffect(() => {
     const filters: string[] = []
-    if (smallSelected) filters.push("Small")
-    if (mediumSelected) filters.push("Medium")
-    if (largeSelected) filters.push("Large")
-    if (giantSelected) filters.push("Giant")  
+    if (smallSelected){
+      filters.push("Small")
+      filters.push("small")
+    } 
+    if (mediumSelected){
+      filters.push("Medium")
+      filters.push("medium")
+    }
+    if (largeSelected){
+      filters.push("Large")
+      filters.push("large")
+    }
+    if (giantSelected){
+      filters.push("Giant")
+      filters.push("giant")
+    }
+
     if(filters.length > 0 || !isFirstRender.current) {
       onFilterChange(filters)
       isFirstRender.current = false;
