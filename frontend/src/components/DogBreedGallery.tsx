@@ -6,18 +6,14 @@ import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
 import { Card } from './ui/card';
 import SizeFiltering from './SizeFiltering';
-
-/**
- * DogBreedGallery Component
- * - Displays a gallery of dog breeds with functionalities to filter, sort, and search breeds.
- * - Allows users to load more breeds and reset filters/sorting.
- */
+import NameSorting from './NameSorting';
+import Search from './Search';
 
 const DogBreedGallery: React.FC = () => {
   const [allDogs, setAllDogs] = useState<DogBreed[]>([]);
   const [sortedDogs, setSortedDogs] = useState<DogBreed[]>([]);
   const [filterBySize, setFilterBySize] = useState<string[] | null>(null);
-  const [sortBy, setSortBy] = useState<string | null>(null);
+  const [orderBy, setOrderBy] = useState('');
   const [cursor, setCursor] = useState<string | null>(null);
   const [searchByName, setSearchByName] = useState('');
   const [hasNextPage, setHasNextPage] = useState<boolean>(true);
@@ -28,26 +24,26 @@ const DogBreedGallery: React.FC = () => {
       first: 4,
       after: cursor,
       filterBySize: filterBySize || undefined,
-      searchByName: searchByName || undefined
+      searchByName: searchByName || undefined,
+      orderBy: orderBy || undefined,
     },
     fetchPolicy: 'network-only',
   });
 
+  // Handle changes in filter
   const handleFilterChange = (filters: string[]) => {
     setFilterBySize(filters.length > 0 ? filters : null);
-    fetchBreeds(8, filters.length > 0 ? filters : null, false, null);
+    setCursor(null);
+    fetchBreeds(8, filters.length > 0 ? filters : null, false, searchByName, orderBy);
   };
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const search = event.target.value.toLowerCase();
-    setSearchByName(search);
-
-    if (search) {
-      fetchBreeds(100, null, false, search);
-   } else {
-    fetchBreeds(8, null, false, null);
-  }
+  // Handle changes in sorting
+  const handleSortChange = (orderBy: string) => {
+    setOrderBy(orderBy);
+    setCursor(null);
+    fetchBreeds(8, filterBySize, false, searchByName, orderBy);
   };
+
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const sortType = event.target.value;
@@ -64,11 +60,14 @@ const DogBreedGallery: React.FC = () => {
       sortedList.sort((a, b) => (a.averageRating ?? 0) - (b.averageRating ?? 0));
     }
     setSortedDogs(sortedList);
+
   };
 
+  // Handle loading more breeds when reaching the bottom
   const handleLoadMore = () => {
-    if (!loading && hasNextPage) fetchBreeds(4, filterBySize, true, null);
+    if (!loading && hasNextPage) fetchBreeds(4, filterBySize, true, searchByName, orderBy);
   };
+
 
   useEffect(() => {
     if (allDogs.length === 0) {
@@ -77,20 +76,23 @@ const DogBreedGallery: React.FC = () => {
   }, []);
 
   const fetchBreeds = (amount: number, filter: string[] | null, usePrevious: boolean, search: string | null) => {
+
     try {
       fetchMore({
         variables: {
           first: amount,
           after: usePrevious ? cursor : null,
           filterBySize: filter,
-          searchByName: search
+          searchByName: search,
+          orderBy: order
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
-          if (!fetchMoreResult) return previousResult;
+          if (!fetchMoreResult) return
 
-          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: DogBreed }) => edge.node);
-
-          //if previous result should be included, add the previous fetched breeds to the new result
+          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { cursor: string; node: DogBreed }) => ({
+            ...edge.node,
+            cursor: edge.cursor, // Store cursor for the current sorting field
+          }));
           const newAllDogs = usePrevious
             ? [
                 ...allDogs,
@@ -103,7 +105,6 @@ const DogBreedGallery: React.FC = () => {
           setSortedDogs(newAllDogs);
           setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
           setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
-          return fetchMoreResult;
         },
       });
     } catch (error) {
@@ -111,18 +112,25 @@ const DogBreedGallery: React.FC = () => {
     }
   };
 
+  // Reset filters and sorting
   const resetFiltersAndSorting = () => {
     setSearchByName('');
     setFilterBySize(null);
-    setSortBy(null);
+    setOrderBy('');
     setSortedDogs([]);
     setAllDogs([]);
     setCursor(null);
-    fetchBreeds(8, null, false, null);
+    fetchBreeds(8, null, false, null, null);
     setHasNextPage(true);
 
     if (sortRef.current) sortRef.current.value = '';
   };
+
+  useEffect(() => {
+    if (allDogs.length === 0) {
+      fetchBreeds(8, null, false, null, null); // Initial fetch without filters or search
+    }
+  }, []);
 
   if (loading && sortedDogs.length === 0) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -130,6 +138,7 @@ const DogBreedGallery: React.FC = () => {
   return (
     <>
       <section id="sortOrFilter">
+
         <section id="firstRow">
           <label htmlFor="sort">Sort by</label>
           <select ref={sortRef} name="sort" id="sort" value={sortBy || ''} onChange={handleSortChange}>
@@ -144,8 +153,8 @@ const DogBreedGallery: React.FC = () => {
         </section>
         <SizeFiltering onFilterChange={handleFilterChange}/>
 
+
         <section id="secondRow">
-          <input type="text" placeholder="Search..." value={searchByName || ''} onChange={handleSearchChange} />
           <button id="reset-btn" onClick={resetFiltersAndSorting}>
             Reset
           </button>
