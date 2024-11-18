@@ -12,6 +12,14 @@ export interface DogBreed {
     timestamp: string; // Time when the comment was made
   }[]; // Optional array of comments left by users on this breed
   size: Size; // Enum value representing the breed's size (Small, Medium, Large)
+  weight: number;
+  height: number;
+  lifespan: number;
+  trainability: number;
+  friendliness: number;
+  allergy: number;
+  energy: number;
+  issues: string;
 }
 
 // Enum representing the possible sizes for dog breeds
