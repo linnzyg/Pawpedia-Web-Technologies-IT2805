@@ -41,14 +41,18 @@ const resolvers = {
 
       // Calculate average rating for each breed
       for (const breed of breeds) {
-        const comments = await db.collection('Comment').find({ breedId: breed._id.toString() }).toArray();
-        if (comments.length > 0) {
-          const totalRating = comments.reduce((sum, comment) => sum + (comment.rating || 0), 0);
-          breed.averageRating = totalRating / comments.length;
-        } else {
-          breed.averageRating = 0; 
-        }
-      }
+      const comments = await db.collection('Comment').find({ breedId: breed._id.toString() }).toArray();
+
+      // Filter out comments that do not have a rating
+      const ratedComments = comments.filter(comment => comment.rating != null);
+
+      if (ratedComments.length > 0) {
+      const totalRating = ratedComments.reduce((sum, comment) => sum + comment.rating, 0);
+      breed.averageRating = totalRating / ratedComments.length;
+      } else {
+      breed.averageRating = 0; 
+    }
+}
 
       const edges = breeds.slice(0, first).map((breed) => ({
         cursor: breed._id.toString(),
