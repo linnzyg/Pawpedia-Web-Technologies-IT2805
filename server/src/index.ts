@@ -35,8 +35,16 @@ const resolvers = {
       }
 
       if (after) {
-        query._id = { $gt: new ObjectId(after) };
-      }
+        if (orderBy === 'asc' || orderBy === 'desc') {
+          query.name = { [orderBy === 'asc' ? '$gt' : '$lt']: after };
+        } else {
+          if (ObjectId.isValid(after)) {
+            query._id = { $gt: new ObjectId(after) };
+          } else {
+            throw new Error('Invalid after cursor provided');
+          }
+        }
+      }      
 
       if (orderBy === 'asc') {
         sortQuery = { name: 1 };
@@ -44,14 +52,14 @@ const resolvers = {
         sortQuery = { name: -1 }; 
       }
 
-      let breeds = await collection.find(query).sort(sortQuery).limit(first + 1).toArray(); 
+      let breeds = await collection.find(query).sort(sortQuery).limit(first + 1).toArray();
 
       const hasNextPage = breeds.length > first;
 
       if (first) breeds = breeds.slice(0, first);
  
       const edges = breeds.map((breed) => ({
-        cursor: breed._id.toString(),
+        cursor: orderBy ? breed.name : breed._id.toString(),
         node: {
           id: breed._id.toString(),
           name: breed.name,

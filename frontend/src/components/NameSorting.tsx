@@ -38,7 +38,7 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange }) => {
     
     onSortChange(orderBy);
   
-  }, [ascSelected, descSelected, onSortChange]);
+  }, [ascSelected, descSelected]);
 
   return (
     <DropdownMenu>

@@ -33,18 +33,21 @@ const DogBreedGallery: React.FC = () => {
   // Handle changes in filter
   const handleFilterChange = (filters: string[]) => {
     setFilterBySize(filters.length > 0 ? filters : null);
+    setCursor(null);
     fetchBreeds(8, filters.length > 0 ? filters : null, false, searchByName, orderBy);
   };
 
   // Handle changes in sorting
   const handleSortChange = (orderBy: string) => {
     setOrderBy(orderBy);
+    setCursor(null);
     fetchBreeds(8, filterBySize, false, searchByName, orderBy);
   };
   
   // Handle changes in search input
   const handleSearchChange = (search: string) => {
     setSearchByName(search); // Update search term
+    setCursor(null);
     fetchBreeds(8, filterBySize, false, search, orderBy); // Fetch with updated search term
   };
 
@@ -65,10 +68,12 @@ const DogBreedGallery: React.FC = () => {
           orderBy: order
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
-          if (!fetchMoreResult) return previousResult;
+          if (!fetchMoreResult) return
 
-          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: DogBreed }) => edge.node);
-
+          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { cursor: string; node: DogBreed }) => ({
+            ...edge.node,
+            cursor: edge.cursor, // Store cursor for the current sorting field
+          }));
           const newAllDogs = usePrevious
             ? [
                 ...allDogs,
@@ -81,7 +86,6 @@ const DogBreedGallery: React.FC = () => {
           setSortedDogs(newAllDogs);
           setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
           setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
-          return fetchMoreResult;
         },
       });
     } catch (error) {
