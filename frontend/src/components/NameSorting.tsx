@@ -13,21 +13,15 @@ import { useEffect } from "react";
 
 interface SortingProps {
   onSortChange: (orderBy: string) => void;
-  sortOption: string | null;
 }
 
-const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
+const NameSorting: React.FC<SortingProps> = ({ onSortChange }) => {
   type Checked = DropdownMenuCheckboxItemProps["checked"]
   
   const [ascSelected, setAscSelected] = React.useState<Checked>(false);
   const [descSelected, setDescSelected] = React.useState<Checked>(false);
 
   const isFirstRender = React.useRef(true);
-
-  useEffect(() => {
-    if (sortOption === "asc") setAscSelected(true)
-    else if (sortOption === "desc") setDescSelected(true);
-  }, []);
 
   useEffect(() => {
     let orderBy: string = "";
