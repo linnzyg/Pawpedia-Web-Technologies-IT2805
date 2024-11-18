@@ -5,10 +5,10 @@ Pawpedia is an application designed to showcase various dog breeds. There is a g
 ## Features
 * Gallery View: Browse all dog breeds in an easy-to-navigate gallery
 * Detailed Breed View: Click on a breed to view more detailed information
-* Sorting Options: Sort breeds alphabetically or by your favorites
-* Filters: Filter breeds by size—small or large dogs
+* Sorting Options: Sort breeds alphabetically
+* Filters: Filter breeds by size
 * Search: Quickly search for dog breeds by name
-* COMING SOON: Favorites. For the next version there will be possible to add favorites, that gets stored in your browser. 
+* Favorites: Add dog breeds to favorites that gets stored in your browser
 
 ## How to run
 ### Prerequisites
@@ -50,18 +50,45 @@ Our images are stored in a public folder as static files since there are no user
 * Apollo Client: For handling GraphQL queries and managing local/global app state.
 * GraphQL: API query language used to fetch dog breed data from the server.
 * MongoDB: Database for storing dog breed information.
+* STATE MANAGEMENT - TO DO
+* UI-libraries - TO DO
 
 ## Accessibility
-Several considerations and actions have been taken to ensure the accessibility of this application. All interactive elements can be reached and interacted with by using the keyboard. Unnecessary tabbing through elements with confusing screen reader descriptions are prevented by trying to use as many semantic HTML elements as possible. Other actions taken are using htmlFor attribute to tie together labels and interactive elements. There is also added alt-text to all dog images. Functional testing with screen reader on windows have been performed to confirm these cosiderations.
+Several considerations and actions have been taken to ensure the accessibility of this application.
+All interactive elements can be reached and interacted with by using the keyboard. Unnecessary tabbing through elements with confusing screen reader descriptions are prevented by trying to use as many semantic HTML elements as possible.
+Other actions taken are using htmlFor attribute to tie together labels and interactive elements. There is also added alt-text to all dog images.
+Functional testing with screen reader on windows have been performed to confirm these cosiderations.
 
 ### WCAG
 TODO
 
+### Sustainable web design choices made - TO DO
+* Darkmode
+* No animations
+* Caching med Apollo Client
+* Rendering
+* Etc..
+
 ## Testing and code quality
+
+### Snapshot testing
 We use snapshot tests to ensure that user interactions such as filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
 
+### Component testing
 Each component also contains component tests using Vitest. It follows the arrange, act, assert pattern using the describe, it, expect methods within Vitest.
 
+### End-to-End testing
+to do
+
+### Coverage testing
+Code coverage analysis has been set up to ensure adequate test coverage across the codebase. This can be found in [coverage folder](frontend\coverage). To test with coverage
+[See how to run coverage testing](#how-to-test-with-coverage).
+
+### Linting and Prettier
+The project uses ESLint for linting to enforce coding standards and catch potential errors early.
+Prettier is used to ensure consistent code formatting across the entire project.
+
+### Testing
 ### How to test
 Navigate to frontend folder:
 
@@ -76,9 +103,19 @@ npm run test
 ```
 _Runs the tests_ 
 
+### How to test with coverage
+Navigate to frontend folder:
 
+```bash
+cd frontend
+```
 
+then run the following command:
 
+```bash
+npm run coverage
+```
+_Runs the tests_ 
 
 
 
