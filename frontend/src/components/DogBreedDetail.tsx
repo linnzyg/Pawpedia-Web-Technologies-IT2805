@@ -13,6 +13,9 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
+import Rating from '@mui/material/Rating';
+import CircleIcon from '@mui/icons-material/Circle';
+import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 
 /**
  * Props interface for the DogBreedDetail component.
@@ -31,6 +34,7 @@ interface DogBreedDetailProps {
  * - Allows users to add comments to the breed.
  * - Uses GraphQL mutation to add comments to the backend.
  */
+
 
 const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
   const [isFavorite, setIsFavorite] = useState(breed.favorite);
@@ -59,7 +63,6 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
   const handleChange = (_event: React.SyntheticEvent, newTableValue: string) => {
     setTableValue(newTableValue);
   };
-
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
@@ -116,8 +119,18 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
                     <Tab label="Health stats" value="3" />
                   </TabList>
                 </Box>
-                <TabPanel value="1"><p>{breed.description}</p></TabPanel>
-                <TabPanel value="2">stats</TabPanel>
+                <TabPanel value="1">
+                  <p>{breed.description}</p>
+                </TabPanel>
+                <TabPanel value="2">
+                  <Rating
+                    icon={<CircleIcon/>}
+                    emptyIcon={<CircleOutlinedIcon/>}
+                    name="read-only"
+                    value={3}
+                    readOnly
+                  />
+                </TabPanel>
                 <TabPanel value="3">health</TabPanel>
               </TabContext>
             </Box>
