@@ -21,13 +21,10 @@ startMongo();
 
 const resolvers = {
   Query: {
-    breeds: async (_: any, { first, after, filterBySize, searchByName }: { first: number; after?: string; filterBySize?: string[]; searchByName?: string; }) => {
+    breeds: async (_: any, { first, after, filterBySize, searchByName, orderBy}: { first: number; after?: string; filterBySize?: string[]; searchByName?: string; orderBy?: string}) => {
       const collection = db.collection('Breed');
       const query: any = {};
-
-      if (after) {
-        query._id = { $gt: new ObjectId(after) };
-      }
+      let sortQuery: any = {};
 
       if (filterBySize && filterBySize.length > 0) {
         query.size = { $in: filterBySize };
@@ -37,10 +34,32 @@ const resolvers = {
         query.name = { $regex: searchByName, $options: 'i' };
       }
 
-      const breeds = await collection.find(query).limit(first + 1).toArray();
+      if (after) {
+        if (orderBy === 'asc' || orderBy === 'desc') {
+          query.name = { [orderBy === 'asc' ? '$gt' : '$lt']: after };
+        } else {
+          if (ObjectId.isValid(after)) {
+            query._id = { $gt: new ObjectId(after) };
+          } else {
+            throw new Error('Invalid after cursor provided');
+          }
+        }
+      }      
 
-      const edges = breeds.slice(0, first).map((breed) => ({
-        cursor: breed._id.toString(),
+      if (orderBy === 'asc') {
+        sortQuery = { name: 1 };
+      } else if (orderBy === 'desc') {
+        sortQuery = { name: -1 }; 
+      }
+
+      let breeds = await collection.find(query).sort(sortQuery).limit(first + 1).toArray();
+
+      const hasNextPage = breeds.length > first;
+
+      if (first) breeds = breeds.slice(0, first);
+ 
+      const edges = breeds.map((breed) => ({
+        cursor: orderBy ? breed.name : breed._id.toString(),
         node: {
           id: breed._id.toString(),
           name: breed.name,
@@ -51,7 +70,6 @@ const resolvers = {
         },
       }));
 
-      const hasNextPage = breeds.length > first;
       const endCursor = edges.length > 0 ? edges[edges.length - 1].cursor : null;
 
       return {
