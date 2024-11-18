@@ -36,15 +36,18 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
       console.error('Error adding comment:', error);
     },
   });
-  
-  // Handle the addition of a new comment, using the `addComment` mutation
-  const handleAddComment = (username: string, comment: string) => {
+
+
+  //La til rating der vi handler kommentarer
+  const handleAddComment = (username: string, comment: string, rating: number) => {
+
     addComment({
       variables: {
         comment: {
           breedId: id,
           username,
           comment,
+          rating,
         },
       },
     });
@@ -85,15 +88,23 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
       <div className="commentary-section mt-6">
         <header className="commentHeader">
           <h2 className="text-xl mt-8">Leave a Comment on {breed.name}:</h2>
+          {}
           <Commentary onAddComment={handleAddComment} breedId={breed.id} />
         </header>
         <section className="commentSection">
           <h3 className="text-xl mt-8">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
-              {breed.comments.map((comment, index) => (
+
+              {(breed.comments ?? []).map((comment: { username: string; comment: string; rating?: number }, index) => (
                 <section key={index} className="commentElement">
-                  <p className="commentName">{comment.username}:</p>
+                  <p className="commentName">
+                    {comment.rating === null || comment.rating === undefined
+                      ? `${comment.username}`
+                      : `${comment.username} (${comment.rating} ★)`}
+                    :
+                  </p>
+
                   <p className="commentText">{comment.comment}</p>
                 </section>
               ))}

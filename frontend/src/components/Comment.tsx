@@ -8,7 +8,7 @@ import React, { useState } from 'react';
  */
 
 interface CommentProps {
-  onAddComment: (username: string, comment: string) => void;
+  onAddComment: (username: string, comment: string, rating: number) => void;
   breedId: string;
 }
 
@@ -23,13 +23,17 @@ interface CommentProps {
 const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
+  const [rating, setRating] = useState(0);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim() && comment.trim()) {
-      onAddComment(name, comment);
-      setName(''); //Reset
-      setComment(''); //Reset
+
+    if (name.trim() && comment.trim() && rating > 0) {
+      onAddComment(name, comment, rating);
+      setName('');
+      setComment('');
+      setRating(0);
+
     }
   };
 
@@ -50,6 +54,20 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
         required
         className="w-full p-2 border border-gray-300 rounded-md"
       />
+
+      {/* Star Rating */}
+      <div className="star-rating flex space-x-2">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <span
+            key={star}
+            onClick={() => setRating(star)}
+            className={`cursor-pointer ${rating >= star ? 'text-yellow-500' : 'text-gray-300'}`}
+          >
+            ★
+          </span>
+        ))}
+      </div>
+
       <button type="submit" className="w-full p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
         Submit Comment
       </button>

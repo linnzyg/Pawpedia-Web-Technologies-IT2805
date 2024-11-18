@@ -7,11 +7,12 @@ export interface DogBreed {
   slug: string; // URL-friendly version of the breed name for routing
   favorite?: boolean; // Optional boolean indicating if the breed is a user's favorite
   comments?: {
-    username: string; // Name of the user who left the comment
-    comment: string; // The comment content
-    timestamp: string; // Time when the comment was made
-  }[]; // Optional array of comments left by users on this breed
-  size: Size; // Enum value representing the breed's size (Small, Medium, Large)
+    username: string;
+    comment: string;
+    timestamp: string;
+  }[];
+  size: Size;
+  averageRating?: number;
 }
 
 // Enum representing the possible sizes for dog breeds

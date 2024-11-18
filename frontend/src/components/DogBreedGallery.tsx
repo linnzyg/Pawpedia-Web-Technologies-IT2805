@@ -49,13 +49,26 @@ const DogBreedGallery: React.FC = () => {
       fetchBreeds(8, filterBySize, false, searchByName, orderBy);
     }
   };
-  
-  // Handle changes in search input
-  const handleSearchChange = (search: string) => {
-    if(search !== '') setUnvalidSearchTerm('');
-    setSearchByName(search); // Update search term
-    setCursor(null);
-    fetchBreeds(8, filterBySize, false, search, orderBy); // Fetch with updated search term
+
+
+
+  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const sortType = event.target.value;
+    setSortBy(sortType);
+    const sortedList = [...sortedDogs];
+
+    if (sortType === 'a-z') {
+      sortedList.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortType === 'z-a') {
+      sortedList.sort((a, b) => a.name.localeCompare(b.name) * -1);
+    } else if (sortType === 'rating-high') {
+      sortedList.sort((a, b) => (b.averageRating ?? 0) - (a.averageRating ?? 0));
+    } else if (sortType === 'rating-low') {
+      sortedList.sort((a, b) => (a.averageRating ?? 0) - (b.averageRating ?? 0));
+    }
+    setSortedDogs(sortedList);
+
+
   };
 
   // Handle loading more breeds when reaching the bottom
@@ -63,8 +76,15 @@ const DogBreedGallery: React.FC = () => {
     if (!loading && hasNextPage) fetchBreeds(4, filterBySize, true, searchByName, orderBy);
   };
 
-  // Fetch breeds based on current filters, search, and sorting
-  const fetchBreeds = (amount: number, filter: string[] | null, usePrevious: boolean, search: string | null, order: string | null) => {
+
+  useEffect(() => {
+    if (allDogs.length === 0) {
+      fetchBreeds(8, null, false, null);
+    }
+  }, []);
+
+  const fetchBreeds = (amount: number, filter: string[] | null, usePrevious: boolean, search: string | null) => {
+
     try {
       fetchMore({
         variables: {
@@ -130,10 +150,24 @@ const DogBreedGallery: React.FC = () => {
   return (
     <>
       <section id="sortOrFilter">
-        <NameSorting onSortChange={handleSortChange} sortOption={orderBy} />
-        <SizeFiltering onFilterChange={handleFilterChange} filterBySize={filterBySize} />
-        <Search searchByName={searchByName} onSearchChange={handleSearchChange} />
-        
+
+
+        <section id="firstRow">
+          <label htmlFor="sort">Sort by</label>
+          <select ref={sortRef} name="sort" id="sort" value={sortBy || ''} onChange={handleSortChange}>
+            <option value="" disabled>
+              Choose...
+            </option>
+            <option value="a-z">A-Z</option>
+            <option value="z-a">Z-A</option>
+            <option value="rating-high">Highest Rating</option>
+            <option value="rating-low">Lowest Rating</option>
+          </select>
+        </section>
+        <SizeFiltering onFilterChange={handleFilterChange}/>
+
+
+
         <section id="secondRow">
           <button id="reset-btn" onClick={resetFiltersAndSorting}>
             Reset
@@ -151,6 +185,7 @@ const DogBreedGallery: React.FC = () => {
               <Link to={`/${breed.id}`}>
                 <h2>{breed.name}</h2>
                 <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
+                <p>Rating: {breed.averageRating ? breed.averageRating.toFixed(1) : 'No ratings yet'}</p>
               </Link>
             </Card>
           ))
