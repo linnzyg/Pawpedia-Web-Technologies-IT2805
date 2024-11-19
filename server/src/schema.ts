@@ -2,14 +2,27 @@ export const typeDefs = `#graphql
 
     # Breed type represents a dog breed and its properties
     type Breed {
-        id: ID!
-        name: String!
-        description: String!
-        image: String!
-        slug: String!
-        size: String!
-        comments: [Comment!]
+
+       
+
+        id: ID!                   # Unique identifier for the breed
+        name: String!             # Name of the breed
+        description: String!      # Description of the breed
+        image: String!            # Image of the breed
+        slug: String!             # Slug for the breed, used for URLs
+        size: String!             # Size category of the breed (e.g., Small, Medium, Large)
+        comments: [Comment!]      # List of comments related to the breed
+        weight: Int!
+        height: Int!
         averageRating: Float
+        lifespan: Int!
+        trainability: Int!
+        friendliness: Int!
+        allergy: Int!
+        energy: Int!
+        issues: String!
+
+
     }
 
     # Comment type represents a comment made on a specific breed

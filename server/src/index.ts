@@ -83,10 +83,20 @@ const resolvers = {
           id: breed._id.toString(),
           name: breed.name,
           description: breed.description,
-          image: breed.image,
           slug: breed.slug,
+          image: breed.image,
           size: breed.size,
+
           averageRating: breed.averageRating,
+          weight: breed.weight,
+          height: breed.height,
+          lifespan: breed.lifespan,
+          trainability: breed.trainability,
+          friendliness: breed.friendliness,
+          allergy: breed.allergy,
+          energy: breed.energy,
+          issues: breed.issues,
+
         },
       }));
 

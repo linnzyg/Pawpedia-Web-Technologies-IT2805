@@ -39,6 +39,14 @@ export const GET_BREED = gql`
       name
       description
       image
+      weight
+      height
+      lifespan
+      trainability
+      friendliness
+      allergy
+      energy
+      issues
       comments {
         username
         comment
