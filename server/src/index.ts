@@ -37,6 +37,8 @@ const resolvers = {
       if (after) {
         if (orderBy === 'asc' || orderBy === 'desc') {
           query.name = { [orderBy === 'asc' ? '$gt' : '$lt']: after };
+        } else if(orderBy === 'lowestRating' || orderBy === 'highestRating') {
+          query.averageRating = { [orderBy === 'lowestRating' ? '$gt' : '$lt']: after };
         } else {
           if (ObjectId.isValid(after)) {
             query._id = { $gt: new ObjectId(after) };
@@ -50,10 +52,14 @@ const resolvers = {
         sortQuery = { name: 1 };
       } else if (orderBy === 'desc') {
         sortQuery = { name: -1 }; 
+      } else if (orderBy === 'lowestRating') {
+        sortQuery = { averageRating: 1 };
+      } else if (orderBy === 'highestRating') {
+        sortQuery = { averageRating: -1 };
       }
 
       let breeds = await collection.find(query).sort(sortQuery).limit(first + 1).toArray();
-
+      const hasNextPage = breeds.length > first;
 
       // Calculate average rating for each breed
       for (const breed of breeds) {
@@ -67,12 +73,12 @@ const resolvers = {
       breed.averageRating = totalRating / ratedComments.length;
       } else {
       breed.averageRating = 0; 
+      }
     }
-}
+      if (first) breeds = breeds.slice(0, first);
 
-      const edges = breeds.slice(0, first).map((breed) => ({
-        cursor: breed._id.toString(),
-
+      const edges = breeds.map((breed) => ({
+        cursor: orderBy ? breed.name : breed._id.toString(),
         node: {
           id: breed._id.toString(),
           name: breed.name,

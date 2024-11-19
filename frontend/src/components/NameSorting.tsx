@@ -18,33 +18,36 @@ interface SortingProps {
 
 const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
   type Checked = DropdownMenuCheckboxItemProps["checked"]
-  
   const [ascSelected, setAscSelected] = React.useState<Checked>(false);
   const [descSelected, setDescSelected] = React.useState<Checked>(false);
+  const [lowestRatingSelected, setLowestRatingSelected] = React.useState<Checked>(false);
+  const [highestRatingSelected, setHighestRatingSelected] = React.useState<Checked>(false);
 
   const isFirstRender = React.useRef(true);
 
   useEffect(() => {
     if (sortOption === "asc") setAscSelected(true)
     else if (sortOption === "desc") setDescSelected(true);
+    else if (sortOption === "lowestRating") setLowestRatingSelected(true);
+    else if (sortOption === "highestRating") setHighestRatingSelected(true);
   }, []);
 
   useEffect(() => {
     let orderBy: string = "";
-  
     if (ascSelected) {
       orderBy = "asc"; 
     } else if (descSelected) {
       orderBy = "desc";
+    } else if (lowestRatingSelected) {
+      orderBy = "lowestRating";
+    } else if (highestRatingSelected) {
+      orderBy = "highestRating";
     }
-    
-      if (!isFirstRender.current || orderBy) {
-      isFirstRender.current = false;
+    if (!isFirstRender.current || orderBy) {
+    isFirstRender.current = false;
     }
-    
     onSortChange(orderBy);
-  
-  }, [ascSelected, descSelected]);
+  }, [ascSelected, descSelected, lowestRatingSelected, highestRatingSelected]);
 
   return (
     <DropdownMenu>
@@ -59,7 +62,11 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
           checked={ascSelected}
           onCheckedChange={(checked) => {
             setAscSelected(checked);
-            if (checked) setDescSelected(false);
+            if (checked) {
+              setDescSelected(false);
+              setLowestRatingSelected(false);
+              setHighestRatingSelected(false);
+            } 
           }}
         >
           A-Z
@@ -69,10 +76,40 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
           checked={descSelected}
           onCheckedChange={(checked) => {
             setDescSelected(checked);
-            if (checked) setAscSelected(false);
+            if (checked) {
+              setAscSelected(false);
+              setLowestRatingSelected(false);
+              setHighestRatingSelected(false);
+            } 
           }}
         >
           Z-A
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={descSelected}
+          onCheckedChange={(checked) => {
+            setDescSelected(checked);
+            if (checked) {
+              setAscSelected(false);
+              setLowestRatingSelected(false);
+              setDescSelected(false);
+            } 
+          }}
+        >
+          Highest Rating
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={descSelected}
+          onCheckedChange={(checked) => {
+            setDescSelected(checked);
+            if (checked) {
+              setAscSelected(false);
+              setDescSelected(false);
+              setHighestRatingSelected(false);
+            } 
+          }}
+        >
+          Lowest Rating
         </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
     </DropdownMenu>
