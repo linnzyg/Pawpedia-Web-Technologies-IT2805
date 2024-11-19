@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DogBreed } from '../types/DogBreed';
 import '../style/FavoritesGrid.css';
+import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
+import '../style/DogCard.css';
 
 type FavoriteBreed = Pick<DogBreed, 'id' | 'name' | 'image'>;
 
@@ -24,21 +27,25 @@ function FavoritesGrid() {
   }, []);
 
   return (
-    <div className="favorites-grid">
-      <h1>Your favorite breeds</h1>
+    <Box>
+      <header className="favorites-header">
+        <h2>Your favorite dogs: </h2>
+      </header>
+      <Box className="favorites-grid">
       {favorites.length > 0 ? (
         favorites.map((breed) => (
-          <div key={breed.id} className="breed-card">
+          <Card key={breed.id} className="breed-card">
             <Link to={`/${breed.id}`}>
               <h2>{breed.name}</h2>
               <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
             </Link>
-          </div>
+          </Card>
         ))
       ) : (
         <p>No breeds found.</p>
       )}
-    </div>
+    </Box>
+    </Box>
   );
 }
 

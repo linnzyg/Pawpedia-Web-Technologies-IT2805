@@ -1,17 +1,17 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
-import { Card } from './ui/card';
+import Card from '@mui/material/Card';
 import SizeFiltering from './SizeFiltering';
 import NameSorting from './NameSorting';
 import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch } from './redux/actions';
 import { RootState } from './redux/store';
+import { Rating } from '@mui/material';
 
 const DogBreedGallery: React.FC = () => {
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ const DogBreedGallery: React.FC = () => {
   // Handle changes in sorting
 
   const handleSortChange = (orderByValue: string) => {
-    if(orderByValue !== '') {
+    if (orderByValue !== '') {
       dispatch(setSort(orderByValue));
 
       setCursor(null);
@@ -58,8 +58,7 @@ const DogBreedGallery: React.FC = () => {
   };
 
   const handleSearchChange = (search: string) => {
-
-    if(search !== '') setUnvalidSearchTerm('');
+    if (search !== '') setUnvalidSearchTerm('');
     dispatch(setSearch(search)); // Update search term in Redux
 
     setCursor(null);
@@ -106,7 +105,7 @@ const DogBreedGallery: React.FC = () => {
             setUnvalidSearchTerm(search ?? '');
 
             dispatch(setSearch('')); // Reset search term in Redux if no breeds found
-          } 
+          }
 
           setAllDogs(newAllDogs);
           setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
@@ -153,16 +152,19 @@ const DogBreedGallery: React.FC = () => {
       </section>
       {unvalidSearchTerm.length > 0 ? <p>No breeds found for search term: {unvalidSearchTerm}.</p> : null}
       <section className="dog-breed-gallery">
-
-
         {allDogs.length > 0 ? (
           allDogs.map((breed) => (
-
             <Card key={breed.id} className="breed-card">
               <Link to={`/${breed.id}`}>
                 <h2>{breed.name}</h2>
+                <p>
+                  {breed?.averageRating ? (
+                    <Rating readOnly value={Number(breed.averageRating.toFixed(1))} precision={0.1} />
+                  ) : (
+                    'No ratings yet'
+                  )}
+                </p>
                 <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
-                <p>Rating: {breed.averageRating ? breed.averageRating.toFixed(1) : 'No ratings yet'}</p>
               </Link>
             </Card>
           ))

@@ -8,13 +8,57 @@ li {
   display: list-item;
 }
 
+.homeTitle{
+  font-size: large;
+  padding:10px;
+  border-bottom: 2px solid;
+}
+
+.aboutText, .offerText{
+  padding: 1%;
+}
+
+.offerText{
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.aboutBox, .offerBox{
+  margin: 3%;
+  padding: 2%
+}
+
+.reveal-1,.reveal-2,.reveal-3{
+  padding: 5px;
+  margin: 5px;
+  border: solid 2px;
+}
+
+#hide-1, #hide-2, #hide-3{
+  padding: 1%;
+  display: none;
+}
+
+.reveal-1:hover + #hide-1 {
+  display: block;
+}
+
+.reveal-2:hover + #hide-2 {
+  display: block;
+}
+
+.reveal-3:hover + #hide-3 {
+  display: block;
+}
+
+
 #homeBody > * {
-  padding: 2%;
   flex-grow: 1;
 }
 
 #homeBody > header {
-  background-image: url(../assets/aboutimage.jpg);
+  background-image: url(../assets/aboutimage.webp);
   background-repeat: no-repeat;
   background-size: cover;
   height: 300px;
@@ -26,12 +70,17 @@ li {
   color: white;
   font-size: 40px;
   text-shadow: 0px 0px 10px black;
+  padding: 2%;
 }
 
 footer {
   background-color: var(--brown);
-  margin: 0px;
   color: white;
+  padding: 10px;
+  padding-bottom: 50px;
+  margin-top: 80px;
+  bottom: -100px;
+  
 }
 
 @media (max-width: 860px) {
@@ -64,9 +113,10 @@ footer {
 }
 
 .viewAllBreedsLink {
-  border: 2px solid black;
+  border: 2px solid;
   padding: 10px;
   border-radius: 5px;
+  margin: 3%;
 }
 
 .viewAllBreedsLink:hover {
