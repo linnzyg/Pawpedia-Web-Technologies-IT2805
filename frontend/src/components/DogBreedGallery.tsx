@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
@@ -8,14 +9,18 @@ import { Card } from './ui/card';
 import SizeFiltering from './SizeFiltering';
 import NameSorting from './NameSorting';
 import Search from './Search';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilter, setSort, setSearch } from './redux/actions';
+import { RootState } from './redux/store';
 
 const DogBreedGallery: React.FC = () => {
+  const dispatch = useDispatch();
+  const filterBySize = useSelector((state: RootState) => state.filter);
+  const orderBy = useSelector((state: RootState) => state.sort);
+  const searchByName = useSelector((state: RootState) => state.search);
+
   const [allDogs, setAllDogs] = useState<DogBreed[]>([]);
-  const [sortedDogs, setSortedDogs] = useState<DogBreed[]>([]);
-  const [filterBySize, setFilterBySize] = useState<string[] | null>(null);
-  const [orderBy, setOrderBy] = useState<string | null>(null);
   const [cursor, setCursor] = useState<string | null>(null);
-  const [searchByName, setSearchByName] = useState('');
   const [hasNextPage, setHasNextPage] = useState<boolean>(true);
   const sortRef = useRef<HTMLSelectElement>(null);
   const [unvalidSearchTerm, setUnvalidSearchTerm] = useState<string>('');
@@ -35,26 +40,30 @@ const DogBreedGallery: React.FC = () => {
   const handleFilterChange = (filters: string[]) => {
     if (JSON.stringify(filters) !== JSON.stringify(filterBySize)) {
       setUnvalidSearchTerm('');
-      setFilterBySize(filters.length > 0 ? filters : null);
+      dispatch(setFilter(filters.length > 0 ? filters : null));
       setCursor(null);
       fetchBreeds(8, filters.length > 0 ? filters : null, false, searchByName, orderBy);
     }
   };
 
   // Handle changes in sorting
-  const handleSortChange = (orderBy: string) => {
-    if (orderBy !== '') {
-      setOrderBy(orderBy);
+
+  const handleSortChange = (orderByValue: string) => {
+    if(orderByValue !== '') {
+      dispatch(setSort(orderByValue));
+
       setCursor(null);
-      fetchBreeds(8, filterBySize, false, searchByName, orderBy);
+      fetchBreeds(8, filterBySize, false, searchByName, orderByValue);
     }
   };
 
   const handleSearchChange = (search: string) => {
-    if (search !== '') setUnvalidSearchTerm('');
-    setSearchByName(search); // Update search term
+
+    if(search !== '') setUnvalidSearchTerm('');
+    dispatch(setSearch(search)); // Update search term in Redux
+
     setCursor(null);
-    fetchBreeds(8, filterBySize, false, search, orderBy); // Fetch with updated search term
+    fetchBreeds(8, filterBySize, false, search, orderBy);
   };
 
   // Handle loading more breeds when reaching the bottom
@@ -95,10 +104,11 @@ const DogBreedGallery: React.FC = () => {
             : resultBreeds;
           if (newAllDogs.length === 0) {
             setUnvalidSearchTerm(search ?? '');
-            setSearchByName(''); // Reset search term if no breeds found
-          }
+
+            dispatch(setSearch('')); // Reset search term in Redux if no breeds found
+          } 
+
           setAllDogs(newAllDogs);
-          setSortedDogs(newAllDogs);
           setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
           setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
         },
@@ -110,10 +120,9 @@ const DogBreedGallery: React.FC = () => {
 
   // Reset filters and sorting
   const resetFiltersAndSorting = () => {
-    setSearchByName('');
-    setFilterBySize(null);
-    setOrderBy('');
-    setSortedDogs([]);
+    dispatch(setSearch(''));
+    dispatch(setFilter(null));
+    dispatch(setSort(''));
     setAllDogs([]);
     setCursor(null);
     fetchBreeds(8, null, false, null, null);
@@ -123,12 +132,11 @@ const DogBreedGallery: React.FC = () => {
   };
 
   useEffect(() => {
-    if (allDogs.length === 0) {
-      fetchBreeds(8, null, false, null, null); // Initial fetch without filters or search
-    }
+    // Fetch breeds with the current Redux state
+    fetchBreeds(8, filterBySize, false, searchByName, orderBy);
   }, []);
 
-  if (loading && sortedDogs.length === 0) return <p>Loading...</p>;
+  if (loading && allDogs.length === 0) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
@@ -145,8 +153,11 @@ const DogBreedGallery: React.FC = () => {
       </section>
       {unvalidSearchTerm.length > 0 ? <p>No breeds found for search term: {unvalidSearchTerm}.</p> : null}
       <section className="dog-breed-gallery">
-        {sortedDogs.length > 0 ? (
-          sortedDogs.map((breed) => (
+
+
+        {allDogs.length > 0 ? (
+          allDogs.map((breed) => (
+
             <Card key={breed.id} className="breed-card">
               <Link to={`/${breed.id}`}>
                 <h2>{breed.name}</h2>
