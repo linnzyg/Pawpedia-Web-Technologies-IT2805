@@ -86,7 +86,6 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
           Z-A
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
-          disabled={true} //enable when sorting on server for rating is fixed
           checked={highestRatingSelected}
           onCheckedChange={(checked) => {
             setHighestRatingSelected(checked);
@@ -100,7 +99,6 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
           Highest Rating
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
-          disabled={true} //enable when sorting on server for rating is fixed
           checked={lowestRatingSelected}
           onCheckedChange={(checked) => {
             setLowestRatingSelected(checked);
