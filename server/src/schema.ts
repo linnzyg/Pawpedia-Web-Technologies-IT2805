@@ -2,6 +2,9 @@ export const typeDefs = `#graphql
 
     # Breed type represents a dog breed and its properties
     type Breed {
+
+       
+
         id: ID!                   # Unique identifier for the breed
         name: String!             # Name of the breed
         description: String!      # Description of the breed
@@ -9,15 +12,29 @@ export const typeDefs = `#graphql
         slug: String!             # Slug for the breed, used for URLs
         size: String!             # Size category of the breed (e.g., Small, Medium, Large)
         comments: [Comment!]      # List of comments related to the breed
+        weight: Int!
+        height: Int!
+        averageRating: Float
+        lifespan: Int!
+        trainability: Int!
+        friendliness: Int!
+        allergy: Int!
+        energy: Int!
+        issues: String!
+
+
     }
 
     # Comment type represents a comment made on a specific breed
     type Comment {
-        id: ID!                   # Unique identifier for the comment
-        breedId: String!          # ID of the breed associated with the comment
-        username: String          # Username of the person who made the comment
-        comment: String!          # The comment text
-        timestamp: String!        # Timestamp when the comment was made
+
+        id: ID!
+        breedId: String!
+        username: String
+        comment: String!
+        timestamp: String!
+        rating: Int
+
     }
 
     # BreedConnection type supports pagination for the breeds
@@ -54,8 +71,11 @@ export const typeDefs = `#graphql
 
     # Input type for adding a new comment
     input AddCommentInput {
-        breedId: ID!            # ID of the breed associated with the comment
-        username: String        # Username of the person adding the comment
-        comment: String!        # The actual comment text
+
+        breedId: ID!
+        username: String
+        comment: String!
+        rating: Int
+
     }
-`;
+    `
