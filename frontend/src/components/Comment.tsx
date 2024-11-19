@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
+import { Box, Rating } from '@mui/material';
 
 /**
  * Props interface for the Comment component.
@@ -8,7 +9,7 @@ import TextField from '@mui/material/TextField';
  */
 
 interface CommentProps {
-  onAddComment: (username: string, comment: string) => void;
+  onAddComment: (username: string, comment: string, rating: number) => void;
   breedId: string;
 }
 
@@ -22,39 +23,52 @@ interface CommentProps {
 const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
+  const [rating, setRating] = useState(0);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim() && comment.trim()) {
-      onAddComment(name, comment);
-      setName(''); //Reset
-      setComment(''); //Reset
+
+    if (name.trim() && comment.trim() && rating > 0) {
+      onAddComment(name, comment, rating);
+      setName('');
+      setComment('');
+      setRating(0);
     }
   };
 
   return (
-      <form onSubmit={handleSubmit} className='comment-form'>
-        <TextField
-          placeholder="Your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          className="w-full p-2 border-4 border-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <TextField
-          multiline
-          minRows={3}
-          maxRows={8}
-          placeholder="Your comment"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          required
-          className="w-full p-2 border border-gray-300 rounded-md"
-        />
-        <button type="submit" className="submitComment">
-          Submit Comment
-        </button>
-      </form>
+    <form onSubmit={handleSubmit} className="comment-form">
+      <TextField
+        placeholder="Your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+        className="w-full p-2 border-4 border-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <TextField
+        multiline
+        minRows={3}
+        maxRows={8}
+        placeholder="Your comment"
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+        required
+        className="w-full p-2 border border-gray-300 rounded-md"
+      />
+      {/* Star Rating */}
+      <Box>
+        <Rating
+          aria-label="Rate 1-5"
+          value={rating}
+          onChange={(event, newValue) => {
+            setRating(newValue);
+          }}
+        ></Rating>
+      </Box>
+      <button type="submit" className="submitComment">
+        Submit Comment
+      </button>
+    </form>
   );
 };
 

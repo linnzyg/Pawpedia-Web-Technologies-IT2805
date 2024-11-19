@@ -5,7 +5,7 @@
   background-color: var(--brown);
   padding: 0.5%;
   margin: 1%;
-  border-radius: 50px;
+  border-radius: 10px;
   color: white;
   justify-content: space-between;
 }

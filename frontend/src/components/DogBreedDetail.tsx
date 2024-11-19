@@ -44,14 +44,15 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
     },
   });
 
-  // Handle the addition of a new comment, using the `addComment` mutation
-  const handleAddComment = (username: string, comment: string) => {
+  //La til rating der vi handler kommentarer
+  const handleAddComment = (username: string, comment: string, rating: number) => {
     addComment({
       variables: {
         comment: {
           breedId: id,
           username,
           comment,
+          rating,
         },
       },
     });
@@ -74,12 +75,10 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
     if (isFavorite) {
       const newFavorites = favorites.filter((fav: { id: string }) => fav.id !== id);
       localStorage.setItem('favorites', JSON.stringify(newFavorites));
-      console.log('Removed from favorites:', newFavorites);
     } else {
       const newFavorite = { id, name: breed.name, image: breed.image };
       const updatedFavorites = [...favorites, newFavorite];
       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-      console.log('Added to favorites:', newFavorite);
     }
 
     setIsFavorite(!isFavorite);
@@ -151,7 +150,17 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
                     readOnly
                   />
                 </TabPanel>
-                <TabPanel value="3">health</TabPanel>
+                <TabPanel value="3">health
+                  
+          <p>{breed.weight}</p>
+          <p>{breed.height}</p>
+          <p>{breed.lifespan}</p>
+          <p>{breed.trainability}</p>
+          <p>{breed.friendliness}</p>
+          <p>{breed.allergy}</p>
+          <p>{breed.energy}</p>
+          <p>{breed.issues}</p>
+                </TabPanel>
               </TabContext>
             </Box>
           </Box>
@@ -177,19 +186,21 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           <h3 className="text-xl pb-5">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
-              {breed.comments.map((comment, index) => (
-                <Box
-                  key={index}
-                  className="commentElement"
-                  sx={{
-                    backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff'),
-                    color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
-                    padding: 2,
-                    borderRadius: 2,
-                    boxShadow: 1,
-                  }}
-                >
-                  <p className="commentName">{comment.username}</p>
+              {(breed.comments ?? []).map((comment: { username: string; comment: string; rating?: number }, index) => (
+                <Box key={index} className="commentElement" sx={{
+                  backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff'),
+                  color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
+                  padding: 2,
+                  borderRadius: 2,
+                  boxShadow: 1,
+                }}>
+                  <p className="commentName">
+                    {comment.rating === null || comment.rating === undefined
+                      ? `${comment.username}`
+                      : `${comment.username} (${comment.rating} ★)`}
+                    :
+                  </p>
+
                   <p className="commentText">{comment.comment}</p>
                 </Box>
               ))}

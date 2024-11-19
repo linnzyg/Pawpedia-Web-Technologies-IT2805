@@ -6,88 +6,93 @@ import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
 import Card from '@mui/material/Card';
 import SizeFiltering from './SizeFiltering';
-
-/**
- * DogBreedGallery Component
- * - Displays a gallery of dog breeds with functionalities to filter, sort, and search breeds.
- * - Allows users to load more breeds and reset filters/sorting.
- */
+import NameSorting from './NameSorting';
+import Search from './Search';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilter, setSort, setSearch } from './redux/actions';
+import { RootState } from './redux/store';
+import { Rating } from '@mui/material';
 
 const DogBreedGallery: React.FC = () => {
+  const dispatch = useDispatch();
+  const filterBySize = useSelector((state: RootState) => state.filter);
+  const orderBy = useSelector((state: RootState) => state.sort);
+  const searchByName = useSelector((state: RootState) => state.search);
+
   const [allDogs, setAllDogs] = useState<DogBreed[]>([]);
-  const [sortedDogs, setSortedDogs] = useState<DogBreed[]>([]);
-  const [filterBySize, setFilterBySize] = useState<string[] | null>(null);
-  const [sortBy, setSortBy] = useState<string | null>(null);
   const [cursor, setCursor] = useState<string | null>(null);
-  const [searchByName, setSearchByName] = useState('');
   const [hasNextPage, setHasNextPage] = useState<boolean>(true);
   const sortRef = useRef<HTMLSelectElement>(null);
+  const [unvalidSearchTerm, setUnvalidSearchTerm] = useState<string>('');
 
   const { loading, error, fetchMore } = useQuery(GET_BREEDS, {
     variables: {
       first: 4,
       after: cursor,
       filterBySize: filterBySize || undefined,
-      searchByName: searchByName || undefined
+      searchByName: searchByName || undefined,
+      orderBy: orderBy || undefined,
     },
     fetchPolicy: 'network-only',
   });
 
+  // Handle changes in filter
   const handleFilterChange = (filters: string[]) => {
-    setFilterBySize(filters.length > 0 ? filters : null);
-    fetchBreeds(8, filters.length > 0 ? filters : null, false, null);
-  };
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const search = event.target.value.toLowerCase();
-    setSearchByName(search);
-
-    if (search) {
-      fetchBreeds(100, null, false, search);
-   } else {
-    fetchBreeds(8, null, false, null);
-  }
-  };
-
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const sortType = event.target.value;
-    setSortBy(sortType);
-    const sortedList = [...sortedDogs];
-
-    if (sortType === 'a-z') {
-      sortedList.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortType === 'z-a') {
-      sortedList.sort((a, b) => a.name.localeCompare(b.name) * -1);
+    if (JSON.stringify(filters) !== JSON.stringify(filterBySize)) {
+      setUnvalidSearchTerm('');
+      dispatch(setFilter(filters.length > 0 ? filters : null));
+      setCursor(null);
+      fetchBreeds(8, filters.length > 0 ? filters : null, false, searchByName, orderBy);
     }
-    setSortedDogs(sortedList);
   };
 
+  // Handle changes in sorting
+
+  const handleSortChange = (orderByValue: string) => {
+    if (orderByValue !== '') {
+      dispatch(setSort(orderByValue));
+
+      setCursor(null);
+      fetchBreeds(8, filterBySize, false, searchByName, orderByValue);
+    }
+  };
+
+  const handleSearchChange = (search: string) => {
+    if (search !== '') setUnvalidSearchTerm('');
+    dispatch(setSearch(search)); // Update search term in Redux
+
+    setCursor(null);
+    fetchBreeds(8, filterBySize, false, search, orderBy);
+  };
+
+  // Handle loading more breeds when reaching the bottom
   const handleLoadMore = () => {
-    if (!loading && hasNextPage) fetchBreeds(4, filterBySize, true, null);
+    if (!loading && hasNextPage) fetchBreeds(4, filterBySize, true, searchByName, orderBy);
   };
 
-  //useffect that fetches eight first breeds when the page loades initially
-  useEffect(() => {
-    if (allDogs.length === 0) {
-      fetchBreeds(8, null, false, null);
-    }
-  }, []);
-
-  const fetchBreeds = (amount: number, filter: string[] | null, usePrevious: boolean, search: string | null) => {
+  const fetchBreeds = (
+    amount: number,
+    filter: string[] | null,
+    usePrevious: boolean,
+    search: string | null,
+    order: string | null,
+  ) => {
     try {
       fetchMore({
         variables: {
           first: amount,
           after: usePrevious ? cursor : null,
           filterBySize: filter,
-          searchByName: search
+          searchByName: search,
+          orderBy: order,
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
-          if (!fetchMoreResult) return previousResult;
+          if (!fetchMoreResult) return;
 
-          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: DogBreed }) => edge.node);
-
-          //if previous result should be included, add the previous fetched breeds to the new result
+          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { cursor: string; node: DogBreed }) => ({
+            ...edge.node,
+            cursor: edge.cursor, // Store cursor for the current sorting field
+          }));
           const newAllDogs = usePrevious
             ? [
                 ...allDogs,
@@ -96,11 +101,15 @@ const DogBreedGallery: React.FC = () => {
                 ),
               ]
             : resultBreeds;
+          if (newAllDogs.length === 0) {
+            setUnvalidSearchTerm(search ?? '');
+
+            dispatch(setSearch('')); // Reset search term in Redux if no breeds found
+          }
+
           setAllDogs(newAllDogs);
-          setSortedDogs(newAllDogs);
           setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
           setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
-          return fetchMoreResult;
         },
       });
     } catch (error) {
@@ -108,51 +117,53 @@ const DogBreedGallery: React.FC = () => {
     }
   };
 
+  // Reset filters and sorting
   const resetFiltersAndSorting = () => {
-    setSearchByName('');
-    setFilterBySize(null);
-    setSortBy(null);
-    setSortedDogs([]);
+    dispatch(setSearch(''));
+    dispatch(setFilter(null));
+    dispatch(setSort(''));
     setAllDogs([]);
     setCursor(null);
-    fetchBreeds(8, null, false, null);
+    fetchBreeds(8, null, false, null, null);
     setHasNextPage(true);
 
     if (sortRef.current) sortRef.current.value = '';
   };
 
-  if (loading && sortedDogs.length === 0) return <p>Loading...</p>;
+  useEffect(() => {
+    // Fetch breeds with the current Redux state
+    fetchBreeds(8, filterBySize, false, searchByName, orderBy);
+  }, []);
+
+  if (loading && allDogs.length === 0) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
       <section id="sortOrFilter">
-        <section id="firstRow">
-          <label htmlFor="sort">Sort by</label>
-          <select ref={sortRef} name="sort" id="sort" value={sortBy || ''} onChange={handleSortChange}>
-            <option value="" disabled>
-              Choose...
-            </option>
-            <option value="a-z">A-Z</option>
-            <option value="z-a">Z-A</option>
-          </select>
-        </section>
-        <SizeFiltering onFilterChange={handleFilterChange}/>
-
+        <NameSorting onSortChange={handleSortChange} sortOption={orderBy} />
+        <SizeFiltering onFilterChange={handleFilterChange} filterBySize={filterBySize} />
+        <Search searchByName={searchByName} onSearchChange={handleSearchChange} />
         <section id="secondRow">
-          <input type="text" placeholder="Search..." value={searchByName || ''} onChange={handleSearchChange} />
           <button id="reset-btn" onClick={resetFiltersAndSorting}>
             Reset
           </button>
         </section>
       </section>
-
+      {unvalidSearchTerm.length > 0 ? <p>No breeds found for search term: {unvalidSearchTerm}.</p> : null}
       <section className="dog-breed-gallery">
-        {sortedDogs.length > 0 ? (
-          sortedDogs.map((breed) => (
+        {allDogs.length > 0 ? (
+          allDogs.map((breed) => (
             <Card key={breed.id} className="breed-card">
               <Link to={`/${breed.id}`}>
                 <h2>{breed.name}</h2>
+                <p>
+                  {breed?.averageRating ? (
+                    <Rating readOnly value={Number(breed.averageRating.toFixed(1))} precision={0.1} />
+                  ) : (
+                    'No ratings yet'
+                  )}
+                </p>
                 <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
               </Link>
             </Card>

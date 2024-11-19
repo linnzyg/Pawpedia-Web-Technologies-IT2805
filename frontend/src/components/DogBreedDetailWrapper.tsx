@@ -11,7 +11,6 @@ import { GET_BREED } from '../api/queries';
  * - Displays loading, error, or the breed detail component as appropriate.
  */
 
-
 const DogBreedDetailWrapper: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<{ breed: DogBreed }>(GET_BREED, {
