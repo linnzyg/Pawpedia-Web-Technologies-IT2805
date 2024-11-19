@@ -14,9 +14,10 @@ import { useEffect } from "react";
 
 interface FilteringProps {
   onFilterChange: (filters: string[]) => void;
+  filterBySize: string[] | null;
 }
 
-const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange }) => {
+const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize }) => {
   type Checked = DropdownMenuCheckboxItemProps["checked"]
   const [smallSelected, setSmallSelected] = React.useState<Checked>(false)
   const [mediumSelected, setMediumSelected] = React.useState<Checked>(false)
@@ -26,11 +27,31 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange }) => {
   const isFirstRender = React.useRef(true);
 
   useEffect(() => {
+    if(filterBySize?.includes("Small")) setSmallSelected(true)
+    if(filterBySize?.includes("Medium")) setMediumSelected(true)
+    if(filterBySize?.includes("Large")) setLargeSelected(true)
+    if(filterBySize?.includes("Giant")) setGiantSelected(true)
+  }, []);
+
+  useEffect(() => {
     const filters: string[] = []
-    if (smallSelected) filters.push("Small")
-    if (mediumSelected) filters.push("Medium")
-    if (largeSelected) filters.push("Large")
-    if (giantSelected) filters.push("Giant")  
+    if (smallSelected){
+      filters.push("Small")
+      filters.push("small")
+    } 
+    if (mediumSelected){
+      filters.push("Medium")
+      filters.push("medium")
+    }
+    if (largeSelected){
+      filters.push("Large")
+      filters.push("large")
+    }
+    if (giantSelected){
+      filters.push("Giant")
+      filters.push("giant")
+    }
+
     if(filters.length > 0 || !isFirstRender.current) {
       onFilterChange(filters)
       isFirstRender.current = false;

@@ -61,12 +61,10 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
     if (isFavorite) {
       const newFavorites = favorites.filter((fav: { id: string }) => fav.id !== id);
       localStorage.setItem('favorites', JSON.stringify(newFavorites));
-      console.log('Removed from favorites:', newFavorites);
     } else {
       const newFavorite = { id, name: breed.name, image: breed.image };
       const updatedFavorites = [...favorites, newFavorite];
       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-      console.log('Added to favorites:', newFavorite);
     }
 
     setIsFavorite(!isFavorite);
