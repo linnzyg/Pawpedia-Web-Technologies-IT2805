@@ -130,6 +130,27 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
                     value={3}
                     readOnly
                   />
+                  <Rating
+                    icon={<CircleIcon/>}
+                    emptyIcon={<CircleOutlinedIcon/>}
+                    name="read-only"
+                    value={3}
+                    readOnly
+                  />
+                  <Rating
+                    icon={<CircleIcon/>}
+                    emptyIcon={<CircleOutlinedIcon/>}
+                    name="read-only"
+                    value={3}
+                    readOnly
+                  />
+                  <Rating
+                    icon={<CircleIcon/>}
+                    emptyIcon={<CircleOutlinedIcon/>}
+                    name="read-only"
+                    value={3}
+                    readOnly
+                  />
                 </TabPanel>
                 <TabPanel value="3">health</TabPanel>
               </TabContext>

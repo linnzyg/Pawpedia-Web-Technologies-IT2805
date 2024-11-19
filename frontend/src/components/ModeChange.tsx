@@ -20,11 +20,8 @@ export default function ModeChange() {
   const otherMode = mode === 'dark' ? 'Light' : 'Dark';
   return (
     <Tooltip title={`Change To ${otherMode}-mode`}>
-      <IconButton
-        size="large"
-        onClick={handleToggle}
-      >
-        {mode === 'dark' ? <FlareIcon/> : <DarkModeOutlinedIcon />}
+      <IconButton size="large" onClick={handleToggle}>
+        {mode === 'dark' ? <FlareIcon sx={{ color: '#ede0d9' }} /> : <DarkModeOutlinedIcon sx={{ color: '#191911' }} />}
       </IconButton>
     </Tooltip>
   );
