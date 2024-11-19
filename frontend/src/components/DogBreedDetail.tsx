@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { DogBreed } from '../types/DogBreed';
 import '../style/DogCard.css';
-import favorite from '../assets/favorite.png';
-import notFavorite from '../assets/notFavorite.png';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import '../style/DogBreedDetail.css';
 import Commentary from './Comment';
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../api/mutations';
 import { GET_BREED } from '../api/queries';
+import Box from '@mui/material/Box';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import Tab from '@mui/material/Tab';
+import TabPanel from '@mui/lab/TabPanel';
+import Rating from '@mui/material/Rating';
+import CircleIcon from '@mui/icons-material/Circle';
+import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 
 /**
  * Props interface for the DogBreedDetail component.
@@ -50,6 +58,12 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
     });
   };
 
+  const [tableValue, setTableValue] = React.useState('1');
+
+  const handleChange = (_event: React.SyntheticEvent, newTableValue: string) => {
+    setTableValue(newTableValue);
+  };
+
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     setIsFavorite(favorites.some((fav: DogBreedDetailProps) => fav.id === id));
@@ -71,12 +85,73 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
   };
 
   return (
-    <section>
-      <div className="dog-breed-detail">
+    <>
+      <Box
+        className="dog-breed-detail"
+        sx={{
+          backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff'),
+          color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
+          padding: 2,
+          boxShadow: 1,
+        }}
+      >
         <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
-        <section id="dogInfo">
-          <h1>{breed.name}</h1>
-          <p>{breed.description}</p>
+        <Box id="dogInfo">
+          <header>
+            <h1>{breed.name}</h1>
+            <button onClick={handleFavoriteClicked} id="favorite-btn">
+              {isFavorite ? (
+                <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
+              ) : (
+                <FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" />
+              )}
+            </button>
+          </header>
+          <Box>
+            <Box sx={{ width: '100%', typography: 'body1' }}>
+              <TabContext value={tableValue}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                  <TabList onChange={handleChange} aria-label="Dog detail tabs">
+                    <Tab label="Description" value="1" />
+                    <Tab label="Personality stats" value="2" />
+                    <Tab label="Health stats" value="3" />
+                  </TabList>
+                </Box>
+                <TabPanel value="1">
+                  <p>{breed.description}</p>
+                </TabPanel>
+                <TabPanel value="2">
+                  <Rating
+                    icon={<CircleIcon />}
+                    emptyIcon={<CircleOutlinedIcon />}
+                    name="read-only"
+                    value={3}
+                    readOnly
+                  />
+                  <Rating
+                    icon={<CircleIcon />}
+                    emptyIcon={<CircleOutlinedIcon />}
+                    name="read-only"
+                    value={3}
+                    readOnly
+                  />
+                  <Rating
+                    icon={<CircleIcon />}
+                    emptyIcon={<CircleOutlinedIcon />}
+                    name="read-only"
+                    value={3}
+                    readOnly
+                  />
+                  <Rating
+                    icon={<CircleIcon />}
+                    emptyIcon={<CircleOutlinedIcon />}
+                    name="read-only"
+                    value={3}
+                    readOnly
+                  />
+                </TabPanel>
+                <TabPanel value="3">health
+                  
           <p>{breed.weight}</p>
           <p>{breed.height}</p>
           <p>{breed.lifespan}</p>
@@ -85,23 +160,40 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           <p>{breed.allergy}</p>
           <p>{breed.energy}</p>
           <p>{breed.issues}</p>
-          <button onClick={handleFavoriteClicked} id="favorite-btn">
-            <img src={isFavorite ? favorite : notFavorite} alt={isFavorite ? 'Favorite' : 'Unavorite'} />
-          </button>
-        </section>
-      </div>
-      <div className="commentary-section mt-6">
-        <header className="commentHeader">
-          <h2 className="text-xl mt-8">Leave a Comment on {breed.name}:</h2>
-          {}
-          <Commentary onAddComment={handleAddComment} breedId={breed.id} />
-        </header>
+                </TabPanel>
+              </TabContext>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      <section className="comment-area mt-6">
+        <Box>
+          <Box
+            id="commentHeader"
+            sx={{
+              backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff'),
+              color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
+              padding: 2,
+              borderRadius: 2,
+              boxShadow: 1,
+            }}
+          >
+            <h2 className="text-xl">Leave a Comment on {breed.name}:</h2>
+            <Commentary onAddComment={handleAddComment} breedId={breed.id} />
+          </Box>
+        </Box>
         <section className="commentSection">
-          <h3 className="text-xl mt-8">Comments:</h3>
+          <h3 className="text-xl pb-5">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
               {(breed.comments ?? []).map((comment: { username: string; comment: string; rating?: number }, index) => (
-                <section key={index} className="commentElement">
+                <Box key={index} className="commentElement" sx={{
+                  backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff'),
+                  color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
+                  padding: 2,
+                  borderRadius: 2,
+                  boxShadow: 1,
+                }}>
                   <p className="commentName">
                     {comment.rating === null || comment.rating === undefined
                       ? `${comment.username}`
@@ -110,15 +202,15 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
                   </p>
 
                   <p className="commentText">{comment.comment}</p>
-                </section>
+                </Box>
               ))}
             </>
           ) : (
-            <p className="mt-4 text-gray-600">No comments yet. Be the first to comment!</p>
+            <p className="noComments">No comments yet. Be the first to comment!</p>
           )}
         </section>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

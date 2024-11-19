@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 body {
   margin: 0%;
   background-color: #e9edd5;
-  color: #28271b;
+  color: #191911;
   font-family: sans-serif;
   max-width: 100%;
-  overflow-x: hidden;
+  overscroll-behavior: contain;
 }
 
 @layer base {

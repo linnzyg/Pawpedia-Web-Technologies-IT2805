@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import '../style/Navbar.css';
+import ModeChange from './ModeChange';
+import Tooltip from '@mui/material/Tooltip';
 
 /**
  * Navbar Component
@@ -10,13 +12,18 @@ import '../style/Navbar.css';
 function Navbar() {
   return (
     <section className="navbar">
-      <section>
+      <section className="navLinks">
+        <ModeChange/>
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/">All dogs</NavLink>
+        <NavLink to="/favorites">Favorites</NavLink>
       </section>
       <section id="navbar">
-        <NavLink to="/favorites">Favorites</NavLink>
-        <img src="/src/assets/paw.png" alt="Logo" className="navbar-logo" />
+        <Tooltip title={"View all dogs"}>
+          <NavLink to="/">
+            <img src="/src/assets/paw.png" alt="Logo" className="navbar-logo" />
+          </NavLink>
+        </Tooltip>
       </section>
     </section>
   );
