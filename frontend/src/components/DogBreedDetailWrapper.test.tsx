@@ -71,6 +71,4 @@ describe('DogBreedDetailWrapper Component', () => {
 
     expect(await screen.findByText('Breed not found')).toBeInTheDocument();
   });
-
- 
 });

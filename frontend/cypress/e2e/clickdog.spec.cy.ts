@@ -1,5 +1,3 @@
-
-
 describe("Navigation Test", () => {
   it("Should navigate to the Dog Breed Gallery and select a dog", () => {
     cy.visit("http://localhost:5173");

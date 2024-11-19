@@ -9,7 +9,6 @@ import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../api/mutations';
 import { GET_BREED } from '../api/queries';
 
-
 /**
  * Props interface for the DogBreedDetail component.
  * - `breed`: The breed information that includes details like name, description, image, etc.
@@ -37,10 +36,8 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
     },
   });
 
-
   //La til rating der vi handler kommentarer
   const handleAddComment = (username: string, comment: string, rating: number) => {
-
     addComment({
       variables: {
         comment: {
@@ -95,7 +92,6 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           <h3 className="text-xl mt-8">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
-
               {(breed.comments ?? []).map((comment: { username: string; comment: string; rating?: number }, index) => (
                 <section key={index} className="commentElement">
                   <p className="commentName">

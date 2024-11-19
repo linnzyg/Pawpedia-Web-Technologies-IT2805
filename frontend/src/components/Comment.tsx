@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 /**
  * Props interface for the Comment component.
  * - `onAddComment`: Function to be called when a new comment is submitted.
@@ -11,7 +10,6 @@ interface CommentProps {
   onAddComment: (username: string, comment: string, rating: number) => void;
   breedId: string;
 }
-
 
 /**
  * Comment Component
@@ -33,7 +31,6 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
       setName('');
       setComment('');
       setRating(0);
-
     }
   };
 

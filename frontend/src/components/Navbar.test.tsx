@@ -25,7 +25,13 @@ describe('Navbar Component', () => {
             edges: [
               {
                 cursor: '1',
-                node: { id: '1', name: 'Golden Retriever', image: 'golden-retriever.jpeg', size: 'Large', favorite: true },
+                node: {
+                  id: '1',
+                  name: 'Golden Retriever',
+                  image: 'golden-retriever.jpeg',
+                  size: 'Large',
+                  favorite: true,
+                },
               },
               {
                 cursor: '2',

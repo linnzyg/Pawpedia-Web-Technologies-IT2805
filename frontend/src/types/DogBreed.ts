@@ -1,4 +1,3 @@
-
 export interface DogBreed {
   id: string; // Unique identifier for the breed, matches the MongoDB ObjectId
   name: string; // The name of the dog breed
