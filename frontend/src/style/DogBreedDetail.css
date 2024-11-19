@@ -21,9 +21,6 @@
   width: 60%;
 }
 
-#dogInfo :not(:first-child) {
-  padding: 2%;
-}
 
 #dogInfo h1 {
   font-size: 25px;
@@ -123,6 +120,10 @@
 .favorite-button img {
   width: 20px;
   height: 20px;
+}
+
+.noComments{
+  opacity: 0.6;
 }
 
 @media (max-width: 900px) {

@@ -35,7 +35,6 @@ interface DogBreedDetailProps {
  * - Uses GraphQL mutation to add comments to the backend.
  */
 
-
 const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
   const [isFavorite, setIsFavorite] = useState(breed.favorite);
   const [addComment] = useMutation(ADD_COMMENT, {
@@ -124,29 +123,29 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
                 </TabPanel>
                 <TabPanel value="2">
                   <Rating
-                    icon={<CircleIcon/>}
-                    emptyIcon={<CircleOutlinedIcon/>}
+                    icon={<CircleIcon />}
+                    emptyIcon={<CircleOutlinedIcon />}
                     name="read-only"
                     value={3}
                     readOnly
                   />
                   <Rating
-                    icon={<CircleIcon/>}
-                    emptyIcon={<CircleOutlinedIcon/>}
+                    icon={<CircleIcon />}
+                    emptyIcon={<CircleOutlinedIcon />}
                     name="read-only"
                     value={3}
                     readOnly
                   />
                   <Rating
-                    icon={<CircleIcon/>}
-                    emptyIcon={<CircleOutlinedIcon/>}
+                    icon={<CircleIcon />}
+                    emptyIcon={<CircleOutlinedIcon />}
                     name="read-only"
                     value={3}
                     readOnly
                   />
                   <Rating
-                    icon={<CircleIcon/>}
-                    emptyIcon={<CircleOutlinedIcon/>}
+                    icon={<CircleIcon />}
+                    emptyIcon={<CircleOutlinedIcon />}
                     name="read-only"
                     value={3}
                     readOnly
@@ -196,7 +195,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
               ))}
             </>
           ) : (
-            <p className="mt-4 text-gray-600">No comments yet. Be the first to comment!</p>
+            <p className="noComments">No comments yet. Be the first to comment!</p>
           )}
         </section>
       </section>
