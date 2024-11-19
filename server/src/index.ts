@@ -37,6 +37,8 @@ const resolvers = {
       if (after) {
         if (orderBy === 'asc' || orderBy === 'desc') {
           query.name = { [orderBy === 'asc' ? '$gt' : '$lt']: after };
+        } else if(orderBy === 'lowestRating' || orderBy === 'highestRating') {
+          query.averageRating = { [orderBy === 'lowestRating' ? '$gt' : '$lt']: after };
         } else {
           if (ObjectId.isValid(after)) {
             query._id = { $gt: new ObjectId(after) };
@@ -50,14 +52,31 @@ const resolvers = {
         sortQuery = { name: 1 };
       } else if (orderBy === 'desc') {
         sortQuery = { name: -1 }; 
+      } else if (orderBy === 'lowestRating') {
+        sortQuery = { averageRating: 1 };
+      } else if (orderBy === 'highestRating') {
+        sortQuery = { averageRating: -1 };
       }
 
       let breeds = await collection.find(query).sort(sortQuery).limit(first + 1).toArray();
-
       const hasNextPage = breeds.length > first;
 
+      // Calculate average rating for each breed
+      for (const breed of breeds) {
+      const comments = await db.collection('Comment').find({ breedId: breed._id.toString() }).toArray();
+
+      // Filter out comments that do not have a rating
+      const ratedComments = comments.filter(comment => comment.rating != null);
+
+      if (ratedComments.length > 0) {
+      const totalRating = ratedComments.reduce((sum, comment) => sum + comment.rating, 0);
+      breed.averageRating = totalRating / ratedComments.length;
+      } else {
+      breed.averageRating = 0; 
+      }
+    }
       if (first) breeds = breeds.slice(0, first);
- 
+
       const edges = breeds.map((breed) => ({
         cursor: orderBy ? breed.name : breed._id.toString(),
         node: {
@@ -67,6 +86,8 @@ const resolvers = {
           slug: breed.slug,
           image: breed.image,
           size: breed.size,
+
+          averageRating: breed.averageRating,
           weight: breed.weight,
           height: breed.height,
           lifespan: breed.lifespan,
@@ -75,6 +96,7 @@ const resolvers = {
           allergy: breed.allergy,
           energy: breed.energy,
           issues: breed.issues,
+
         },
       }));
 
@@ -97,16 +119,20 @@ const resolvers = {
   Breed: {
     async comments(parent: any) {
       const collection = db.collection('Comment');
-      return (await collection.find().toArray()).filter((c) => c.breedId === parent._id.toString());
+      return await collection
+        .find({ breedId: parent._id.toString() })
+        .sort({ rating: -1 }) 
+        .toArray();
     },
   },
   Mutation: {
-    addComment(_: any, args: { comment: { breedId: string; username?: string; comment: string; } }) {
+    addComment(_: any, args: { comment: { breedId: string; username?: string; comment: string; rating: number } }) {
       const collection = db.collection('Comment');
       const comment = {
         breedId: args.comment.breedId,
         username: args.comment.username,
         comment: args.comment.comment,
+        rating: args.comment.rating, 
         timestamp: new Date().toISOString(),
       };
       collection.insertOne(comment);

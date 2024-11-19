@@ -20,7 +20,7 @@ describe('DogBreedDetail Component', () => {
     render(
       <MockedProvider mocks={[]} addTypename={false}>
         <DogBreedDetail breed={mockBreed} id="1" />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Golden Retriever');
@@ -36,7 +36,7 @@ describe('DogBreedDetail Component', () => {
     render(
       <MockedProvider mocks={[]} addTypename={false}>
         <DogBreedDetail breed={mockBreed} id="1" />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     const image = screen.getByAltText('Picture of our dog breed: Golden Retriever');

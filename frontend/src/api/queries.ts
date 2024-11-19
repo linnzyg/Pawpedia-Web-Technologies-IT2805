@@ -16,6 +16,7 @@ export const GET_BREEDS = gql`
           name
           image
           size
+          averageRating
         }
       }
       pageInfo {
@@ -50,8 +51,10 @@ export const GET_BREED = gql`
         username
         comment
         timestamp
+        rating
       }
       size
+      averageRating
     }
   }
 `;

@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
  * - Provides a welcoming and informative experience for first-time visitors.
  */
 
-
-
 function Home() {
   return (
     <>
