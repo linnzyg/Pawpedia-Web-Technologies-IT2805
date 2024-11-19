@@ -9,6 +9,15 @@ export const typeDefs = `#graphql
         slug: String!             # Slug for the breed, used for URLs
         size: String!             # Size category of the breed (e.g., Small, Medium, Large)
         comments: [Comment!]      # List of comments related to the breed
+        weight: Int!
+        height: Int!
+        lifespan: Int!
+        trainability: Int!
+        friendliness: Int!
+        allergy: Int!
+        energy: Int!
+        issues: String!
+
     }
 
     # Comment type represents a comment made on a specific breed

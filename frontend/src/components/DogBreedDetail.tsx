@@ -77,6 +77,14 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
         <section id="dogInfo">
           <h1>{breed.name}</h1>
           <p>{breed.description}</p>
+          <p>{breed.weight}</p>
+          <p>{breed.height}</p>
+          <p>{breed.lifespan}</p>
+          <p>{breed.trainability}</p>
+          <p>{breed.friendliness}</p>
+          <p>{breed.allergy}</p>
+          <p>{breed.energy}</p>
+          <p>{breed.issues}</p>
           <button onClick={handleFavoriteClicked} id="favorite-btn">
             <img src={isFavorite ? favorite : notFavorite} alt={isFavorite ? 'Favorite' : 'Unavorite'} />
           </button>
