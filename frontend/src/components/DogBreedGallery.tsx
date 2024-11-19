@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
@@ -49,7 +48,7 @@ const DogBreedGallery: React.FC = () => {
   // Handle changes in sorting
 
   const handleSortChange = (orderByValue: string) => {
-    if(orderByValue !== '') {
+    if (orderByValue !== '') {
       dispatch(setSort(orderByValue));
 
       setCursor(null);
@@ -58,8 +57,7 @@ const DogBreedGallery: React.FC = () => {
   };
 
   const handleSearchChange = (search: string) => {
-
-    if(search !== '') setUnvalidSearchTerm('');
+    if (search !== '') setUnvalidSearchTerm('');
     dispatch(setSearch(search)); // Update search term in Redux
 
     setCursor(null);
@@ -106,10 +104,13 @@ const DogBreedGallery: React.FC = () => {
             setUnvalidSearchTerm(search ?? '');
 
             dispatch(setSearch('')); // Reset search term in Redux if no breeds found
-          } 
-
+          }
+          if (order === 'highestRating' || order === 'lowestRating') {
+            setCursor(newAllDogs[newAllDogs.length - 1].averageRating.toString());
+          } else {
+            setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
+          }
           setAllDogs(newAllDogs);
-          setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
           setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
         },
       });
@@ -153,11 +154,8 @@ const DogBreedGallery: React.FC = () => {
       </section>
       {unvalidSearchTerm.length > 0 ? <p>No breeds found for search term: {unvalidSearchTerm}.</p> : null}
       <section className="dog-breed-gallery">
-
-
         {allDogs.length > 0 ? (
           allDogs.map((breed) => (
-
             <Card key={breed.id} className="breed-card">
               <Link to={`/${breed.id}`}>
                 <h2>{breed.name}</h2>
