@@ -19,28 +19,46 @@
 #dogInfo {
   background-color: default;
   width: 60%;
+  min-height: 400px;
 }
-
 
 #dogInfo h1 {
   font-size: 25px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-#dogInfo>header{
+#dogInfo > header {
   border-bottom: solid 2px var(--green);
   padding: 1%;
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 1%;
+  justify-content: space-between;
 }
 
-#heartIcon{
+#dogInfo>header>*{
+  display: flex;
+  flex-direction: row;
+}
+
+#dogInfo>header>:first-child>*{
+  padding-right: 10px;
+}
+
+.healthBox > * {
+  padding: 10px;
+}
+
+.infoTabs{
+  margin: 1%;
+}
+
+#heartIcon {
   font-size: 30px;
 }
 
-.MuiTabs-indicator{
+.MuiTabs-indicator {
   display: none;
 }
 
@@ -52,7 +70,7 @@
   align-items: center;
 }
 
-#commentHeader{
+#commentHeader {
   position: sticky;
   top: 100px;
 }
@@ -122,8 +140,28 @@
   height: 20px;
 }
 
-.noComments{
+.noComments {
   opacity: 0.6;
+}
+
+.commentName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.visualStats{
+  display: contents;
+  flex-direction: column;
+}
+
+.visualStats>*{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding: 10px;
+  justify-content: space-between;
+  width: 350px;
 }
 
 @media (max-width: 900px) {
@@ -134,21 +172,24 @@
     flex-direction: column;
   }
 
+  #dogInfo{
+    width: 100%;
+  }
+
   .dog-breed-detail img {
     width: 100%;
   }
 
-  #dogInfo {
-    min-width: 100%;
-    object-fit: cover;
-  }
-
-  #commentHeader{
+  #commentHeader {
     position: static;
   }
 
   .comment-area {
     flex-direction: column;
     align-items: center;
+  }
+
+  .commentName {
+    flex-direction: column;
   }
 }

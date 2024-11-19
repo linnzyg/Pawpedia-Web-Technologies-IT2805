@@ -45,15 +45,28 @@ function Home() {
           <Card className="offerBox">
             <h2 className="homeTitle">What We Offer</h2>
             <Box className="offerText">
-              <p className="reveal-1">Breed Profiles</p>
-              <p id="hide-1">Our extensive database includes detailed information on various
-              dog breeds—from physical characteristics and personality traits to health needs and grooming requirements.</p>
-              <p className="reveal-2">Easy Filtering</p>
-              <p id="hide-2">Find a breed that fits your lifestyle with advanced filtering
-              tools that allow sorting by size, temperament, energy level, and more.</p>
-              <p className="reveal-3">Favorites and Discover</p>
-              <p id="hide-3">Save and revisit breeds you love, and try our “Try Your
-              Luck” button to discover random breeds you might not have considered.</p>
+              <Box>
+                <p className="profileTitle">Breed Profiles:</p>
+                <p id="hide-1">
+                  Our extensive database includes detailed information on various dog breeds—from physical
+                  characteristics and personality traits to health needs and grooming requirements.
+                </p>
+              </Box>
+
+              <Box>
+                <p className="profileTitle">Easy Filtering:</p>
+                <p id="hide-2">
+                  Find a breed that fits your lifestyle with advanced filtering tools that allow sorting by size,
+                  temperament, energy level, and more.
+                </p>
+              </Box>
+              <Box>
+                <p className="profileTitle">Favorites and Discover:</p>
+                <p id="hide-3">
+                  Save and revisit breeds you love, and try our “Try Your Luck” button to discover random breeds you
+                  might not have considered.
+                </p>
+              </Box>
             </Box>
           </Card>
           <p>

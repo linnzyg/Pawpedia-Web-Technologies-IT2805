@@ -45,5 +45,10 @@ export const styletheme = createTheme({
         }),
       },
     },
+    MuiRating: {
+      styleOverrides: {
+          iconFilled: "#d6aa70",
+      },
+    },
   },
 });
