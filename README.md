@@ -37,7 +37,7 @@ npx ts-node src/index.ts
 ```
 
 ## Showcase
-Link to VM will be available next version, as it is not required for the first task
+http://it2810-35.idi.ntnu.no/project2
 
 ## Documentation and choices
 The choice of making a dog application was made due to dogs being cute, and motivated all four developers to work on this project with love.
