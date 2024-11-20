@@ -18,10 +18,16 @@ li {
   padding: 1%;
 }
 
-.offerText{
+.offerText > *{
   display: flex;
   flex-direction: column;
   align-items: baseline;
+  padding: 10px;
+}
+
+.offerText > *>:first-child{
+  background-color: rgb(177, 154, 204, 0.5);
+  padding: 5px;
 }
 
 .aboutBox, .offerBox{
@@ -29,27 +35,10 @@ li {
   padding: 2%
 }
 
-.reveal-1,.reveal-2,.reveal-3{
+.profileText{
   padding: 5px;
   margin: 5px;
-  border: solid 2px;
-}
-
-#hide-1, #hide-2, #hide-3{
-  padding: 1%;
-  display: none;
-}
-
-.reveal-1:hover + #hide-1 {
-  display: block;
-}
-
-.reveal-2:hover + #hide-2 {
-  display: block;
-}
-
-.reveal-3:hover + #hide-3 {
-  display: block;
+  border-bottom: dotted 2px;
 }
 
 

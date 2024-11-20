@@ -1,15 +1,5 @@
-import * as React from 'react';
-import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu';
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 
 interface SortingProps {
   onSortChange: (orderBy: string) => void;
@@ -17,104 +7,50 @@ interface SortingProps {
 }
 
 const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
-  type Checked = DropdownMenuCheckboxItemProps['checked'];
-  const [ascSelected, setAscSelected] = React.useState<Checked>(false);
-  const [descSelected, setDescSelected] = React.useState<Checked>(false);
-  const [lowestRatingSelected, setLowestRatingSelected] = React.useState<Checked>(false);
-  const [highestRatingSelected, setHighestRatingSelected] = React.useState<Checked>(false);
+  const [selectedOption, setSelectedOption] = React.useState<string>('');
 
-  const isFirstRender = React.useRef(true);
+  const isFirstRender = useRef(true);
 
+  // Initialize the selected option based on the `sortOption` prop
   useEffect(() => {
-    if (sortOption === 'asc') setAscSelected(true);
-    else if (sortOption === 'desc') setDescSelected(true);
-    else if (sortOption === 'lowestRating') setLowestRatingSelected(true);
-    else if (sortOption === 'highestRating') setHighestRatingSelected(true);
-  }, []);
-
-  useEffect(() => {
-    let orderBy: string = '';
-    if (ascSelected) {
-      orderBy = 'asc';
-    } else if (descSelected) {
-      orderBy = 'desc';
-    } else if (lowestRatingSelected) {
-      orderBy = 'lowestRating';
-    } else if (highestRatingSelected) {
-      orderBy = 'highestRating';
+    if (sortOption) {
+      setSelectedOption(sortOption);
     }
-    if (!isFirstRender.current || orderBy) {
+  }, [sortOption]);
+
+  // Notify the parent component whenever the selected option changes
+  useEffect(() => {
+    if (!isFirstRender.current || selectedOption) {
+      onSortChange(selectedOption);
       isFirstRender.current = false;
     }
-    onSortChange(orderBy);
-  }, [ascSelected, descSelected, lowestRatingSelected, highestRatingSelected]);
+  }, [selectedOption]);
+
+  // Handle the selection change
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    setSelectedOption(event.target.value);
+  };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="secondary">Choose sorting</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Sort by</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-
-        <DropdownMenuCheckboxItem
-          checked={ascSelected}
-          onCheckedChange={(checked) => {
-            setAscSelected(checked);
-            if (checked) {
-              setDescSelected(false);
-              setLowestRatingSelected(false);
-              setHighestRatingSelected(false);
-            }
-          }}
-        >
-          A-Z
-        </DropdownMenuCheckboxItem>
-
-        <DropdownMenuCheckboxItem
-          checked={descSelected}
-          onCheckedChange={(checked) => {
-            setDescSelected(checked);
-            if (checked) {
-              setAscSelected(false);
-              setLowestRatingSelected(false);
-              setHighestRatingSelected(false);
-            }
-          }}
-        >
-          Z-A
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          disabled={true} //enable when sorting on server for rating is fixed
-          checked={highestRatingSelected}
-          onCheckedChange={(checked) => {
-            setHighestRatingSelected(checked);
-            if (checked) {
-              setAscSelected(false);
-              setLowestRatingSelected(false);
-              setDescSelected(false);
-            }
-          }}
-        >
+    <FormControl fullWidth>
+      <InputLabel id="sort-select-label">Choose sorting</InputLabel>
+      <Select
+        labelId="sort-select-label"
+        value={selectedOption}
+        onChange={handleChange}
+        label="Choose sorting"
+        sx={{width:"150px"}}
+      >
+        <MenuItem value="asc">A-Z</MenuItem>
+        <MenuItem value="desc">Z-A</MenuItem>
+        <MenuItem value="highestRating" disabled>
           Highest Rating
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem
-          disabled={true} //enable when sorting on server for rating is fixed
-          checked={lowestRatingSelected}
-          onCheckedChange={(checked) => {
-            setLowestRatingSelected(checked);
-            if (checked) {
-              setAscSelected(false);
-              setDescSelected(false);
-              setHighestRatingSelected(false);
-            }
-          }}
-        >
+        </MenuItem>
+        <MenuItem value="lowestRating" disabled>
           Lowest Rating
-        </DropdownMenuCheckboxItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        </MenuItem>
+      </Select>
+    </FormControl>
   );
 };
 

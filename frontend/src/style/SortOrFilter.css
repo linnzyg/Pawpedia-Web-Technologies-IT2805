@@ -13,60 +13,11 @@
 #firstRow,
 #secondRow {
   display: flex;
-  align-items: center;
   flex-direction: row;
-  gap: 20px;
-  padding-left: 1%;
-  padding-right: 1%;
 }
 
-#filter {
-  padding: 10px;
-  font-size: 1rem;
-  color: #887153;
-  background-color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#filter:focus {
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
-
-#sort {
-  padding: 10px;
-  font-size: 1rem;
-  color: #887153;
-  background-color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#sort:focus {
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
-
-#sortOrFilter input[type='text'] {
-  padding: 10px;
-  font-size: 1rem;
-  color: #887153;
-  background-color: white;
-  border: none;
-  border-radius: 5px;
-}
-
-#sortOrFilter input[type='text']:focus {
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
-
-#sortOrFilter input[type='text']::placeholder {
-  color: #887153;
+#secondRow > *{
+  justify-content: space-around;
 }
 
 #reset-btn {

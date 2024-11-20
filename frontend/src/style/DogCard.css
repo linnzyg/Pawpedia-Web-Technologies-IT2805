@@ -3,9 +3,13 @@
   align-items: center;
   margin: 10px;
   text-align: center;
-  padding: 1%;
+  padding: 10px;
   padding-top: 2px;
   border: none;
+}
+
+.dogCardHeader{
+  height: 60px;
 }
 
 .breed-card h2 {
@@ -75,9 +79,11 @@
   padding: 1%;
   background-color: var(--purple);
   border-radius: 5px;
+  color: black;
 }
 
 .loadButton:hover {
   background-color: #382f3f;
   color: white;
 }
+
