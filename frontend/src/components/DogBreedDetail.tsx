@@ -111,7 +111,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           <header>
             <Box>
               <h1>{breed.name}</h1>
-              <button onClick={handleFavoriteClicked} id="favorite-btn">
+              <button onClick={handleFavoriteClicked} id="favorite-btn" aria-label="favorite-button">
                 {isFavorite ? (
                   <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
                 ) : (
