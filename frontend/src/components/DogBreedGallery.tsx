@@ -30,7 +30,7 @@ const DogBreedGallery: React.FC = () => {
       filterBySize: filterBySize || undefined,
       searchByName: searchByName || undefined,
       orderBy: orderBy || undefined,
-      skip: 0
+      skip: 0,
     },
     fetchPolicy: 'network-only',
   });
@@ -81,7 +81,7 @@ const DogBreedGallery: React.FC = () => {
           filterBySize: filter,
           searchByName: search,
           orderBy: order,
-          skip: skip
+          skip: skip,
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return;
@@ -147,7 +147,11 @@ const DogBreedGallery: React.FC = () => {
           </button>
         </section>
       </section>
-      {unvalidSearchTerm.length > 0 ? <p style={{ textAlign: 'center' }}>No breeds found for search term:<strong> {unvalidSearchTerm}.</strong></p> : null}
+      {unvalidSearchTerm.length > 0 ? (
+        <p style={{ textAlign: 'center' }}>
+          No breeds found for search term:<strong> {unvalidSearchTerm}.</strong>
+        </p>
+      ) : null}
       <section className="dog-breed-gallery">
         {allDogs.length > 0 ? (
           allDogs.map((breed) => (
