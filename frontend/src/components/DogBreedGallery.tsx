@@ -11,7 +11,7 @@ import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch } from './redux/actions';
 import { RootState } from './redux/store';
-import { Rating } from '@mui/material';
+import { Box, Rating } from '@mui/material';
 
 const DogBreedGallery: React.FC = () => {
   const dispatch = useDispatch();
@@ -135,10 +135,13 @@ const DogBreedGallery: React.FC = () => {
   return (
     <>
       <section id="sortOrFilter">
-        <NameSorting onSortChange={handleSortChange} sortOption={orderBy} />
-        <SizeFiltering onFilterChange={handleFilterChange} filterBySize={filterBySize} />
-        <Search searchByName={searchByName} onSearchChange={handleSearchChange} />
+        <section id="firstRow">
+          <NameSorting onSortChange={handleSortChange} sortOption={orderBy} />
+          <SizeFiltering onFilterChange={handleFilterChange} filterBySize={filterBySize} />
+        </section>
+
         <section id="secondRow">
+          <Search searchByName={searchByName} onSearchChange={handleSearchChange} />
           <button id="reset-btn" onClick={resetFiltersAndSorting}>
             Reset
           </button>
@@ -150,14 +153,16 @@ const DogBreedGallery: React.FC = () => {
           allDogs.map((breed) => (
             <Card key={breed.id} className="breed-card">
               <Link to={`/${breed.id}`}>
-                <h2>{breed.name}</h2>
-                <p>
-                  {breed?.averageRating ? (
-                    <Rating readOnly value={Number(breed.averageRating.toFixed(1))} precision={0.1} />
-                  ) : (
-                    'No ratings yet'
-                  )}
-                </p>
+                <Box className="dogCardHeader">
+                  <h2>{breed.name}</h2>
+                  <p>
+                    {breed?.averageRating ? (
+                      <Rating readOnly value={Number(breed.averageRating.toFixed(1))} precision={0.1} />
+                    ) : (
+                      'No ratings yet'
+                    )}
+                  </p>
+                </Box>
                 <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
               </Link>
             </Card>

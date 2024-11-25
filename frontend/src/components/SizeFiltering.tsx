@@ -1,15 +1,5 @@
-import * as React from 'react';
-import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu';
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { Button, Checkbox, FormControl, InputLabel, ListItemText, MenuItem, Select } from '@mui/material';
 
 interface FilteringProps {
   onFilterChange: (filters: string[]) => void;
@@ -17,68 +7,50 @@ interface FilteringProps {
 }
 
 const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize }) => {
-  type Checked = DropdownMenuCheckboxItemProps['checked'];
-  const [smallSelected, setSmallSelected] = React.useState<Checked>(false);
-  const [mediumSelected, setMediumSelected] = React.useState<Checked>(false);
-  const [largeSelected, setLargeSelected] = React.useState<Checked>(false);
-  const [giantSelected, setGiantSelected] = React.useState<Checked>(false);
+  const [selectedSizes, setSelectedSizes] = React.useState<string[]>([]);
 
-  const isFirstRender = React.useRef(true);
+  const isFirstRender = useRef(true);
 
+  // Initialize sizes based on `filterBySize` prop
   useEffect(() => {
-    if (filterBySize?.includes('Small')) setSmallSelected(true);
-    if (filterBySize?.includes('Medium')) setMediumSelected(true);
-    if (filterBySize?.includes('Large')) setLargeSelected(true);
-    if (filterBySize?.includes('Giant')) setGiantSelected(true);
-  }, []);
+    if (filterBySize) {
+      setSelectedSizes(filterBySize);
+    }
+  }, [filterBySize]);
 
+  // Update filters when selected sizes change
   useEffect(() => {
-    const filters: string[] = [];
-    if (smallSelected) {
-      filters.push('Small');
-      filters.push('small');
-    }
-    if (mediumSelected) {
-      filters.push('Medium');
-      filters.push('medium');
-    }
-    if (largeSelected) {
-      filters.push('Large');
-      filters.push('large');
-    }
-    if (giantSelected) {
-      filters.push('Giant');
-      filters.push('giant');
-    }
-
-    if (filters.length > 0 || !isFirstRender.current) {
-      onFilterChange(filters);
+    if (!isFirstRender.current || selectedSizes.length > 0) {
+      onFilterChange(selectedSizes);
       isFirstRender.current = false;
     }
-  }, [smallSelected, mediumSelected, largeSelected, giantSelected]);
+  }, [selectedSizes]);
+
+  const sizes = ['Small', 'Medium', 'Large', 'Giant'];
+
+  const handleSizeChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setSelectedSizes(event.target.value as string[]);
+  };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="secondary">Choose size</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Filter</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuCheckboxItem checked={smallSelected} onCheckedChange={setSmallSelected}>
-          Small dogs
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem checked={mediumSelected} onCheckedChange={setMediumSelected}>
-          Medium dogs
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem checked={largeSelected} onCheckedChange={setLargeSelected}>
-          Large dogs
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem checked={giantSelected} onCheckedChange={setGiantSelected}>
-          Giant dogs
-        </DropdownMenuCheckboxItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <FormControl fullWidth>
+      <InputLabel id="size-filter-label">Choose size</InputLabel>
+      <Select
+        labelId="size-filter-label"
+        multiple
+        value={selectedSizes}
+        onChange={handleSizeChange}
+        renderValue={(selected) => (selected as string[]).join(', ')} //Show selected sizes
+        sx={{width:"200px"}}
+      >
+        {sizes.map((size) => (
+          <MenuItem key={size} value={size}>
+            <Checkbox checked={selectedSizes.includes(size)} />
+            <ListItemText primary={size + ' dogs'} />
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 };
 

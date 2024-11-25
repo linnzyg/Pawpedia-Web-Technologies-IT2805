@@ -16,6 +16,11 @@ import TabPanel from '@mui/lab/TabPanel';
 import Rating from '@mui/material/Rating';
 import CircleIcon from '@mui/icons-material/Circle';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
+import { styled } from '@mui/material';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
+import ScaleIcon from '@mui/icons-material/Scale';
+import HeightIcon from '@mui/icons-material/Height';
 
 /**
  * Props interface for the DogBreedDetail component.
@@ -34,6 +39,12 @@ interface DogBreedDetailProps {
  * - Allows users to add comments to the breed.
  * - Uses GraphQL mutation to add comments to the backend.
  */
+
+const StyledRating = styled(Rating)({
+  '& .MuiRating-iconFilled': {
+    color: '#7e8a58',
+  },
+});
 
 const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
   const [isFavorite, setIsFavorite] = useState(breed.favorite);
@@ -98,71 +109,97 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
         <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
         <Box id="dogInfo">
           <header>
-            <h1>{breed.name}</h1>
-            <button onClick={handleFavoriteClicked} id="favorite-btn">
-              {isFavorite ? (
-                <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
-              ) : (
-                <FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" />
-              )}
-            </button>
-          </header>
-          <Box>
-            <Box sx={{ width: '100%', typography: 'body1' }}>
-              <TabContext value={tableValue}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                  <TabList onChange={handleChange} aria-label="Dog detail tabs">
-                    <Tab label="Description" value="1" />
-                    <Tab label="Personality stats" value="2" />
-                    <Tab label="Health stats" value="3" />
-                  </TabList>
-                </Box>
-                <TabPanel value="1">
-                  <p>{breed.description}</p>
-                </TabPanel>
-                <TabPanel value="2">
-                  <Rating
-                    icon={<CircleIcon />}
-                    emptyIcon={<CircleOutlinedIcon />}
-                    name="read-only"
-                    value={3}
-                    readOnly
-                  />
-                  <Rating
-                    icon={<CircleIcon />}
-                    emptyIcon={<CircleOutlinedIcon />}
-                    name="read-only"
-                    value={3}
-                    readOnly
-                  />
-                  <Rating
-                    icon={<CircleIcon />}
-                    emptyIcon={<CircleOutlinedIcon />}
-                    name="read-only"
-                    value={3}
-                    readOnly
-                  />
-                  <Rating
-                    icon={<CircleIcon />}
-                    emptyIcon={<CircleOutlinedIcon />}
-                    name="read-only"
-                    value={3}
-                    readOnly
-                  />
-                </TabPanel>
-                <TabPanel value="3">health
-                  
-          <p>{breed.weight}</p>
-          <p>{breed.height}</p>
-          <p>{breed.lifespan}</p>
-          <p>{breed.trainability}</p>
-          <p>{breed.friendliness}</p>
-          <p>{breed.allergy}</p>
-          <p>{breed.energy}</p>
-          <p>{breed.issues}</p>
-                </TabPanel>
-              </TabContext>
+            <Box>
+              <h1>{breed.name}</h1>
+              <button onClick={handleFavoriteClicked} id="favorite-btn" aria-label="favorite-button">
+                {isFavorite ? (
+                  <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
+                ) : (
+                  <FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" />
+                )}
+              </button>
             </Box>
+            <p>
+              {breed?.averageRating ? (
+                <Rating readOnly value={Number(breed.averageRating.toFixed(1))} precision={0.1} />
+              ) : (
+                'No ratings yet'
+              )}
+            </p>
+          </header>
+          <Box className="infoTabs">
+            <TabContext value={tableValue}>
+              <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <TabList onChange={handleChange} aria-label="Dog detail tabs">
+                  <Tab label="Description" value="1" />
+                  <Tab label="Personality stats" value="2" />
+                  <Tab label="Health stats" value="3" />
+                </TabList>
+              </Box>
+              <TabPanel value="1">
+                <p>{breed.description}</p>
+              </TabPanel>
+              <TabPanel value="2">
+                <Box className="visualStats">
+                  <Box>
+                    <p>Trainability: </p>
+                    <StyledRating
+                      icon={<CircleIcon />}
+                      emptyIcon={<CircleOutlinedIcon />}
+                      name="read-only"
+                      value={breed.trainability}
+                      readOnly
+                    />
+                  </Box>
+                  <Box>
+                    <p>Friendliness:</p>
+                    <StyledRating
+                      icon={<CircleIcon />}
+                      emptyIcon={<CircleOutlinedIcon />}
+                      name="read-only"
+                      value={breed.friendliness}
+                      readOnly
+                    />
+                  </Box>
+                  <Box>
+                    <p>Allergy friendliness: </p>
+                    <StyledRating
+                      icon={<CircleIcon />}
+                      emptyIcon={<CircleOutlinedIcon />}
+                      name="read-only"
+                      value={breed.allergy}
+                      readOnly
+                    />
+                  </Box>
+                  <Box>
+                    <p>Energy level:</p>
+                    <StyledRating
+                      icon={<CircleIcon />}
+                      emptyIcon={<CircleOutlinedIcon />}
+                      name="read-only"
+                      value={breed.energy}
+                      readOnly
+                    />
+                  </Box>
+                </Box>
+              </TabPanel>
+              <TabPanel value="3">
+                <Box className="healthBox">
+                  <p>
+                    <MonitorHeartIcon /> Average lifespan: {breed.lifespan} years
+                  </p>
+                  <p>
+                    <ScaleIcon /> Average weight: {breed.weight} kg
+                  </p>
+                  <p>
+                    <HeightIcon /> Average height: {breed.height} cm
+                  </p>
+                  <p>
+                    <LocalHospitalIcon /> Typical issues: {breed.issues}
+                  </p>
+                </Box>
+              </TabPanel>
+            </TabContext>
           </Box>
         </Box>
       </Box>
@@ -187,19 +224,27 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           {(breed.comments ?? []).length > 0 ? (
             <>
               {(breed.comments ?? []).map((comment: { username: string; comment: string; rating?: number }, index) => (
-                <Box key={index} className="commentElement" sx={{
-                  backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff'),
-                  color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
-                  padding: 2,
-                  borderRadius: 2,
-                  boxShadow: 1,
-                }}>
-                  <p className="commentName">
-                    {comment.rating === null || comment.rating === undefined
-                      ? `${comment.username}`
-                      : `${comment.username} (${comment.rating} ★)`}
-                    :
-                  </p>
+                <Box
+                  key={index}
+                  className="commentElement"
+                  sx={{
+                    backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff'),
+                    color: (theme) => (theme.palette.mode === 'dark' ? '#ffffff' : '#000000'),
+                    padding: 2,
+                    borderRadius: 2,
+                    boxShadow: 1,
+                  }}
+                >
+                  <Box className="commentName">
+                    {comment.rating === null || comment.rating === undefined ? (
+                      comment.username
+                    ) : (
+                      <>
+                        <p>{comment.username}</p>
+                        <Rating readOnly value={comment.rating} />
+                      </>
+                    )}
+                  </Box>
 
                   <p className="commentText">{comment.comment}</p>
                 </Box>

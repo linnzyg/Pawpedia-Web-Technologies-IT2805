@@ -37,7 +37,7 @@ npx ts-node src/index.ts
 ```
 
 ## Showcase
-Link to VM will be available next version, as it is not required for the first task
+http://it2810-35.idi.ntnu.no/project2
 
 ## Documentation and choices
 The choice of making a dog application was made due to dogs being cute, and motivated all four developers to work on this project with love.
@@ -63,11 +63,10 @@ Functional testing with screen reader on windows have been performed to confirm 
 TODO
 
 ### Sustainable web design choices made - TO DO
-* Darkmode
-* No animations
-* Caching med Apollo Client
-* Rendering
-* Etc..
+* Darkmode saves energy as well as eye strain for the user.
+* No animations, as its unnecessary and energy consuming.
+* Caching with Apollo Client, so it doesnt load more than needed.
+* Image file format is WebP, as it is supported by most browsers and creates small and high quality images. We considered using AVIF but, as its not as widely supported yet,  decided on WebP.
 
 ## Testing and code quality
 
