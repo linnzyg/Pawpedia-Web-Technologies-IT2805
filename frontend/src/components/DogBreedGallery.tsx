@@ -54,7 +54,6 @@ const DogBreedGallery: React.FC = () => {
   };
 
   const handleSearchChange = (search: string) => {
-    console.log('search happening', search);
     if (search !== '') setUnvalidSearchTerm('');
     dispatch(setSearch(search)); // Update search term in Redux
 
