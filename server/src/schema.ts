@@ -2,9 +2,6 @@ export const typeDefs = `#graphql
 
     # Breed type represents a dog breed and its properties
     type Breed {
-
-       
-
         id: ID!                   # Unique identifier for the breed
         name: String!             # Name of the breed
         description: String!      # Description of the breed
@@ -21,20 +18,16 @@ export const typeDefs = `#graphql
         allergy: Int!
         energy: Int!
         issues: String!
-
-
     }
 
     # Comment type represents a comment made on a specific breed
     type Comment {
-
         id: ID!
         breedId: String!
         username: String
         comment: String!
         timestamp: String!
         rating: Int
-
     }
 
     # BreedConnection type supports pagination for the breeds
@@ -61,7 +54,7 @@ export const typeDefs = `#graphql
     # Query type defines the available queries that can be performed
     type Query {
         breed(id: ID!): Breed                          # Fetch a specific breed by its ID
-        breeds(first: Int!, after: String, filterBySize: [String], searchByName: String, orderBy: String): BreedConnection # Fetch a list of breeds with pagination and optional filtering
+        breeds(first: Int!, after: String, filterBySize: [String], searchByName: String, orderBy: String, skip: Int): BreedConnection # Fetch a list of breeds with pagination and optional filtering
     }
 
     # Mutation type defines the available mutations that can be performed
@@ -71,11 +64,9 @@ export const typeDefs = `#graphql
 
     # Input type for adding a new comment
     input AddCommentInput {
-
         breedId: ID!
         username: String
         comment: String!
         rating: Int
-
     }
     `

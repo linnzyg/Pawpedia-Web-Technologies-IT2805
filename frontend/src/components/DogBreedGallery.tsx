@@ -32,6 +32,7 @@ const DogBreedGallery: React.FC = () => {
       filterBySize: filterBySize || undefined,
       searchByName: searchByName || undefined,
       orderBy: orderBy || undefined,
+      skip: 0
     },
     fetchPolicy: 'network-only',
   });
@@ -51,7 +52,6 @@ const DogBreedGallery: React.FC = () => {
   const handleSortChange = (orderByValue: string) => {
     if (orderByValue !== '') {
       dispatch(setSort(orderByValue));
-
       setCursor(null);
       fetchBreeds(8, filterBySize, false, searchByName, orderByValue);
     }
@@ -67,7 +67,10 @@ const DogBreedGallery: React.FC = () => {
 
   // Handle loading more breeds when reaching the bottom
   const handleLoadMore = () => {
-    if (!loading && hasNextPage) fetchBreeds(4, filterBySize, true, searchByName, orderBy);
+    if (!loading && hasNextPage) {
+      if (orderBy === 'lowestRating' || orderBy === 'highestRating') fetchBreeds(4, filterBySize, true, searchByName, orderBy, allDogs.length);
+      else fetchBreeds(4, filterBySize, true, searchByName, orderBy)
+    }
   };
 
   const fetchBreeds = (
@@ -76,15 +79,17 @@ const DogBreedGallery: React.FC = () => {
     usePrevious: boolean,
     search: string | null,
     order: string | null,
+    skip: number | null = null,
   ) => {
+    console.log(skip)
     try {
       fetchMore({
         variables: {
           first: amount,
-          after: usePrevious ? cursor : null,
           filterBySize: filter,
           searchByName: search,
           orderBy: order,
+          skip: skip
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return;
@@ -105,11 +110,6 @@ const DogBreedGallery: React.FC = () => {
             setUnvalidSearchTerm(search ?? '');
 
             dispatch(setSearch('')); // Reset search term in Redux if no breeds found
-          }
-          if (order === 'highestRating' || order === 'lowestRating') {
-            setCursor(newAllDogs[newAllDogs.length - 1].averageRating.toString());
-          } else {
-            setCursor(fetchMoreResult.breeds.pageInfo.endCursor);
           }
           setAllDogs(newAllDogs);
           setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
