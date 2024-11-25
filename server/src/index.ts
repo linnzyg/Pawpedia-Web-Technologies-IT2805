@@ -24,8 +24,8 @@ const resolvers = {
   Query: {
     breeds: async (
       _: any,
-      { first, after, filterBySize, searchByName, orderBy, skip }: 
-      { first: number; after?: string; filterBySize?: string[]; searchByName?: string; orderBy?: string; skip?: number }
+      { first, filterBySize, searchByName, orderBy, skip }: 
+      { first: number; filterBySize?: string[]; searchByName?: string; orderBy?: string; skip?: number }
     ) => {
       const collection = db.collection('Breed');
       const query: any = {};
@@ -74,30 +74,24 @@ const resolvers = {
           { $sort: { averageRating: sortDirection, _id: 1 } }, // Secondary sort on _id
           
         ];
-        console.log(skip);
         
         // Pagination filter if 'skip' is provided
         if (skip) {
           pipeline.push({ $skip: skip });
-          pipeline.push({ $limit: first + 1 });
-        } else {
-          pipeline.push({ $limit: first + 1 });
-        }         
+        } 
+        pipeline.push({ $limit: first + 1 });       
       } else {
         // Handle name-based sorting (asc/desc) or default
         const sortDirection = orderBy === 'desc' ? -1 : 1;
-        if (after) {
-          query._id = { [sortDirection === 1 ? '$gt' : '$lt']: ObjectId.createFromHexString(after) };
-        }
+
         pipeline = [
           { $match: query },
           { $sort: { name: sortDirection, _id: 1 } },
+          { $skip: skip ?? 0 },
           { $limit: first + 1 },
         ];
       }
-      console.log(pipeline);
       const breeds = await collection.aggregate(pipeline).toArray();
-      console.log(breeds);
       const hasNextPage = breeds.length > first;
 
       return createResponse(breeds, first, hasNextPage, orderBy);
