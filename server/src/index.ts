@@ -94,6 +94,19 @@ const resolvers = {
       const breeds = await collection.aggregate(pipeline).toArray();
       const hasNextPage = breeds.length > first;
 
+      //Add average rating to fetched breeds
+      for (const breed of breeds) {
+        const comments = await db.collection('Comment').find({ breedId: breed._id.toString() }).toArray();
+  
+        // Filter out comments that do not have a rating
+        const ratedComments = comments.filter(comment => comment.rating != null);
+  
+        if (ratedComments.length > 0) {
+        const totalRating = ratedComments.reduce((sum, comment) => sum + comment.rating, 0);
+        breed.averageRating = totalRating / ratedComments.length;
+        }
+      }
+
       return createResponse(breeds, first, hasNextPage, orderBy);
     },
     breed: async (_: any, args: any) => {
