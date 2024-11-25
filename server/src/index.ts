@@ -96,15 +96,7 @@ const resolvers = {
 
       //Add average rating to fetched breeds
       for (const breed of breeds) {
-        const comments = await db.collection('Comment').find({ breedId: breed._id.toString() }).toArray();
-  
-        // Filter out comments that do not have a rating
-        const ratedComments = comments.filter(comment => comment.rating != null);
-  
-        if (ratedComments.length > 0) {
-        const totalRating = ratedComments.reduce((sum, comment) => sum + comment.rating, 0);
-        breed.averageRating = totalRating / ratedComments.length;
-        }
+        breed.averageRating = await getAverageRating(breed._id.toString());
       }
 
       return createResponse(breeds, first, hasNextPage, orderBy);
@@ -113,6 +105,7 @@ const resolvers = {
       const breed = await db
         .collection('Breed')
         .findOne({ _id: ObjectId.createFromHexString(args.id) });
+      if (breed) breed.averageRating = await getAverageRating(breed._id.toString());
       return breed;
     },
   },
@@ -182,6 +175,20 @@ const createResponse = (breeds: any[], first: number, hasNextPage: boolean, orde
     },
     totalCount: breeds.length, // Adjust this as needed
   };
+};
+
+// Function to calculate the average rating for a breed
+const getAverageRating = async (breedId: string) => {
+  const comments = await db.collection('Comment').find({ breedId: breedId }).toArray();
+  
+  // Filter out comments that do not have a rating
+  const ratedComments = comments.filter(comment => comment.rating != null);
+
+  if (ratedComments.length > 0) {
+  const totalRating = ratedComments.reduce((sum, comment) => sum + comment.rating, 0);
+  return totalRating / ratedComments.length;
+  }
+  return null
 };
 
 // Create Apollo Server instance
