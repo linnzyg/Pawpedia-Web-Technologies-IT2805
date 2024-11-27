@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 
 interface SortingProps {
   onSortChange: (orderBy: string) => void;
@@ -39,16 +39,12 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
         value={selectedOption}
         onChange={handleChange}
         label="Choose sorting"
-        sx={{width:"150px"}}
+        sx={{ width: '150px' }}
       >
         <MenuItem value="asc">A-Z</MenuItem>
         <MenuItem value="desc">Z-A</MenuItem>
-        <MenuItem value="highestRating" disabled>
-          Highest Rating
-        </MenuItem>
-        <MenuItem value="lowestRating" disabled>
-          Lowest Rating
-        </MenuItem>
+        <MenuItem value="highestRating">Highest Rating</MenuItem>
+        <MenuItem value="lowestRating">Lowest Rating</MenuItem>
       </Select>
     </FormControl>
   );
