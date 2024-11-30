@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`getRandomBreedId > should generate consistent snapshots of random breed IDs > random-breed-id-1 1`] = `"6706af95370cf43e0a195b51"`;
+
+exports[`getRandomBreedId > should generate consistent snapshots of random breed IDs > random-breed-id-2 1`] = `"6706af95370cf43e0a195b54"`;

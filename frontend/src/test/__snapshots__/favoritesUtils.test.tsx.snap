@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`favoritesUtils > addFavorite: should add a new breed to favorites 1`] = `
+[
+  {
+    "id": "1",
+    "image": "golden-retriever.jpg",
+    "name": "Golden Retriever",
+  },
+]
+`;
+
+exports[`favoritesUtils > getFavorites: should return an empty array if no favorites exist 1`] = `[]`;
+
+exports[`favoritesUtils > getFavorites: should return the correct list of favorites 1`] = `
+[
+  {
+    "id": "1",
+    "image": "golden-retriever.jpg",
+    "name": "Golden Retriever",
+  },
+]
+`;
+
+exports[`favoritesUtils > isFavorite: should return false for a non-favorited id 1`] = `false`;
+
+exports[`favoritesUtils > isFavorite: should return true for a favorited id 1`] = `true`;
+
+exports[`favoritesUtils > removeFavorite: should remove a breed from favorites 1`] = `
+[
+  {
+    "id": "2",
+    "image": "labrador-retriever.jpg",
+    "name": "Labrador Retriever",
+  },
+]
+`;
+
+exports[`favoritesUtils > toggleFavorite: should add to favorites if not already favorited 1`] = `
+[
+  {
+    "id": "1",
+    "image": "golden-retriever.jpg",
+    "name": "Golden Retriever",
+  },
+]
+`;
+
+exports[`favoritesUtils > toggleFavorite: should remove from favorites if already favorited 1`] = `[]`;

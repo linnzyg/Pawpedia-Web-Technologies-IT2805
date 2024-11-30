@@ -25,6 +25,14 @@ export const mockDogBreeds: DogBreed[] = [
     slug: generateSlug('mittelspitz'),
     favorite: false,
     size: Size.Small,
+    weight: 0,
+    height: 0,
+    lifespan: 0,
+    trainability: 0,
+    friendliness: 0,
+    allergy: 0,
+    energy: 0,
+    issues: ''
   },
   {
     id: '6706af95370cf43e0a195b51',
@@ -34,6 +42,14 @@ export const mockDogBreeds: DogBreed[] = [
     slug: generateSlug('golden-retriever'),
     favorite: true,
     size: Size.Large,
+    weight: 0,
+    height: 0,
+    lifespan: 0,
+    trainability: 0,
+    friendliness: 0,
+    allergy: 0,
+    energy: 0,
+    issues: ''
   },
   {
     id: '6706af95370cf43e0a195b52',
@@ -43,6 +59,14 @@ export const mockDogBreeds: DogBreed[] = [
     slug: generateSlug('husky'),
     favorite: true,
     size: Size.Large,
+    weight: 0,
+    height: 0,
+    lifespan: 0,
+    trainability: 0,
+    friendliness: 0,
+    allergy: 0,
+    energy: 0,
+    issues: ''
   },
   {
     id: '6706af95370cf43e0a195b53',
@@ -52,6 +76,14 @@ export const mockDogBreeds: DogBreed[] = [
     slug: generateSlug('poodle'),
     favorite: false,
     size: Size.Medium,
+    weight: 0,
+    height: 0,
+    lifespan: 0,
+    trainability: 0,
+    friendliness: 0,
+    allergy: 0,
+    energy: 0,
+    issues: ''
   },
   {
     id: '6706af95370cf43e0a195b54',
@@ -61,6 +93,14 @@ export const mockDogBreeds: DogBreed[] = [
     slug: generateSlug('samoyed'),
     favorite: false,
     size: Size.Large,
+    weight: 0,
+    height: 0,
+    lifespan: 0,
+    trainability: 0,
+    friendliness: 0,
+    allergy: 0,
+    energy: 0,
+    issues: ''
   },
   {
     id: '6706af95370cf43e0a195b55',
@@ -70,5 +110,13 @@ export const mockDogBreeds: DogBreed[] = [
     slug: generateSlug('pomeranian'),
     favorite: false,
     size: Size.Small,
+    weight: 0,
+    height: 0,
+    lifespan: 0,
+    trainability: 0,
+    friendliness: 0,
+    allergy: 0,
+    energy: 0,
+    issues: ''
   },
 ];

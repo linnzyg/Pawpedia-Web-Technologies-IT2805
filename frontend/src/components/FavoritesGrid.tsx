@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DogBreed } from '../types/DogBreed';
+import { getFavorites } from '../utils/favoritesUtils';
 import '../style/FavoritesGrid.css';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
@@ -12,12 +13,9 @@ function FavoritesGrid() {
   const [favorites, setFavorites] = useState<FavoriteBreed[]>([]);
 
   const updateFavorites = () => {
-    const storedFavorites = localStorage.getItem('favorites');
-    if (storedFavorites) {
-      const parsedFavorites: DogBreed[] = JSON.parse(storedFavorites);
-      const limitedFavorites = parsedFavorites.map(({ id, name, image }) => ({ id, name, image }));
-      setFavorites(limitedFavorites);
-    }
+    const storedFavorites = getFavorites();
+    const limitedFavorites = storedFavorites.map(({ id, name, image }) => ({ id, name, image }));
+    setFavorites(limitedFavorites);
   };
 
   useEffect(() => {
@@ -29,7 +27,7 @@ function FavoritesGrid() {
   return (
     <Box>
       <header className="favorites-header">
-        <h2>Your favorite dogs: </h2>
+        <h2>Your favorite dogs:</h2>
       </header>
       <Box className="favorites-grid">
         {favorites.length > 0 ? (
