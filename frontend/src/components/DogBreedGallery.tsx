@@ -63,7 +63,7 @@ const DogBreedGallery: React.FC = () => {
   // Handle loading more breeds when reaching the bottom
   const handleLoadMore = () => {
     if (!loading && hasNextPage) {
-      fetchBreeds(4, filterBySize, searchByName, orderBy, allDogs.length);
+      fetchBreeds(8, filterBySize, searchByName, orderBy, allDogs.length);
     }
   };
 
