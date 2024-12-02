@@ -83,7 +83,7 @@ const DogBreedGallery: React.FC = () => {
           orderBy: order,
           skip: skip,
         },
-        updateQuery: (previousResult, { fetchMoreResult }) => {
+        updateQuery: (_previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return;
 
           const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: DogBreed }) => ({
