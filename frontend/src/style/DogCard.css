@@ -31,7 +31,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   grid-template-columns: repeat(4, 1fr);
-  
+  gap: 50px;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 .dog-breed-gallery > * {
