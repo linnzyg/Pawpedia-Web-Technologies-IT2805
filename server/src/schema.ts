@@ -51,10 +51,15 @@ export const typeDefs = `#graphql
         endCursor: String         # Cursor for the end of the current page
     }
 
+    type RandomBreed {
+        id: String!
+    }
+
     # Query type defines the available queries that can be performed
     type Query {
         breed(id: ID!): Breed                          # Fetch a specific breed by its ID
         breeds(first: Int!, filterBySize: [String], searchByName: String, orderBy: String, skip: Int): BreedConnection # Fetch a list of breeds with pagination and optional filtering
+        randomBreed: RandomBreed!
     }
 
     # Mutation type defines the available mutations that can be performed

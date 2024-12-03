@@ -66,6 +66,7 @@ TODO
 * Darkmode saves energy as well as eye strain for the user.
 * No animations, as its unnecessary and energy consuming.
 * Caching with Apollo Client, so it doesnt load more than needed.
+* If a search term returns no breeds, there will not be any new fetches as long as new search includes the initial search term that returned zero breeds or that some filters are removed. This is to avoid unnecessary api calls.
 * Image file format is WebP, as it is supported by most browsers and creates small and high quality images. We considered using AVIF but, as its not as widely supported yet,  decided on WebP.
 
 ## Testing and code quality

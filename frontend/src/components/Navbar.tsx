@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { GET_BREEDS } from '../api/queries';
+import { NavLink } from "react-router-dom";
+import "../style/Navbar.css";
+import { useQuery } from "@apollo/client";
+import { GET_RANDOM_BREED } from "../api/queries";
 import ModeChange from './ModeChange';
 import Tooltip from '@mui/material/Tooltip';
 import { getRandomBreedId } from '../utils/randomBreedFetcher';
@@ -14,23 +14,16 @@ import '../style/Navbar.css';
  */
 
 function Navbar() {
-  const { data } = useQuery(GET_BREEDS, {
-    variables: { first: 40 },
-    fetchPolicy: 'cache-and-network',
-  });
-  const [randomBreedId, setRandomBreedId] = useState<string | null>(null);
+  const { loading, error, data, refetch } = useQuery(GET_RANDOM_BREED);
 
-  useEffect(() => {
-    if (data?.breeds?.edges) {
-      setRandomBreedId(getRandomBreedId(data.breeds.edges));
-    }
-  }, [data]);
-
-  const refreshRandomBreed = () => {
-    if (data?.breeds?.edges) {
-      setRandomBreedId(getRandomBreedId(data.breeds.edges));
-    }
+  // Function to select a random breed ID
+  const fetchNewBreed = () => {
+    refetch();
   };
+
+  // Handle loading and error states
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading breeds: {error.message}</p>;
 
   return (
     <section className="navbar">
@@ -39,7 +32,8 @@ function Navbar() {
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/">All dogs</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
-        <NavLink onClick={refreshRandomBreed} to={`/${randomBreedId}`}>
+        <NavLink onClick={fetchNewBreed} to={`/${data.randomBreed.id}`}>
+
           Lucky dog!
         </NavLink>
       </section>

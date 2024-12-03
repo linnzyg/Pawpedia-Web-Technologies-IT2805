@@ -1,11 +1,13 @@
 .breed-card {
+  display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px;
   text-align: center;
-  padding: 10px;
+  padding: 30px;
   padding-top: 2px;
   border: none;
+  max-width: max-content;
 }
 
 .dogCardHeader {
@@ -24,10 +26,14 @@
 }
 
 .dog-breed-gallery {
-  display: flex;
+  display: grid;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 .dog-breed-gallery > * {
@@ -54,6 +60,7 @@
 
 @media (max-width: 600px) {
   .dog-breed-gallery {
+    display: flex;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 10px;
   }
