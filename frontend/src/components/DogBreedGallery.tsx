@@ -25,13 +25,7 @@ const DogBreedGallery: React.FC = () => {
   const [unvalidSearchTerm, setUnvalidSearchTerm] = useState<string>('');
 
   const { loading, error, fetchMore } = useQuery(GET_BREEDS, {
-    variables: {
-      first: 4,
-      filterBySize: filterBySize || undefined,
-      searchByName: searchByName || undefined,
-      orderBy: orderBy || undefined,
-      skip: 0,
-    },
+    skip: true, // Preventing automatic fetching on mount to avoid unnecessary requests
     fetchPolicy: 'network-only',
   });
 
@@ -171,9 +165,7 @@ const DogBreedGallery: React.FC = () => {
               </Link>
             </Card>
           ))
-        ) : (
-          <p>No breeds found.</p>
-        )}
+        ) : (null)}
       </section>
       {hasNextPage && (
         <button className="loadButton" onClick={handleLoadMore}>
