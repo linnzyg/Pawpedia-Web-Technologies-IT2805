@@ -13,7 +13,7 @@
   padding: 0%;
 }
 
-.navLinks >a {
+.navLinks > a {
   padding: 1vh;
   margin: 1vh;
   text-decoration: none;
@@ -22,17 +22,17 @@
   background-color: transparent;
   border: 3px solid transparent;
 }
-.navLinks{
+.navLinks {
   align-items: center;
 }
 
-.navbar > .navLinks >a:hover {
+.navbar > .navLinks > a:hover {
   border-color: #ede0d9;
   color: #ede0d9;
   border-radius: 5px;
 }
 
-.navbar > .navLinks >a:active {
+.navbar > .navLinks > a:active {
   border-color: #191911;
   color: #191911;
 }

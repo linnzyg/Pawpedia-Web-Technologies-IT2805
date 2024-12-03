@@ -39,8 +39,7 @@ export const styletheme = createTheme({
           color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // Tab text color based on mode
           '&.Mui-selected': {
             color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // Selected tab text color based on mode
-            backgroundColor: "rgba(177, 154, 204, 0.3) !important",
-            
+            backgroundColor: 'rgba(177, 154, 204, 0.3) !important',
           },
         }),
       },

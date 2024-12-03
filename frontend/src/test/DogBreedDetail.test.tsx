@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
-import DogBreedDetail from './DogBreedDetail';
+import DogBreedDetail from '../components/DogBreedDetail';
 import { DogBreed, Size } from '../types/DogBreed';
 import { describe, it, expect } from 'vitest';
 
@@ -14,6 +14,14 @@ describe('DogBreedDetail Component', () => {
     slug: 'golden-retriever',
     favorite: false,
     size: Size.Large,
+    weight: 0,
+    height: 0,
+    lifespan: 0,
+    trainability: 0,
+    friendliness: 0,
+    allergy: 0,
+    energy: 0,
+    issues: '',
   };
 
   it('renders the breed name, image, and description', () => {

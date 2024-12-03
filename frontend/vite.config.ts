@@ -1,20 +1,20 @@
-import { defineConfig } from "vitest/config";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import path from 'path';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    open: true,
-  },
   test: {
+    environment: 'jsdom',
     globals: true,
-    environment: "jsdom",
-    setupFiles: "src/test/setup.ts",
+    setupFiles: './src/setupTests.ts',
+    coverage: {
+      provider: 'istanbul', // Use Istanbul for coverage
+      reporter: ['text', 'html', 'json', 'json-summary'], // Report formats
+      include: ['src'], // Include the src folder in coverage
+    },
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
 });

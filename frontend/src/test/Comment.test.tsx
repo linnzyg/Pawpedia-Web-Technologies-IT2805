@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { MockedProvider } from '@apollo/client/testing';
-import Comment from './Comment';
+import Comment from '../components/Comment';
 import { ADD_COMMENT } from '../api/mutations';
 
 describe('Comment Component', () => {

@@ -4,6 +4,8 @@ import { useQuery } from "@apollo/client";
 import { GET_RANDOM_BREED } from "../api/queries";
 import ModeChange from './ModeChange';
 import Tooltip from '@mui/material/Tooltip';
+import { getRandomBreedId } from '../utils/randomBreedFetcher';
+import '../style/Navbar.css';
 
 /**
  * Navbar Component
@@ -26,17 +28,18 @@ function Navbar() {
   return (
     <section className="navbar">
       <section className="navLinks">
-        <ModeChange/>
+        <ModeChange />
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/">All dogs</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
         <NavLink onClick={fetchNewBreed} to={`/${data.randomBreed.id}`}>
+
           Lucky dog!
         </NavLink>
       </section>
-      <section id="navbar">
 
-        <Tooltip title={"View all dogs"}>
+      <section id="navbar">
+        <Tooltip title="View all dogs">
           <NavLink to="/">
             <img src="/src/assets/paw.png" alt="Logo" className="navbar-logo" />
           </NavLink>

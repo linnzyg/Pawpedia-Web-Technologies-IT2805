@@ -1,4 +1,3 @@
-
 import { SET_SEARCH } from '../actions/types';
 
 const initialState = '';

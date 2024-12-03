@@ -41,7 +41,7 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize 
         value={selectedSizes}
         onChange={handleSizeChange}
         renderValue={(selected) => (selected as string[]).join(', ')} //Show selected sizes
-        sx={{width:"200px"}}
+        sx={{ width: '200px' }}
       >
         {sizes.map((size) => (
           <MenuItem key={size} value={size}>

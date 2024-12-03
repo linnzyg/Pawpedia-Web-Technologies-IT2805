@@ -1,3 +1,4 @@
+import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
@@ -20,7 +21,7 @@ export default function ModeChange() {
   const otherMode = mode === 'dark' ? 'Light' : 'Dark';
   return (
     <Tooltip title={`Change To ${otherMode}-mode`}>
-      <IconButton size="large" onClick={handleToggle}>
+      <IconButton size="large" onClick={handleToggle} id="toggleMode" data-testid="toggleMode">
         {mode === 'dark' ? <FlareIcon sx={{ color: '#ede0d9' }} /> : <DarkModeOutlinedIcon sx={{ color: '#191911' }} />}
       </IconButton>
     </Tooltip>

@@ -21,6 +21,7 @@ import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import ScaleIcon from '@mui/icons-material/Scale';
 import HeightIcon from '@mui/icons-material/Height';
+import { toggleFavorite, isFavorite } from '../utils/favoritesUtils';
 
 /**
  * Props interface for the DogBreedDetail component.
@@ -47,7 +48,7 @@ const StyledRating = styled(Rating)({
 });
 
 const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
-  const [isFavorite, setIsFavorite] = useState(breed.favorite);
+  const [favorite, setFavorite] = useState(false);
   const [addComment] = useMutation(ADD_COMMENT, {
     refetchQueries: [{ query: GET_BREED, variables: { id: id } }],
     onError: (error) => {
@@ -76,25 +77,13 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
   };
 
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-    setIsFavorite(favorites.some((fav: DogBreedDetailProps) => fav.id === id));
+    setFavorite(isFavorite(id));
   }, [id]);
 
   const handleFavoriteClicked = () => {
-    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-
-    if (isFavorite) {
-      const newFavorites = favorites.filter((fav: { id: string }) => fav.id !== id);
-      localStorage.setItem('favorites', JSON.stringify(newFavorites));
-    } else {
-      const newFavorite = { id, name: breed.name, image: breed.image };
-      const updatedFavorites = [...favorites, newFavorite];
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-    }
-
-    setIsFavorite(!isFavorite);
+    const newState = toggleFavorite(id, { id, name: breed.name, image: breed.image });
+    setFavorite(newState);
   };
-
   return (
     <>
       <Box
@@ -112,7 +101,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
             <Box>
               <h1>{breed.name}</h1>
               <button onClick={handleFavoriteClicked} id="favorite-btn" aria-label="favorite-button">
-                {isFavorite ? (
+                {favorite ? (
                   <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
                 ) : (
                   <FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" />

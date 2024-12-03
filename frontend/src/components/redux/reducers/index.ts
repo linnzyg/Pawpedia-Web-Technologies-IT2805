@@ -1,4 +1,3 @@
-
 import { combineReducers } from 'redux';
 import filterReducer from './filterReducer';
 import sortReducer from './sortReducer';

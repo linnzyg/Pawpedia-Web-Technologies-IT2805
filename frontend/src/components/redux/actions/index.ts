@@ -1,4 +1,3 @@
-
 import { SET_FILTER, SET_SORT, SET_SEARCH } from './types';
 
 export const setFilter = (filters: string[] | null) => ({

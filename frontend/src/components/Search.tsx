@@ -18,7 +18,7 @@ const Search: React.FC<SearchProps> = ({ searchByName, onSearchChange }) => {
         variant="outlined"
         sx={(theme) => ({
           backgroundColor: theme.palette.mode === 'dark' ? '#39342b' : 'white',
-          borderRadius: "5px"
+          borderRadius: '5px',
         })}
       />
     </section>
