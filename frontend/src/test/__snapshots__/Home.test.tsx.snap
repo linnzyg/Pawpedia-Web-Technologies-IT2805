@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Home component renders correctly and matches snapshot 1`] = `
+exports[`AboutUs component renders correctly and matches snapshot 1`] = `
 <div>
   <section
-    id="homeBody"
+    id="AboutUsBody"
   >
     <header>
       <h1>
@@ -18,7 +18,7 @@ exports[`Home component renders correctly and matches snapshot 1`] = `
         style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
       >
         <h2
-          class="homeTitle"
+          class="AboutUsTitle"
         >
           About Us
         </h2>
@@ -44,7 +44,7 @@ exports[`Home component renders correctly and matches snapshot 1`] = `
         style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
       >
         <h2
-          class="homeTitle"
+          class="AboutUsTitle"
         >
           What We Offer
         </h2>

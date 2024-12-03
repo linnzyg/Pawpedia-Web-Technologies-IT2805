@@ -1,4 +1,4 @@
-#homeBody {
+#AboutUsBody {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@ li {
   display: list-item;
 }
 
-.homeTitle {
+.AboutUsTitle {
   font-size: large;
   padding: 10px;
   border-bottom: 2px solid;
@@ -43,18 +43,18 @@ li {
   border-bottom: dotted 2px;
 }
 
-#homeBody > * {
+#AboutUsBody > * {
   flex-grow: 1;
 }
 
-#homeBody > header {
+#AboutUsBody > header {
   background-image: url(../assets/aboutimage.webp);
   background-repeat: no-repeat;
   background-size: cover;
   height: 300px;
 }
 
-#homeBody h1 {
+#AboutUsBody h1 {
   position: relative;
   top: 200px;
   color: white;
@@ -73,12 +73,12 @@ footer {
 }
 
 @media (max-width: 860px) {
-  #homeBody > header {
+  #AboutUsBody > header {
     background-size: cover;
     background-position: 50%;
   }
 
-  #homeBody h1 {
+  #AboutUsBody h1 {
     top: 150px;
   }
 }

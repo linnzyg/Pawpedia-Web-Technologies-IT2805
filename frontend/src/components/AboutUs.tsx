@@ -1,27 +1,26 @@
 import React from 'react';
-import '../style/Home.css';
+import '../style/AboutUs.css';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import Button from '@mui/material/Button';
 
 /**
- * Home Component
+ * AboutUs Component
  * - Displays an introduction and information about the Pawpedia platform.
  * - Provides a welcoming and informative experience for first-time visitors.
  */
 
-function Home() {
+function AboutUs() {
   return (
     <>
-      <section id="homeBody">
+      <section id="aboutBody">
         <header>
           <h1>Welcome to Pawpedia, a dog breed database!</h1>
         </header>
 
         <Box className="content">
           <Card className="aboutBox">
-            <h2 className="homeTitle">About Us</h2>
+            <h2 className="aboutTitle">About Us</h2>
             <Box className="aboutText">
               <p>
                 Welcome to Pawpedia, your ultimate destination for exploring, learning about, and discovering the
@@ -43,7 +42,7 @@ function Home() {
             </Box>
           </Card>
           <Card className="offerBox">
-            <h2 className="homeTitle">What We Offer</h2>
+            <h2 className="aboutTitle">What We Offer</h2>
             <Box className="offerText">
               <Box>
                 <p className="profileTitle">Breed Profiles:</p>
@@ -98,4 +97,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default AboutUs;
