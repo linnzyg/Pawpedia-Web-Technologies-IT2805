@@ -5,7 +5,7 @@ import Search from '../components/Search'; // Adjust import path if needed
 describe('Search Component', () => {
   it('should render the search input field', () => {
     const { asFragment } = render(<Search searchByName="" onSearchChange={vi.fn()} />);
-    
+
     // Snapshot test: Capture the component's rendered output
     expect(asFragment()).toMatchSnapshot();
 
@@ -17,7 +17,7 @@ describe('Search Component', () => {
   it('should call onSearchChange with the correct value when typing', () => {
     const mockOnSearchChange = vi.fn();
     const { asFragment } = render(<Search searchByName="" onSearchChange={mockOnSearchChange} />);
-    
+
     // Simulate typing 'Golden Retriever' into the search input
     const inputElement = screen.getByPlaceholderText('Search...');
     fireEvent.change(inputElement, { target: { value: 'Golden Retriever' } });
@@ -31,7 +31,7 @@ describe('Search Component', () => {
 
   it('should show the correct value in the input', () => {
     const { asFragment } = render(<Search searchByName="Golden" onSearchChange={vi.fn()} />);
-    
+
     // Snapshot test: Capture the component's rendered output
     expect(asFragment()).toMatchSnapshot();
 

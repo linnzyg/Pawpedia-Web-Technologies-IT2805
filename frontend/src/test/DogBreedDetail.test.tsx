@@ -21,7 +21,7 @@ describe('DogBreedDetail Component', () => {
     friendliness: 0,
     allergy: 0,
     energy: 0,
-    issues: ''
+    issues: '',
   };
 
   it('renders the breed name, image, and description', () => {

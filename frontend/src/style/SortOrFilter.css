@@ -16,7 +16,7 @@
   flex-direction: row;
 }
 
-#secondRow > *{
+#secondRow > * {
   justify-content: space-around;
 }
 

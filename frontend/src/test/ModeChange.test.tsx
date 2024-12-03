@@ -16,7 +16,7 @@ describe('ModeChange Component', () => {
     const { rerender, asFragment } = render(
       <ThemeProvider theme={theme}>
         <ModeChange />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     const button = screen.getByTestId('toggleMode');
@@ -36,7 +36,7 @@ describe('ModeChange Component', () => {
     rerender(
       <ThemeProvider theme={theme}>
         <ModeChange />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     // Snapshot after toggling to dark mode
@@ -53,7 +53,7 @@ describe('ModeChange Component', () => {
     rerender(
       <ThemeProvider theme={theme}>
         <ModeChange />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     // Snapshot after toggling back to light mode

@@ -32,7 +32,7 @@ export const mockDogBreeds: DogBreed[] = [
     friendliness: 0,
     allergy: 0,
     energy: 0,
-    issues: ''
+    issues: '',
   },
   {
     id: '6706af95370cf43e0a195b51',
@@ -49,7 +49,7 @@ export const mockDogBreeds: DogBreed[] = [
     friendliness: 0,
     allergy: 0,
     energy: 0,
-    issues: ''
+    issues: '',
   },
   {
     id: '6706af95370cf43e0a195b52',
@@ -66,7 +66,7 @@ export const mockDogBreeds: DogBreed[] = [
     friendliness: 0,
     allergy: 0,
     energy: 0,
-    issues: ''
+    issues: '',
   },
   {
     id: '6706af95370cf43e0a195b53',
@@ -83,7 +83,7 @@ export const mockDogBreeds: DogBreed[] = [
     friendliness: 0,
     allergy: 0,
     energy: 0,
-    issues: ''
+    issues: '',
   },
   {
     id: '6706af95370cf43e0a195b54',
@@ -100,7 +100,7 @@ export const mockDogBreeds: DogBreed[] = [
     friendliness: 0,
     allergy: 0,
     energy: 0,
-    issues: ''
+    issues: '',
   },
   {
     id: '6706af95370cf43e0a195b55',
@@ -117,6 +117,6 @@ export const mockDogBreeds: DogBreed[] = [
     friendliness: 0,
     allergy: 0,
     energy: 0,
-    issues: ''
+    issues: '',
   },
 ];

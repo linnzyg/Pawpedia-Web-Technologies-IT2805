@@ -4,9 +4,7 @@ import NameSorting from '../components/NameSorting';
 
 describe('NameSorting Component', () => {
   it('should render correctly with initial sort option', () => {
-    const { asFragment } = render(
-      <NameSorting onSortChange={vi.fn()} sortOption="asc" />
-    );
+    const { asFragment } = render(<NameSorting onSortChange={vi.fn()} sortOption="asc" />);
 
     expect(asFragment()).toMatchSnapshot();
 

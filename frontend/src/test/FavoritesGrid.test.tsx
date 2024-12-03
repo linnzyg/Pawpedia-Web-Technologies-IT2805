@@ -51,7 +51,7 @@ describe('FavoritesGrid', () => {
     const { container } = render(
       <MemoryRouter>
         <FavoritesGrid />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(container).toMatchSnapshot();

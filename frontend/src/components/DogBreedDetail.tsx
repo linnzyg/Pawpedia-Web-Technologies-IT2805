@@ -23,7 +23,6 @@ import ScaleIcon from '@mui/icons-material/Scale';
 import HeightIcon from '@mui/icons-material/Height';
 import { toggleFavorite, isFavorite } from '../utils/favoritesUtils';
 
-
 /**
  * Props interface for the DogBreedDetail component.
  * - `breed`: The breed information that includes details like name, description, image, etc.
@@ -102,13 +101,12 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
             <Box>
               <h1>{breed.name}</h1>
               <button onClick={handleFavoriteClicked} id="favorite-btn" aria-label="favorite-button">
-  {favorite ? (
-    <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
-  ) : (
-    <FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" />
-  )}
-</button>
-
+                {favorite ? (
+                  <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
+                ) : (
+                  <FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" />
+                )}
+              </button>
             </Box>
             <p>
               {breed?.averageRating ? (

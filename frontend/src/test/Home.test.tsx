@@ -8,7 +8,7 @@ test('Home component renders correctly and matches snapshot', () => {
   const { container } = render(
     <MemoryRouter>
       <Home />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   expect(container).toMatchSnapshot();

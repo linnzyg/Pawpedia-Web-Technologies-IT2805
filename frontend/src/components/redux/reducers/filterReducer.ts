@@ -1,4 +1,3 @@
-
 import { SET_FILTER } from '../actions/types';
 
 const initialState: string[] | null = null;

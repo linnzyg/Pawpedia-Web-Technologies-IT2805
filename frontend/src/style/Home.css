@@ -8,39 +8,40 @@ li {
   display: list-item;
 }
 
-.homeTitle{
+.homeTitle {
   font-size: large;
-  padding:10px;
+  padding: 10px;
   border-bottom: 2px solid;
 }
 
-.aboutText, .offerText{
+.aboutText,
+.offerText {
   padding: 1%;
 }
 
-.offerText > *{
+.offerText > * {
   display: flex;
   flex-direction: column;
   align-items: baseline;
   padding: 10px;
 }
 
-.offerText > *>:first-child{
+.offerText > * > :first-child {
   background-color: rgb(177, 154, 204, 0.5);
   padding: 5px;
 }
 
-.aboutBox, .offerBox{
+.aboutBox,
+.offerBox {
   margin: 3%;
-  padding: 2%
+  padding: 2%;
 }
 
-.profileText{
+.profileText {
   padding: 5px;
   margin: 5px;
   border-bottom: dotted 2px;
 }
-
 
 #homeBody > * {
   flex-grow: 1;
@@ -69,7 +70,6 @@ footer {
   padding-bottom: 50px;
   margin-top: 80px;
   bottom: -100px;
-  
 }
 
 @media (max-width: 860px) {

@@ -1,11 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import {
-  getFavorites,
-  isFavorite,
-  addFavorite,
-  removeFavorite,
-  toggleFavorite,
-} from '../utils/favoritesUtils';
+import { getFavorites, isFavorite, addFavorite, removeFavorite, toggleFavorite } from '../utils/favoritesUtils';
 import { DogBreed } from '../types/DogBreed';
 
 describe('favoritesUtils', () => {
