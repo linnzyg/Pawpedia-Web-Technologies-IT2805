@@ -44,6 +44,7 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
         onChange={(e) => setName(e.target.value)}
         required
         className="w-full p-2 border-4 border-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        inputProps={{ maxLength: 100 }}
       />
       <TextField
         multiline
@@ -54,6 +55,7 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
         onChange={(e) => setComment(e.target.value)}
         required
         className="w-full p-2 border border-gray-300 rounded-md"
+        inputProps={{ maxLength: 500 }}
       />
       {/* Star Rating */}
       <Box>
@@ -61,7 +63,9 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
           aria-label="Rate 1-5"
           value={rating}
           onChange={(event, newValue) => {
-            setRating(newValue);
+            if (newValue !== null) {
+              setRating(newValue);
+            }
           }}
         ></Rating>
       </Box>

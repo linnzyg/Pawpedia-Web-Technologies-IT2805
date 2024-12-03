@@ -108,6 +108,15 @@ const resolvers = {
       if (breed) breed.averageRating = await getAverageRating(breed._id.toString());
       return breed;
     },
+    randomBreed: async () => {
+      const collection = db.collection('Breed');
+      const breeds = await collection.find().toArray();
+      const randomIndex = Math.floor(Math.random() * breeds.length);
+      const breedId = breeds[randomIndex]._id.toString();
+      return {
+        id: breedId,
+      };
+    },
   },
   Breed: {
     async comments(parent: any) {

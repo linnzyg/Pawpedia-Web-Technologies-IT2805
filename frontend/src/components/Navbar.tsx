@@ -1,8 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "../style/Navbar.css";
 import { useQuery } from "@apollo/client";
-import { GET_BREEDS } from "../api/queries";
-import { useState, useEffect } from "react";
+import { GET_RANDOM_BREED } from "../api/queries";
 import ModeChange from './ModeChange';
 import Tooltip from '@mui/material/Tooltip';
 
@@ -13,27 +12,12 @@ import Tooltip from '@mui/material/Tooltip';
  */
 
 function Navbar() {
-  const { data, loading, error } = useQuery(GET_BREEDS, {
-    variables: { first: 100 }, 
-  });
-
-  const [randomBreedId, setRandomBreedId] = useState<string | null>(null);
+  const { loading, error, data, refetch } = useQuery(GET_RANDOM_BREED);
 
   // Function to select a random breed ID
-  const fetchRandomBreedId = () => {
-    if (data && data.breeds.edges.length > 0) {
-      const breedIds = data.breeds.edges.map((edge: any) => edge.node.id);
-      const randomIndex = Math.floor(Math.random() * breedIds.length);
-      setRandomBreedId(breedIds[randomIndex]);
-    }
+  const fetchNewBreed = () => {
+    refetch();
   };
-
-  // Preload a random breed ID when data is loaded
-  useEffect(() => {
-    if (data) {
-      fetchRandomBreedId();
-    }
-  }, [data]);
 
   // Handle loading and error states
   if (loading) return <p>Loading...</p>;
@@ -46,7 +30,7 @@ function Navbar() {
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/">All dogs</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
-        <NavLink onClick={fetchRandomBreedId} to={`/${randomBreedId}`}>
+        <NavLink onClick={fetchNewBreed} to={`/${data.randomBreed.id}`}>
           Lucky dog!
         </NavLink>
       </section>

@@ -58,3 +58,11 @@ export const GET_BREED = gql`
     }
   }
 `;
+
+export const GET_RANDOM_BREED = gql`
+  query GetRandomBreed {
+    randomBreed {
+      id
+    }
+  }
+`;

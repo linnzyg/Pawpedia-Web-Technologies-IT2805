@@ -22,48 +22,66 @@ const DogBreedGallery: React.FC = () => {
   const [allDogs, setAllDogs] = useState<DogBreed[]>([]);
   const [hasNextPage, setHasNextPage] = useState<boolean>(true);
   const sortRef = useRef<HTMLSelectElement>(null);
+
+  // Search term to display for user when no breeds are found
   const [unvalidSearchTerm, setUnvalidSearchTerm] = useState<string>('');
 
+  // Search term that intially gave no result 
+  // Used to compare against new search term to avoid unnecessary refetching when new result are guaranteed to also be empty
+  const [initialUnvalidSearchTerm, setInitialUnvalidSearchTerm] = useState<string>('');
+
   const { loading, error, fetchMore } = useQuery(GET_BREEDS, {
-    variables: {
-      first: 4,
-      filterBySize: filterBySize || undefined,
-      searchByName: searchByName || undefined,
-      orderBy: orderBy || undefined,
-      skip: 0,
-    },
+    skip: true, // Preventing automatic fetching on mount to avoid unnecessary requests
     fetchPolicy: 'network-only',
   });
 
   // Handle changes in filter
   const handleFilterChange = (filters: string[]) => {
     if (JSON.stringify(filters) !== JSON.stringify(filterBySize)) {
-      setUnvalidSearchTerm('');
+      // if there are currently no search term that gives no result, refetch with new filters should happen
+      if(unvalidSearchTerm.length === 0) {
+        fetchBreeds(8, filters.length > 0 ? filters : null, searchByName, orderBy);
+      } else {
+        // When current search term search gives no result, but the change in filters is that a filter is removed, refetch with less filters should happen, as it might give result with content
+        if (JSON.stringify(filters).length < JSON.stringify(filterBySize).length) {
+          fetchBreeds(8, filters.length > 0 ? filters : null, searchByName, orderBy);
+        }
+      }
       dispatch(setFilter(filters.length > 0 ? filters : null));
-      fetchBreeds(8, filters.length > 0 ? filters : null, searchByName, orderBy);
     }
   };
 
   // Handle changes in sorting
-
   const handleSortChange = (orderByValue: string) => {
     if (orderByValue !== '') {
       dispatch(setSort(orderByValue));
-      fetchBreeds(8, filterBySize, searchByName, orderByValue);
+      // if there are currently no search term that gives no result, refetch with new sorting should happen. This is to avoid unnecessary refetching when new result are guaranteed to also be empty
+      if(unvalidSearchTerm.length === 0) {
+        fetchBreeds(8, filterBySize, searchByName, orderByValue);
+      }
     }
   };
 
   const handleSearchChange = (search: string) => {
-    if (search !== '') setUnvalidSearchTerm('');
+    if(unvalidSearchTerm.length > 0) {
+      // refetch should only happen if the new search term do not includes the initial search term that gave no result 
+      if(!search.includes(initialUnvalidSearchTerm)) {
+        fetchBreeds(8, filterBySize, search, orderBy);
+        setUnvalidSearchTerm('')
+        setInitialUnvalidSearchTerm('')
+      } else {
+        setUnvalidSearchTerm(search);
+      }
+    } else {
+      fetchBreeds(8, filterBySize, search, orderBy);
+    }
     dispatch(setSearch(search)); // Update search term in Redux
-
-    fetchBreeds(8, filterBySize, search, orderBy);
   };
 
   // Handle loading more breeds when reaching the bottom
   const handleLoadMore = () => {
     if (!loading && hasNextPage) {
-      fetchBreeds(4, filterBySize, searchByName, orderBy, allDogs.length);
+      fetchBreeds(8, filterBySize, searchByName, orderBy, allDogs.length);
     }
   };
 
@@ -73,6 +91,7 @@ const DogBreedGallery: React.FC = () => {
     search: string | null,
     order: string | null,
     skip: number | null = null,
+    isRefetch: boolean = false,
   ) => {
     try {
       fetchMore({
@@ -99,8 +118,11 @@ const DogBreedGallery: React.FC = () => {
             : resultBreeds;
           if (newAllDogs.length === 0) {
             setUnvalidSearchTerm(search ?? '');
-            dispatch(setSearch('')); // Reset search term in Redux if no breeds found
-            fetchBreeds(8, filterBySize, '', orderBy);
+            setInitialUnvalidSearchTerm(search ?? '');
+            fetchBreeds(8, null, '', null, null, true);
+          } else if(!isRefetch) {
+            setUnvalidSearchTerm('');
+            setInitialUnvalidSearchTerm('');
           }
           setAllDogs(newAllDogs);
           setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
@@ -149,7 +171,8 @@ const DogBreedGallery: React.FC = () => {
       </section>
       {unvalidSearchTerm.length > 0 ? (
         <p style={{ textAlign: 'center' }}>
-          No breeds found for search term:<strong> {unvalidSearchTerm}.</strong>
+          No breeds found for search term:<strong> {unvalidSearchTerm}.</strong><br style={{ margin: '10px' }}></br>
+          Here are all breeds instead:
         </p>
       ) : null}
       <section className="dog-breed-gallery">
@@ -171,9 +194,7 @@ const DogBreedGallery: React.FC = () => {
               </Link>
             </Card>
           ))
-        ) : (
-          <p>No breeds found.</p>
-        )}
+        ) : (null)}
       </section>
       {hasNextPage && (
         <button className="loadButton" onClick={handleLoadMore}>

@@ -223,7 +223,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           <h3 className="text-xl pb-5">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
-              {(breed.comments ?? []).map((comment: { username: string; comment: string; rating?: number }, index) => (
+              {([...breed.comments ?? []].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()) ?? []).map((comment: { username: string; comment: string; rating?: number; timestamp: string }, index) => (
                 <Box
                   key={index}
                   className="commentElement"
@@ -245,7 +245,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
                       </>
                     )}
                   </Box>
-
+                    <p style={{ fontStyle: 'italic' }}>{new Date(comment.timestamp).toLocaleString([], { hour: '2-digit', minute: '2-digit', year: 'numeric', month: 'numeric', day: 'numeric' })}</p>
                   <p className="commentText">{comment.comment}</p>
                 </Box>
               ))}
