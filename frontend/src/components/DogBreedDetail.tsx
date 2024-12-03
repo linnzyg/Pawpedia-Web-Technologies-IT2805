@@ -223,7 +223,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           <h3 className="text-xl pb-5">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
-              {(breed.comments ?? []).map((comment: { username: string; comment: string; rating?: number }, index) => (
+              {([...breed.comments ?? []].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()) ?? []).map((comment: { username: string; comment: string; rating?: number }, index) => (
                 <Box
                   key={index}
                   className="commentElement"
