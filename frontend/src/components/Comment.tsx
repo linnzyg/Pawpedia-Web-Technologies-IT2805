@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Box, Rating } from '@mui/material';
+import { getUsername, setUsername } from '@/utils/userUtils';
 
 /**
  * Props interface for the Comment component.
@@ -21,7 +22,7 @@ interface CommentProps {
  */
 
 const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState(getUsername() || '');
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState(0);
 
@@ -29,8 +30,8 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
     e.preventDefault();
 
     if (name.trim() && comment.trim() && rating > 0) {
+      setUsername(name);
       onAddComment(name, comment, rating);
-      setName('');
       setComment('');
       setRating(0);
     }
