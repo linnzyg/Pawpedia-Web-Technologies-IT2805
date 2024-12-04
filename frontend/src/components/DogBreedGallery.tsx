@@ -6,7 +6,7 @@ import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
 import Card from '@mui/material/Card';
 import SizeFiltering from './SizeFiltering';
-import NameSorting from './NameSorting';
+import NameSorting from './SortingMenu';
 import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch } from './redux/actions';
