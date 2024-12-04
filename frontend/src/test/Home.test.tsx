@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Home from '../components/Home';
+import AboutUs from '../components/AboutUs';
 
-// Snapshot test for Home component
-test('Home component renders correctly and matches snapshot', () => {
+// Snapshot test for AboutUs component
+test('AboutUs component renders correctly and matches snapshot', () => {
   const { container } = render(
     <MemoryRouter>
-      <Home />
+      <AboutUs />
     </MemoryRouter>,
   );
 

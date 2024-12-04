@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
+import '../style/DogBreedGallery.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
@@ -12,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch } from './redux/actions';
 import { RootState } from './redux/store';
 import { Box, Rating } from '@mui/material';
+import DogCard from './DogCard';
 
 const DogBreedGallery: React.FC = () => {
   const dispatch = useDispatch();
@@ -205,23 +207,7 @@ const DogBreedGallery: React.FC = () => {
       ) : null}
       <section className="dog-breed-gallery">
         {allDogs.length > 0 ? (
-          allDogs.map((breed) => (
-            <Card key={breed.id} className="breed-card">
-              <Link to={`/${breed.id}`}>
-                <Box className="dogCardHeader">
-                  <h2>{breed.name}</h2>
-                  <p>
-                    {breed?.averageRating ? (
-                      <Rating readOnly value={Number(breed.averageRating.toFixed(1))} precision={0.1} />
-                    ) : (
-                      'No ratings yet'
-                    )}
-                  </p>
-                </Box>
-                <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
-              </Link>
-            </Card>
-          ))
+          allDogs.map((breed) => <DogCard key={breed.id} breed={breed} />)
         ) : (null)}
       </section>
       <div ref={lastItemRef} />

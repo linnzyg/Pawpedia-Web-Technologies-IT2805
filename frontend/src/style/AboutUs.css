@@ -1,0 +1,110 @@
+#aboutBody {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutTitle {
+  font-size: large;
+  padding: 10px;
+  border-bottom: 2px solid;
+}
+
+.aboutText,
+.offerText {
+  padding: 16px;
+}
+
+.offerText{
+  display: flex;
+  flex-direction: row;
+}
+
+.offerText > * {
+  padding: 10px;
+  background-color: rgba(177, 154, 204, 0.4);
+  flex: 100%;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.offerText h2{
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.offerText h2 >*{
+  margin: 5px;
+}
+
+.offerText p{
+  padding: 10px;
+}
+
+
+.aboutBox,
+.offerBox {
+  margin: 24px;
+  padding: 16px;
+}
+
+#aboutBody > header {
+  position: relative; /* Ensures child elements like h1 can be positioned relative to the header */
+  background-image: url(../assets/aboutimage.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; /* Keeps the dog on the visible side */
+  height: 300px;
+  display: flex; /* Enables alignment of child elements */
+  align-items: flex-end; /* Moves h1 to the bottom */
+  justify-content: center; /* Centers h1 horizontally */
+}
+
+#aboutBody h1 {
+  position: relative; /* Default positioning to work with flexbox */
+  bottom: 0; /* No manual offset needed anymore */
+  color: white;
+  font-size: 40px;
+  text-shadow: 0px 0px 10px black;
+  padding: 10px 20px; /* Adjust padding for aesthetics */
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  text-align: center; /* Center-align text */
+  margin: 0; /* Removes default margin */
+  width: 100%;
+}
+
+
+footer {
+  background-color: var(--brown);
+  color: white;
+  padding: 50px;
+  margin-top: 80px;
+}
+
+.viewAllBreedsLink {
+  border: 2px solid;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 24px;
+}
+
+.viewAllBreedsLink:hover {
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+@media(max-width: 870px) {
+  #aboutBody h1{
+    font-size: 30px;
+  }
+
+  .offerText{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+}

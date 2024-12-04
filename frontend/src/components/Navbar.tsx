@@ -1,11 +1,15 @@
-import { NavLink } from "react-router-dom";
-import "../style/Navbar.css";
-import { useQuery } from "@apollo/client";
-import { GET_RANDOM_BREED } from "../api/queries";
+import { NavLink } from 'react-router-dom';
+import '../style/Navbar.css';
+import { useQuery } from '@apollo/client';
+import { GET_RANDOM_BREED } from '../api/queries';
 import ModeChange from './ModeChange';
 import Tooltip from '@mui/material/Tooltip';
 import { getRandomBreedId } from '../utils/randomBreedFetcher';
 import '../style/Navbar.css';
+import PetsIcon from '@mui/icons-material/Pets';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import CasinoIcon from '@mui/icons-material/Casino';
+import InfoIcon from '@mui/icons-material/Info';
 
 /**
  * Navbar Component
@@ -27,23 +31,34 @@ function Navbar() {
 
   return (
     <section className="navbar">
-      <section className="navLinks">
-        <ModeChange />
-        <NavLink to="/home">Home</NavLink>
-        <NavLink to="/">All dogs</NavLink>
-        <NavLink to="/favorites">Favorites</NavLink>
-        <NavLink onClick={fetchNewBreed} to={`/${data.randomBreed.id}`}>
-
-          Lucky dog!
-        </NavLink>
-      </section>
-
-      <section id="navbar">
+      <section className="navSplit">
         <Tooltip title="View all dogs">
           <NavLink to="/">
-            <img src="/src/assets/paw.png" alt="Logo" className="navbar-logo" />
+            <PetsIcon />
+            <h2>All dogs</h2>
           </NavLink>
         </Tooltip>
+        <Tooltip title="View your favorites">
+          <NavLink to="/favorites">
+            <FavoriteIcon />
+            <h2>Favorites</h2>
+          </NavLink>
+        </Tooltip>
+        <Tooltip title="View a random dog">
+          <NavLink onClick={fetchNewBreed} to={`/${data.randomBreed.id}`}>
+            <CasinoIcon />
+            <h2>Lucky dog!</h2>
+          </NavLink>
+        </Tooltip>
+      </section>
+      <section className="navSplit">
+        <Tooltip title="Read about Pawpedia">
+          <NavLink to="/about">
+            <InfoIcon />
+            <h2>About Us</h2>
+          </NavLink>
+        </Tooltip>
+        <ModeChange />
       </section>
     </section>
   );
