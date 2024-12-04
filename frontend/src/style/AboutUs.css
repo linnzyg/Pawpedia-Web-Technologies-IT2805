@@ -15,7 +15,7 @@
   padding: 16px;
 }
 
-.offerText{
+.offerText {
   display: flex;
   flex-direction: row;
 }
@@ -28,7 +28,7 @@
   border-radius: 5px;
 }
 
-.offerText h2{
+.offerText h2 {
   font-weight: bold;
   font-size: 20px;
   display: flex;
@@ -36,14 +36,13 @@
   align-items: center;
 }
 
-.offerText h2 >*{
+.offerText h2 > * {
   margin: 5px;
 }
 
-.offerText p{
+.offerText p {
   padding: 10px;
 }
-
 
 .aboutBox,
 .offerBox {
@@ -76,7 +75,6 @@
   width: 100%;
 }
 
-
 footer {
   background-color: var(--brown);
   color: white;
@@ -96,15 +94,13 @@ footer {
   border-color: var(--purple);
 }
 
-@media(max-width: 870px) {
-  #aboutBody h1{
+@media (max-width: 870px) {
+  #aboutBody h1 {
     font-size: 30px;
   }
 
-  .offerText{
+  .offerText {
     display: flex;
     flex-direction: column;
   }
-
-
 }

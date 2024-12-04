@@ -1,19 +1,16 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
 import '../style/DogBreedGallery.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
-import Card from '@mui/material/Card';
 import SizeFiltering from './SizeFiltering';
 import NameSorting from './NameSorting';
 import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch } from './redux/actions';
 import { RootState } from './redux/store';
-import { Box, Rating } from '@mui/material';
-import DogCard from './DogCard';
+import BreedCard from './BreedCard';
 
 const DogBreedGallery: React.FC = () => {
   const dispatch = useDispatch();
@@ -28,7 +25,7 @@ const DogBreedGallery: React.FC = () => {
   // Search term to display for user when no breeds are found
   const [unvalidSearchTerm, setUnvalidSearchTerm] = useState<string>('');
 
-  // Search term that intially gave no result 
+  // Search term that intially gave no result
   // Used to compare against new search term to avoid unnecessary refetching when new result are guaranteed to also be empty
   const [initialUnvalidSearchTerm, setInitialUnvalidSearchTerm] = useState<string>('');
 
@@ -44,7 +41,7 @@ const DogBreedGallery: React.FC = () => {
   const handleFilterChange = (filters: string[]) => {
     if (JSON.stringify(filters) !== JSON.stringify(filterBySize)) {
       // if there are currently no search term that gives no result, refetch with new filters should happen
-      if(unvalidSearchTerm.length === 0) {
+      if (unvalidSearchTerm.length === 0) {
         fetchBreeds(8, filters.length > 0 ? filters : null, searchByName, orderBy);
       } else {
         // When current search term search gives no result, but the change in filters is that a filter is removed, refetch with less filters should happen, as it might give result with content
@@ -61,19 +58,19 @@ const DogBreedGallery: React.FC = () => {
     if (orderByValue !== '') {
       dispatch(setSort(orderByValue));
       // if there are currently no search term that gives no result, refetch with new sorting should happen. This is to avoid unnecessary refetching when new result are guaranteed to also be empty
-      if(unvalidSearchTerm.length === 0) {
+      if (unvalidSearchTerm.length === 0) {
         fetchBreeds(8, filterBySize, searchByName, orderByValue);
       }
     }
   };
 
   const handleSearchChange = (search: string) => {
-    if(unvalidSearchTerm.length > 0) {
-      // refetch should only happen if the new search term do not includes the initial search term that gave no result 
-      if(!search.includes(initialUnvalidSearchTerm)) {
+    if (unvalidSearchTerm.length > 0) {
+      // refetch should only happen if the new search term do not includes the initial search term that gave no result
+      if (!search.includes(initialUnvalidSearchTerm)) {
         fetchBreeds(8, filterBySize, search, orderBy);
-        setUnvalidSearchTerm('')
-        setInitialUnvalidSearchTerm('')
+        setUnvalidSearchTerm('');
+        setInitialUnvalidSearchTerm('');
       } else {
         setUnvalidSearchTerm(search);
       }
@@ -100,7 +97,7 @@ const DogBreedGallery: React.FC = () => {
           loadMoreItems();
         }
       },
-      { threshold: 1.0 }
+      { threshold: 1.0 },
     );
 
     if (lastItemRef.current) observer.current.observe(lastItemRef.current);
@@ -135,7 +132,7 @@ const DogBreedGallery: React.FC = () => {
         updateQuery: (_previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return;
 
-          const resultBreeds = fetchMoreResult.breeds.edges.map((breed: DogBreed ) => ({
+          const resultBreeds = fetchMoreResult.breeds.edges.map((breed: DogBreed) => ({
             ...breed,
           }));
           const newAllDogs = skip
@@ -150,7 +147,7 @@ const DogBreedGallery: React.FC = () => {
             setUnvalidSearchTerm(search ?? '');
             setInitialUnvalidSearchTerm(search ?? '');
             fetchBreeds(8, null, '', null, null, true);
-          } else if(!isRefetch) {
+          } else if (!isRefetch) {
             setUnvalidSearchTerm('');
             setInitialUnvalidSearchTerm('');
           }
@@ -201,14 +198,13 @@ const DogBreedGallery: React.FC = () => {
       </section>
       {unvalidSearchTerm.length > 0 ? (
         <p style={{ textAlign: 'center' }}>
-          No breeds found for search term:<strong> {unvalidSearchTerm}.</strong><br style={{ margin: '10px' }}></br>
+          No breeds found for search term:<strong> {unvalidSearchTerm}.</strong>
+          <br style={{ margin: '10px' }}></br>
           Here are all breeds instead:
         </p>
       ) : null}
       <section className="dog-breed-gallery">
-        {allDogs.length > 0 ? (
-          allDogs.map((breed) => <DogCard key={breed.id} breed={breed} />)
-        ) : (null)}
+        {allDogs.length > 0 ? allDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />) : null}
       </section>
       <div ref={lastItemRef} />
       {!hasNextPage && (
