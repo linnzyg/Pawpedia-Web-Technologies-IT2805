@@ -105,8 +105,8 @@ const DogBreedGallery: React.FC = () => {
         updateQuery: (previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return;
 
-          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: DogBreed }) => ({
-            ...edge.node,
+          const resultBreeds = fetchMoreResult.breeds.edges.map((breed: DogBreed ) => ({
+            ...breed,
           }));
           const newAllDogs = skip
             ? [
@@ -125,7 +125,7 @@ const DogBreedGallery: React.FC = () => {
             setInitialUnvalidSearchTerm('');
           }
           setAllDogs(newAllDogs);
-          setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
+          setHasNextPage(fetchMoreResult.breeds.hasNextPage);
         },
       });
     } catch (error) {

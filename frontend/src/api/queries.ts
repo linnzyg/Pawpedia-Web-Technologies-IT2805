@@ -10,20 +10,13 @@ export const GET_BREEDS = gql`
   query GetBreeds($first: Int!, $filterBySize: [String], $searchByName: String, $orderBy: String, $skip: Int) {
     breeds(first: $first, filterBySize: $filterBySize, searchByName: $searchByName, orderBy: $orderBy, skip: $skip) {
       edges {
-        cursor
-        node {
-          id
-          name
-          image
-          size
-          averageRating
-        }
+        id
+        name
+        image
+        size
+        averageRating
       }
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      totalCount
+      hasNextPage
     }
   }
 `;
