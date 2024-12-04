@@ -4,11 +4,12 @@ import { gql } from '@apollo/client';
  * GraphQL query to get all breeds.
  * It supports pagination by accepting parameters like 'first' for the number of items,
  * optional 'filterBySize' to filter breeds based on size.
+ * optional 'filterByStat' to filter breeds based on stats like allergy, weight and energy.
  * This query is used to display a list of all dog breeds.
  */
 export const GET_BREEDS = gql`
-  query GetBreeds($first: Int!, $filterBySize: [String], $searchByName: String, $orderBy: String, $skip: Int) {
-    breeds(first: $first, filterBySize: $filterBySize, searchByName: $searchByName, orderBy: $orderBy, skip: $skip) {
+  query GetBreeds($first: Int!, $filterBySize: [String], $filterByStat: [String], $searchByName: String, $orderBy: String, $skip: Int) {
+    breeds(first: $first, filterBySize: $filterBySize, filterByStat: $filterByStat, searchByName: $searchByName, orderBy: $orderBy, skip: $skip) {
       edges {
         cursor
         node {

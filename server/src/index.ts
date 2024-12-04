@@ -24,16 +24,30 @@ const resolvers = {
   Query: {
     breeds: async (
       _: any,
-      { first, filterBySize, searchByName, orderBy, skip }: 
-      { first: number; filterBySize?: string[]; searchByName?: string; orderBy?: string; skip?: number }
+      { first, filterBySize, filterByStat, searchByName, orderBy, skip }: 
+      { first: number; filterBySize?: string[]; filterByStat?: string[]; searchByName?: string; orderBy?: string; skip?: number }
     ) => {
       const collection = db.collection('Breed');
       const query: any = {};
       
-      // Filtering logic
+      // Filtering size logic
       if (filterBySize && filterBySize.length > 0) {
         query.size = { $in: filterBySize };
       }
+
+      // Filtering stats logic
+      if (filterByStat && filterByStat.length > 0) {
+        if(filterByStat.includes('allergy')) {
+          query.allergy = { $gte: 4 };
+        } 
+        if(filterByStat.includes('weight')) {
+          query.weight = { $lte: 8 };
+        }
+        if(filterByStat.includes('energy')) {
+          query.energy = { $gte: 4 };
+        }
+      }
+      
       if (searchByName) {
         query.name = { $regex: searchByName, $options: 'i' };
       }

@@ -58,7 +58,7 @@ export const typeDefs = `#graphql
     # Query type defines the available queries that can be performed
     type Query {
         breed(id: ID!): Breed                          # Fetch a specific breed by its ID
-        breeds(first: Int!, filterBySize: [String], searchByName: String, orderBy: String, skip: Int): BreedConnection # Fetch a list of breeds with pagination and optional filtering
+        breeds(first: Int!, filterBySize: [String], filterByStat:[String], searchByName: String, orderBy: String, skip: Int): BreedConnection # Fetch a list of breeds with pagination and optional filtering
         randomBreed: RandomBreed!
     }
 
