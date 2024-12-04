@@ -4,9 +4,9 @@ Pawpedia is an application designed to showcase various dog breeds. There is a g
 
 ## Features
 * Gallery View: Browse all dog breeds in an easy-to-navigate gallery
-* Detailed Breed View: Click on a breed to view more detailed information
-* Sorting Options: Sort breeds alphabetically
-* Filters: Filter breeds by size
+* Detailed Breed View: Click on a breed to view more detailed information. Add and read comments about the breed.
+* Sorting Options: Sort breeds alphabetically, by average rating, trainability, friendliness and lifespan
+* Filters: Filter breeds by size. Also statistical filters for allergy friendliness, allowed in Flight Cabin (Max 8 kg) and high energy level
 * Search: Quickly search for dog breeds by name
 * Favorites: Add dog breeds to favorites that gets stored in your browser
 

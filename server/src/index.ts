@@ -24,16 +24,30 @@ const resolvers = {
   Query: {
     breeds: async (
       _: any,
-      { first, filterBySize, searchByName, orderBy, skip }: 
-      { first: number; filterBySize?: string[]; searchByName?: string; orderBy?: string; skip?: number }
+      { first, filterBySize, filterByStat, searchByName, orderBy, skip }: 
+      { first: number; filterBySize?: string[]; filterByStat?: string[]; searchByName?: string; orderBy?: string; skip?: number }
     ) => {
       const collection = db.collection('Breed');
       const query: any = {};
       
-      // Filtering logic
+      // Filtering size logic
       if (filterBySize && filterBySize.length > 0) {
         query.size = { $in: filterBySize };
       }
+
+      // Filtering stats logic
+      if (filterByStat && filterByStat.length > 0) {
+        if(filterByStat.includes('allergy')) {
+          query.allergy = { $gte: 4 };
+        } 
+        if(filterByStat.includes('weight')) {
+          query.weight = { $lte: 8 };
+        }
+        if(filterByStat.includes('energy')) {
+          query.energy = { $gte: 4 };
+        }
+      }
+      
       if (searchByName) {
         query.name = { $regex: searchByName, $options: 'i' };
       }
@@ -53,7 +67,7 @@ const resolvers = {
               pipeline: [
                 {
                   $match: {
-                    $expr: { $eq: ['$breedId', { $toString: '$$breedId' }] },
+                    $expr: { $eq: ['$breedId', { $toString: '$$breedId' }] }, // Convert ObjectId to string for comparison
                   },
                 },
               ],
@@ -81,12 +95,22 @@ const resolvers = {
         } 
         pipeline.push({ $limit: first + 1 });       
       } else {
-        // Handle name-based sorting (asc/desc) or default
-        const sortDirection = orderBy === 'desc' ? -1 : 1;
+        // Handle sorting
+        // Default sorting is alphabetically by name
+        let sortDirection: { [key: string]: number } = { name: 1, _id: 1 };
+        if (orderBy === 'desc') {
+          sortDirection = { name: -1, _id: 1 };
+        } else if (orderBy === 'lifespan') {
+          sortDirection = { lifespan: -1, _id: 1 };
+        } else if (orderBy === 'trainability') {
+          sortDirection = { trainability: -1, _id: 1 };
+        } else if (orderBy === 'friendliness') {
+          sortDirection = { friendliness: -1, _id: 1 };
+        }
 
         pipeline = [
           { $match: query },
-          { $sort: { name: sortDirection, _id: 1 } },
+          { $sort: sortDirection},
           { $skip: skip ?? 0 },
           { $limit: first + 1 },
         ];
