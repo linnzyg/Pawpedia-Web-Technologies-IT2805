@@ -32,23 +32,8 @@ export const typeDefs = `#graphql
 
     # BreedConnection type supports pagination for the breeds
     type BreedConnection {
-        edges: [BreedEdge!]!      # List of breed edges, used for pagination
-        pageInfo: PageInfo!       # Information about pagination (e.g., cursors)
-        totalCount: Int!          # Total number of breeds available
-    }
-
-    # BreedEdge type represents an edge in the pagination of breeds
-    type BreedEdge {
-        cursor: String!           # Cursor used for pagination
-        node: Breed!              # The actual breed node
-    }
-
-    # PageInfo type provides details about pagination state
-    type PageInfo {
+        edges: [Breed!]!      # List of breeds
         hasNextPage: Boolean!     # Indicates if there are more pages available
-        hasPreviousPage: Boolean! # Indicates if there are previous pages available
-        startCursor: String       # Cursor for the start of the current page
-        endCursor: String         # Cursor for the end of the current page
     }
 
     type RandomBreed {
