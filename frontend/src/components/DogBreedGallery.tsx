@@ -12,7 +12,7 @@ import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch } from './redux/actions';
 import { RootState } from './redux/store';
-import { Box, Rating } from '@mui/material';
+import { Box, Button, Rating } from '@mui/material';
 import DogCard from './DogCard';
 
 const DogBreedGallery: React.FC = () => {
@@ -186,19 +186,20 @@ const DogBreedGallery: React.FC = () => {
 
   return (
     <>
-      <section id="sortOrFilter">
-        <section id="firstRow">
+      <Box id="sortOrFilter">
+        <section>
           <NameSorting onSortChange={handleSortChange} sortOption={orderBy} />
           <SizeFiltering onFilterChange={handleFilterChange} filterBySize={filterBySize} />
         </section>
-
-        <section id="secondRow">
+        <section>
           <Search searchByName={searchByName} onSearchChange={handleSearchChange} />
-          <button id="reset-btn" onClick={resetFiltersAndSorting}>
-            Reset
-          </button>
         </section>
-      </section>
+        <section>
+          <Button id="reset-btn" onClick={resetFiltersAndSorting}>
+            Reset search settings
+          </Button>
+        </section>
+      </Box>
       {unvalidSearchTerm.length > 0 ? (
         <p style={{ textAlign: 'center' }}>
           No breeds found for search term:<strong> {unvalidSearchTerm}.</strong><br style={{ margin: '10px' }}></br>

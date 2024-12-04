@@ -48,7 +48,7 @@ export const styletheme = createTheme({
     MuiSelect: {
       styleOverrides: {
         root: ({ theme }) => ({
-          backgroundColor: theme.palette.mode === 'dark' ? '#39342b' : 'white', // Text color based on theme mode
+          backgroundColor: theme.palette.mode === 'dark' ? '#211e1c' : 'white', // Text color based on theme mode
           '&.Mui-selected': {
             color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // Selected text color
             backgroundColor: 'rgba(177, 154, 204) !important', // Selected background color

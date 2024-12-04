@@ -8,20 +8,19 @@ interface SearchProps {
 
 const Search: React.FC<SearchProps> = ({ searchByName, onSearchChange }) => {
   return (
-    <section id="secondRow">
-      <TextField
-        id="outlined-basic"
-        type="text"
-        placeholder="Search..."
-        value={searchByName}
-        onChange={(e) => onSearchChange(e.target.value)}
-        variant="outlined"
-        sx={(theme) => ({
-          backgroundColor: theme.palette.mode === 'dark' ? '#39342b' : 'white',
-          borderRadius: '5px',
-        })}
-      />
-    </section>
+    <TextField
+      id="outlined-basic"
+      type="text"
+      placeholder="Search..."
+      value={searchByName}
+      onChange={(e) => onSearchChange(e.target.value)}
+      variant="outlined"
+      sx={(theme) => ({
+        backgroundColor: theme.palette.mode === 'dark' ? '#211e1c' : 'white',
+        borderRadius: '5px',
+        width: '100%',
+      })}
+    />
   );
 };
 
