@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
-import NameSorting from '../components/NameSorting';
+import NameSorting from '../components/SortingMenu';
 
 describe('NameSorting Component', () => {
   it('should render correctly with initial sort option', () => {

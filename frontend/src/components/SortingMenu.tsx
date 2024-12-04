@@ -45,6 +45,9 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
         <MenuItem value="desc">Z-A</MenuItem>
         <MenuItem value="highestRating">Highest Rating</MenuItem>
         <MenuItem value="lowestRating">Lowest Rating</MenuItem>
+        <MenuItem value="lifespan">Longest lifespan</MenuItem>
+        <MenuItem value="trainability">Highest trainability</MenuItem>
+        <MenuItem value="friendliness">Most friendly</MenuItem>
       </Select>
     </FormControl>
   );
