@@ -84,7 +84,7 @@ const DogBreedGallery: React.FC = () => {
   const loadMoreItems = useCallback(() => {
     setTimeout(() => {
       handleLoadMore();
-    }, 500); // Simulated delay for slower loading
+    }, 300); // Simulated delay for slower loading
   }, [allDogs, loading]);
 
   useEffect(() => {
@@ -225,10 +225,10 @@ const DogBreedGallery: React.FC = () => {
         ) : (null)}
       </section>
       <div ref={lastItemRef} />
-      {hasNextPage && (
-        <button className="loadButton" onClick={handleLoadMore}>
-          Load more
-        </button>
+      {!hasNextPage && (
+        <p style={{ textAlign: 'center', margin: '20px 0' }}>
+          You have looked at {allDogs.length} of {allDogs.length} breeds.
+        </p>
       )}
     </>
   );
