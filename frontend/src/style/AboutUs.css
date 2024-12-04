@@ -31,7 +31,17 @@
 .offerText h2{
   font-weight: bold;
   font-size: 20px;
-  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.offerText h2 >*{
+  margin: 5px;
+}
+
+.offerText p{
+  padding: 10px;
 }
 
 

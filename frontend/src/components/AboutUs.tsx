@@ -3,6 +3,11 @@ import '../style/AboutUs.css';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
+import SearchIcon from '@mui/icons-material/Search';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 function AboutUs() {
   return (
@@ -13,11 +18,11 @@ function AboutUs() {
 
       <Box className="content">
         <Card className="aboutBox">
-          <h2 className="aboutTitle">About Us</h2>
+          <h2 className="aboutTitle"><strong>About Us</strong></h2>
           <Box className="aboutText">
             <p>
-              Welcome to Pawpedia, your ultimate destination for exploring, learning about, and discovering the
-              perfect dog breed that matches your lifestyle and preferences.
+              Welcome to Pawpedia, your ultimate destination for exploring, learning about, and discovering the perfect
+              dog breed that matches your lifestyle and preferences.
               <br />
               At Pawpedia, we believe that finding the right dog breed goes beyond appearance. It’s about personality,
               compatibility, and building a lasting bond.
@@ -29,26 +34,25 @@ function AboutUs() {
           </Box>
         </Card>
         <Card className="offerBox">
-          <h2 className="aboutTitle">What We Offer</h2>
+          <h2 className="aboutTitle"><strong>What We Offer</strong></h2>
           <Box className="offerText">
             <Box>
-              <h2>Breed Profiles</h2>
+              <h2><SentimentSatisfiedAltIcon/>Breed Profiles</h2>
               <p>
-                Our extensive database includes detailed information on various dog breeds—from physical
-                characteristics and personality traits to health needs and grooming requirements.
+                Our extensive database includes detailed information on various dog breeds—from physical characteristics
+                and personality traits to health needs and grooming requirements.
               </p>
             </Box>
             <Box>
-              <h2>Easy Filtering:</h2>
+              <h2><SearchIcon/>Easy Filtering:</h2>
               <p>
-                Find a breed that fits your lifestyle with advanced filtering tools that allow sorting by size, name and userratings!
+                Find a breed that fits your lifestyle with advanced filtering tools that allow sorting by size, name and
+                userratings!
               </p>
             </Box>
             <Box>
-              <h2>Favorites and Discover:</h2>
-              <p>
-                Save and revisit breeds you love, and try our “Try Your Luck” button to discover random breeds.
-              </p>
+              <h2><FavoriteBorderOutlinedIcon/>Favorites and Discover:</h2>
+              <p>Save and revisit breeds you love, and try our “Try Your Luck” button to discover random breeds.</p>
             </Box>
           </Box>
         </Card>
@@ -60,12 +64,12 @@ function AboutUs() {
       </Box>
 
       <footer>
-        <h3>Contact us</h3>
+        <h3>Contact us!</h3>
         <p>
-          <strong>Phone:</strong> 98765432
+          <PhoneInTalkIcon/> 98765432
         </p>
         <p>
-          <strong>Email:</strong> <a href="mailto:info@pawpedia.com">info@pawpedia.com</a>
+          <AlternateEmailIcon/> <a href="mailto:info@pawpedia.com">info@pawpedia.com</a>
         </p>
         <p>We’d love to hear from you!</p>
       </footer>
