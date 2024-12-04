@@ -933,8 +933,8 @@
       "10": [1, 0]
     }
   },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/Home.tsx": {
-    "path": "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/Home.tsx",
+  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/AboutUs.tsx": {
+    "path": "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/AboutUs.tsx",
     "statementMap": {
       "0": {
         "start": { "line": 5, "column": 2 },
@@ -943,7 +943,7 @@
     },
     "fnMap": {
       "0": {
-        "name": "Home",
+        "name": "AboutUs",
         "decl": {
           "start": { "line": 4, "column": 9 },
           "end": { "line": 4, "column": 16 }

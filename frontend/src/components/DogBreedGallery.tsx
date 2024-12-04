@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
+import '../style/DogBreedGallery.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
@@ -13,6 +14,7 @@ import { setFilter, setSort, setSearch, setStatsFilter } from './redux/actions';
 import { RootState } from './redux/store';
 import { Box, Rating } from '@mui/material';
 import StatsFilterMenu from './StatsFilterMenu';
+import DogCard from './DogCard';
 
 const DogBreedGallery: React.FC = () => {
   const dispatch = useDispatch();
@@ -32,6 +34,9 @@ const DogBreedGallery: React.FC = () => {
   // Search term that intially gave no result 
   // Used to compare against new search term to avoid unnecessary refetching when new result are guaranteed to also be empty
   const [initialUnvalidSearchTerm, setInitialUnvalidSearchTerm] = useState<string>('');
+
+  const observer = useRef<IntersectionObserver | null>(null);
+  const lastItemRef = useRef<HTMLDivElement | null>(null);
 
   const { loading, error, fetchMore } = useQuery(GET_BREEDS, {
     skip: true, // Preventing automatic fetching on mount to avoid unnecessary requests
@@ -97,6 +102,31 @@ const DogBreedGallery: React.FC = () => {
     dispatch(setSearch(search)); // Update search term in Redux
   };
 
+  const loadMoreItems = useCallback(() => {
+    setTimeout(() => {
+      handleLoadMore();
+    }, 300); // Simulated delay for slower loading
+  }, [allDogs, loading]);
+
+  useEffect(() => {
+    if (!lastItemRef.current) return;
+
+    if (observer.current) observer.current.disconnect();
+
+    observer.current = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          loadMoreItems();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    if (lastItemRef.current) observer.current.observe(lastItemRef.current);
+
+    return () => observer.current?.disconnect();
+  }, [allDogs, loadMoreItems]);
+
   // Handle loading more breeds when reaching the bottom
   const handleLoadMore = () => {
     if (!loading && hasNextPage) {
@@ -123,11 +153,11 @@ const DogBreedGallery: React.FC = () => {
           orderBy: order,
           skip: skip,
         },
-        updateQuery: (previousResult, { fetchMoreResult }) => {
+        updateQuery: (_previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return;
 
-          const resultBreeds = fetchMoreResult.breeds.edges.map((edge: { node: DogBreed }) => ({
-            ...edge.node,
+          const resultBreeds = fetchMoreResult.breeds.edges.map((breed: DogBreed ) => ({
+            ...breed,
           }));
           const newAllDogs = skip
             ? [
@@ -150,7 +180,7 @@ const DogBreedGallery: React.FC = () => {
             setIsEmptyResult(false);
           }
           setAllDogs(newAllDogs);
-          setHasNextPage(fetchMoreResult.breeds.pageInfo.hasNextPage);
+          setHasNextPage(fetchMoreResult.breeds.hasNextPage);
         },
       });
     } catch (error) {
@@ -210,29 +240,14 @@ const DogBreedGallery: React.FC = () => {
       : null}
       <section className="dog-breed-gallery">
         {allDogs.length > 0 ? (
-          allDogs.map((breed) => (
-            <Card key={breed.id} className="breed-card">
-              <Link to={`/${breed.id}`}>
-                <Box className="dogCardHeader">
-                  <h2>{breed.name}</h2>
-                  <p>
-                    {breed?.averageRating ? (
-                      <Rating readOnly value={Number(breed.averageRating.toFixed(1))} precision={0.1} />
-                    ) : (
-                      'No ratings yet'
-                    )}
-                  </p>
-                </Box>
-                <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
-              </Link>
-            </Card>
-          ))
+          allDogs.map((breed) => <DogCard key={breed.id} breed={breed} />)
         ) : (null)}
       </section>
-      {hasNextPage && (
-        <button className="loadButton" onClick={handleLoadMore}>
-          Load more
-        </button>
+      <div ref={lastItemRef} />
+      {!hasNextPage && (
+        <p style={{ textAlign: 'center', margin: '20px 0' }}>
+          You have looked at {allDogs.length} of {allDogs.length} breeds.
+        </p>
       )}
     </>
   );

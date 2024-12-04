@@ -173,40 +173,26 @@ const resolvers = {
 // Function to create the response structure of breeds query
 const createResponse = (breeds: any[], first: number, hasNextPage: boolean, orderBy?: string) => {
   const edges = breeds.slice(0, first).map((breed) => ({
-    cursor:
-      orderBy === 'lowestRating' || orderBy === 'highestRating'
-        ? ( breed.averageRating ? breed.averageRating.toString() : '0' )
-        : orderBy === 'asc' || orderBy === 'desc'
-        ? breed.name
-        : breed._id.toString(),
-    node: {
-      id: breed._id.toString(),
-      name: breed.name,
-      description: breed.description,
-      image: breed.image,
-      slug: breed.slug,
-      size: breed.size,
-      averageRating: breed.averageRating ?? null,
-      weight: breed.weight,
-      height: breed.height,
-      lifespan: breed.lifespan,
-      trainability: breed.trainability,
-      friendliness: breed.friendliness,
-      allergy: breed.allergy,
-      energy: breed.energy,
-      issues: breed.issues,
-    },
+    id: breed._id.toString(),
+    name: breed.name,
+    description: breed.description,
+    image: breed.image,
+    slug: breed.slug,
+    size: breed.size,
+    averageRating: breed.averageRating ?? null,
+    weight: breed.weight,
+    height: breed.height,
+    lifespan: breed.lifespan,
+    trainability: breed.trainability,
+    friendliness: breed.friendliness,
+    allergy: breed.allergy,
+    energy: breed.energy,
+    issues: breed.issues
   }));
-
-  const endCursor = edges.length > 0 ? edges[edges.length - 1].cursor : null;
 
   return {
     edges,
-    pageInfo: {
-      hasNextPage,
-      endCursor,
-    },
-    totalCount: breeds.length, // Adjust this as needed
+    hasNextPage,
   };
 };
 

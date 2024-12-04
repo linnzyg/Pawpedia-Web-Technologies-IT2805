@@ -1,95 +1,48 @@
 .breed-card {
-  display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   margin: 10px;
   text-align: center;
-  padding: 30px;
-  padding-top: 2px;
+  padding: 0;
   border: none;
-  max-width: max-content;
+  width: 300px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.dogCardHeader {
-  height: 60px;
-}
-
-.breed-card h2 {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 20px;
+.breed-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
 .breed-card img {
   height: 300px;
-  width: 300px;
+  width: 100%;
   object-fit: cover;
 }
 
-.dog-breed-gallery {
-  display: grid;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
-.dog-breed-gallery > * {
-  border-radius: 12px;
-}
-
-.breed-card:hover {
-  background-color: var(--green);
-  transition: 0.4s;
+.dogCardHeader {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   color: white;
+  padding: 10px;
+  text-align: center;
+  z-index: 2;
 }
 
-@media (max-width: 1300px) {
-  .dog-breed-gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .dog-breed-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .dog-breed-gallery {
-    display: flex;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 10px;
-  }
-}
-
-.favorite-button {
-  display: flex;
-  justify-content: center;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.favorite-icon {
-  height: auto;
-  width: 50px;
-  max-width: auto;
-}
-
-.loadButton {
-  margin: 2%;
-  padding: 1%;
-  background-color: var(--purple);
-  border-radius: 5px;
-  color: black;
-}
-
-.loadButton:hover {
-  background-color: #382f3f;
-  color: white;
+.dogCardHeader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+  border-radius: inherit;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Checkbox, FormControl, InputLabel, ListItemText, MenuItem, Select } from '@mui/material';
+import { Checkbox, FormControl, InputLabel, ListItemText, MenuItem, Select,} from '@mui/material';
 
 interface FilteringProps {
   onFilterChange: (filters: string[]) => void;
@@ -39,6 +39,7 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize 
         labelId="size-filter-label"
         multiple
         value={selectedSizes}
+        //@ts-ignore
         onChange={handleSizeChange}
         renderValue={(selected) => (selected as string[]).join(', ')} //Show selected sizes
         sx={{ width: '200px' }}

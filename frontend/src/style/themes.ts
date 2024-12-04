@@ -21,8 +21,9 @@ export const styletheme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: ({ theme }) => ({
-          backgroundColor: theme.palette.mode === 'dark' ? '#505443' : '#ffffff', // Background color based on mode
+          backgroundColor: theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff', // Background color based on mode
           color: theme.palette.text.primary, // Text color based on mode
+          backgroundImage: 'none', // Ensures no default gradient or overlay
         }),
       },
     },
