@@ -32,7 +32,7 @@ const StatsFilterMenu: React.FC<FilteringProps> = ({ onStatsFilterChange, filter
     };
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth variant="filled">
       <InputLabel id="statsfilter-select-label">Choose stats</InputLabel>
       <Select
         multiple
@@ -40,11 +40,12 @@ const StatsFilterMenu: React.FC<FilteringProps> = ({ onStatsFilterChange, filter
         value={selectedOption}
         onChange={handleChange}
         label="Choose stats filter"
+        renderValue={(selected) => (selected as string[]).join(', ')}
         sx={{ width: '100%' }}
       >
-        <MenuItem value="allergy">Allergy friendly</MenuItem>
-        <MenuItem value="weight">Allowed in Flight Cabin (Max 8 kg)</MenuItem>
-        <MenuItem value="energy">High energy</MenuItem>
+        <MenuItem value="allergy"><Checkbox checked={selectedOption.includes("allergy")}/>Allergy friendly</MenuItem>
+        <MenuItem value="weight"><Checkbox checked={selectedOption.includes("weight")}/>Allowed in Flight Cabin (Max 8 kg)</MenuItem>
+        <MenuItem value="energy"><Checkbox checked={selectedOption.includes("energy")}/>High energy</MenuItem>
       </Select>
     </FormControl>
   );

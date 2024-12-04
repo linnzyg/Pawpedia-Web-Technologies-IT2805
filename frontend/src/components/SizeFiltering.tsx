@@ -33,7 +33,7 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize 
   };
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth variant="filled">
       <InputLabel id="size-filter-label">Choose size</InputLabel>
       <Select
         labelId="size-filter-label"

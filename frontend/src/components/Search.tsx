@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { FormControl, InputLabel, TextField } from '@mui/material';
 import React from 'react';
 
 interface SearchProps {
@@ -8,19 +8,24 @@ interface SearchProps {
 
 const Search: React.FC<SearchProps> = ({ searchByName, onSearchChange }) => {
   return (
-    <TextField
-      id="outlined-basic"
-      type="text"
-      placeholder="Search by name..."
-      value={searchByName}
-      onChange={(e) => onSearchChange(e.target.value)}
-      variant="outlined"
-      sx={(theme) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#211e1c' : 'white',
-        borderRadius: '5px',
-        width: '100%',
-      })}
-    />
+    <FormControl fullWidth variant="filled">
+      <TextField
+        id="standard-search"
+        label="Search by name..."
+        type="search"
+        variant="filled"
+        value={searchByName}
+        onChange={(e) => onSearchChange(e.target.value)}
+        sx={(theme) => ({
+          backgroundColor: theme.palette.mode === 'dark' ? '#211e1c' : 'white',
+          width: '100%',
+          '& .MuiFilledInput-root': {
+            backgroundColor: 'transparent',
+            borderRadius: '0px',
+          },
+        })}
+      />
+    </FormControl>
   );
 };
 
