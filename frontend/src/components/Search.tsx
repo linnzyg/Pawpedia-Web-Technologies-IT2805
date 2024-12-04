@@ -11,7 +11,7 @@ const Search: React.FC<SearchProps> = ({ searchByName, onSearchChange }) => {
     <TextField
       id="outlined-basic"
       type="text"
-      placeholder="Search..."
+      placeholder="Search by name..."
       value={searchByName}
       onChange={(e) => onSearchChange(e.target.value)}
       variant="outlined"

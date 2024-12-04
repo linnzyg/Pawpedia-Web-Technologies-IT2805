@@ -40,7 +40,7 @@ const StatsFilterMenu: React.FC<FilteringProps> = ({ onStatsFilterChange, filter
         value={selectedOption}
         onChange={handleChange}
         label="Choose stats filter"
-        sx={{ width: '150px' }}
+        sx={{ width: '100%' }}
       >
         <MenuItem value="allergy">Allergy friendly</MenuItem>
         <MenuItem value="weight">Allowed in Flight Cabin (Max 8 kg)</MenuItem>
