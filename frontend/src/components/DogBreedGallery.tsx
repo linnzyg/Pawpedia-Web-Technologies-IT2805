@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch, setStatsFilter } from './redux/actions';
 import { RootState } from './redux/store';
 import BreedCard from './BreedCard';
+import StatsFilterMenu from './StatsFilterMenu';
 
 const DogBreedGallery: React.FC = () => {
   const dispatch = useDispatch();
