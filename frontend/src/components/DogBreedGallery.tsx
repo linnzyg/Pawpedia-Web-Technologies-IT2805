@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
 import '../style/DogBreedGallery.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../api/queries';
 import { DogBreed } from '../types/DogBreed';
-import Card from '@mui/material/Card';
 import SizeFiltering from './SizeFiltering';
 import SortingMenu from './SortingMenu';
 import Search from './Search';
@@ -247,6 +245,10 @@ const DogBreedGallery: React.FC = () => {
       {!hasNextPage && (
         <p style={{ textAlign: 'center', margin: '20px 0' }}>
           You have looked at {allDogs.length} of {allDogs.length} breeds.
+        </p>
+      )}
+      {hasNextPage && (
+        <p style={{ textAlign: 'center', margin: '20px 0' }}>
         </p>
       )}
     </>
