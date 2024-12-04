@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
@@ -29,6 +29,9 @@ const DogBreedGallery: React.FC = () => {
   // Search term that intially gave no result 
   // Used to compare against new search term to avoid unnecessary refetching when new result are guaranteed to also be empty
   const [initialUnvalidSearchTerm, setInitialUnvalidSearchTerm] = useState<string>('');
+
+  const observer = useRef<IntersectionObserver | null>(null);
+  const lastItemRef = useRef<HTMLDivElement | null>(null);
 
   const { loading, error, fetchMore } = useQuery(GET_BREEDS, {
     skip: true, // Preventing automatic fetching on mount to avoid unnecessary requests
@@ -77,6 +80,31 @@ const DogBreedGallery: React.FC = () => {
     }
     dispatch(setSearch(search)); // Update search term in Redux
   };
+
+  const loadMoreItems = useCallback(() => {
+    setTimeout(() => {
+      handleLoadMore();
+    }, 300); // Simulated delay for slower loading
+  }, [allDogs, loading]);
+
+  useEffect(() => {
+    if (!lastItemRef.current) return;
+
+    if (observer.current) observer.current.disconnect();
+
+    observer.current = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          loadMoreItems();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    if (lastItemRef.current) observer.current.observe(lastItemRef.current);
+
+    return () => observer.current?.disconnect();
+  }, [allDogs, loadMoreItems]);
 
   // Handle loading more breeds when reaching the bottom
   const handleLoadMore = () => {
@@ -196,10 +224,11 @@ const DogBreedGallery: React.FC = () => {
           ))
         ) : (null)}
       </section>
-      {hasNextPage && (
-        <button className="loadButton" onClick={handleLoadMore}>
-          Load more
-        </button>
+      <div ref={lastItemRef} />
+      {!hasNextPage && (
+        <p style={{ textAlign: 'center', margin: '20px 0' }}>
+          You have looked at {allDogs.length} of {allDogs.length} breeds.
+        </p>
       )}
     </>
   );
