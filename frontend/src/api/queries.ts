@@ -8,8 +8,22 @@ import { gql } from '@apollo/client';
  * This query is used to display a list of all dog breeds.
  */
 export const GET_BREEDS = gql`
-  query GetBreeds($first: Int!, $filterBySize: [String], $filterByStat: [String], $searchByName: String, $orderBy: String, $skip: Int) {
-    breeds(first: $first, filterBySize: $filterBySize, filterByStat: $filterByStat, searchByName: $searchByName, orderBy: $orderBy, skip: $skip) {
+  query GetBreeds(
+    $first: Int!
+    $filterBySize: [String]
+    $filterByStat: [String]
+    $searchByName: String
+    $orderBy: String
+    $skip: Int
+  ) {
+    breeds(
+      first: $first
+      filterBySize: $filterBySize
+      filterByStat: $filterByStat
+      searchByName: $searchByName
+      orderBy: $orderBy
+      skip: $skip
+    ) {
       edges {
         id
         name
