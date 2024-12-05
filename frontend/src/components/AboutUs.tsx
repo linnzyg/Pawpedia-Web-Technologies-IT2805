@@ -18,7 +18,9 @@ function AboutUs() {
 
       <Box className="content">
         <Card className="aboutBox">
-          <h2 className="aboutTitle"><strong>About Us</strong></h2>
+          <h2 className="aboutTitle">
+            <strong>About Us</strong>
+          </h2>
           <Box className="aboutText">
             <p>
               Welcome to Pawpedia, your ultimate destination for exploring, learning about, and discovering the perfect
@@ -34,24 +36,35 @@ function AboutUs() {
           </Box>
         </Card>
         <Card className="offerBox">
-          <h2 className="aboutTitle"><strong>What We Offer</strong></h2>
+          <h2 className="aboutTitle">
+            <strong>What We Offer</strong>
+          </h2>
           <Box className="offerText">
             <Box>
-              <h2><SentimentSatisfiedAltIcon/>Breed Profiles</h2>
+              <h2>
+                <SentimentSatisfiedAltIcon />
+                Breed Profiles
+              </h2>
               <p>
                 Our extensive database includes detailed information on various dog breeds—from physical characteristics
                 and personality traits to health needs and grooming requirements.
               </p>
             </Box>
             <Box>
-              <h2><SearchIcon/>Easy Filtering:</h2>
+              <h2>
+                <SearchIcon />
+                Easy Filtering:
+              </h2>
               <p>
                 Find a breed that fits your lifestyle with advanced filtering tools that allow sorting by size, name and
                 userratings!
               </p>
             </Box>
             <Box>
-              <h2><FavoriteBorderOutlinedIcon/>Favorites and Discover:</h2>
+              <h2>
+                <FavoriteBorderOutlinedIcon />
+                Favorites and Discover:
+              </h2>
               <p>Save and revisit breeds you love, and try our “Try Your Luck” button to discover random breeds.</p>
             </Box>
           </Box>
@@ -66,10 +79,10 @@ function AboutUs() {
       <footer>
         <h3>Contact us!</h3>
         <p>
-          <PhoneInTalkIcon/> 98765432
+          <PhoneInTalkIcon /> 98765432
         </p>
         <p>
-          <AlternateEmailIcon/> <a href="mailto:info@pawpedia.com">info@pawpedia.com</a>
+          <AlternateEmailIcon /> <a href="mailto:info@pawpedia.com">info@pawpedia.com</a>
         </p>
         <p>We’d love to hear from you!</p>
       </footer>

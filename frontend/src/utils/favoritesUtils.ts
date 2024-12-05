@@ -10,7 +10,7 @@ export const isFavorite = (id: string): boolean => {
   return favorites.some((fav: DogBreed) => fav.id === id);
 };
 
-export const addFavorite = (breed: Pick<DogBreed, 'id' | 'name' | 'image'>): void => {
+export const addFavorite = (breed: Pick<DogBreed, 'id' | 'name' | 'image' | 'averageRating'>): void => {
   const favorites = getFavorites();
   const updatedFavorites = [...favorites, breed];
   localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
@@ -22,7 +22,10 @@ export const removeFavorite = (id: string): void => {
   localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
 };
 
-export const toggleFavorite = (id: string, breed?: Pick<DogBreed, 'id' | 'name' | 'image'>): boolean => {
+export const toggleFavorite = (
+  id: string,
+  breed?: Pick<DogBreed, 'id' | 'name' | 'image' | 'averageRating'>,
+): boolean => {
   if (isFavorite(id)) {
     removeFavorite(id);
     return false; // Not a favorite anymore
