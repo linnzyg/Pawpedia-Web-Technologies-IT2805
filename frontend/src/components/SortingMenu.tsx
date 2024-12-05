@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 
 interface SortingProps {
@@ -9,37 +9,28 @@ interface SortingProps {
 const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
   const [selectedOption, setSelectedOption] = React.useState<string>('');
 
-  const isFirstRender = useRef(true);
-
   // Initialize the selected option based on the `sortOption` prop
   useEffect(() => {
-    if (sortOption) {
-      setSelectedOption(sortOption);
-    }
+    setSelectedOption(sortOption || ''); // Handle empty or null sortOption
   }, [sortOption]);
 
-  // Notify the parent component whenever the selected option changes
-  useEffect(() => {
-    if (!isFirstRender.current || selectedOption) {
-      onSortChange(selectedOption);
-      isFirstRender.current = false;
-    }
-  }, [selectedOption]);
 
   // Handle the selection change
   const handleChange = (event: SelectChangeEvent<string>) => {
-    setSelectedOption(event.target.value);
+    const value = event.target.value;
+    setSelectedOption(value); 
+    onSortChange(value);
   };
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth variant="filled">
       <InputLabel id="sort-select-label">Choose sorting</InputLabel>
       <Select
         labelId="sort-select-label"
         value={selectedOption}
         onChange={handleChange}
         label="Choose sorting"
-        sx={{ width: '150px' }}
+        sx={{ width: '100%' }}
       >
         <MenuItem value="asc">A-Z</MenuItem>
         <MenuItem value="desc">Z-A</MenuItem>
