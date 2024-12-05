@@ -32,14 +32,14 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
   };
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth variant="filled">
       <InputLabel id="sort-select-label">Choose sorting</InputLabel>
       <Select
         labelId="sort-select-label"
         value={selectedOption}
         onChange={handleChange}
         label="Choose sorting"
-        sx={{ width: '150px' }}
+        sx={{ width: '100%' }}
       >
         <MenuItem value="asc">A-Z</MenuItem>
         <MenuItem value="desc">Z-A</MenuItem>

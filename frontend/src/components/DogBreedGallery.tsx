@@ -10,6 +10,7 @@ import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch, setStatsFilter } from './redux/actions';
 import { RootState } from './redux/store';
+import {Button} from '@mui/material';
 import BreedCard from './BreedCard';
 import StatsFilterMenu from './StatsFilterMenu';
 
@@ -216,17 +217,18 @@ const DogBreedGallery: React.FC = () => {
   return (
     <>
       <section id="sortOrFilter">
-        <section id="firstRow">
+        <section>
           <SortingMenu onSortChange={handleSortChange} sortOption={orderBy} />
           <StatsFilterMenu onStatsFilterChange={handleStatsFilterChange} filterByStat={filterByStat} />
           <SizeFiltering onFilterChange={handleFilterChange} filterBySize={filterBySize} />
         </section>
-
-        <section id="secondRow">
+        <section>
           <Search searchByName={searchByName} onSearchChange={handleSearchChange} />
-          <button id="reset-btn" onClick={resetFiltersAndSorting}>
-            Reset
-          </button>
+        </section>
+        <section>
+          <Button id="reset-btn" onClick={resetFiltersAndSorting}>
+            Reset search settings
+          </Button>
         </section>
       </section>
       {unvalidSearchTerm.length > 0 ? (
