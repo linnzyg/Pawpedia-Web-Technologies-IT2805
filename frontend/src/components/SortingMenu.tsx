@@ -11,7 +11,7 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
 
   // Initialize the selected option based on the `sortOption` prop
   useEffect(() => {
-    setSelectedOption(sortOption || ''); // Handle empty or null sortOption
+    setSelectedOption(sortOption || '');
   }, [sortOption]);
 
 
@@ -23,14 +23,14 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
   };
 
   return (
-    <FormControl fullWidth variant="filled">
+    <FormControl fullWidth>
       <InputLabel id="sort-select-label">Choose sorting</InputLabel>
       <Select
         labelId="sort-select-label"
         value={selectedOption}
         onChange={handleChange}
         label="Choose sorting"
-        sx={{ width: '100%' }}
+        sx={{ width: '150px' }}
       >
         <MenuItem value="asc">A-Z</MenuItem>
         <MenuItem value="desc">Z-A</MenuItem>
