@@ -100,7 +100,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
           boxShadow: 1,
         }}
       >
-        <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
+        <img src={`${import.meta.env.BASE_URL}/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
         <Box id="dogInfo">
           <header>
             <Box id="detailTitle">
