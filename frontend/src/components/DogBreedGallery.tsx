@@ -10,7 +10,7 @@ import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch, setStatsFilter } from './redux/actions';
 import { RootState } from './redux/store';
-import { Button } from '@mui/material';
+import { Button, Tooltip } from '@mui/material';
 import BreedCard from './BreedCard';
 import StatsFilterMenu from './StatsFilterMenu';
 
@@ -226,9 +226,11 @@ const DogBreedGallery: React.FC = () => {
           <Search searchByName={searchByName} onSearchChange={handleSearchChange} />
         </section>
         <section>
-          <Button id="reset-btn" onClick={resetFiltersAndSorting}>
-            Reset
-          </Button>
+          <Tooltip title="Reset inputted settings">
+            <Button id="reset-btn" onClick={resetFiltersAndSorting}>
+              Reset
+            </Button>
+          </Tooltip>
         </section>
       </section>
       {unvalidSearchTerm.length > 0 ? (

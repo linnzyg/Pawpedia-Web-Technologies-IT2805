@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import "../style/ScrollButton.css";
+import { Tooltip } from "@mui/material";
 
 const ScrollButton: React.FC = () => {
     const [visible, setVisible] = useState<boolean>(false); // Specify state type
@@ -25,11 +26,13 @@ const ScrollButton: React.FC = () => {
     }, []); // Empty dependency array ensures this runs only once when the component mounts.
 
     return (
-        <button className="scroll-btn" onClick={scrollToTop}>
+        <Tooltip title="Scroll to top">
+        <button className="scroll-btn" aria-label="Scroll to top" onClick={scrollToTop}>
             <ArrowUpwardIcon
                 style={{ display: visible ? "inline" : "none" }}
             />
         </button>
+        </Tooltip>
     );
 };
 

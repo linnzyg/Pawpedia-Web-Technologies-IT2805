@@ -6,7 +6,7 @@ export const styletheme = createTheme({
     primary: {
       main: 'rgba(141, 118, 168, 1)',
       light: 'rgba(141, 118, 168, 0.7)',
-      dark: 'rgba(141, 118, 168, 0.9)',
+      dark: '#40285c',
       contrastText: '#000000',
     },
     background: {
@@ -92,10 +92,10 @@ export const styletheme = createTheme({
       styleOverrides: {
         root: ({ theme }) => ({
           border: '1px solid',
+          color: theme.palette.primary.contrastText,
           transition: 'background-color 0.3s',
           '&:hover': {
             backgroundColor: 'rgba(177, 154, 204, 0.3)',
-            borderColor: theme.palette.primary.dark,
           },
         }),
       },
