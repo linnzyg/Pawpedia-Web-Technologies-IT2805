@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   filter: filterReducer,
   sort: sortReducer,
   search: searchReducer,
-  statsFilter: statsFilterReducer
+  statsFilter: statsFilterReducer,
 });
 
 export default rootReducer;

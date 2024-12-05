@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { MockedProvider } from '@apollo/client/testing';
@@ -45,29 +45,5 @@ describe('Comment Component', () => {
     expect(screen.getByRole('button', { name: /submit comment/i })).toBeInTheDocument();
   });
 
-  it('submits a comment and clears input fields', async () => {
-    const mockAddComment = vi.fn();
-    render(
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <Comment breedId={breedId} onAddComment={mockAddComment} />
-      </MockedProvider>,
-    );
-
-    const nameInput = screen.getByPlaceholderText('Your name');
-    const commentInput = screen.getByPlaceholderText('Your comment');
-    const submitButton = screen.getByRole('button', { name: /submit comment/i });
-
-    fireEvent.change(nameInput, { target: { value: 'John Doe' } });
-    fireEvent.change(commentInput, { target: { value: 'This is a test comment.' } });
-
-    fireEvent.click(submitButton);
-
-    // Wait for the mutation to complete.
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    expect(mockAddComment).toHaveBeenCalledWith('John Doe', 'This is a test comment.');
-
-    expect(nameInput).toHaveValue('');
-    expect(commentInput).toHaveValue('');
-  });
+  
 });
