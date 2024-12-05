@@ -8,7 +8,8 @@ import { Provider } from 'react-redux';
 import store from './components/redux/store';
 
 const client = new ApolloClient({
-  uri: 'http://it2810-35.idi.ntnu.no:3001',
+  uri: 'http://localhost:3001',
+  //uri: 'http://it2810-35.idi.ntnu.no:3001',
   cache: new InMemoryCache(),
 });
 
