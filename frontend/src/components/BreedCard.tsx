@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Box, Rating } from '@mui/material';
 import { Link } from 'react-router-dom';
 
+// Define the Breed interface to type the breed prop
 interface Breed {
   id: string;
   name: string;
@@ -9,10 +10,12 @@ interface Breed {
   image: string;
 }
 
+// Define the BreedCardProps interface to type the props for the BreedCard component
 interface BreedCardProps {
   breed: Breed;
 }
 
+// BreedCard component definition
 const BreedCard: React.FC<BreedCardProps> = ({ breed }) => {
   return (
     <Card key={breed.id} className="breed-card">
