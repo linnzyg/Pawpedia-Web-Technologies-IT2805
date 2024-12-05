@@ -10,9 +10,8 @@ import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch, setStatsFilter } from './redux/actions';
 import { RootState } from './redux/store';
-import { Box, Rating } from '@mui/material';
+import BreedCard from './BreedCard';
 import StatsFilterMenu from './StatsFilterMenu';
-import DogCard from './DogCard';
 
 const DogBreedGallery: React.FC = () => {
   const dispatch = useDispatch();
@@ -29,7 +28,7 @@ const DogBreedGallery: React.FC = () => {
   // Search term to display for user when no breeds are found
   const [unvalidSearchTerm, setUnvalidSearchTerm] = useState<string>('');
 
-  // Search term that intially gave no result 
+  // Search term that intially gave no result
   // Used to compare against new search term to avoid unnecessary refetching when new result are guaranteed to also be empty
   const [initialUnvalidSearchTerm, setInitialUnvalidSearchTerm] = useState<string>('');
 
@@ -117,7 +116,7 @@ const DogBreedGallery: React.FC = () => {
           loadMoreItems();
         }
       },
-      { threshold: 1.0 }
+      { threshold: 1.0 },
     );
 
     if (lastItemRef.current) observer.current.observe(lastItemRef.current);
@@ -154,7 +153,7 @@ const DogBreedGallery: React.FC = () => {
         updateQuery: (_previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) return;
 
-          const resultBreeds = fetchMoreResult.breeds.edges.map((breed: DogBreed ) => ({
+          const resultBreeds = fetchMoreResult.breeds.edges.map((breed: DogBreed) => ({
             ...breed,
           }));
           const newAllDogs = skip
@@ -226,7 +225,8 @@ const DogBreedGallery: React.FC = () => {
       </section>
       {unvalidSearchTerm.length > 0 ? (
         <p style={{ textAlign: 'center' }}>
-          No breeds found for search term:<strong> {unvalidSearchTerm}.</strong><br style={{ margin: '10px' }}></br>
+          No breeds found for search term:<strong> {unvalidSearchTerm}.</strong>
+          <br style={{ margin: '10px' }}></br>
           Here are all breeds instead:
         </p>
       ) : ( isEmptyResult && ((filterBySize && filterBySize.length >0) && (filterByStat && filterByStat.length>0))) ? (
@@ -237,9 +237,7 @@ const DogBreedGallery: React.FC = () => {
       )
       : null}
       <section className="dog-breed-gallery">
-        {allDogs.length > 0 ? (
-          allDogs.map((breed) => <DogCard key={breed.id} breed={breed} />)
-        ) : (null)}
+        {allDogs.length > 0 ? allDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />) : null}
       </section>
       <div ref={lastItemRef} />
       {!hasNextPage && (

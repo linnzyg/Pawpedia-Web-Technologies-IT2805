@@ -1,13 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Card, Box, Rating } from '@mui/material';
-import { DogBreed } from '../types/DogBreed';
+import { Link } from 'react-router-dom';
 
-interface DogCardProps {
-  breed: DogBreed;
+interface Breed {
+  id: string;
+  name: string;
+  averageRating?: number;
+  image: string;
 }
 
-const DogCard: React.FC<DogCardProps> = ({ breed }) => {
+interface BreedCardProps {
+  breed: Breed;
+}
+
+const BreedCard: React.FC<BreedCardProps> = ({ breed }) => {
   return (
     <Card key={breed.id} className="breed-card">
       <Link to={`/${breed.id}`}>
@@ -27,4 +33,4 @@ const DogCard: React.FC<DogCardProps> = ({ breed }) => {
   );
 };
 
-export default DogCard;
+export default BreedCard;
