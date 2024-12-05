@@ -4,8 +4,6 @@ import { useQuery } from '@apollo/client';
 import { GET_RANDOM_BREED } from '../api/queries';
 import ModeChange from './ModeChange';
 import Tooltip from '@mui/material/Tooltip';
-import { getRandomBreedId } from '../utils/randomBreedFetcher';
-import '../style/Navbar.css';
 import PetsIcon from '@mui/icons-material/Pets';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CasinoIcon from '@mui/icons-material/Casino';
