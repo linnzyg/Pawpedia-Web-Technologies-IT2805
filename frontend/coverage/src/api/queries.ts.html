@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Code coverage report for src/components/Navbar.tsx</title>
+    <title>Code coverage report for src/api/queries.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,31 +19,31 @@
       <div class="pad1">
         <h1>
           <a href="../../index.html">All files</a> /
-          <a href="index.html">src/components</a> Navbar.tsx
+          <a href="index.html">src/api</a> queries.ts
         </h1>
         <div class="clearfix">
           <div class="fl pad1y space-right2">
-            <span class="strong">0% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">0/8</span>
+            <span class="fraction">3/3</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">0% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Branches</span>
-            <span class="fraction">0/4</span>
+            <span class="fraction">0/0</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">0% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Functions</span>
-            <span class="fraction">0/2</span>
+            <span class="fraction">0/0</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">0% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">0/6</span>
+            <span class="fraction">3/3</span>
           </div>
         </div>
         <p class="quiet">
@@ -57,7 +57,7 @@
           </div>
         </template>
       </div>
-      <div class="status-line low"></div>
+      <div class="status-line high"></div>
       <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -126,7 +126,16 @@
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,29 +144,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,75 +178,115 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { NavLink } from 'react-router-dom';
-import '../style/Navbar.css';
-import { useQuery } from '@apollo/client';
-import { GET_RANDOM_BREED } from '../api/queries';
-import ModeChange from './ModeChange';
-import Tooltip from '@mui/material/Tooltip';
-import { getRandomBreedId } from '../utils/randomBreedFetcher';
-import '../style/Navbar.css';
-import PetsIcon from '@mui/icons-material/Pets';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import CasinoIcon from '@mui/icons-material/Casino';
-import InfoIcon from '@mui/icons-material/Info';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { gql } from '@apollo/client';
 &nbsp;
 /**
- * Navbar Component
- * - Displays a navigation bar with links to key sections of the application.
- * - Includes a logo for branding purposes.
+ * GraphQL query to get all breeds.
+ * It supports pagination by accepting parameters like 'first' for the number of items,
+ * optional 'filterBySize' to filter breeds based on size.
+ * optional 'filterByStat' to filter breeds based on stats like allergy, weight and energy.
+ * This query is used to display a list of all dog breeds.
  */
+export const GET_BREEDS = gql`
+  query GetBreeds(
+    $first: Int!
+    $filterBySize: [String]
+    $filterByStat: [String]
+    $searchByName: String
+    $orderBy: String
+    $skip: Int
+  ) {
+    breeds(
+      first: $first
+      filterBySize: $filterBySize
+      filterByStat: $filterByStat
+      searchByName: $searchByName
+      orderBy: $orderBy
+      skip: $skip
+    ) {
+      edges {
+        id
+        name
+        image
+        size
+        averageRating
+      }
+      hasNextPage
+    }
+  }
+`;
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Navbar() {</span>
-  const { loading, error, data, refetch } = <span class="cstat-no" title="statement not covered" >useQuery(GET_RANDOM_BREED);</span>
+/**
+ * GraphQL query to get a specific breed by ID.
+ * This query is used to fetch the details of a specific dog breed, including its name,
+ * description, image, size, and any comments associated with it.
+ */
+export const GET_BREED = gql`
+  query breedquery($id: ID!) {
+    breed(id: $id) {
+      name
+      description
+      image
+      weight
+      height
+      lifespan
+      trainability
+      friendliness
+      allergy
+      energy
+      issues
+      comments {
+        username
+        comment
+        timestamp
+        rating
+      }
+      size
+      averageRating
+    }
+  }
+`;
 &nbsp;
-  // Function to select a random breed ID
-  const fetchNewBreed = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
-<span class="cstat-no" title="statement not covered" >    refetch();</span>
-  };
-&nbsp;
-  // Handle loading and error states
-<span class="cstat-no" title="statement not covered" >  if (loading) <span class="cstat-no" title="statement not covered" >return &lt;p&gt;Loading...&lt;/p&gt;;</span></span>
-<span class="cstat-no" title="statement not covered" >  if (error) <span class="cstat-no" title="statement not covered" >return &lt;p&gt;Error loading breeds: {error.message}&lt;/p&gt;;</span></span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;section className="navbar"&gt;
-      &lt;section className="navSplit"&gt;
-        &lt;Tooltip title="View all dogs"&gt;
-          &lt;NavLink to="/"&gt;
-            &lt;PetsIcon /&gt;
-            &lt;h2&gt;All dogs&lt;/h2&gt;
-          &lt;/NavLink&gt;
-        &lt;/Tooltip&gt;
-        &lt;Tooltip title="View your favorites"&gt;
-          &lt;NavLink to="/favorites"&gt;
-            &lt;FavoriteIcon /&gt;
-            &lt;h2&gt;Favorites&lt;/h2&gt;
-          &lt;/NavLink&gt;
-        &lt;/Tooltip&gt;
-        &lt;Tooltip title="View a random dog"&gt;
-          &lt;NavLink onClick={fetchNewBreed} to={`/${data.randomBreed.id}`}&gt;
-            &lt;CasinoIcon /&gt;
-            &lt;h2&gt;Lucky dog!&lt;/h2&gt;
-          &lt;/NavLink&gt;
-        &lt;/Tooltip&gt;
-      &lt;/section&gt;
-      &lt;section className="navSplit"&gt;
-        &lt;Tooltip title="Read about Pawpedia"&gt;
-          &lt;NavLink to="/about"&gt;
-            &lt;InfoIcon /&gt;
-            &lt;h2&gt;About Us&lt;/h2&gt;
-          &lt;/NavLink&gt;
-        &lt;/Tooltip&gt;
-        &lt;ModeChange /&gt;
-      &lt;/section&gt;
-    &lt;/section&gt;
-  );
-}
-&nbsp;
-export default Navbar;
+export const GET_RANDOM_BREED = gql`
+  query GetRandomBreed {
+    randomBreed {
+      id
+    }
+  }
+`;
 &nbsp;</pre></td></tr></table></pre>
 
       <div class="push"></div>

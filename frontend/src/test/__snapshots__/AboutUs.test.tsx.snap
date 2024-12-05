@@ -1,0 +1,190 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AboutUs component renders correctly and matches snapshot 1`] = `
+<div>
+  <section
+    id="aboutBody"
+  >
+    <header>
+      <h1>
+        Welcome to Pawpedia, a dog breed database!
+      </h1>
+    </header>
+    <div
+      class="content MuiBox-root css-0"
+    >
+      <div
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root aboutBox css-1j74uew-MuiPaper-root-MuiCard-root"
+        style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+      >
+        <h2
+          class="aboutTitle"
+        >
+          <strong>
+            About Us
+          </strong>
+        </h2>
+        <div
+          class="aboutText MuiBox-root css-0"
+        >
+          <p>
+            Welcome to Pawpedia, your ultimate destination for exploring, learning about, and discovering the perfect dog breed that matches your lifestyle and preferences.
+            <br />
+            At Pawpedia, we believe that finding the right dog breed goes beyond appearance. It’s about personality, compatibility, and building a lasting bond.
+            <br />
+            Our passion for dogs inspired us to create a platform that caters to every kind of dog lover. Whether you’re a first-time dog owner or an experienced dog parent, our goal is to empower you with reliable, detailed insights.
+          </p>
+        </div>
+      </div>
+      <div
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root offerBox css-1j74uew-MuiPaper-root-MuiCard-root"
+        style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+      >
+        <h2
+          class="aboutTitle"
+        >
+          <strong>
+            What We Offer
+          </strong>
+        </h2>
+        <div
+          class="offerText MuiBox-root css-0"
+        >
+          <div
+            class="MuiBox-root css-0"
+          >
+            <h2>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+                data-testid="SentimentSatisfiedAltIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  cx="15.5"
+                  cy="9.5"
+                  r="1.5"
+                />
+                <circle
+                  cx="8.5"
+                  cy="9.5"
+                  r="1.5"
+                />
+                <circle
+                  cx="15.5"
+                  cy="9.5"
+                  r="1.5"
+                />
+                <circle
+                  cx="8.5"
+                  cy="9.5"
+                  r="1.5"
+                />
+                <path
+                  d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m0-2.5c2.33 0 4.32-1.45 5.12-3.5h-1.67c-.69 1.19-1.97 2-3.45 2s-2.75-.81-3.45-2H6.88c.8 2.05 2.79 3.5 5.12 3.5"
+                />
+              </svg>
+              Breed Profiles
+            </h2>
+            <p>
+              Our extensive database includes detailed information on various dog breeds—from physical characteristics and personality traits to health needs and grooming requirements.
+            </p>
+          </div>
+          <div
+            class="MuiBox-root css-0"
+          >
+            <h2>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+                data-testid="SearchIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"
+                />
+              </svg>
+              Easy Filtering:
+            </h2>
+            <p>
+              Find a breed that fits your lifestyle with advanced filtering tools that allow sorting by size, name and userratings!
+            </p>
+          </div>
+          <div
+            class="MuiBox-root css-0"
+          >
+            <h2>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+                data-testid="FavoriteBorderOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3m-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05"
+                />
+              </svg>
+              Favorites and Discover:
+            </h2>
+            <p>
+              Save and revisit breeds you love, and try our “Try Your Luck” button to discover random breeds.
+            </p>
+          </div>
+        </div>
+      </div>
+      <p>
+        <a
+          class="viewAllBreedsLink"
+          href="/"
+        >
+          See all our breeds →
+        </a>
+      </p>
+    </div>
+    <footer>
+      <h3>
+        Contact us!
+      </h3>
+      <p>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+          data-testid="PhoneInTalkIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 12h2c0-4.97-4.03-9-9-9v2c3.87 0 7 3.13 7 7zm-4 0h2c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3z"
+          />
+        </svg>
+         98765432
+      </p>
+      <p>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+          data-testid="AlternateEmailIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57V12c0-5.52-4.48-10-10-10m0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3"
+          />
+        </svg>
+         
+        <a
+          href="mailto:info@pawpedia.com"
+        >
+          info@pawpedia.com
+        </a>
+      </p>
+      <p>
+        We’d love to hear from you!
+      </p>
+    </footer>
+  </section>
+</div>
+`;

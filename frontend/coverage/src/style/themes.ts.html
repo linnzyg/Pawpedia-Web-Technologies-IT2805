@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Code coverage report for src/components/Navbar.tsx</title>
+    <title>Code coverage report for src/style/themes.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,31 +19,31 @@
       <div class="pad1">
         <h1>
           <a href="../../index.html">All files</a> /
-          <a href="index.html">src/components</a> Navbar.tsx
+          <a href="index.html">src/style</a> themes.ts
         </h1>
         <div class="clearfix">
           <div class="fl pad1y space-right2">
             <span class="strong">0% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">0/8</span>
+            <span class="fraction">0/5</span>
           </div>
 
           <div class="fl pad1y space-right2">
             <span class="strong">0% </span>
             <span class="quiet">Branches</span>
-            <span class="fraction">0/4</span>
+            <span class="fraction">0/12</span>
           </div>
 
           <div class="fl pad1y space-right2">
             <span class="strong">0% </span>
             <span class="quiet">Functions</span>
-            <span class="fraction">0/2</span>
+            <span class="fraction">0/4</span>
           </div>
 
           <div class="fl pad1y space-right2">
             <span class="strong">0% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">0/6</span>
+            <span class="fraction">0/5</span>
           </div>
         </div>
         <p class="quiet">
@@ -119,14 +119,9 @@
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,13 +144,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,6 +157,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,6 +168,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,82 +179,66 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { NavLink } from 'react-router-dom';
-import '../style/Navbar.css';
-import { useQuery } from '@apollo/client';
-import { GET_RANDOM_BREED } from '../api/queries';
-import ModeChange from './ModeChange';
-import Tooltip from '@mui/material/Tooltip';
-import { getRandomBreedId } from '../utils/randomBreedFetcher';
-import '../style/Navbar.css';
-import PetsIcon from '@mui/icons-material/Pets';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import CasinoIcon from '@mui/icons-material/Casino';
-import InfoIcon from '@mui/icons-material/Info';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createTheme } from '@mui/material/styles';
 &nbsp;
-/**
- * Navbar Component
- * - Displays a navigation bar with links to key sections of the application.
- * - Includes a logo for branding purposes.
- */
-&nbsp;
-function <span class="fstat-no" title="function not covered" >Navbar() {</span>
-  const { loading, error, data, refetch } = <span class="cstat-no" title="statement not covered" >useQuery(GET_RANDOM_BREED);</span>
-&nbsp;
-  // Function to select a random breed ID
-  const fetchNewBreed = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
-<span class="cstat-no" title="statement not covered" >    refetch();</span>
-  };
-&nbsp;
-  // Handle loading and error states
-<span class="cstat-no" title="statement not covered" >  if (loading) <span class="cstat-no" title="statement not covered" >return &lt;p&gt;Loading...&lt;/p&gt;;</span></span>
-<span class="cstat-no" title="statement not covered" >  if (error) <span class="cstat-no" title="statement not covered" >return &lt;p&gt;Error loading breeds: {error.message}&lt;/p&gt;;</span></span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;section className="navbar"&gt;
-      &lt;section className="navSplit"&gt;
-        &lt;Tooltip title="View all dogs"&gt;
-          &lt;NavLink to="/"&gt;
-            &lt;PetsIcon /&gt;
-            &lt;h2&gt;All dogs&lt;/h2&gt;
-          &lt;/NavLink&gt;
-        &lt;/Tooltip&gt;
-        &lt;Tooltip title="View your favorites"&gt;
-          &lt;NavLink to="/favorites"&gt;
-            &lt;FavoriteIcon /&gt;
-            &lt;h2&gt;Favorites&lt;/h2&gt;
-          &lt;/NavLink&gt;
-        &lt;/Tooltip&gt;
-        &lt;Tooltip title="View a random dog"&gt;
-          &lt;NavLink onClick={fetchNewBreed} to={`/${data.randomBreed.id}`}&gt;
-            &lt;CasinoIcon /&gt;
-            &lt;h2&gt;Lucky dog!&lt;/h2&gt;
-          &lt;/NavLink&gt;
-        &lt;/Tooltip&gt;
-      &lt;/section&gt;
-      &lt;section className="navSplit"&gt;
-        &lt;Tooltip title="Read about Pawpedia"&gt;
-          &lt;NavLink to="/about"&gt;
-            &lt;InfoIcon /&gt;
-            &lt;h2&gt;About Us&lt;/h2&gt;
-          &lt;/NavLink&gt;
-        &lt;/Tooltip&gt;
-        &lt;ModeChange /&gt;
-      &lt;/section&gt;
-    &lt;/section&gt;
-  );
-}
-&nbsp;
-export default Navbar;
+export const styletheme = <span class="cstat-no" title="statement not covered" >createTheme({</span>
+  palette: {
+    mode: 'light', // This sets the initial mode to light
+    background: {
+      default: '#e9edd5', // Light mode default background color
+    },
+  },
+  colorSchemes: {
+    dark: {
+      palette: {
+        mode: 'dark',
+        background: {
+          default: '#39342b', // Dark mode default background color
+        },
+      },
+    },
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: <span class="fstat-no" title="function not covered" >({</span> theme }) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+          backgroundColor: theme.palette.mode === 'dark' ? '#211e1c' : '#ffffff', // Background color based on mode
+          color: theme.palette.text.primary, // Text color based on mode
+          backgroundImage: 'none', // Ensures no default gradient or overlay
+        }),
+      },
+    },
+    MuiTabs: {
+      styleOverrides: {
+        indicator: <span class="fstat-no" title="function not covered" >({</span> theme }) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+          backgroundColor: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // Indicator color based on mode
+        }),
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: <span class="fstat-no" title="function not covered" >({</span> theme }) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+          color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // Tab text color based on mode
+          '&amp;.Mui-selected': {
+            color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // Selected tab text color based on mode
+            backgroundColor: 'rgba(177, 154, 204, 0.3) !important',
+          },
+        }),
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        root: <span class="fstat-no" title="function not covered" >({</span> theme }) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+          backgroundColor: theme.palette.mode === 'dark' ? '#39342b' : 'white', // Text color based on theme mode
+          '&amp;.Mui-selected': {
+            color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000', // Selected text color
+            backgroundColor: 'rgba(177, 154, 204) !important', // Selected background color
+          },
+        }),
+      },
+    },
+  },
+});
 &nbsp;</pre></td></tr></table></pre>
 
       <div class="push"></div>
