@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { Box, Rating } from '@mui/material';
+import { Box, Button, Rating } from '@mui/material';
 import { getUsername, setUsername } from '@/utils/userUtils';
 
 /**
@@ -70,9 +70,9 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
           }}
         ></Rating>
       </Box>
-      <button type="submit" className="submitComment">
+      <Button type="submit" className="submitComment">
         Submit Comment
-      </button>
+      </Button>
     </form>
   );
 };

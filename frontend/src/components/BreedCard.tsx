@@ -20,7 +20,7 @@ const BreedCard: React.FC<BreedCardProps> = ({ breed }) => {
   return (
     <Card key={breed.id} className="breed-card">
       <Link to={`/${breed.id}`}>
-        <Box className="dogCardHeader">
+        <Box className="breedCardHeader">
           <h2>{breed.name}</h2>
           <p>
             {breed?.averageRating ? (

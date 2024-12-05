@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DogBreed } from '../types/DogBreed';
-import '../style/DogCard.css';
+import '../style/BreedCard.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import '../style/DogBreedDetail.css';
@@ -16,7 +16,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import Rating from '@mui/material/Rating';
 import CircleIcon from '@mui/icons-material/Circle';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
-import { styled } from '@mui/material';
+import { styled, Tooltip } from '@mui/material';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import ScaleIcon from '@mui/icons-material/Scale';
@@ -103,15 +103,17 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
         <img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} />
         <Box id="dogInfo">
           <header>
-            <Box>
+            <Box id="detailTitle">
               <h1>{breed.name}</h1>
-              <button onClick={handleFavoriteClicked} id="favorite-btn" aria-label="favorite-button">
-                {favorite ? (
-                  <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
-                ) : (
-                  <FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" />
-                )}
-              </button>
+              <Tooltip title={favorite? "Unmark as favorite":"Mark as favorite"}>
+                <button onClick={handleFavoriteClicked} id="favorite-btn" aria-label="favorite-button">
+                  {favorite ? (
+                    <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
+                  ) : (
+                    <FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" />
+                  )}
+                </button>
+              </Tooltip>
             </Box>
             <p>
               {breed?.averageRating ? (
@@ -213,7 +215,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
             <Commentary onAddComment={handleAddComment} breedId={breed.id} />
           </Box>
         </Box>
-        <section className="commentSection">
+        <section id="userComments">
           <h3 className="text-xl pb-5">Comments:</h3>
           {(breed.comments ?? []).length > 0 ? (
             <>
@@ -243,7 +245,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
                       </>
                     )}
                   </Box>
-                  <p style={{ fontStyle: 'italic' }}>
+                  <p className="commentTransparent" style={{ fontStyle: 'italic' }}>
                     {new Date(comment.timestamp).toLocaleString([], {
                       hour: '2-digit',
                       minute: '2-digit',
@@ -257,7 +259,7 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
               ))}
             </>
           ) : (
-            <p className="noComments">No comments yet. Be the first to comment!</p>
+            <p className="commentTransparent">No comments yet. Be the first to comment!</p>
           )}
         </section>
       </section>
