@@ -43,7 +43,7 @@ function AboutUs() {
             <Box>
               <h2>
                 <SentimentSatisfiedAltIcon />
-                Breed Profiles
+                Breed Profiles:
               </h2>
               <p>
                 Our extensive database includes detailed information on various dog breeds—from physical characteristics
@@ -57,7 +57,7 @@ function AboutUs() {
               </h2>
               <p>
                 Find a breed that fits your lifestyle with advanced filtering tools that allow sorting by size, name and
-                userratings!
+                user ratings!
               </p>
             </Box>
             <Box>
