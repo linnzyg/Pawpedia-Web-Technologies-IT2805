@@ -1,4 +1,4 @@
-import { FormControl, InputLabel, TextField } from '@mui/material';
+import { FormControl, TextField } from '@mui/material';
 import React from 'react';
 
 interface SearchProps {
