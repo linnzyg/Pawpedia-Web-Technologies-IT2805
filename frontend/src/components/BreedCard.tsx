@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Box, Rating } from '@mui/material';
+import { Card, Box, Rating, styled } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 // Define the Breed interface to type the breed prop
@@ -15,6 +15,13 @@ interface BreedCardProps {
   breed: Breed;
 }
 
+const AlwaysLightRating = styled(Rating)({
+  '& .MuiRating-iconEmpty': {
+    color: 'white',
+    opacity: 0.5,
+  },
+});
+
 // BreedCard component definition
 const BreedCard: React.FC<BreedCardProps> = ({ breed }) => {
   return (
@@ -24,7 +31,7 @@ const BreedCard: React.FC<BreedCardProps> = ({ breed }) => {
           <h2>{breed.name}</h2>
           <p>
             {breed?.averageRating ? (
-              <Rating readOnly value={Number(breed.averageRating.toFixed(1))} precision={0.1} />
+              <AlwaysLightRating readOnly value={Number(breed.averageRating.toFixed(1))} precision={0.1} />
             ) : (
               'No ratings yet'
             )}

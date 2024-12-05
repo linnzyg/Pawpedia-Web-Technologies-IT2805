@@ -16,14 +16,6 @@ const Search: React.FC<SearchProps> = ({ searchByName, onSearchChange }) => {
         variant="filled"
         value={searchByName}
         onChange={(e) => onSearchChange(e.target.value)}
-        sx={(theme) => ({
-          backgroundColor: theme.palette.mode === 'dark' ? '#211e1c' : 'white',
-          width: '100%',
-          '& .MuiFilledInput-root': {
-            backgroundColor: 'transparent',
-            borderRadius: '0px',
-          },
-        })}
       />
     </FormControl>
   );

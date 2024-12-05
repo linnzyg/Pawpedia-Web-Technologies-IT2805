@@ -1,16 +1,5 @@
 .favorites-header {
-  background-color: var(--brown);
   width: 100%;
-  padding: 1%;
-  color: white;
-}
-
-.favorites-grid {
-  width: 100%;
-  height: auto;
-  margin: 0px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  padding: 30px;
+  font-size: 40px;
 }

@@ -10,7 +10,7 @@ import Search from './Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch, setStatsFilter } from './redux/actions';
 import { RootState } from './redux/store';
-import {Button} from '@mui/material';
+import { Button } from '@mui/material';
 import BreedCard from './BreedCard';
 import StatsFilterMenu from './StatsFilterMenu';
 
@@ -227,7 +227,7 @@ const DogBreedGallery: React.FC = () => {
         </section>
         <section>
           <Button id="reset-btn" onClick={resetFiltersAndSorting}>
-            Reset search settings
+            Reset
           </Button>
         </section>
       </section>

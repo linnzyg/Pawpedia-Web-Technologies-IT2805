@@ -58,7 +58,6 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
         className="w-full p-2 border border-gray-300 rounded-md"
         inputProps={{ maxLength: 500 }}
       />
-      {/* Star Rating */}
       <Box>
         <Rating
           aria-label="Rate 1-5"
@@ -67,6 +66,11 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
             if (newValue !== null) {
               setRating(newValue);
             }
+          }}
+          sx={{
+            '& .MuiRating-icon': {
+              fontSize: '40px', // Adjust the size here
+            },
           }}
         ></Rating>
       </Box>
