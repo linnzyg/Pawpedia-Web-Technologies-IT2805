@@ -1,15 +1,16 @@
+/* --- Layout and General Styles --- */
 .dog-breed-detail {
-  width: 100%;
-  height: auto;
-  margin: 0px;
   display: flex;
   flex-direction: row;
+  width: 100%;
+  margin: 0;
+  height: auto;
 }
 
 .dog-breed-detail img {
+  width: 40%;
   max-height: 400px;
   object-fit: cover;
-  width: 40%;
 }
 
 .dog-breed-detail > * {
@@ -17,9 +18,9 @@
 }
 
 #dogInfo {
-  background-color: default;
   width: 60%;
   min-height: 400px;
+  background-color: default;
 }
 
 #dogInfo h1 {
@@ -28,13 +29,13 @@
 }
 
 #dogInfo > header {
-  border-bottom: solid 2px var(--green);
-  padding: 1%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 1%;
   justify-content: space-between;
+  margin: 1%;
+  padding: 1%;
+  border-bottom: 2px solid var(--green);
 }
 
 #dogInfo > header > * {
@@ -42,127 +43,15 @@
   flex-direction: row;
 }
 
-#dogInfo > header > :first-child > * {
-  padding-right: 10px;
+#detailTitle{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.healthBox > * {
-  padding: 10px;
-}
-
+/* --- Info Tabs --- */
 .infoTabs {
   margin: 1%;
-}
-
-#heartIcon {
-  font-size: 30px;
-}
-
-.MuiTabs-indicator {
-  display: none;
-}
-
-/* comment-area */
-
-.comment-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#commentHeader {
-  position: sticky;
-  top: 100px;
-}
-
-#commentHeader * {
-  margin: 1px;
-}
-
-.submitComment {
-  margin: 1%;
-  padding: 1%;
-  background-color: rgb(177, 154, 204);
-  border: none;
-  border-radius: 5px;
-  color: #28271b;
-  width: 98%;
-}
-
-.submitComment:hover {
-  background-color: rgb(95, 75, 119);
-  color: white;
-}
-
-.submitComment:active {
-  background-color: rgb(177, 154, 204);
-}
-
-.comment-area {
-  display: flex;
-  flex-direction: row;
-}
-
-.comment-area > * {
-  margin: 2%;
-  flex-grow: 1;
-}
-
-.commentElement {
-  background-color: white;
-  box-shadow: #28271b 0px;
-  border-radius: 5px;
-  padding: 1%;
-  margin-bottom: 20px;
-}
-
-.commentElement p {
-  margin: 0.5%;
-  padding: 0.5%;
-}
-
-.commentName {
-  font-size: 120%;
-  font-weight: bold;
-  border-bottom: solid 2px var(--green);
-}
-
-.favorite-button {
-  display: flex;
-  justify-content: center;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.favorite-icon {
-  height: auto;
-  width: 50px;
-  max-width: auto;
-}
-
-#favorite-btn {
-  all: unset;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.favorite-button img {
-  width: 20px;
-  height: 20px;
-}
-
-.noComments {
-  opacity: 0.7;
-}
-
-.commentName {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .visualStats {
@@ -173,17 +62,97 @@
 .visualStats > * {
   display: flex;
   flex-direction: row;
-  flex: 1;
-  padding: 10px;
   justify-content: space-between;
   width: 350px;
+  flex: 1;
+  padding: 10px;
 }
 
+.healthBox > * {
+  padding: 10px;
+}
+
+/* --- Favorite Button --- */
+#favorite-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#favorite-btn:hover {
+  opacity: 0.5;
+}
+
+#heartIcon {
+  font-size: 30px;
+}
+
+/* --- Comments Section --- */
+
+/* -- General -- */
+
+.comment-area {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: visible;
+}
+
+.comment-area > * {
+  flex: 1;
+  margin: 20px;
+}
+
+/* -- Comment Header (comment form)-- */
+
+#commentHeader {
+  position: sticky;
+  top: 150px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment-form > * > *,
+#commentHeader > h2 {
+  margin: 5px;
+}
+
+/* -- User comment section -- */
+
+.commentElement {
+  margin-bottom: 20px;
+  padding: 1%;
+  background-color: white;
+  border-radius: 5px;
+}
+
+#userComments {
+  flex-grow: 1;
+}
+
+.commentName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--green);
+}
+
+.commentTransparent {
+  opacity: 0.7;
+}
+
+/* --- Media Queries for Responsive Design --- */
 @media (max-width: 900px) {
   .dog-breed-detail {
-    height: auto;
-    margin: 0px;
-    display: flex;
     flex-direction: column;
   }
 
@@ -202,6 +171,10 @@
   .comment-area {
     flex-direction: column;
     align-items: center;
+  }
+
+  .comment-area > * {
+    width: 90%;
   }
 
   .commentName {

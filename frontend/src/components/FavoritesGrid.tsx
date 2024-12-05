@@ -70,7 +70,7 @@ function FavoritesGrid() {
         <h2>Your favorite dogs:</h2>
       </header>
 
-      <div className="favorites-grid">
+      <div className="dog-breed-gallery">
         {visibleDogs.length > 0 ? (
           visibleDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />)
         ) : (

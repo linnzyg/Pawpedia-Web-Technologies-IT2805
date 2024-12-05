@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { Box, Rating } from '@mui/material';
+import { Box, Button, Rating } from '@mui/material';
 import { getUsername, setUsername } from '@/utils/userUtils';
 
 /**
@@ -58,7 +58,6 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
         className="w-full p-2 border border-gray-300 rounded-md"
         inputProps={{ maxLength: 500 }}
       />
-      {/* Star Rating */}
       <Box>
         <Rating
           aria-label="Rate 1-5"
@@ -68,11 +67,16 @@ const Comment: React.FC<CommentProps> = ({ onAddComment }) => {
               setRating(newValue);
             }
           }}
+          sx={{
+            '& .MuiRating-icon': {
+              fontSize: '40px', // Adjust the size here
+            },
+          }}
         ></Rating>
       </Box>
-      <button type="submit" className="submitComment">
+      <Button type="submit" className="submitComment">
         Submit Comment
-      </button>
+      </Button>
     </form>
   );
 };
