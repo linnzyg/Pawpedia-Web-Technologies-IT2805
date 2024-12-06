@@ -1,8 +1,7 @@
 /*--- Used for DogBreedGallery and FavoritesGrid ---*/
 
-
 /*- to ensure constant gap between elements in grid when scaling-*/
-.grid-container{
+.grid-container {
   display: flex;
   justify-content: center;
 }

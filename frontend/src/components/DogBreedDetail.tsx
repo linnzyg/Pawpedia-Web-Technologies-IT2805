@@ -106,7 +106,11 @@ const DogBreedDetail: React.FC<DogBreedDetailProps> = ({ breed, id }) => {
             <Box id="detailTitle">
               <h1>{breed.name}</h1>
               <Tooltip title={favorite ? 'Unmark as favorite' : 'Mark as favorite'}>
-                <button onClick={handleFavoriteClicked} id="favorite-btn" aria-label="favorite-button">
+                <button
+                  onClick={handleFavoriteClicked}
+                  id="favorite-btn"
+                  aria-label={favorite ? 'Unmark as favorite' : 'Mark as favorite'}
+                >
                   {favorite ? (
                     <FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" />
                   ) : (
