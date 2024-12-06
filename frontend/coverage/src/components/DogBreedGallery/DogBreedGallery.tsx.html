@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/115</span>
+                <span class='fraction'>0/114</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/94</span>
+                <span class='fraction'>0/92</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/26</span>
+                <span class='fraction'>0/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/100</span>
+                <span class='fraction'>0/99</span>
             </div>
         
             
@@ -335,12 +335,7 @@
 <a name='L270'></a><a href='#L270'>270</a>
 <a name='L271'></a><a href='#L271'>271</a>
 <a name='L272'></a><a href='#L272'>272</a>
-<a name='L273'></a><a href='#L273'>273</a>
-<a name='L274'></a><a href='#L274'>274</a>
-<a name='L275'></a><a href='#L275'>275</a>
-<a name='L276'></a><a href='#L276'>276</a>
-<a name='L277'></a><a href='#L277'>277</a>
-<a name='L278'></a><a href='#L278'>278</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L273'></a><a href='#L273'>273</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -355,7 +350,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -570,7 +564,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -600,9 +593,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -618,7 +608,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect, useRef, useState, useCallback } from 'react';
-import '../../style/DogBreedGallery.css';
 import '../../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../../api/queries';
@@ -630,8 +619,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch, setStatsFilter } from '../redux/actions';
 import store, { RootState } from '../redux/store';
 import { Button, Tooltip } from '@mui/material';
-import BreedCard from '../Global/BreedCard';
 import StatsFilterMenu from './SortFilterOrSearch/StatsFilterMenu';
+import DogGrid from '../Global/DogGrid';
 &nbsp;
 const DogBreedGallery: React.FC = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
   const dispatch = <span class="cstat-no" title="statement not covered" >useDispatch&lt;typeof store.dispatch&gt;();</span>
@@ -877,11 +866,7 @@ const DogBreedGallery: React.FC = <span class="cstat-no" title="statement not co
           Here are all breeds instead:
         &lt;/p&gt;
       ) : null}
-      &lt;section className="grid-container"&gt;
-        &lt;section className="dog-breed-gallery"&gt;
-          {allDogs.length &gt; 0 ? allDogs.map(<span class="fstat-no" title="function not covered" >(b</span>reed) =&gt; <span class="cstat-no" title="statement not covered" >&lt;BreedCard key={breed.id} breed={breed} /&gt;)</span> : null}
-        &lt;/section&gt;
-      &lt;/section&gt;
+      &lt;DogGrid allDogs={allDogs} /&gt;
       {!disableAutoFetch &amp;&amp; (&lt;div ref={lastItemRef} /&gt;)}
       {!hasNextPage &amp;&amp; allDogs.length !== 0 &amp;&amp; (
         &lt;p style={{ textAlign: 'center', margin: '20px 0' }}&gt;
@@ -901,7 +886,7 @@ export default DogBreedGallery;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-12-06T19:11:41.176Z
+                at 2024-12-06T20:20:48.957Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

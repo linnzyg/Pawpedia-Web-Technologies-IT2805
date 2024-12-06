@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.dog-breed-grid{
+.dog-breed-gallery {
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -18,19 +18,19 @@
   padding-top: 10px;
 }
 
-.dog-breed-grid > * {
+.dog-breed-gallery > * {
   border-radius: 12px;
 }
 
 /*- Responsive media queries -*/
 @media (max-width: 1330px) {
-  .dog-breed-grid {
+  .dog-breed-gallery {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 990px) {
-  .dog-breed-grid {
+  .dog-breed-gallery {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     justify-items: center;
@@ -38,9 +38,8 @@
 }
 
 @media (max-width: 650px) {
-  .dog-breed-grid {
+  .dog-breed-gallery {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 10px;
   }
 }
-

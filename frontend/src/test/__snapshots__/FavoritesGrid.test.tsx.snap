@@ -13,7 +13,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
     class="grid-container"
   >
     <section
-      class="dog-breed-gallery"
+      class="dog-breed-grid"
     >
       <a
         href="/1"
@@ -7927,9 +7927,9 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
            
         </div>
       </a>
-      <section />
     </section>
   </section>
+  <section />
   <p
     style="text-align: center; margin: 20px 0px;"
   />
