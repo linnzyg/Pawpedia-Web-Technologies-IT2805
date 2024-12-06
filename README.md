@@ -36,7 +36,8 @@ npx ts-node src/index.ts
 ```
 
 ## Showcase
-http://it2810-35.idi.ntnu.no/project2
+### http://it2810-35.idi.ntnu.no/project2
+> **_NOTE:_**  We have experienced problems with authorization on Apache, which might be connected to this problem: If you refresh from a page that is not "http://it2810-35.idi.ntnu.no/project2", like /about, error 404 will occur. You can still go back to /project2 and navigate to everything.
 
 ## Documentation and Choices
 The choice of making a dog application was made due to dogs being cute, and motivated all four developers to work on this project with love.
@@ -54,25 +55,34 @@ Our images are stored in a public folder as static files since there are no user
 
 ## Accessibility
 Several considerations and actions have been taken to ensure the accessibility of this application.
-All interactive elements can be reached and interacted with by using the keyboard. Unnecessary tabbing through elements with confusing screen reader descriptions are prevented by trying to use as many semantic HTML elements as possible.
+All interactive elements offer feedback, and can be interacted with by using the keyboard. Unnecessary tabbing through elements with confusing screen reader descriptions are prevented by trying to use as many semantic HTML elements as possible. 
 Other actions taken are using htmlFor attribute to tie together labels and interactive elements. There is also added alt-text to all dog images.
-Functional testing with screen reader on windows have been performed to confirm these considerations.
+Functional testing with screen reader on windows have been performed to confirm these considerations. MUIs 
+
+### To list some of our accessibility choices include:
+- High contrast
+- Mild colors for the eyes
+- Feedback when user navigates with keyboard
+- Highly readable fonts
+- Sticky and user-friendly navbar
+- Tooltips to avoid confusion
+
 
 ### WCAG
-TODO
+We used "Accessible Web Helper" as a chrome extension to ensure WGAC 2.2 AA compliance. During student feedback, we read that many had an issue with Lighthouse not picking up on our alt-text on the dog images, but according to Accessible Web Helper we should have 100/100 on the 68 tests we ran on all pages with both dark and light mode.
 
-### Sustainable Web Design Choices
+
+## Sustainable Web Design Choices
 * **Darkmode**: Implemented a dark mode option to reduce energy usage, while also minimizing eye strain for users.
 * **No animations**: Avoided unnecessary animations as they can be energy-intensive and are often non-essential for user experience in this context.
 * **Caching with Apollo Client**: Leveraged Apollo Client caching capabilities to minimize unnecessary data fetching and reduce server load. This ensures that previously fetched data is reused effectively, cutting down on redundant network requests.
-* **Optimized Seach Behavior**: Designed search functionality to avoid repeated API calls. If a search term returns no results, additional fetches are prevented until a substantial change (e.g., removing filters) is made. This strategy prevents unnecessary processing and saves server resources.
+* **Optimized Search Behavior**: Designed search functionality to avoid repeated API calls. If a search term returns no results, additional fetches are prevented until a substantial change (e.g., removing filters) is made. This strategy prevents unnecessary processing and saves server resources.
 * **Image file format is WebP**: Chose the WebP format for images due to its smaller file size and high-quality output, reducing bandwidth usage and load times. While AVIF offers even better compression, it was excluded due to limited browser support.
+
+We recognize that our choice to create a colorful webpage may not be the most sustainable choice compared to a minimalist black-and-white design. However, the webpage is intended more for casual engagement and enjoyment rather than as something users interact with for extended periods on a daily basis. It's designed with a focus on being a fun user experience, rather than purely functionality.
 
 ## Testing 
 The solution contains different types of tests that are describes in detail below. Tests are crucial to the development of the app, to obtain and maintain the desired functionality.
-
-NOTE: We had one issues with the tests.
-1. The DogBreedGallery.test failed after some iterations. The team is not sure why it does not run, and has therefore commented it out.
 
 ### Snapshot Testing
 We use snapshot tests to ensure that user interactions such as filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
@@ -144,3 +154,9 @@ _Runs the tests_
 - To track feedback-related changes, we introduced a "Student Feedback" label to issues directly tied to resolving suggestions from peers.
 - The implemented improvements ranged from minor adjustments, such as ensuring comments were consistently added on top, to significant updates, including modernizing the UI, dynamic scaling, enhancing functionality, adding comprehensive tests, and improving documentation.
 - We prioritized these changes in P2, enabling us to address most of the feedback received for both P1 and P2.
+
+### If we were to continue on this project we would add:
+- User registration and login functionality
+- Sorting for comments, on rating as well as date
+- Possibility for users to upload images of dogs in comments
+- Admin account to upload and delete breeds, comments, users etc.
