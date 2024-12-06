@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { BrowserRouter as Router } from 'react-router-dom';
-import BreedCard from '../components/BreedCard';
+import BreedCard from '../components/Global/BreedCard';
 
 describe('BreedCard Component', () => {
   const mockBreed = {

@@ -27,9 +27,4 @@ export interface SetStatsFilterAction {
   payload: string[] | null;
 }
 
-
-export type Action =
-  | SetFilterAction
-  | SetSortAction
-  | SetSearchAction
-  | SetStatsFilterAction;
+export type Action = SetFilterAction | SetSortAction | SetSearchAction | SetStatsFilterAction;

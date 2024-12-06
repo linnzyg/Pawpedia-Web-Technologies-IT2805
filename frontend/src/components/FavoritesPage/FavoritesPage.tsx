@@ -1,0 +1,95 @@
+// @ts-expect-error - errors looping cannot be resolved
+import React, { useEffect, useState, useRef, useCallback } from 'react';
+import { DogBreed } from '../../types/DogBreed';
+import { getFavorites } from '../../utils/favoritesUtils';
+import '../../style/FavoritesPage.css';
+import { Link } from 'react-router-dom';
+import DogGrid from '../Global/DogGrid';
+
+/* Defines a subset of properties from the DogBreed type that are relevant for the favorites grid
+Only includes id, name, image, and averageRating properties */
+
+type FavoriteBreed = Pick<DogBreed, 'id' | 'name' | 'image' | 'averageRating'>;
+
+/*Shows users favorites in the same way as AllDogsPage*/
+
+function FavoritesPage() {
+  const [allDogs, setAllDogs] = useState<FavoriteBreed[]>([]);
+  const [visibleDogs, setVisibleDogs] = useState<FavoriteBreed[]>([]);
+  const [hasNextPage, setHasNextPage] = useState<boolean>(true);
+  const observer = useRef<IntersectionObserver | null>(null);
+  const lastItemRef = useRef<HTMLDivElement | null>(null);
+
+  // Fetch all favorite breeds from local storage on component mount
+  useEffect(() => {
+    const storedFavorites = getFavorites();
+    setAllDogs(storedFavorites);
+    setVisibleDogs(storedFavorites.slice(0, 8));
+  }, []);
+
+  // Function to load more items when the bottom of the grid is reached
+  const loadMoreItems = useCallback(() => {
+    setTimeout(() => {
+      const currentLength = visibleDogs.length;
+      const nextDogs = allDogs.slice(currentLength, currentLength + 8);
+
+      if (nextDogs.length > 0) {
+        setVisibleDogs((prev) => [...prev, ...nextDogs]);
+      } else {
+        setHasNextPage(false);
+      }
+    }, 300); // Simulated delay for loading animation
+  }, [allDogs, visibleDogs]);
+
+  // Sets up an IntersectionObserver to detect when the last item is visible
+  useEffect(() => {
+    if (!lastItemRef.current) return;
+
+    if (observer.current) observer.current.disconnect();
+
+    observer.current = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          loadMoreItems();
+        }
+      },
+      { threshold: 1.0 },
+    );
+
+    if (lastItemRef.current) observer.current.observe(lastItemRef.current);
+
+    return () => observer.current?.disconnect();
+  }, [loadMoreItems]);
+
+  return (
+    <>
+      <header className="favorites-header">
+        <h2>Your favorite dogs:</h2>
+      </header>
+
+      {visibleDogs.length > 0 ? (
+        <DogGrid allDogs={visibleDogs} />
+      ) : (
+        <section id="no-favorites-text">
+          <p>Looks like you haven't added any favorites yet.</p>
+          <p>
+            <Link className="viewAllBreedsLink" to="/" aria-label="Start exploring breeds">
+              Start exploring!
+            </Link>
+          </p>
+        </section>
+      )}
+      <section ref={lastItemRef} />
+
+      {!hasNextPage && visibleDogs.length > 0 && (
+        <p style={{ textAlign: 'center', margin: '20px 0' }}>
+          You have looked at {visibleDogs.length} of {allDogs.length} breeds.
+        </p>
+      )}
+
+      {hasNextPage && <p style={{ textAlign: 'center', margin: '20px 0' }}></p>}
+    </>
+  );
+}
+
+export { FavoritesPage };

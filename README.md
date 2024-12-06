@@ -1,36 +1,46 @@
 # Pawpedia
+
 Pawpedia is an application designed to showcase various dog breeds. There is a gallery view displaying dog breeds fetched from a database. The gallery view can lead the user to the detailed view about each dog breed by pressing the pictures of the dogs, where you can also read and leave comments about the bread.
 
 ## Features
-* **Gallery View**: Browse all dog breeds in an easy-to-navigate gallery
-* **Detailed Breed View**: Click on a breed to view more detailed information. Add and read comments about the breed.
-* **Sorting Options**: Sort breeds alphabetically, by average rating, trainability, friendliness and lifespan
-* **Filters**: Filter breeds by size. Also statistical filters for allergy friendliness, allowed in Flight Cabin (Max 8 kg) and high energy level
-* **Search**: Quickly search for dog breeds by name
-* **Favorites**: Add dog breeds to favorites that gets stored in your browser
+
+- **Gallery View**: Browse all dog breeds in an easy-to-navigate gallery
+- **Detailed Breed View**: Click on a breed to view more detailed information. Add and read comments about the breed.
+- **Sorting Options**: Sort breeds alphabetically, by average rating, trainability, friendliness and lifespan
+- **Filters**: Filter breeds by size. Also statistical filters for allergy friendliness, allowed in Flight Cabin (Max 8 kg) and high energy level
+- **Search**: Quickly search for dog breeds by name
+- **Favorites**: Add dog breeds to favorites that gets stored in your browser
 
 ## How to run
+
 ### Prerequisites
+
 Make sure you have Node.js 22.5+ and npm 10.8+ installed.
 
 ### Install Dependencies
+
 Clone the project in your favorite IDE, navigate to the frontend folder, and then install dependencies using:
+
 ```bash
 npm install
 ```
 
 Navigate to the server folder, and then install dependencies using:
+
 ```bash
 npm install
 ```
 
 ### Start the Development Server
+
 To run the frontend locally, use this command in the frontend folder:
+
 ```bash
 npm run dev
 ```
 
 To run the server locally, remember to connect to NTNU through VPN or be connected to the NTNU network, then use this command in the server folder:
+
 ```bash
 npx ts-node src/index.ts
 ```
@@ -39,21 +49,26 @@ npx ts-node src/index.ts
 ### http://it2810-35.idi.ntnu.no/project2
 > **_NOTE:_**  We have experienced problems with authorization on Apache, which might be connected to this problem: If you refresh from a page that is not "http://it2810-35.idi.ntnu.no/project2", like /about, error 404 will occur. You can still go back to /project2 and navigate to everything.
 
+
 ## Documentation and Choices
+
 The choice of making a dog application was made due to dogs being cute, and motivated all four developers to work on this project with love.
 
 ### Static images
-Our images are stored in a public folder as static files since there are no user features in the app that require uploading or downloading images. This makes it simple to manage images, as they’re uploaded only when needed. 
+
+Our images are stored in a public folder as static files since there are no user features in the app that require uploading or downloading images. This makes it simple to manage images, as they’re uploaded only when needed.
 
 ## Tech Stack
-* **React with TypeScript**: Frontend framework (required for the task).
-* **Apollo Client**: For handling GraphQL queries and managing local/global app state. Chosen due to TS support, alongisde the efficient query handling.
-* **GraphQL**: API query language used to fetch dog breed data from the server. Required for the task.
-* **MongoDB**: Database for storing dog breed information. MongoDB is a document oriented structure, which is great for storing semi-structured data like features of a dog breed. It also scales, meaning the app can be extended without database troubles.
-* **State Management**: The state is managed using Redux. The development team chose redux to store the entire application state in a single centralized store, making it easy to manage and debug.
-* **UI-libraries**: Materials UI  was chosen for its great UI components on the frontend.
+
+- **React with TypeScript**: Frontend framework (required for the task).
+- **Apollo Client**: For handling GraphQL queries and managing local/global app state. Chosen due to TS support, alongisde the efficient query handling.
+- **GraphQL**: API query language used to fetch dog breed data from the server. Required for the task.
+- **MongoDB**: Database for storing dog breed information. MongoDB is a document oriented structure, which is great for storing semi-structured data like features of a dog breed. It also scales, meaning the app can be extended without database troubles.
+- **State Management**: The state is managed using Redux. The development team chose redux to store the entire application state in a single centralized store, making it easy to manage and debug.
+- **UI-libraries**: Materials UI was chosen for its great UI components on the frontend.
 
 ## Accessibility
+
 Several considerations and actions have been taken to ensure the accessibility of this application.
 All interactive elements offer feedback, and can be interacted with by using the keyboard. Unnecessary tabbing through elements with confusing screen reader descriptions are prevented by trying to use as many semantic HTML elements as possible. 
 Other actions taken are using htmlFor attribute to tie together labels and interactive elements. There is also added alt-text to all dog images.
@@ -66,11 +81,6 @@ Functional testing with screen reader on windows have been performed to confirm 
 - Highly readable fonts
 - Sticky and user-friendly navbar
 - Tooltips to avoid confusion
-
-
-### WCAG
-We used "Accessible Web Helper" as a chrome extension to ensure WGAC 2.2 AA compliance. During student feedback, we read that many had an issue with Lighthouse not picking up on our alt-text on the dog images, but according to Accessible Web Helper we should have 100/100 on the 68 tests we ran on all pages with both dark and light mode.
-
 
 ## Sustainable Web Design Choices
 * **Darkmode**: Implemented a dark mode option to reduce energy usage, while also minimizing eye strain for users.
@@ -85,23 +95,29 @@ We recognize that our choice to create a colorful webpage may not be the most su
 The solution contains different types of tests that are describes in detail below. Tests are crucial to the development of the app, to obtain and maintain the desired functionality.
 
 ### Snapshot Testing
+
 We use snapshot tests to ensure that user interactions such as filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
 
 ### Component Testing
+
 Each component also contains component tests using Vitest. It follows the arrange, act, assert pattern using the describe, it, expect methods within Vitest.
 
 ### End-to-End Testing
+
 The End-to-End testing is done using Cypress. Cypress is a testing framework to write automated tests, which is useful for validating performance and functionality in real-time reloading.
 
 ### Coverage Testing
+
 Code coverage analysis has been set up to ensure adequate test coverage across the codebase. This can be found in [coverage folder](frontend/coverage). To test with coverage
 [See how to run coverage testing](#how-to-test-with-coverage).
 
 ### Linting and Prettier
+
 The project uses ESLint for linting to enforce coding standards and catch potential errors early.
 Prettier is used to ensure consistent code formatting across the entire project.
 
 ### How to Run Component Tests
+
 Navigate to frontend folder:
 
 ```bash
@@ -113,9 +129,11 @@ then run the following command:
 ```bash
 npm run test
 ```
-_Runs the tests_ 
+
+_Runs the tests_
 
 ### How to Test E2E using Cypress
+
 Navigate to frontend folder:
 
 ```bash
@@ -132,9 +150,10 @@ From there you can choose E2E tests, and use your browser of choice. The tests a
 
 By default, the tests are run using the VM-address, meaning you need to be on the NTNU VPU/eduroam network.
 
-If you would like to run E2E tests locally, follow the instructions to run server and frontend, change the "baseUrl" to localhost:port inside the `cypress.config.ts` 
+If you would like to run E2E tests locally, follow the instructions to run server and frontend, change the "baseUrl" to localhost:port inside the `cypress.config.ts`
 
 ### How to Test with Coverage
+
 Navigate to frontend folder:
 
 ```bash
@@ -146,10 +165,13 @@ then run the following command:
 ```bash
 npm run coverage
 ```
-_Runs the tests_ 
+
+_Runs the tests_
 
 ## Student Feedback
+
 ### Incorporation of feedback
+
 - Following each review period, we carefully analyzed the feedback provided for P1 and P2. Based on this, we created new issues to address the suggested improvements.
 - To track feedback-related changes, we introduced a "Student Feedback" label to issues directly tied to resolving suggestions from peers.
 - The implemented improvements ranged from minor adjustments, such as ensuring comments were consistently added on top, to significant updates, including modernizing the UI, dynamic scaling, enhancing functionality, adding comprehensive tests, and improving documentation.

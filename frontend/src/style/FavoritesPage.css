@@ -1,0 +1,11 @@
+/*--- Uses the same styling as AllDogsPage ---*/
+
+.favorites-header {
+  width: 100%;
+  padding: 30px;
+  font-size: 40px;
+}
+
+#no-favorites-text > * {
+  margin: 20px;
+}

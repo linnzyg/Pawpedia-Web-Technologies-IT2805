@@ -80,6 +80,7 @@
   justify-content: center;
   cursor: pointer;
   margin: 5px;
+  /*unusual border, but for accessibility purposes when navigating with keyboard*/
   border: 2px dotted transparent;
   padding: 10px;
   border-radius: 50px;
