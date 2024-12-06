@@ -6,21 +6,21 @@ exports[`SizeFiltering Component > should initialize with the provided filterByS
     class="MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-113d811-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-filled css-eok8s2-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="true"
       id="size-filter-label"
     >
       Choose size
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-16dq6b4-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-v4szbp-MuiInputBase-root-MuiFilledInput-root-MuiSelect-root"
     >
       <div
         aria-controls=":r1:"
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="size-filter-label"
-        class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+        class="MuiSelect-select MuiSelect-filled MuiSelect-multiple MuiInputBase-input MuiFilledInput-input css-1r6ga1-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input"
         role="combobox"
         tabindex="0"
       >
@@ -35,7 +35,7 @@ exports[`SizeFiltering Component > should initialize with the provided filterByS
       />
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-lohd6h-MuiSvgIcon-root-MuiSelect-icon"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconFilled css-lohd6h-MuiSvgIcon-root-MuiSelect-icon"
         data-testid="ArrowDropDownIcon"
         focusable="false"
         viewBox="0 0 24 24"
@@ -44,20 +44,6 @@ exports[`SizeFiltering Component > should initialize with the provided filterByS
           d="M7 10l5 5 5-5z"
         />
       </svg>
-      <fieldset
-        aria-hidden="true"
-        class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
-      >
-        <legend
-          class="css-w4cd9x"
-        >
-          <span
-            class="notranslate"
-          >
-            ​
-          </span>
-        </legend>
-      </fieldset>
     </div>
   </div>
 </DocumentFragment>
@@ -69,21 +55,21 @@ exports[`SizeFiltering Component > should render the size filtering dropdown 1`]
     class="MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-19qnlrw-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-filled css-1u43uf3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       id="size-filter-label"
     >
       Choose size
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-16dq6b4-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-v4szbp-MuiInputBase-root-MuiFilledInput-root-MuiSelect-root"
     >
       <div
         aria-controls=":r0:"
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="size-filter-label"
-        class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+        class="MuiSelect-select MuiSelect-filled MuiSelect-multiple MuiInputBase-input MuiFilledInput-input css-1r6ga1-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input"
         role="combobox"
         tabindex="0"
       >
@@ -102,7 +88,7 @@ exports[`SizeFiltering Component > should render the size filtering dropdown 1`]
       />
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-lohd6h-MuiSvgIcon-root-MuiSelect-icon"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconFilled css-lohd6h-MuiSvgIcon-root-MuiSelect-icon"
         data-testid="ArrowDropDownIcon"
         focusable="false"
         viewBox="0 0 24 24"
@@ -111,20 +97,6 @@ exports[`SizeFiltering Component > should render the size filtering dropdown 1`]
           d="M7 10l5 5 5-5z"
         />
       </svg>
-      <fieldset
-        aria-hidden="true"
-        class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
-      >
-        <legend
-          class="css-w4cd9x"
-        >
-          <span
-            class="notranslate"
-          >
-            ​
-          </span>
-        </legend>
-      </fieldset>
     </div>
   </div>
 </DocumentFragment>

@@ -25,6 +25,7 @@ const DogBreedGallery: React.FC = () => {
   const [hasNextPage, setHasNextPage] = useState<boolean>(true);
   const sortRef = useRef<HTMLSelectElement>(null);
   const [isEmptyResult, setIsEmptyResult] = useState<boolean>(false);
+  const [disableAutoFetch, setDisableAutoFetch] = useState<boolean>(false);
 
   // Search term to display for user when no breeds are found
   const [unvalidSearchTerm, setUnvalidSearchTerm] = useState<string>('');
@@ -40,6 +41,15 @@ const DogBreedGallery: React.FC = () => {
     skip: true, // Preventing automatic fetching on mount to avoid unnecessary requests
     fetchPolicy: 'network-only',
   });
+  useEffect(() => {
+    if (disableAutoFetch) {
+      const timer = setTimeout(() => {
+        setDisableAutoFetch(false);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [disableAutoFetch]);
 
   // Handle changes in size filter
   const handleFilterChange = (filters: string[]) => {
@@ -91,6 +101,7 @@ const DogBreedGallery: React.FC = () => {
         fetchBreeds(8, filterBySize, filterByStat, search, orderBy);
         setUnvalidSearchTerm('');
         setInitialUnvalidSearchTerm('');
+        setDisableAutoFetch(true);
       } else {
         setUnvalidSearchTerm(search);
       }
@@ -99,11 +110,12 @@ const DogBreedGallery: React.FC = () => {
     }
     dispatch(setSearch(search)); // Update search term in Redux
   };
-
+  
   const loadMoreItems = useCallback(() => {
     setTimeout(() => {
       handleLoadMore();
     }, 300); // Simulated delay for slower loading
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allDogs, loading]);
 
   useEffect(() => {
@@ -209,6 +221,7 @@ const DogBreedGallery: React.FC = () => {
   useEffect(() => {
     // Fetch breeds with the current Redux state
     fetchBreeds(8, filterBySize, filterByStat, searchByName, orderBy);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading && allDogs.length === 0) return <p>Loading...</p>;
@@ -250,8 +263,8 @@ const DogBreedGallery: React.FC = () => {
           {allDogs.length > 0 ? allDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />) : null}
         </section>
       </section>
-      <div ref={lastItemRef} />
-      {!hasNextPage && (
+      {!disableAutoFetch && (<div ref={lastItemRef} />)}
+      {!hasNextPage && allDogs.length !== 0 && (
         <p style={{ textAlign: 'center', margin: '20px 0' }}>
           You have looked at {allDogs.length} of {allDogs.length} breeds.
         </p>

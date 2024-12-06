@@ -6,21 +6,21 @@ exports[`NameSorting Component > should render correctly with initial sort optio
     class="MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-113d811-MuiFormLabel-root-MuiInputLabel-root"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-filled css-eok8s2-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="true"
       id="sort-select-label"
     >
       Choose sorting
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-dyqlgm-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-v4szbp-MuiInputBase-root-MuiFilledInput-root-MuiSelect-root"
     >
       <div
         aria-controls=":r0:"
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="sort-select-label"
-        class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+        class="MuiSelect-select MuiSelect-filled MuiInputBase-input MuiFilledInput-input css-1r6ga1-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input"
         role="combobox"
         tabindex="0"
       >
@@ -35,7 +35,7 @@ exports[`NameSorting Component > should render correctly with initial sort optio
       />
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-lohd6h-MuiSvgIcon-root-MuiSelect-icon"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconFilled css-lohd6h-MuiSvgIcon-root-MuiSelect-icon"
         data-testid="ArrowDropDownIcon"
         focusable="false"
         viewBox="0 0 24 24"
@@ -44,18 +44,6 @@ exports[`NameSorting Component > should render correctly with initial sort optio
           d="M7 10l5 5 5-5z"
         />
       </svg>
-      <fieldset
-        aria-hidden="true"
-        class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
-      >
-        <legend
-          class="css-w1u3ce"
-        >
-          <span>
-            Choose sorting
-          </span>
-        </legend>
-      </fieldset>
     </div>
   </div>
 </DocumentFragment>

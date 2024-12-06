@@ -1,5 +1,4 @@
-
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen,} from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { MockedProvider } from '@apollo/client/testing';
 import Comment from '../components/Comment';
@@ -44,6 +43,4 @@ describe('Comment Component', () => {
     expect(screen.getByPlaceholderText('Your comment')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /submit comment/i })).toBeInTheDocument();
   });
-
-  
 });
