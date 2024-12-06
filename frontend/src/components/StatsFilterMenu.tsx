@@ -24,6 +24,7 @@ const StatsFilterMenu: React.FC<FilteringProps> = ({ onStatsFilterChange, filter
       onStatsFilterChange(selectedOption);
       isFirstRender.current = false;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedOption]);
 
   // Handle the selection change

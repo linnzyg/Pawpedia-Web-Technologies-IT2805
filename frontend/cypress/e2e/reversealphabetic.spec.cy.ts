@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 describe("Reverse Alphabetic Sorting Test (Z-A)", () => {
   it("should sort the gallery in reverse alphabetical order and verify results", () => {
     cy.visit("/");

@@ -71,10 +71,8 @@ TODO
 ## Testing 
 The solution contains different types of tests that are describes in detail below. Tests are crucial to the development of the app, to obtain and maintain the desired functionality.
 
-**NOTE**: We had two issues with the tests.
+NOTE: We had one issues with the tests.
 1. The DogBreedGallery.test failed after some iterations. The team is not sure why it does not run, and has therefore commented it out.
-2. Some use of @TS-ignore. The devteam is aware of this not being best practice, but some places in the code, TypeScript errors would lead to endless loops, and never removing red markings. 
-The use of @ts-ignore is used as a last resort, and is carefully monitored to be safe. The code that is ignored is fully working in a safe manner.
 
 ### Snapshot Testing
 We use snapshot tests to ensure that user interactions such as filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
