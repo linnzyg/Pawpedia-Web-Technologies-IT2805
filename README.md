@@ -46,12 +46,12 @@ The choice of making a dog application was made due to dogs being cute, and moti
 Our images are stored in a public folder as static files since there are no user features in the app that require uploading or downloading images. This makes it simple to manage images, as they’re uploaded only when needed. 
 
 ## Tech Stack
-* React with TypeScript: Frontend framework
+* React with TypeScript: Frontend framework - required for the task
 * Apollo Client: For handling GraphQL queries and managing local/global app state.
 * GraphQL: API query language used to fetch dog breed data from the server.
 * MongoDB: Database for storing dog breed information.
-* STATE MANAGEMENT - TO DO
-* UI-libraries - TO DO
+* STATE MANAGEMENT - The state is managed using Redux. The development team chose redux to store the entire application state in a single centralized store, making it easy to manage and debug.
+* UI-libraries - Materials UI 
 
 ## Accessibility
 Several considerations and actions have been taken to ensure the accessibility of this application.
@@ -69,7 +69,8 @@ TODO
 * If a search term returns no breeds, there will not be any new fetches as long as new search includes the initial search term that returned zero breeds or that some filters are removed. This is to avoid unnecessary api calls.
 * Image file format is WebP, as it is supported by most browsers and creates small and high quality images. We considered using AVIF but, as its not as widely supported yet,  decided on WebP.
 
-## Testing and code quality
+### Testing 
+The solution contains different types of tests that are describes in detail below. Tests are crucial to the development of the app, to obtain and maintain the desired functionality.
 
 ### Snapshot testing
 We use snapshot tests to ensure that user interactions such as filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
@@ -78,7 +79,7 @@ We use snapshot tests to ensure that user interactions such as filtering, sortin
 Each component also contains component tests using Vitest. It follows the arrange, act, assert pattern using the describe, it, expect methods within Vitest.
 
 ### End-to-End testing
-to do
+The End-to-End testing is done using Cypress. Cypress is a testing framework to write automated tests, which is useful for validating performance and functionality in real-time reloading.
 
 ### Coverage testing
 Code coverage analysis has been set up to ensure adequate test coverage across the codebase. This can be found in [coverage folder](frontend\coverage). To test with coverage
@@ -88,8 +89,10 @@ Code coverage analysis has been set up to ensure adequate test coverage across t
 The project uses ESLint for linting to enforce coding standards and catch potential errors early.
 Prettier is used to ensure consistent code formatting across the entire project.
 
-### Testing
-### How to test
+
+
+
+### How to run component tests
 Navigate to frontend folder:
 
 ```bash
@@ -102,6 +105,26 @@ then run the following command:
 npm run test
 ```
 _Runs the tests_ 
+
+
+### How to test E2E using Cypress
+Navigate to frontend folder:
+
+```bash
+cd frontend
+```
+
+then run the following command:
+
+```bash
+npx cypress open
+```
+
+From there you can choose E2E tests, and use your browser of choice. The tests are run by choosing "specs" (the test you want to run).
+
+By default, the tests are run using the VM-address, meaning you need to be on the NTNU vpn / eduroam network.
+
+If you would like to run E2E tests locally, follow the instructions to run server and frontend, change the "baseUrl" to localhost:port inside the `cypress.config.ts` 
 
 ### How to test with coverage
 Navigate to frontend folder:
