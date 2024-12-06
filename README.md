@@ -48,7 +48,7 @@ Our images are stored in a public folder as static files since there are no user
 ## Tech Stack
 * React with TypeScript: Frontend framework - required for the task
 * Apollo Client: For handling GraphQL queries and managing local/global app state. Chosen due to TS support, alongisde the efficient query handling.
-* GraphQL: API query language used to fetch dog breed data from the server. The reason for usin GraphQL was the flexible queries, allowing the clients to request only the data needed, an dalso the single GraphQL endpoint solution, simplifying the API management.
+* GraphQL: API query language used to fetch dog breed data from the server. Required for the task.
 * MongoDB: Database for storing dog breed information. MongoDB is a document oriented structure, which is great for storing semi-structured data like features of a dog breed. It also scales, meaning the app can be extended without database troubles.
 * STATE MANAGEMENT - The state is managed using Redux. The development team chose redux to store the entire application state in a single centralized store, making it easy to manage and debug.
 * UI-libraries - Materials UI  was chosen for its great UI components on the frontend.
