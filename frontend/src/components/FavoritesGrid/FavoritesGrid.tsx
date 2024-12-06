@@ -3,19 +3,15 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { DogBreed } from '../../types/DogBreed';
 import { getFavorites } from '../../utils/favoritesUtils';
 import '../../style/FavoritesGrid.css';
-import BreedCard from '../Global/BreedCard';
 import { Link } from 'react-router-dom';
+import DogGrid from '../Global/DogGrid';
 
-/*
-Defines a subset of properties from the DogBreed type that are relevant for the favorites grid
-Only includes id, name, image, and averageRating properties
-*/
+/* Defines a subset of properties from the DogBreed type that are relevant for the favorites grid
+Only includes id, name, image, and averageRating properties */
+
 type FavoriteBreed = Pick<DogBreed, 'id' | 'name' | 'image' | 'averageRating'>;
 
-/*
-The FavoritesGrid component displays a user's favorite dog breeds with lazy loading
-It retrieves the favorites from local storage and dynamically loads more breeds as the user scrolls
-*/
+/*Shows users favorites in the same way as DogBreedGallery*/
 
 function FavoritesGrid() {
   const [allDogs, setAllDogs] = useState<FavoriteBreed[]>([]);
@@ -71,23 +67,19 @@ function FavoritesGrid() {
         <h2>Your favorite dogs:</h2>
       </header>
 
-      <section className="grid-container">
-        <section className="dog-breed-gallery">
-          {visibleDogs.length > 0 ? (
-            visibleDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />)
-          ) : (
-            <section id="no-favorites-text">
-              <p>Looks like you haven't added any favorites yet.</p>
-              <p>
-                <Link className="viewAllBreedsLink" to="/" aria-label="Start exploring breeds">
-                  Start exploring!
-                </Link>
-              </p>
-            </section>
-          )}
-          <section ref={lastItemRef} />
+      {visibleDogs.length > 0 ? (
+        <DogGrid allDogs={visibleDogs} />
+      ) : (
+        <section id="no-favorites-text">
+          <p>Looks like you haven't added any favorites yet.</p>
+          <p>
+            <Link className="viewAllBreedsLink" to="/" aria-label="Start exploring breeds">
+              Start exploring!
+            </Link>
+          </p>
         </section>
-      </section>
+      )}
+      <section ref={lastItemRef} />
 
       {!hasNextPage && visibleDogs.length > 0 && (
         <p style={{ textAlign: 'center', margin: '20px 0' }}>

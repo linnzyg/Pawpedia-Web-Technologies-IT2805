@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import '../../style/DogBreedGallery.css';
 import '../../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
 import { GET_BREEDS } from '../../api/queries';
@@ -11,8 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch, setStatsFilter } from '../redux/actions';
 import store, { RootState } from '../redux/store';
 import { Button, Tooltip } from '@mui/material';
-import BreedCard from '../Global/BreedCard';
 import StatsFilterMenu from './SortFilterOrSearch/StatsFilterMenu';
+import DogGrid from '../Global/DogGrid';
 
 const DogBreedGallery: React.FC = () => {
   const dispatch = useDispatch<typeof store.dispatch>();
@@ -258,11 +257,7 @@ const DogBreedGallery: React.FC = () => {
           Here are all breeds instead:
         </p>
       ) : null}
-      <section className="grid-container">
-        <section className="dog-breed-gallery">
-          {allDogs.length > 0 ? allDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />) : null}
-        </section>
-      </section>
+      <DogGrid allDogs={allDogs} />
       {!disableAutoFetch && (<div ref={lastItemRef} />)}
       {!hasNextPage && allDogs.length !== 0 && (
         <p style={{ textAlign: 'center', margin: '20px 0' }}>
