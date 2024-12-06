@@ -1,7 +1,7 @@
 
 <<<<<<< Updated upstream
 const initialState = '';
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const searchReducer = (state = initialState, action: any) => {
 =======
 

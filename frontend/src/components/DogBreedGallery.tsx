@@ -110,11 +110,12 @@ const DogBreedGallery: React.FC = () => {
     }
     dispatch(setSearch(search)); // Update search term in Redux
   };
-
+  
   const loadMoreItems = useCallback(() => {
     setTimeout(() => {
       handleLoadMore();
     }, 300); // Simulated delay for slower loading
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allDogs, loading]);
 
   useEffect(() => {
@@ -220,6 +221,7 @@ const DogBreedGallery: React.FC = () => {
   useEffect(() => {
     // Fetch breeds with the current Redux state
     fetchBreeds(8, filterBySize, filterByStat, searchByName, orderBy);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading && allDogs.length === 0) return <p>Loading...</p>;
