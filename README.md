@@ -47,11 +47,11 @@ Our images are stored in a public folder as static files since there are no user
 
 ## Tech Stack
 * React with TypeScript: Frontend framework - required for the task
-* Apollo Client: For handling GraphQL queries and managing local/global app state.
-* GraphQL: API query language used to fetch dog breed data from the server.
-* MongoDB: Database for storing dog breed information.
+* Apollo Client: For handling GraphQL queries and managing local/global app state. Chosen due to TS support, alongisde the efficient query handling.
+* GraphQL: API query language used to fetch dog breed data from the server. The reason for usin GraphQL was the flexible queries, allowing the clients to request only the data needed, an dalso the single GraphQL endpoint solution, simplifying the API management.
+* MongoDB: Database for storing dog breed information. MongoDB is a document oriented structure, which is great for storing semi-structured data like features of a dog breed. It also scales, meaning the app can be extended without database troubles.
 * STATE MANAGEMENT - The state is managed using Redux. The development team chose redux to store the entire application state in a single centralized store, making it easy to manage and debug.
-* UI-libraries - Materials UI 
+* UI-libraries - Materials UI  was chosen for its great UI components on the frontend.
 
 ## Accessibility
 Several considerations and actions have been taken to ensure the accessibility of this application.
@@ -71,6 +71,11 @@ TODO
 
 ### Testing 
 The solution contains different types of tests that are describes in detail below. Tests are crucial to the development of the app, to obtain and maintain the desired functionality.
+
+NOTE: We had two issues with the tests.
+1. The DogBreedGallery.test failed after some iterations. The team is not sure why it does not run, and has therefore commented it out.
+2. Some use of @TS-ignore. The devteam is aware of this not being best practice, but some places in the code, TypeScript errors would lead to endless loops, and never removing red markings. 
+The use of @ts-ignore is used as a last resort, and is carefully monitored to be safe. The code that is ignored is fully working in a safe manner.
 
 ### Snapshot testing
 We use snapshot tests to ensure that user interactions such as filtering, sorting, and navigation work as expected. The snapshots capture the output after each interaction, allowing us to verify that everything functions correctly.
