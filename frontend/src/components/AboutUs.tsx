@@ -16,7 +16,7 @@ function AboutUs() {
         <h1>Welcome to Pawpedia, a dog breed database!</h1>
       </header>
 
-      <Box className="content">
+      <Box className="about-content">
         <Card className="aboutBox">
           <h2 className="aboutTitle">
             <strong>About Us</strong>

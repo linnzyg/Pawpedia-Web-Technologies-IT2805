@@ -44,10 +44,14 @@
   padding: 10px;
 }
 
+.about-content{
+  padding: 20px;
+}
+
 .aboutBox,
 .offerBox {
-  margin: 24px;
-  padding: 16px;
+  margin-bottom: 20px;
+  padding: 10px;
 }
 
 #aboutBody > header {
@@ -86,7 +90,6 @@ footer {
   border: 2px solid;
   padding: 10px;
   border-radius: 5px;
-  margin: 24px;
 }
 
 .viewAllBreedsLink:hover {

@@ -70,21 +70,25 @@ function FavoritesGrid() {
         <h2>Your favorite dogs:</h2>
       </header>
 
-      <div className="dog-breed-gallery">
-        {visibleDogs.length > 0 ? (
-          visibleDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />)
-        ) : (
-          <p>
-            Looks like you haven't added any favorites yet.{' '}
-            <Link to="/" aria-label="Start exploring breeds">
-              Start exploring!
-            </Link>
-          </p>
-        )}
-        <div ref={lastItemRef} />
-      </div>
+      <section className="grid-container">
+        <section className="dog-breed-gallery">
+          {visibleDogs.length > 0 ? (
+            visibleDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />)
+          ) : (
+            <section id="no-favorites-text">
+              <p>Looks like you haven't added any favorites yet.</p>
+              <p>
+                <Link className="viewAllBreedsLink" to="/" aria-label="Start exploring breeds">
+                  Start exploring!
+                </Link>
+              </p>
+            </section>
+          )}
+          <section ref={lastItemRef} />
+        </section>
+      </section>
 
-      {!hasNextPage && (
+      {!hasNextPage && visibleDogs.length > 0 && (
         <p style={{ textAlign: 'center', margin: '20px 0' }}>
           You have looked at {visibleDogs.length} of {allDogs.length} breeds.
         </p>
