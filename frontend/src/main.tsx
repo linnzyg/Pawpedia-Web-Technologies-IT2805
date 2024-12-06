@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
       <ApolloProvider client={client}>
-        <BrowserRouter basename='/project2'>
+        <BrowserRouter basename="/project2">
           <App />
         </BrowserRouter>
       </ApolloProvider>

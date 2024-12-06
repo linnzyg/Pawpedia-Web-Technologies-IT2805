@@ -109,7 +109,7 @@ const AllDogsPage: React.FC = () => {
     }
     dispatch(setSearch(search)); // Update search term in Redux
   };
-  
+
   const loadMoreItems = useCallback(() => {
     setTimeout(() => {
       handleLoadMore();
@@ -258,7 +258,7 @@ const AllDogsPage: React.FC = () => {
         </p>
       ) : null}
       <DogGrid allDogs={allDogs} />
-      {!disableAutoFetch && (<div ref={lastItemRef} />)}
+      {!disableAutoFetch && <div ref={lastItemRef} />}
       {!hasNextPage && allDogs.length !== 0 && (
         <p style={{ textAlign: 'center', margin: '20px 0' }}>
           You have looked at {allDogs.length} of {allDogs.length} breeds.

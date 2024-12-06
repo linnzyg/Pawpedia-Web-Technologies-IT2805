@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import "../../../style/ScrollButton.css";
-import { Tooltip } from "@mui/material";
+import '../../../style/ScrollButton.css';
+import { Tooltip } from '@mui/material';
 
 const ScrollButton: React.FC = () => {
   const [visible, setVisible] = useState<boolean>(false); // Specify state type

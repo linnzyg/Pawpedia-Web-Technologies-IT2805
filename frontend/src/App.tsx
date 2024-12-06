@@ -1,4 +1,3 @@
-
 import { Routes, Route } from 'react-router-dom';
 import AllDogsPage from './components/AllDogsPage/AllDogsPage';
 import DogBreedDetailWrapper from './components/DogBreedDetail/DogBreedDetailWrapper';
