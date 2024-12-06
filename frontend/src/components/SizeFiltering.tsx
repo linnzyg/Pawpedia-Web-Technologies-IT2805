@@ -33,7 +33,7 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize 
   };
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth variant="filled">
       <InputLabel id="size-filter-label">Choose size</InputLabel>
       <Select
         labelId="size-filter-label"
@@ -42,7 +42,7 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize 
         //@ts-expect-error
         onChange={handleSizeChange}
         renderValue={(selected) => (selected as string[]).join(', ')} //Show selected sizes
-        sx={{ width: '200px' }}
+        sx={{ width: '100%' }}
       >
         {sizes.map((size) => (
           <MenuItem key={size} value={size}>

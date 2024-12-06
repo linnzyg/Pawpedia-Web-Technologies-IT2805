@@ -1,8 +1,15 @@
 .dog-breed-gallery {
-  display: flex;
+  display: grid;
   justify-content: center;
+  justify-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 20px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 40px;
+  padding-top: 10px;
 }
 
 .dog-breed-gallery > * {

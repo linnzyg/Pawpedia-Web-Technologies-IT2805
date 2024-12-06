@@ -4,10 +4,12 @@ import { useQuery } from '@apollo/client';
 import { GET_RANDOM_BREED } from '../api/queries';
 import ModeChange from './ModeChange';
 import Tooltip from '@mui/material/Tooltip';
+import '../style/Navbar.css';
 import PetsIcon from '@mui/icons-material/Pets';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CasinoIcon from '@mui/icons-material/Casino';
 import InfoIcon from '@mui/icons-material/Info';
+import ScrollButton from './ScrollButton';
 
 /**
  * Navbar Component
@@ -18,7 +20,7 @@ import InfoIcon from '@mui/icons-material/Info';
 function Navbar() {
   const { loading, error, data, refetch } = useQuery(GET_RANDOM_BREED);
 
-  // Function to select a random breed ID
+  // Function to select a random breed IDFF
   const fetchNewBreed = () => {
     refetch();
   };
@@ -28,37 +30,40 @@ function Navbar() {
   if (error) return <p>Error loading breeds: {error.message}</p>;
 
   return (
-    <section className="navbar">
-      <section className="navSplit">
-        <Tooltip title="View all dogs">
-          <NavLink to="/">
-            <PetsIcon />
-            <h2>All dogs</h2>
-          </NavLink>
-        </Tooltip>
-        <Tooltip title="View your favorites">
-          <NavLink to="/favorites">
-            <FavoriteIcon />
-            <h2>Favorites</h2>
-          </NavLink>
-        </Tooltip>
-        <Tooltip title="View a random dog">
-          <NavLink onClick={fetchNewBreed} to={`/${data.randomBreed.id}`}>
-            <CasinoIcon />
-            <h2>Lucky dog!</h2>
-          </NavLink>
-        </Tooltip>
+    <>
+      <section className="navbar">
+        <section className="navSplit">
+          <Tooltip title="View all dogs">
+            <NavLink to="/">
+              <PetsIcon />
+              <h2>All dogs</h2>
+            </NavLink>
+          </Tooltip>
+          <Tooltip title="View your favorites">
+            <NavLink to="/favorites">
+              <FavoriteIcon />
+              <h2>Favorites</h2>
+            </NavLink>
+          </Tooltip>
+          <Tooltip title="View a random dog">
+            <NavLink onClick={fetchNewBreed} to={`/${data.randomBreed.id}`}>
+              <CasinoIcon />
+              <h2>Lucky dog!</h2>
+            </NavLink>
+          </Tooltip>
+        </section>
+        <section className="navSplit">
+          <Tooltip title="Read about Pawpedia">
+            <NavLink to="/about">
+              <InfoIcon />
+              <h2>About Us</h2>
+            </NavLink>
+          </Tooltip>
+          <ModeChange />
+        </section>
       </section>
-      <section className="navSplit">
-        <Tooltip title="Read about Pawpedia">
-          <NavLink to="/about">
-            <InfoIcon />
-            <h2>About Us</h2>
-          </NavLink>
-        </Tooltip>
-        <ModeChange />
-      </section>
-    </section>
+      <ScrollButton></ScrollButton>
+    </>
   );
 }
 
