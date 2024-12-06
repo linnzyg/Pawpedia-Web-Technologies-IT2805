@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/DogBreedGallery.tsx</title>
+    <title>Code coverage report for src/components/DogBreedGallery/DogBreedGallery.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> DogBreedGallery.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/DogBreedGallery</a> DogBreedGallery.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -336,7 +336,11 @@
 <a name='L271'></a><a href='#L271'>271</a>
 <a name='L272'></a><a href='#L272'>272</a>
 <a name='L273'></a><a href='#L273'>273</a>
-<a name='L274'></a><a href='#L274'>274</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L274'></a><a href='#L274'>274</a>
+<a name='L275'></a><a href='#L275'>275</a>
+<a name='L276'></a><a href='#L276'>276</a>
+<a name='L277'></a><a href='#L277'>277</a>
+<a name='L278'></a><a href='#L278'>278</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -455,6 +459,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -558,6 +563,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -595,7 +601,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -610,23 +618,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect, useRef, useState, useCallback } from 'react';
-import '../style/SortOrFilter.css';
-import '../style/DogBreedGallery.css';
+import '../../style/DogBreedGallery.css';
+import '../../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
-import { GET_BREEDS } from '../api/queries';
-import { DogBreed } from '../types/DogBreed';
-import SizeFiltering from './SizeFiltering';
-import SortingMenu from './SortingMenu';
-import Search from './Search';
+import { GET_BREEDS } from '../../api/queries';
+import { DogBreed } from '../../types/DogBreed';
+import SizeFiltering from './SortFilterOrSearch/SizeFiltering';
+import SortingMenu from './SortFilterOrSearch/SortingMenu';
+import Search from './SortFilterOrSearch/Search';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter, setSort, setSearch, setStatsFilter } from './redux/actions';
-import { RootState } from './redux/store';
+import { setFilter, setSort, setSearch, setStatsFilter } from '../redux/actions';
+import store, { RootState } from '../redux/store';
 import { Button, Tooltip } from '@mui/material';
-import BreedCard from './BreedCard';
-import StatsFilterMenu from './StatsFilterMenu';
+import BreedCard from '../Global/BreedCard';
+import StatsFilterMenu from './SortFilterOrSearch/StatsFilterMenu';
 &nbsp;
 const DogBreedGallery: React.FC = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
-  const dispatch = <span class="cstat-no" title="statement not covered" >useDispatch();</span>
+  const dispatch = <span class="cstat-no" title="statement not covered" >useDispatch&lt;typeof store.dispatch&gt;();</span>
   const filterBySize = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >(s</span>tate: RootState) =&gt; <span class="cstat-no" title="statement not covered" >state.filter)</span>;</span>
   const filterByStat = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >(s</span>tate: RootState) =&gt; <span class="cstat-no" title="statement not covered" >state.statsFilter)</span>;</span>
   const orderBy = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >(s</span>tate: RootState) =&gt; <span class="cstat-no" title="statement not covered" >state.sort)</span>;</span>
@@ -721,11 +729,12 @@ const DogBreedGallery: React.FC = <span class="cstat-no" title="statement not co
     }
 <span class="cstat-no" title="statement not covered" >    dispatch(setSearch(search)); // Update search term in Redux</span>
   };
-&nbsp;
+  
   const loadMoreItems = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
 <span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
 <span class="cstat-no" title="statement not covered" >      handleLoadMore();</span>
     }, 300); // Simulated delay for slower loading
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allDogs, loading]);
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
@@ -831,6 +840,7 @@ const DogBreedGallery: React.FC = <span class="cstat-no" title="statement not co
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
     // Fetch breeds with the current Redux state
 <span class="cstat-no" title="statement not covered" >    fetchBreeds(8, filterBySize, filterByStat, searchByName, orderBy);</span>
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  if (loading &amp;&amp; allDogs.length === 0) <span class="cstat-no" title="statement not covered" >return &lt;p&gt;Loading...&lt;/p&gt;;</span></span>
@@ -867,8 +877,10 @@ const DogBreedGallery: React.FC = <span class="cstat-no" title="statement not co
           Here are all breeds instead:
         &lt;/p&gt;
       ) : null}
-      &lt;section className="dog-breed-gallery"&gt;
-        {allDogs.length &gt; 0 ? allDogs.map(<span class="fstat-no" title="function not covered" >(b</span>reed) =&gt; <span class="cstat-no" title="statement not covered" >&lt;BreedCard key={breed.id} breed={breed} /&gt;)</span> : null}
+      &lt;section className="grid-container"&gt;
+        &lt;section className="dog-breed-gallery"&gt;
+          {allDogs.length &gt; 0 ? allDogs.map(<span class="fstat-no" title="function not covered" >(b</span>reed) =&gt; <span class="cstat-no" title="statement not covered" >&lt;BreedCard key={breed.id} breed={breed} /&gt;)</span> : null}
+        &lt;/section&gt;
       &lt;/section&gt;
       {!disableAutoFetch &amp;&amp; (&lt;div ref={lastItemRef} /&gt;)}
       {!hasNextPage &amp;&amp; allDogs.length !== 0 &amp;&amp; (
@@ -889,16 +901,16 @@ export default DogBreedGallery;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-12-06T16:49:10.736Z
+                at 2024-12-06T19:11:41.176Z
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     

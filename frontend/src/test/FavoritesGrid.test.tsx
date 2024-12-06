@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { FavoritesGrid } from '../components/FavoritesGrid';
+import { FavoritesGrid } from '../components/FavoritesGrid/FavoritesGrid';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 vi.mock('../utils/favoritesUtils', () => ({

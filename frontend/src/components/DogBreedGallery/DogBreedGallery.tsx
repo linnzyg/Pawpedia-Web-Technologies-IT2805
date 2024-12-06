@@ -9,13 +9,13 @@ import SortingMenu from './SortFilterOrSearch/SortingMenu';
 import Search from './SortFilterOrSearch/Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setSort, setSearch, setStatsFilter } from '../redux/actions';
-import { RootState } from '../redux/store';
+import store, { RootState } from '../redux/store';
 import { Button, Tooltip } from '@mui/material';
 import BreedCard from '../Global/BreedCard';
 import StatsFilterMenu from './SortFilterOrSearch/StatsFilterMenu';
 
 const DogBreedGallery: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<typeof store.dispatch>();
   const filterBySize = useSelector((state: RootState) => state.filter);
   const filterByStat = useSelector((state: RootState) => state.statsFilter);
   const orderBy = useSelector((state: RootState) => state.sort);
