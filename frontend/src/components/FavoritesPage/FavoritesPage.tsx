@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { DogBreed } from '../../types/DogBreed';
 import { getFavorites } from '../../utils/favoritesUtils';
-import '../../style/FavoritesGrid.css';
+import '../../style/FavoritesPage.css';
 import { Link } from 'react-router-dom';
 import DogGrid from '../Global/DogGrid';
 
@@ -11,9 +11,9 @@ Only includes id, name, image, and averageRating properties */
 
 type FavoriteBreed = Pick<DogBreed, 'id' | 'name' | 'image' | 'averageRating'>;
 
-/*Shows users favorites in the same way as DogBreedGallery*/
+/*Shows users favorites in the same way as AllDogsPage*/
 
-function FavoritesGrid() {
+function FavoritesPage() {
   const [allDogs, setAllDogs] = useState<FavoriteBreed[]>([]);
   const [visibleDogs, setVisibleDogs] = useState<FavoriteBreed[]>([]);
   const [hasNextPage, setHasNextPage] = useState<boolean>(true);
@@ -92,4 +92,4 @@ function FavoritesGrid() {
   );
 }
 
-export { FavoritesGrid };
+export { FavoritesPage };

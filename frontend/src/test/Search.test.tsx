@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import Search from '../components/DogBreedGallery/SortFilterOrSearch/Search';
+import Search from '../components/AllDogsPage/SortFilterOrSearch/Search';
 
 describe('Search Component Snapshot', () => {
   it('should match the snapshot', () => {

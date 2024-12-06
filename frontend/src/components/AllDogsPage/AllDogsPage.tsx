@@ -13,7 +13,7 @@ import { Button, Tooltip } from '@mui/material';
 import StatsFilterMenu from './SortFilterOrSearch/StatsFilterMenu';
 import DogGrid from '../Global/DogGrid';
 
-const DogBreedGallery: React.FC = () => {
+const AllDogsPage: React.FC = () => {
   const dispatch = useDispatch<typeof store.dispatch>();
   const filterBySize = useSelector((state: RootState) => state.filter);
   const filterByStat = useSelector((state: RootState) => state.statsFilter);
@@ -269,4 +269,4 @@ const DogBreedGallery: React.FC = () => {
   );
 };
 
-export default DogBreedGallery;
+export default AllDogsPage;

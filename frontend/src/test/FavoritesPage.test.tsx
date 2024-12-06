@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { FavoritesGrid } from '../components/FavoritesGrid/FavoritesGrid';
+import { FavoritesPage } from '../components/FavoritesPage/FavoritesPage';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 vi.mock('../utils/favoritesUtils', () => ({
@@ -44,11 +44,11 @@ global.IntersectionObserver = class IntersectionObserver {
   unobserve() {}
 };
 
-describe('FavoritesGrid Component', () => {
+describe('FavoritesPage Component', () => {
   it('should match the snapshot', () => {
     const { asFragment } = render(
       <Router>
-        <FavoritesGrid />
+        <FavoritesPage />
       </Router>,
     );
 

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
-import SizeFiltering from '../components/DogBreedGallery/SortFilterOrSearch/SizeFiltering';
+import SizeFiltering from '../components/AllDogsPage/SortFilterOrSearch/SizeFiltering';
 
 describe('SizeFiltering Component', () => {
   it('should render the size filtering dropdown', () => {
