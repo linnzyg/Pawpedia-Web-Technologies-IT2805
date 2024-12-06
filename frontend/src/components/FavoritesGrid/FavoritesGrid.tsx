@@ -1,7 +1,8 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+// @ts-expect-error - errors looping cannot be resolved
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { DogBreed } from '../../types/DogBreed';
 import { getFavorites } from '../../utils/favoritesUtils';
-import '../../style/FavoritesGrid.css';
+import '../style/FavoritesGrid.css';
 import BreedCard from '../Global/BreedCard';
 import { Link } from 'react-router-dom';
 

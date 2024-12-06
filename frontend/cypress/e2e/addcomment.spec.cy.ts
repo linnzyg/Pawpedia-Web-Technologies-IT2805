@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 describe("Dog Comment Test", () => {
   it("should visit the page, select mittelspitz, add a rating, and submit a comment", () => {
     cy.visit("/");

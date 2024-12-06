@@ -1,64 +1,68 @@
+
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Code coverage report for src/components/DogBreedDetail.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
     <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-      .coverage-summary .sorter {
-        background-image: url(../../sort-arrow-sprite.png);
-      }
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
     </style>
-  </head>
-
-  <body>
-    <div class="wrapper">
-      <div class="pad1">
-        <h1>
-          <a href="../../index.html">All files</a> /
-          <a href="index.html">src/components</a> DogBreedDetail.tsx
-        </h1>
-        <div class="clearfix">
-          <div class="fl pad1y space-right2">
-            <span class="strong">62.5% </span>
-            <span class="quiet">Statements</span>
-            <span class="fraction">15/24</span>
-          </div>
-
-          <div class="fl pad1y space-right2">
-            <span class="strong">32.14% </span>
-            <span class="quiet">Branches</span>
-            <span class="fraction">9/28</span>
-          </div>
-
-          <div class="fl pad1y space-right2">
-            <span class="strong">42.85% </span>
-            <span class="quiet">Functions</span>
-            <span class="fraction">6/14</span>
-          </div>
-
-          <div class="fl pad1y space-right2">
-            <span class="strong">62.5% </span>
-            <span class="quiet">Lines</span>
-            <span class="fraction">15/24</span>
-          </div>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> DogBreedDetail.tsx</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">62.5% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>15/24</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">33.33% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>10/30</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">42.85% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>6/14</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">62.5% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>15/24</span>
+            </div>
+        
+            
         </div>
         <p class="quiet">
-          Press <em>n</em> or <em>j</em> to go to the next uncovered block,
-          <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
         <template id="filterTemplate">
-          <div class="quiet">
-            Filter:
-            <input type="search" id="fileSearch" />
-          </div>
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
         </template>
-      </div>
-      <div class="status-line medium"></div>
-      <pre><table class="coverage">
+    </div>
+    <div class='status-line medium'></div>
+    <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
 <a name='L3'></a><a href='#L3'>3</a>
@@ -327,7 +331,9 @@
 <a name='L266'></a><a href='#L266'>266</a>
 <a name='L267'></a><a href='#L267'>267</a>
 <a name='L268'></a><a href='#L268'>268</a>
-<a name='L269'></a><a href='#L269'>269</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L269'></a><a href='#L269'>269</a>
+<a name='L270'></a><a href='#L270'>270</a>
+<a name='L271'></a><a href='#L271'>271</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -425,6 +431,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -597,7 +605,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect, useState } from 'react';
 import { DogBreed } from '../types/DogBreed';
-import '../style/DogCard.css';
+import '../style/BreedCard.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import '../style/DogBreedDetail.css';
@@ -613,7 +621,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import Rating from '@mui/material/Rating';
 import CircleIcon from '@mui/icons-material/Circle';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
-import { styled } from '@mui/material';
+import { styled, Tooltip } from '@mui/material';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import ScaleIcon from '@mui/icons-material/Scale';
@@ -700,15 +708,17 @@ const DogBreedDetail: React.FC&lt;DogBreedDetailProps&gt; = ({ breed, id }) =&gt
         &lt;img src={`/images/${breed.image}`} alt={`Picture of our dog breed: ${breed.name}`} /&gt;
         &lt;Box id="dogInfo"&gt;
           &lt;header&gt;
-            &lt;Box&gt;
+            &lt;Box id="detailTitle"&gt;
               &lt;h1&gt;{breed.name}&lt;/h1&gt;
-              &lt;button onClick={handleFavoriteClicked} id="favorite-btn" aria-label="favorite-button"&gt;
-                {favorite ? (
-<span class="branch-0 cbranch-no" title="branch not covered" >                  &lt;FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" /&gt;</span>
-                ) : (
-                  &lt;FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" /&gt;
-                )}
-              &lt;/button&gt;
+              &lt;Tooltip title={favorite ? <span class="branch-0 cbranch-no" title="branch not covered" >'Unmark as favorite' : '</span>Mark as favorite'}&gt;
+                &lt;button onClick={handleFavoriteClicked} id="favorite-btn" aria-label="favorite-button"&gt;
+                  {favorite ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >                    &lt;FavoriteIcon id="heartIcon" style={{ color: '#b19acc' }} aria-label="Favorite" /&gt;</span>
+                  ) : (
+                    &lt;FavoriteBorderIcon id="heartIcon" aria-label="Not Favorite" /&gt;
+                  )}
+                &lt;/button&gt;
+              &lt;/Tooltip&gt;
             &lt;/Box&gt;
             &lt;p&gt;
               {breed?.averageRating ? (
@@ -721,7 +731,7 @@ const DogBreedDetail: React.FC&lt;DogBreedDetailProps&gt; = ({ breed, id }) =&gt
           &lt;Box className="infoTabs"&gt;
             &lt;TabContext value={tableValue}&gt;
               &lt;Box sx={{ borderBottom: 1, borderColor: 'divider' }}&gt;
-                &lt;TabList onChange={handleChange} aria-label="Dog detail tabs"&gt;
+                &lt;TabList onChange={handleChange} aria-label="Dog detail tabs" variant="scrollable"&gt;
                   &lt;Tab label="Description" value="1" /&gt;
                   &lt;Tab label="Personality stats" value="2" /&gt;
                   &lt;Tab label="Health stats" value="3" /&gt;
@@ -810,7 +820,7 @@ const DogBreedDetail: React.FC&lt;DogBreedDetailProps&gt; = ({ breed, id }) =&gt
             &lt;Commentary onAddComment={handleAddComment} breedId={breed.id} /&gt;
           &lt;/Box&gt;
         &lt;/Box&gt;
-        &lt;section className="commentSection"&gt;
+        &lt;section id="userComments"&gt;
           &lt;h3 className="text-xl pb-5"&gt;Comments:&lt;/h3&gt;
           {(breed.comments ?? []).length &gt; 0 ? (
 <span class="branch-0 cbranch-no" title="branch not covered" >            &lt;&gt;</span>
@@ -840,7 +850,7 @@ const DogBreedDetail: React.FC&lt;DogBreedDetailProps&gt; = ({ breed, id }) =&gt
                       &lt;/&gt;
                     )}
                   &lt;/Box&gt;
-                  &lt;p style={{ fontStyle: 'italic' }}&gt;
+                  &lt;p className="commentTransparent" style={{ fontStyle: 'italic' }}&gt;
                     {new Date(comment.timestamp).toLocaleString([], {
                       hour: '2-digit',
                       minute: '2-digit',
@@ -854,7 +864,7 @@ const DogBreedDetail: React.FC&lt;DogBreedDetailProps&gt; = ({ breed, id }) =&gt
               ))}
             &lt;/&gt;
           ) : (
-            &lt;p className="noComments"&gt;No comments yet. Be the first to comment!&lt;/p&gt;
+            &lt;p className="commentTransparent"&gt;No comments yet. Be the first to comment!&lt;/p&gt;
           )}
         &lt;/section&gt;
       &lt;/section&gt;
@@ -865,27 +875,21 @@ const DogBreedDetail: React.FC&lt;DogBreedDetailProps&gt; = ({ breed, id }) =&gt
 export default DogBreedDetail;
 &nbsp;</pre></td></tr></table></pre>
 
-      <div class="push"></div>
-      <!-- for sticky footer -->
-    </div>
-    <!-- /wrapper -->
-    <div class="footer quiet pad2 space-top1 center small">
-      Code coverage generated by
-      <a
-        href="https://istanbul.js.org/"
-        target="_blank"
-        rel="noopener noreferrer"
-        >istanbul</a
-      >
-      at 2024-12-05T14:43:04.432Z
-    </div>
-    <script src="../../prettify.js"></script>
-    <script>
-      window.onload = function () {
-        prettyPrint();
-      };
-    </script>
-    <script src="../../sorter.js"></script>
-    <script src="../../block-navigation.js"></script>
-  </body>
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2024-12-06T16:49:10.736Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
 </html>
+    

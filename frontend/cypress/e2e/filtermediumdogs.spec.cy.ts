@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 describe("Filter by Size Functionality", () => {
   it("should open the 'Choose size' dropdown and select 'Medium dogs'", () => {
     cy.visit("/");
