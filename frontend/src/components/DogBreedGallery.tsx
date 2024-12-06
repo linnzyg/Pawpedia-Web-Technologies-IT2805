@@ -258,8 +258,10 @@ const DogBreedGallery: React.FC = () => {
           Here are all breeds instead:
         </p>
       ) : null}
-      <section className="dog-breed-gallery">
-        {allDogs.length > 0 ? allDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />) : null}
+      <section className="grid-container">
+        <section className="dog-breed-gallery">
+          {allDogs.length > 0 ? allDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />) : null}
+        </section>
       </section>
       {!disableAutoFetch && (<div ref={lastItemRef} />)}
       {!hasNextPage && allDogs.length !== 0 && (

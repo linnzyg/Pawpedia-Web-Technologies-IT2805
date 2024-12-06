@@ -1,3 +1,13 @@
+/*--Remove x icon from chrome and internet explorer searchbar--*/
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+/*--- Style sort filter and search area ---*/
+
 #sortOrFilter {
   display: flex;
   flex-direction: row;
@@ -35,6 +45,8 @@
   flex-basis: 10%;
 }
 
+/*--Responsive media queries--*/
+
 @media (max-width: 1000px) {
   #sortOrFilter {
     flex-direction: column;
@@ -48,5 +60,4 @@
   #reset-btn {
     margin: 15px;
   }
-
 }
