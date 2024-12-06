@@ -39,7 +39,7 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize 
         labelId="size-filter-label"
         multiple
         value={selectedSizes}
-        //@ts-expect-error
+        //@ts-expect-error - onChange type error
         onChange={handleSizeChange}
         renderValue={(selected) => (selected as string[]).join(', ')} //Show selected sizes
         sx={{ width: '100%' }}

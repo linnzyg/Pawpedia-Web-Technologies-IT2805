@@ -1,7 +1,7 @@
 import { SET_SORT } from '../actions/types';
 
 const initialState: string | null = null;
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const sortReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case SET_SORT:
