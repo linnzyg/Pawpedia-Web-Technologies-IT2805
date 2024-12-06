@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 describe("Add to Favorites Test", () => {
   it("should add Beagle to favorites and verify it is listed in the favorites section", () => {
     cy.visit("/");
