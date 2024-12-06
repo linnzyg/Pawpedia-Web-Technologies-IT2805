@@ -26,8 +26,8 @@ const AlwaysLightRating = styled(Rating)({
 // BreedCard component definition
 const BreedCard: React.FC<BreedCardProps> = ({ breed }) => {
   return (
-    <Card key={breed.id} className="breed-card">
-      <Link to={`/${breed.id}`}>
+    <Link to={`/${breed.id}`}>
+      <Card key={breed.id} className="breed-card">
         <Box className="breedCardHeader">
           <h2>{breed.name}</h2>
           <p>
@@ -38,9 +38,9 @@ const BreedCard: React.FC<BreedCardProps> = ({ breed }) => {
             )}
           </p>
         </Box>
-        <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />
-      </Link>
-    </Card>
+        <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />{' '}
+      </Card>
+    </Link>
   );
 };
 

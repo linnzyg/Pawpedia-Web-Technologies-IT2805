@@ -2,12 +2,12 @@
 
 exports[`BreedCard Component > should match the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root breed-card css-1j74uew-MuiPaper-root-MuiCard-root"
-    style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+  <a
+    href="/1"
   >
-    <a
-      href="/1"
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root breed-card css-1j74uew-MuiPaper-root-MuiCard-root"
+      style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
     >
       <div
         class="breedCardHeader MuiBox-root css-0"
@@ -988,7 +988,8 @@ exports[`BreedCard Component > should match the snapshot 1`] = `
         alt="Picture of Golden Retriever"
         src="/images/golden-retriever.jpg"
       />
-    </a>
-  </div>
+       
+    </div>
+  </a>
 </DocumentFragment>
 `;

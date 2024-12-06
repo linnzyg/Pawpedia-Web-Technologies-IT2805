@@ -25,7 +25,7 @@
 
 #dogInfo h1 {
   font-size: 25px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Georgia, serif;
 }
 
 #dogInfo > header {
@@ -43,7 +43,7 @@
   flex-direction: row;
 }
 
-#detailTitle{
+#detailTitle {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -79,11 +79,18 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  margin: 5px;
+  border: 2px dotted transparent;
   padding: 10px;
+  border-radius: 50px;
 }
 
 #favorite-btn:hover {
   opacity: 0.5;
+}
+
+#favorite-btn:focus {
+  border-color: var(--green);
 }
 
 #heartIcon {
@@ -126,15 +133,19 @@
 
 /* -- User comment section -- */
 
+#userComments {
+  flex-grow: 1;
+}
+
 .commentElement {
   margin-bottom: 20px;
-  padding: 1%;
+  padding: 15px;
   background-color: white;
   border-radius: 5px;
 }
 
-#userComments {
-  flex-grow: 1;
+.commentElement > * {
+  padding: 5px;
 }
 
 .commentName {

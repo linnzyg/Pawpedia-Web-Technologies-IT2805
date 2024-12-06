@@ -1,11 +1,17 @@
+/*--- Used for DogBreedGallery and FavoritesGrid ---*/
+
+/*- to ensure constant gap between elements in grid when scaling-*/
+.grid-container {
+  display: flex;
+  justify-content: center;
+}
+
 .dog-breed-gallery {
   display: grid;
   justify-content: center;
   justify-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px 20px;
+  gap: 20px;
   max-width: 1500px;
   margin: 0 auto;
   padding: 40px;
@@ -16,19 +22,22 @@
   border-radius: 12px;
 }
 
-@media (max-width: 1300px) {
+/*- Responsive media queries -*/
+@media (max-width: 1330px) {
   .dog-breed-gallery {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 990px) {
   .dog-breed-gallery {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .dog-breed-gallery {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 10px;

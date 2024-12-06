@@ -11,14 +11,14 @@ body {
   overscroll-behavior: contain;
 }
 
-@layer base {
-  :root {
-    --backgroundcolor: ;
-    --brown: #5c5142;
-    --green: #7e8a58;
-    --darkgreen: #576138;
-    --purple: rgb(177, 154, 204);
+:root {
+  --backgroundcolor: ;
+  --brown: #5c5142;
+  --green: #7e8a58;
+  --darkgreen: #576138;
+  --purple: rgb(177, 154, 204);
 
+  @layer base {
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;

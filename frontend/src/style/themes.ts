@@ -99,6 +99,6 @@ export const styletheme = createTheme({
           },
         }),
       },
-    }
+    },
   },
 });
