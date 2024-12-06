@@ -24,7 +24,7 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize 
       onFilterChange(selectedSizes);
       isFirstRender.current = false;
     }
-  }, [onFilterChange, selectedSizes]);
+  }, [selectedSizes]);
 
   const sizes = ['Small', 'Medium', 'Large', 'Giant'];
 
@@ -39,7 +39,7 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize 
         labelId="size-filter-label"
         multiple
         value={selectedSizes}
-        //@ts-expect-error - onChange type error
+        //@ts-ignore
         onChange={handleSizeChange}
         renderValue={(selected) => (selected as string[]).join(', ')} //Show selected sizes
         sx={{ width: '100%' }}
