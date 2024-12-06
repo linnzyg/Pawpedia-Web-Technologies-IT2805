@@ -1,7 +1,7 @@
 import { render, screen,} from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { MockedProvider } from '@apollo/client/testing';
-import Comment from '../components/Comment';
+import Comment from '../components/DogBreedDetail/Comment';
 import { ADD_COMMENT } from '../api/mutations';
 
 describe('Comment Component', () => {

@@ -1,7 +1,6 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import DogBreedDetailWrapper from '../components/DogBreedDetailWrapper';
+import DogBreedDetailWrapper from '../components/DogBreedDetail/DogBreedDetailWrapper';
 import { mockDogBreeds } from '../data/mockDogBreeds';
 import { describe, it, expect } from 'vitest';
 import { MockedProvider } from '@apollo/client/testing';
