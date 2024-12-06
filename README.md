@@ -94,9 +94,6 @@ Code coverage analysis has been set up to ensure adequate test coverage across t
 The project uses ESLint for linting to enforce coding standards and catch potential errors early.
 Prettier is used to ensure consistent code formatting across the entire project.
 
-
-
-
 ### How to run component tests
 Navigate to frontend folder:
 
@@ -145,6 +142,9 @@ npm run coverage
 ```
 _Runs the tests_ 
 
-
-
-
+## Student Feedback
+### Incorporation of feedback
+- Following each review period, we carefully analyzed the feedback provided for P1 and P2. Based on this, we created new issues to address the suggested improvements.
+- To track feedback-related changes, we introduced a "Student Feedback" label to issues directly tied to resolving suggestions from peers.
+- The implemented improvements ranged from minor adjustments, such as ensuring comments were consistently added on top, to significant updates, including modernizing the UI, dynamic scaling, enhancing functionality, adding comprehensive tests, and improving documentation.
+- We prioritized these changes in P2, enabling us to address most of the feedback received for both P1 and P2.
