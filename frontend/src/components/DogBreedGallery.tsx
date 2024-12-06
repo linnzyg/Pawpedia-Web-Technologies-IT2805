@@ -249,7 +249,7 @@ const DogBreedGallery: React.FC = () => {
         {allDogs.length > 0 ? allDogs.map((breed) => <BreedCard key={breed.id} breed={breed} />) : null}
       </section>
       <div ref={lastItemRef} />
-      {!hasNextPage && (
+      {!hasNextPage && allDogs.length !== 0 && (
         <p style={{ textAlign: 'center', margin: '20px 0' }}>
           You have looked at {allDogs.length} of {allDogs.length} breeds.
         </p>
