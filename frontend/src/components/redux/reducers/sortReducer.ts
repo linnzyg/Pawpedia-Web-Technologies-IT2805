@@ -1,8 +1,10 @@
-import { SET_SORT } from '../actions/types';
+
+
+import { SET_SORT, Action } from '../actions/types';
 
 const initialState: string | null = null;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const sortReducer = (state = initialState, action: any) => {
+
+const sortReducer = (state = initialState, action: Action): string | null => {
   switch (action.type) {
     case SET_SORT:
       return action.payload;

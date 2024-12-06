@@ -1,8 +1,8 @@
-import { SET_SEARCH } from '../actions/types';
+import { SET_SEARCH, Action } from '../actions/types';
 
-const initialState = '';
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const searchReducer = (state = initialState, action: any) => {
+const initialState: string = '';
+
+const searchReducer = (state = initialState, action: Action): string => {
   switch (action.type) {
     case SET_SEARCH:
       return action.payload;
