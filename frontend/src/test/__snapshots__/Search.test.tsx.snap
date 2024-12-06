@@ -1,118 +1,33 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Search Component > should call onSearchChange with the correct value when typing 1`] = `
+exports[`Search Component Snapshot > should match the snapshot 1`] = `
 <DocumentFragment>
-  <section
-    id="secondRow"
+  <div
+    class="MuiFormControl-root MuiFormControl-fullWidth css-ytlejw-MuiFormControl-root"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root css-1y57085-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-1xp5r68-MuiFormControl-root-MuiTextField-root"
     >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-filled MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-filled css-eok8s2-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink="true"
+        for="standard-search"
+        id="standard-search-label"
+      >
+        Search by name...
+      </label>
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"
+        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-1pht7va-MuiInputBase-root-MuiFilledInput-root"
       >
         <input
           aria-invalid="false"
-          class="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
-          id="outlined-basic"
-          placeholder="Search..."
-          type="text"
-          value=""
+          class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputTypeSearch css-1bfsrh6-MuiInputBase-input-MuiFilledInput-input"
+          id="standard-search"
+          type="search"
+          value="Golden Retriever"
         />
-        <fieldset
-          aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
-        >
-          <legend
-            class="css-w4cd9x"
-          >
-            <span
-              class="notranslate"
-            >
-              ​
-            </span>
-          </legend>
-        </fieldset>
       </div>
     </div>
-  </section>
-</DocumentFragment>
-`;
-
-exports[`Search Component > should render the search input field 1`] = `
-<DocumentFragment>
-  <section
-    id="secondRow"
-  >
-    <div
-      class="MuiFormControl-root MuiTextField-root css-1y57085-MuiFormControl-root-MuiTextField-root"
-    >
-      <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"
-      >
-        <input
-          aria-invalid="false"
-          class="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
-          id="outlined-basic"
-          placeholder="Search..."
-          type="text"
-          value=""
-        />
-        <fieldset
-          aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
-        >
-          <legend
-            class="css-w4cd9x"
-          >
-            <span
-              class="notranslate"
-            >
-              ​
-            </span>
-          </legend>
-        </fieldset>
-      </div>
-    </div>
-  </section>
-</DocumentFragment>
-`;
-
-exports[`Search Component > should show the correct value in the input 1`] = `
-<DocumentFragment>
-  <section
-    id="secondRow"
-  >
-    <div
-      class="MuiFormControl-root MuiTextField-root css-1y57085-MuiFormControl-root-MuiTextField-root"
-    >
-      <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"
-      >
-        <input
-          aria-invalid="false"
-          class="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
-          id="outlined-basic"
-          placeholder="Search..."
-          type="text"
-          value="Golden"
-        />
-        <fieldset
-          aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
-        >
-          <legend
-            class="css-w4cd9x"
-          >
-            <span
-              class="notranslate"
-            >
-              ​
-            </span>
-          </legend>
-        </fieldset>
-      </div>
-    </div>
-  </section>
+  </div>
 </DocumentFragment>
 `;

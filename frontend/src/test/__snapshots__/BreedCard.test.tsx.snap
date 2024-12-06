@@ -10,7 +10,7 @@ exports[`BreedCard Component > should match the snapshot 1`] = `
       href="/1"
     >
       <div
-        class="dogCardHeader MuiBox-root css-0"
+        class="breedCardHeader MuiBox-root css-0"
       >
         <h2>
           Golden Retriever
@@ -18,7 +18,7 @@ exports[`BreedCard Component > should match the snapshot 1`] = `
         <p>
           <span
             aria-label="4.5 Stars"
-            class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-i0l71t-MuiRating-root"
+            class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-k97h1-MuiRating-root"
             role="img"
           >
             <span

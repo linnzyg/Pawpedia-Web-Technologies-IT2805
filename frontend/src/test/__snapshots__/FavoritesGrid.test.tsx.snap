@@ -10,7 +10,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
     </h2>
   </header>
   <div
-    class="favorites-grid"
+    class="dog-breed-gallery"
   >
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root breed-card css-1j74uew-MuiPaper-root-MuiCard-root"
@@ -20,7 +20,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
         href="/1"
       >
         <div
-          class="dogCardHeader MuiBox-root css-0"
+          class="breedCardHeader MuiBox-root css-0"
         >
           <h2>
             Golden Retriever
@@ -28,7 +28,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
           <p>
             <span
               aria-label="4.5 Stars"
-              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-i0l71t-MuiRating-root"
+              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-k97h1-MuiRating-root"
               role="img"
             >
               <span
@@ -1008,7 +1008,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
         href="/2"
       >
         <div
-          class="dogCardHeader MuiBox-root css-0"
+          class="breedCardHeader MuiBox-root css-0"
         >
           <h2>
             Labrador
@@ -1016,7 +1016,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
           <p>
             <span
               aria-label="4.2 Stars"
-              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-i0l71t-MuiRating-root"
+              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-k97h1-MuiRating-root"
               role="img"
             >
               <span
@@ -1996,7 +1996,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
         href="/3"
       >
         <div
-          class="dogCardHeader MuiBox-root css-0"
+          class="breedCardHeader MuiBox-root css-0"
         >
           <h2>
             Poodle
@@ -2004,7 +2004,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
           <p>
             <span
               aria-label="4.7 Stars"
-              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-i0l71t-MuiRating-root"
+              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-k97h1-MuiRating-root"
               role="img"
             >
               <span
@@ -2984,7 +2984,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
         href="/4"
       >
         <div
-          class="dogCardHeader MuiBox-root css-0"
+          class="breedCardHeader MuiBox-root css-0"
         >
           <h2>
             Bulldog
@@ -2992,7 +2992,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
           <p>
             <span
               aria-label="4.1 Stars"
-              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-i0l71t-MuiRating-root"
+              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-k97h1-MuiRating-root"
               role="img"
             >
               <span
@@ -3972,7 +3972,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
         href="/5"
       >
         <div
-          class="dogCardHeader MuiBox-root css-0"
+          class="breedCardHeader MuiBox-root css-0"
         >
           <h2>
             Beagle
@@ -3980,7 +3980,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
           <p>
             <span
               aria-label="4 Stars"
-              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-i0l71t-MuiRating-root"
+              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-k97h1-MuiRating-root"
               role="img"
             >
               <span
@@ -4960,7 +4960,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
         href="/6"
       >
         <div
-          class="dogCardHeader MuiBox-root css-0"
+          class="breedCardHeader MuiBox-root css-0"
         >
           <h2>
             German Shepherd
@@ -4968,7 +4968,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
           <p>
             <span
               aria-label="4.3 Stars"
-              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-i0l71t-MuiRating-root"
+              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-k97h1-MuiRating-root"
               role="img"
             >
               <span
@@ -5948,7 +5948,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
         href="/7"
       >
         <div
-          class="dogCardHeader MuiBox-root css-0"
+          class="breedCardHeader MuiBox-root css-0"
         >
           <h2>
             Dachshund
@@ -5956,7 +5956,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
           <p>
             <span
               aria-label="4.6 Stars"
-              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-i0l71t-MuiRating-root"
+              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-k97h1-MuiRating-root"
               role="img"
             >
               <span
@@ -6936,7 +6936,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
         href="/8"
       >
         <div
-          class="dogCardHeader MuiBox-root css-0"
+          class="breedCardHeader MuiBox-root css-0"
         >
           <h2>
             Rottweiler
@@ -6944,7 +6944,7 @@ exports[`FavoritesGrid Component > should match the snapshot 1`] = `
           <p>
             <span
               aria-label="4.4 Stars"
-              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-i0l71t-MuiRating-root"
+              class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-k97h1-MuiRating-root"
               role="img"
             >
               <span
