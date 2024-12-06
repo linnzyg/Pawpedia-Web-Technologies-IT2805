@@ -999,7 +999,7 @@ exports[`FavoritesPage Component > should match the snapshot 1`] = `
           </div>
           <img
             alt="Picture of Golden Retriever"
-            src="/images/golden-retriever.jpg"
+            src="/project2/images/golden-retriever.jpg"
           />
            
         </div>
@@ -1988,7 +1988,7 @@ exports[`FavoritesPage Component > should match the snapshot 1`] = `
           </div>
           <img
             alt="Picture of Labrador"
-            src="/images/labrador.jpg"
+            src="/project2/images/labrador.jpg"
           />
            
         </div>
@@ -2977,7 +2977,7 @@ exports[`FavoritesPage Component > should match the snapshot 1`] = `
           </div>
           <img
             alt="Picture of Poodle"
-            src="/images/poodle.jpg"
+            src="/project2/images/poodle.jpg"
           />
            
         </div>
@@ -3966,7 +3966,7 @@ exports[`FavoritesPage Component > should match the snapshot 1`] = `
           </div>
           <img
             alt="Picture of Bulldog"
-            src="/images/bulldog.jpg"
+            src="/project2/images/bulldog.jpg"
           />
            
         </div>
@@ -4955,7 +4955,7 @@ exports[`FavoritesPage Component > should match the snapshot 1`] = `
           </div>
           <img
             alt="Picture of Beagle"
-            src="/images/beagle.jpg"
+            src="/project2/images/beagle.jpg"
           />
            
         </div>
@@ -5944,7 +5944,7 @@ exports[`FavoritesPage Component > should match the snapshot 1`] = `
           </div>
           <img
             alt="Picture of German Shepherd"
-            src="/images/german-shepherd.jpg"
+            src="/project2/images/german-shepherd.jpg"
           />
            
         </div>
@@ -6933,7 +6933,7 @@ exports[`FavoritesPage Component > should match the snapshot 1`] = `
           </div>
           <img
             alt="Picture of Dachshund"
-            src="/images/dachshund.jpg"
+            src="/project2/images/dachshund.jpg"
           />
            
         </div>
@@ -7922,7 +7922,7 @@ exports[`FavoritesPage Component > should match the snapshot 1`] = `
           </div>
           <img
             alt="Picture of Rottweiler"
-            src="/images/rottweiler.jpg"
+            src="/project2/images/rottweiler.jpg"
           />
            
         </div>
