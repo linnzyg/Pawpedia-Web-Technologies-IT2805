@@ -32,9 +32,9 @@ describe('DogBreedDetail Component', () => {
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Golden Retriever');
 
-    const image = screen.getByAltText('Picture of our dog breed: Golden Retriever');
+    const image = screen.getByAltText('Picture of Golden Retriever');
     expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute('src', `/images/${mockBreed.image}`);
+    expect(image).toHaveAttribute('src', `/project2/images/${mockBreed.image}`);
 
     expect(screen.getByText('Friendly, intelligent family dog')).toBeInTheDocument();
   });
@@ -46,7 +46,7 @@ describe('DogBreedDetail Component', () => {
       </MockedProvider>,
     );
 
-    const image = screen.getByAltText('Picture of our dog breed: Golden Retriever');
-    expect(image).toHaveAttribute('alt', 'Picture of our dog breed: Golden Retriever');
+    const image = screen.getByAltText('Picture of Golden Retriever');
+    expect(image).toHaveAttribute('alt', 'Picture of Golden Retriever');
   });
 });

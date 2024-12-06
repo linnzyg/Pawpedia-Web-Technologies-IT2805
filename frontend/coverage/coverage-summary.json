@@ -1,35 +1,207 @@
-{"total": {"lines":{"total":333,"covered":133,"skipped":0,"pct":39.93},"statements":{"total":364,"covered":140,"skipped":0,"pct":38.46},"functions":{"total":110,"covered":39,"skipped":0,"pct":35.45},"branches":{"total":228,"covered":54,"skipped":0,"pct":23.68},"branchesTrue":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/App.tsx": {"lines":{"total":1,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":1,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/main.tsx": {"lines":{"total":2,"covered":0,"skipped":0,"pct":0},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":2,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/api/mutations.ts": {"lines":{"total":1,"covered":1,"skipped":0,"pct":100},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":1,"covered":1,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/api/queries.ts": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":3,"covered":3,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AboutUs/AboutUs.tsx": {"lines":{"total":1,"covered":1,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":1,"covered":1,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AllDogsPage/AllDogsPage.tsx": {"lines":{"total":99,"covered":0,"skipped":0,"pct":0},"functions":{"total":25,"covered":0,"skipped":0,"pct":0},"statements":{"total":114,"covered":0,"skipped":0,"pct":0},"branches":{"total":92,"covered":0,"skipped":0,"pct":0}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AllDogsPage/SortFilterOrSearch/Search.tsx": {"lines":{"total":3,"covered":2,"skipped":0,"pct":66.66},"functions":{"total":2,"covered":1,"skipped":0,"pct":50},"statements":{"total":3,"covered":2,"skipped":0,"pct":66.66},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AllDogsPage/SortFilterOrSearch/SizeFiltering.tsx": {"lines":{"total":16,"covered":15,"skipped":0,"pct":93.75},"functions":{"total":6,"covered":5,"skipped":0,"pct":83.33},"statements":{"total":16,"covered":15,"skipped":0,"pct":93.75},"branches":{"total":6,"covered":6,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AllDogsPage/SortFilterOrSearch/SortingMenu.tsx": {"lines":{"total":9,"covered":6,"skipped":0,"pct":66.66},"functions":{"total":3,"covered":2,"skipped":0,"pct":66.66},"statements":{"total":9,"covered":6,"skipped":0,"pct":66.66},"branches":{"total":2,"covered":1,"skipped":0,"pct":50}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AllDogsPage/SortFilterOrSearch/StatsFilterMenu.tsx": {"lines":{"total":14,"covered":0,"skipped":0,"pct":0},"functions":{"total":5,"covered":0,"skipped":0,"pct":0},"statements":{"total":14,"covered":0,"skipped":0,"pct":0},"branches":{"total":6,"covered":0,"skipped":0,"pct":0}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/DogBreedDetail/Comment.tsx": {"lines":{"total":16,"covered":6,"skipped":0,"pct":37.5},"functions":{"total":5,"covered":1,"skipped":0,"pct":20},"statements":{"total":16,"covered":6,"skipped":0,"pct":37.5},"branches":{"total":9,"covered":2,"skipped":0,"pct":22.22}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/DogBreedDetail/DogBreedDetail.tsx": {"lines":{"total":24,"covered":15,"skipped":0,"pct":62.5},"functions":{"total":14,"covered":6,"skipped":0,"pct":42.85},"statements":{"total":24,"covered":15,"skipped":0,"pct":62.5},"branches":{"total":32,"covered":11,"skipped":0,"pct":34.37}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/DogBreedDetail/DogBreedDetailWrapper.tsx": {"lines":{"total":8,"covered":8,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":10,"covered":9,"skipped":0,"pct":90},"branches":{"total":10,"covered":8,"skipped":0,"pct":80}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/FavoritesPage/FavoritesPage.tsx": {"lines":{"total":25,"covered":24,"skipped":0,"pct":96},"functions":{"total":8,"covered":7,"skipped":0,"pct":87.5},"statements":{"total":30,"covered":27,"skipped":0,"pct":90},"branches":{"total":17,"covered":11,"skipped":0,"pct":64.7}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/Global/BreedCard.tsx": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":3,"covered":3,"skipped":0,"pct":100},"branches":{"total":2,"covered":1,"skipped":0,"pct":50}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/Global/DogGrid.tsx": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":2,"covered":2,"skipped":0,"pct":100},"statements":{"total":3,"covered":3,"skipped":0,"pct":100},"branches":{"total":2,"covered":1,"skipped":0,"pct":50}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/Global/Navbar/ModeChange.tsx": {"lines":{"total":9,"covered":9,"skipped":0,"pct":100},"functions":{"total":2,"covered":2,"skipped":0,"pct":100},"statements":{"total":9,"covered":9,"skipped":0,"pct":100},"branches":{"total":6,"covered":6,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/Global/Navbar/Navbar.tsx": {"lines":{"total":6,"covered":0,"skipped":0,"pct":0},"functions":{"total":2,"covered":0,"skipped":0,"pct":0},"statements":{"total":8,"covered":0,"skipped":0,"pct":0},"branches":{"total":4,"covered":0,"skipped":0,"pct":0}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/Global/Navbar/ScrollButton.tsx": {"lines":{"total":12,"covered":0,"skipped":0,"pct":0},"functions":{"total":5,"covered":0,"skipped":0,"pct":0},"statements":{"total":12,"covered":0,"skipped":0,"pct":0},"branches":{"total":2,"covered":0,"skipped":0,"pct":0}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/store.ts": {"lines":{"total":1,"covered":0,"skipped":0,"pct":0},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":1,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/actions/index.ts": {"lines":{"total":4,"covered":0,"skipped":0,"pct":0},"functions":{"total":4,"covered":0,"skipped":0,"pct":0},"statements":{"total":8,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/actions/types.ts": {"lines":{"total":4,"covered":0,"skipped":0,"pct":0},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":4,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/reducers/filterReducer.ts": {"lines":{"total":5,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":5,"covered":0,"skipped":0,"pct":0},"branches":{"total":3,"covered":0,"skipped":0,"pct":0}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/reducers/index.ts": {"lines":{"total":1,"covered":0,"skipped":0,"pct":0},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":1,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/reducers/searchReducer.ts": {"lines":{"total":5,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":5,"covered":0,"skipped":0,"pct":0},"branches":{"total":3,"covered":0,"skipped":0,"pct":0}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/reducers/sortReducer.ts": {"lines":{"total":5,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":5,"covered":0,"skipped":0,"pct":0},"branches":{"total":3,"covered":0,"skipped":0,"pct":0}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/reducers/statsFilterReducer.ts": {"lines":{"total":5,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":5,"covered":0,"skipped":0,"pct":0},"branches":{"total":3,"covered":0,"skipped":0,"pct":0}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/data/mockDogBreeds.ts": {"lines":{"total":8,"covered":8,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":8,"covered":8,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/lib/utils.ts": {"lines":{"total":1,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":1,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/style/themes.ts": {"lines":{"total":8,"covered":0,"skipped":0,"pct":0},"functions":{"total":7,"covered":0,"skipped":0,"pct":0},"statements":{"total":8,"covered":0,"skipped":0,"pct":0},"branches":{"total":18,"covered":0,"skipped":0,"pct":0}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/types/DogBreed.ts": {"lines":{"total":4,"covered":4,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":5,"covered":5,"skipped":0,"pct":100},"branches":{"total":2,"covered":2,"skipped":0,"pct":100}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/utils/favoritesUtils.ts": {"lines":{"total":22,"covered":21,"skipped":0,"pct":95.45},"functions":{"total":7,"covered":7,"skipped":0,"pct":100},"statements":{"total":24,"covered":23,"skipped":0,"pct":95.83},"branches":{"total":6,"covered":5,"skipped":0,"pct":83.33}}
-,"C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/utils/userUtils.ts": {"lines":{"total":5,"covered":4,"skipped":0,"pct":80},"functions":{"total":2,"covered":1,"skipped":0,"pct":50},"statements":{"total":5,"covered":4,"skipped":0,"pct":80},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+{
+  "total": {
+    "lines": { "total": 333, "covered": 133, "skipped": 0, "pct": 39.93 },
+    "statements": { "total": 364, "covered": 140, "skipped": 0, "pct": 38.46 },
+    "functions": { "total": 110, "covered": 39, "skipped": 0, "pct": 35.45 },
+    "branches": { "total": 228, "covered": 54, "skipped": 0, "pct": 23.68 },
+    "branchesTrue": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/App.tsx": {
+    "lines": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/main.tsx": {
+    "lines": { "total": 2, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+    "statements": { "total": 2, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/api/mutations.ts": {
+    "lines": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+    "statements": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/api/queries.ts": {
+    "lines": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+    "statements": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AboutUs/AboutUs.tsx": {
+    "lines": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "statements": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AllDogsPage/AllDogsPage.tsx": {
+    "lines": { "total": 99, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 25, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 114, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 92, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AllDogsPage/SortFilterOrSearch/Search.tsx": {
+    "lines": { "total": 3, "covered": 2, "skipped": 0, "pct": 66.66 },
+    "functions": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 },
+    "statements": { "total": 3, "covered": 2, "skipped": 0, "pct": 66.66 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AllDogsPage/SortFilterOrSearch/SizeFiltering.tsx": {
+    "lines": { "total": 16, "covered": 15, "skipped": 0, "pct": 93.75 },
+    "functions": { "total": 6, "covered": 5, "skipped": 0, "pct": 83.33 },
+    "statements": { "total": 16, "covered": 15, "skipped": 0, "pct": 93.75 },
+    "branches": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AllDogsPage/SortFilterOrSearch/SortingMenu.tsx": {
+    "lines": { "total": 9, "covered": 6, "skipped": 0, "pct": 66.66 },
+    "functions": { "total": 3, "covered": 2, "skipped": 0, "pct": 66.66 },
+    "statements": { "total": 9, "covered": 6, "skipped": 0, "pct": 66.66 },
+    "branches": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/AllDogsPage/SortFilterOrSearch/StatsFilterMenu.tsx": {
+    "lines": { "total": 14, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 14, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 6, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/DogBreedDetail/Comment.tsx": {
+    "lines": { "total": 16, "covered": 6, "skipped": 0, "pct": 37.5 },
+    "functions": { "total": 5, "covered": 1, "skipped": 0, "pct": 20 },
+    "statements": { "total": 16, "covered": 6, "skipped": 0, "pct": 37.5 },
+    "branches": { "total": 9, "covered": 2, "skipped": 0, "pct": 22.22 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/DogBreedDetail/DogBreedDetail.tsx": {
+    "lines": { "total": 24, "covered": 15, "skipped": 0, "pct": 62.5 },
+    "functions": { "total": 14, "covered": 6, "skipped": 0, "pct": 42.85 },
+    "statements": { "total": 24, "covered": 15, "skipped": 0, "pct": 62.5 },
+    "branches": { "total": 32, "covered": 11, "skipped": 0, "pct": 34.37 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/DogBreedDetail/DogBreedDetailWrapper.tsx": {
+    "lines": { "total": 8, "covered": 8, "skipped": 0, "pct": 100 },
+    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "statements": { "total": 10, "covered": 9, "skipped": 0, "pct": 90 },
+    "branches": { "total": 10, "covered": 8, "skipped": 0, "pct": 80 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/FavoritesPage/FavoritesPage.tsx": {
+    "lines": { "total": 25, "covered": 24, "skipped": 0, "pct": 96 },
+    "functions": { "total": 8, "covered": 7, "skipped": 0, "pct": 87.5 },
+    "statements": { "total": 30, "covered": 27, "skipped": 0, "pct": 90 },
+    "branches": { "total": 17, "covered": 11, "skipped": 0, "pct": 64.7 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/Global/BreedCard.tsx": {
+    "lines": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "statements": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+    "branches": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/Global/DogGrid.tsx": {
+    "lines": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+    "functions": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+    "statements": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+    "branches": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/Global/Navbar/ModeChange.tsx": {
+    "lines": { "total": 9, "covered": 9, "skipped": 0, "pct": 100 },
+    "functions": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+    "statements": { "total": 9, "covered": 9, "skipped": 0, "pct": 100 },
+    "branches": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/Global/Navbar/Navbar.tsx": {
+    "lines": { "total": 6, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 2, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 8, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/Global/Navbar/ScrollButton.tsx": {
+    "lines": { "total": 12, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 12, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 2, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/store.ts": {
+    "lines": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+    "statements": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/actions/index.ts": {
+    "lines": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 8, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/actions/types.ts": {
+    "lines": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+    "statements": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/reducers/filterReducer.ts": {
+    "lines": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/reducers/index.ts": {
+    "lines": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+    "statements": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/reducers/searchReducer.ts": {
+    "lines": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/reducers/sortReducer.ts": {
+    "lines": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/components/redux/reducers/statsFilterReducer.ts": {
+    "lines": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/data/mockDogBreeds.ts": {
+    "lines": { "total": 8, "covered": 8, "skipped": 0, "pct": 100 },
+    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "statements": { "total": 8, "covered": 8, "skipped": 0, "pct": 100 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/lib/utils.ts": {
+    "lines": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/style/themes.ts": {
+    "lines": { "total": 8, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 7, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 8, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 18, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/types/DogBreed.ts": {
+    "lines": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 },
+    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "statements": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 },
+    "branches": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/utils/favoritesUtils.ts": {
+    "lines": { "total": 22, "covered": 21, "skipped": 0, "pct": 95.45 },
+    "functions": { "total": 7, "covered": 7, "skipped": 0, "pct": 100 },
+    "statements": { "total": 24, "covered": 23, "skipped": 0, "pct": 95.83 },
+    "branches": { "total": 6, "covered": 5, "skipped": 0, "pct": 83.33 }
+  },
+  "C:/Users/linnz/OneDrive/Documents/informatikk/5_semester/webdev/T35-Project-2/frontend/src/utils/userUtils.ts": {
+    "lines": { "total": 5, "covered": 4, "skipped": 0, "pct": 80 },
+    "functions": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 },
+    "statements": { "total": 5, "covered": 4, "skipped": 0, "pct": 80 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  }
 }

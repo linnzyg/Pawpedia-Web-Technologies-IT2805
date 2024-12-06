@@ -59,4 +59,4 @@ export const typeDefs = `#graphql
         comment: String!
         rating: Int
     }
-    `
+    `;

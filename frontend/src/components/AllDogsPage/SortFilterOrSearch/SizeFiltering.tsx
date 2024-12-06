@@ -24,7 +24,7 @@ const SizeFiltering: React.FC<FilteringProps> = ({ onFilterChange, filterBySize 
       onFilterChange(selectedSizes);
       isFirstRender.current = false;
     }
-  }, [onFilterChange, selectedSizes]);
+  }, [selectedSizes]);
 
   const sizes = ['Small', 'Medium', 'Large', 'Giant'];
 

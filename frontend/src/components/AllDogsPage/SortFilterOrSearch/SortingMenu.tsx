@@ -14,11 +14,10 @@ const NameSorting: React.FC<SortingProps> = ({ onSortChange, sortOption }) => {
     setSelectedOption(sortOption || '');
   }, [sortOption]);
 
-
   // Handle the selection change
   const handleChange = (event: SelectChangeEvent<string>) => {
     const value = event.target.value;
-    setSelectedOption(value); 
+    setSelectedOption(value);
     onSortChange(value);
   };
 

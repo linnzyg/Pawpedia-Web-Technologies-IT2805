@@ -38,7 +38,7 @@ const BreedCard: React.FC<BreedCardProps> = ({ breed }) => {
             )}
           </p>
         </Box>
-        <img src={`/images/${breed.image}`} alt={`Picture of ${breed.name}`} />{' '}
+        <img src={`${import.meta.env.BASE_URL}/images/${breed.image}`} alt={`Picture of ${breed.name}`} />{' '}
       </Card>
     </Link>
   );

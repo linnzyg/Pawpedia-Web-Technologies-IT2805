@@ -1,5 +1,3 @@
-
-
 import { SET_SORT, Action } from '../actions/types';
 
 const initialState: string | null = null;

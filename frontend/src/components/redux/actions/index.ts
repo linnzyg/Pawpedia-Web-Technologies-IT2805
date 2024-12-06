@@ -1,5 +1,3 @@
-
-
 import {
   SET_FILTER,
   SET_SORT,
