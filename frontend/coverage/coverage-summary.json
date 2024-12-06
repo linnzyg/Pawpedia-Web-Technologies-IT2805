@@ -1,225 +1,39 @@
-{
-  "total": {
-    "lines": { "total": 428, "covered": 138, "skipped": 0, "pct": 32.24 },
-    "statements": { "total": 458, "covered": 145, "skipped": 0, "pct": 31.65 },
-    "functions": { "total": 133, "covered": 41, "skipped": 0, "pct": 30.82 },
-    "branches": { "total": 235, "covered": 56, "skipped": 0, "pct": 23.82 },
-    "branchesTrue": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/App.tsx": {
-    "lines": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/main.tsx": {
-    "lines": { "total": 2, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
-    "statements": { "total": 2, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/api/mutations.ts": {
-    "lines": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
-    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
-    "statements": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/api/queries.ts": {
-    "lines": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
-    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
-    "statements": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/AboutUs.tsx": {
-    "lines": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
-    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
-    "statements": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/BreedCard.tsx": {
-    "lines": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
-    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
-    "statements": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
-    "branches": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/Comment.tsx": {
-    "lines": { "total": 16, "covered": 6, "skipped": 0, "pct": 37.5 },
-    "functions": { "total": 5, "covered": 1, "skipped": 0, "pct": 20 },
-    "statements": { "total": 16, "covered": 6, "skipped": 0, "pct": 37.5 },
-    "branches": { "total": 9, "covered": 2, "skipped": 0, "pct": 22.22 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/DogBreedDetail.tsx": {
-    "lines": { "total": 24, "covered": 15, "skipped": 0, "pct": 62.5 },
-    "functions": { "total": 14, "covered": 6, "skipped": 0, "pct": 42.85 },
-    "statements": { "total": 24, "covered": 15, "skipped": 0, "pct": 62.5 },
-    "branches": { "total": 28, "covered": 9, "skipped": 0, "pct": 32.14 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/DogBreedDetailWrapper.tsx": {
-    "lines": { "total": 8, "covered": 8, "skipped": 0, "pct": 100 },
-    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
-    "statements": { "total": 10, "covered": 9, "skipped": 0, "pct": 90 },
-    "branches": { "total": 10, "covered": 8, "skipped": 0, "pct": 80 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/DogBreedGallery.tsx": {
-    "lines": { "total": 93, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 23, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 107, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 89, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/FavoritesGrid.tsx": {
-    "lines": { "total": 26, "covered": 25, "skipped": 0, "pct": 96.15 },
-    "functions": { "total": 9, "covered": 8, "skipped": 0, "pct": 88.88 },
-    "statements": { "total": 31, "covered": 28, "skipped": 0, "pct": 90.32 },
-    "branches": { "total": 16, "covered": 11, "skipped": 0, "pct": 68.75 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ModeChange.tsx": {
-    "lines": { "total": 9, "covered": 9, "skipped": 0, "pct": 100 },
-    "functions": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
-    "statements": { "total": 9, "covered": 9, "skipped": 0, "pct": 100 },
-    "branches": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/Navbar.tsx": {
-    "lines": { "total": 6, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 2, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 8, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/Search.tsx": {
-    "lines": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 },
-    "functions": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
-    "statements": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 },
-    "branches": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/SizeFiltering.tsx": {
-    "lines": { "total": 16, "covered": 15, "skipped": 0, "pct": 93.75 },
-    "functions": { "total": 6, "covered": 5, "skipped": 0, "pct": 83.33 },
-    "statements": { "total": 16, "covered": 15, "skipped": 0, "pct": 93.75 },
-    "branches": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/SortingMenu.tsx": {
-    "lines": { "total": 13, "covered": 12, "skipped": 0, "pct": 92.3 },
-    "functions": { "total": 4, "covered": 3, "skipped": 0, "pct": 75 },
-    "statements": { "total": 13, "covered": 12, "skipped": 0, "pct": 92.3 },
-    "branches": { "total": 6, "covered": 5, "skipped": 0, "pct": 83.33 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/StatsFilterMenu.tsx": {
-    "lines": { "total": 13, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 13, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 6, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/store.ts": {
-    "lines": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
-    "statements": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/actions/index.ts": {
-    "lines": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 8, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/actions/types.ts": {
-    "lines": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
-    "statements": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/reducers/filterReducer.ts": {
-    "lines": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/reducers/index.ts": {
-    "lines": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
-    "statements": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/reducers/searchReducer.ts": {
-    "lines": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/reducers/sortReducer.ts": {
-    "lines": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/reducers/statsFilterReducer.ts": {
-    "lines": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ui/button.tsx": {
-    "lines": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ui/card.tsx": {
-    "lines": { "total": 18, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 6, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 18, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ui/dropdown-menu.tsx": {
-    "lines": { "total": 33, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 9, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 33, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 7, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ui/menubar.tsx": {
-    "lines": { "total": 38, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 11, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 38, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 9, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ui/navigation-menu.tsx": {
-    "lines": { "total": 21, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 6, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 21, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/data/mockDogBreeds.ts": {
-    "lines": { "total": 8, "covered": 8, "skipped": 0, "pct": 100 },
-    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
-    "statements": { "total": 8, "covered": 8, "skipped": 0, "pct": 100 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/lib/utils.ts": {
-    "lines": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/style/themes.ts": {
-    "lines": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "functions": { "total": 4, "covered": 0, "skipped": 0, "pct": 0 },
-    "statements": { "total": 5, "covered": 0, "skipped": 0, "pct": 0 },
-    "branches": { "total": 12, "covered": 0, "skipped": 0, "pct": 0 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/types/DogBreed.ts": {
-    "lines": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 },
-    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
-    "statements": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 },
-    "branches": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/utils/favoritesUtils.ts": {
-    "lines": { "total": 22, "covered": 21, "skipped": 0, "pct": 95.45 },
-    "functions": { "total": 7, "covered": 7, "skipped": 0, "pct": 100 },
-    "statements": { "total": 24, "covered": 23, "skipped": 0, "pct": 95.83 },
-    "branches": { "total": 6, "covered": 5, "skipped": 0, "pct": 83.33 }
-  },
-  "C:/Users/synne/webdev/T35-Project-2/frontend/src/utils/userUtils.ts": {
-    "lines": { "total": 5, "covered": 4, "skipped": 0, "pct": 80 },
-    "functions": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 },
-    "statements": { "total": 5, "covered": 4, "skipped": 0, "pct": 80 },
-    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
-  }
+{"total": {"lines":{"total":447,"covered":131,"skipped":0,"pct":29.3},"statements":{"total":478,"covered":138,"skipped":0,"pct":28.87},"functions":{"total":143,"covered":38,"skipped":0,"pct":26.57},"branches":{"total":244,"covered":52,"skipped":0,"pct":21.31},"branchesTrue":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/App.tsx": {"lines":{"total":1,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":1,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/main.tsx": {"lines":{"total":2,"covered":0,"skipped":0,"pct":0},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":2,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/api/mutations.ts": {"lines":{"total":1,"covered":1,"skipped":0,"pct":100},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":1,"covered":1,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/api/queries.ts": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":3,"covered":3,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/AboutUs.tsx": {"lines":{"total":1,"covered":1,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":1,"covered":1,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/BreedCard.tsx": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":3,"covered":3,"skipped":0,"pct":100},"branches":{"total":2,"covered":1,"skipped":0,"pct":50}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/Comment.tsx": {"lines":{"total":16,"covered":6,"skipped":0,"pct":37.5},"functions":{"total":5,"covered":1,"skipped":0,"pct":20},"statements":{"total":16,"covered":6,"skipped":0,"pct":37.5},"branches":{"total":9,"covered":2,"skipped":0,"pct":22.22}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/DogBreedDetail.tsx": {"lines":{"total":24,"covered":15,"skipped":0,"pct":62.5},"functions":{"total":14,"covered":6,"skipped":0,"pct":42.85},"statements":{"total":24,"covered":15,"skipped":0,"pct":62.5},"branches":{"total":30,"covered":10,"skipped":0,"pct":33.33}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/DogBreedDetailWrapper.tsx": {"lines":{"total":8,"covered":8,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":10,"covered":9,"skipped":0,"pct":90},"branches":{"total":10,"covered":8,"skipped":0,"pct":80}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/DogBreedGallery.tsx": {"lines":{"total":100,"covered":0,"skipped":0,"pct":0},"functions":{"total":26,"covered":0,"skipped":0,"pct":0},"statements":{"total":115,"covered":0,"skipped":0,"pct":0},"branches":{"total":94,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/FavoritesGrid.tsx": {"lines":{"total":26,"covered":25,"skipped":0,"pct":96.15},"functions":{"total":9,"covered":8,"skipped":0,"pct":88.88},"statements":{"total":31,"covered":28,"skipped":0,"pct":90.32},"branches":{"total":16,"covered":11,"skipped":0,"pct":68.75}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ModeChange.tsx": {"lines":{"total":9,"covered":9,"skipped":0,"pct":100},"functions":{"total":2,"covered":2,"skipped":0,"pct":100},"statements":{"total":9,"covered":9,"skipped":0,"pct":100},"branches":{"total":6,"covered":6,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/Navbar.tsx": {"lines":{"total":6,"covered":0,"skipped":0,"pct":0},"functions":{"total":2,"covered":0,"skipped":0,"pct":0},"statements":{"total":8,"covered":0,"skipped":0,"pct":0},"branches":{"total":4,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ScrollButton.tsx": {"lines":{"total":12,"covered":0,"skipped":0,"pct":0},"functions":{"total":5,"covered":0,"skipped":0,"pct":0},"statements":{"total":12,"covered":0,"skipped":0,"pct":0},"branches":{"total":2,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/Search.tsx": {"lines":{"total":3,"covered":2,"skipped":0,"pct":66.66},"functions":{"total":2,"covered":1,"skipped":0,"pct":50},"statements":{"total":3,"covered":2,"skipped":0,"pct":66.66},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/SizeFiltering.tsx": {"lines":{"total":16,"covered":15,"skipped":0,"pct":93.75},"functions":{"total":6,"covered":5,"skipped":0,"pct":83.33},"statements":{"total":16,"covered":15,"skipped":0,"pct":93.75},"branches":{"total":6,"covered":6,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/SortingMenu.tsx": {"lines":{"total":9,"covered":6,"skipped":0,"pct":66.66},"functions":{"total":3,"covered":2,"skipped":0,"pct":66.66},"statements":{"total":9,"covered":6,"skipped":0,"pct":66.66},"branches":{"total":2,"covered":1,"skipped":0,"pct":50}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/StatsFilterMenu.tsx": {"lines":{"total":14,"covered":0,"skipped":0,"pct":0},"functions":{"total":5,"covered":0,"skipped":0,"pct":0},"statements":{"total":14,"covered":0,"skipped":0,"pct":0},"branches":{"total":6,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/store.ts": {"lines":{"total":1,"covered":0,"skipped":0,"pct":0},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":1,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/actions/index.ts": {"lines":{"total":4,"covered":0,"skipped":0,"pct":0},"functions":{"total":4,"covered":0,"skipped":0,"pct":0},"statements":{"total":8,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/actions/types.ts": {"lines":{"total":4,"covered":0,"skipped":0,"pct":0},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":4,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/reducers/filterReducer.ts": {"lines":{"total":5,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":5,"covered":0,"skipped":0,"pct":0},"branches":{"total":3,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/reducers/index.ts": {"lines":{"total":1,"covered":0,"skipped":0,"pct":0},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":1,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/reducers/searchReducer.ts": {"lines":{"total":5,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":5,"covered":0,"skipped":0,"pct":0},"branches":{"total":3,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/reducers/sortReducer.ts": {"lines":{"total":5,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":5,"covered":0,"skipped":0,"pct":0},"branches":{"total":3,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/redux/reducers/statsFilterReducer.ts": {"lines":{"total":5,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":5,"covered":0,"skipped":0,"pct":0},"branches":{"total":3,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ui/button.tsx": {"lines":{"total":5,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":5,"covered":0,"skipped":0,"pct":0},"branches":{"total":3,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ui/card.tsx": {"lines":{"total":18,"covered":0,"skipped":0,"pct":0},"functions":{"total":6,"covered":0,"skipped":0,"pct":0},"statements":{"total":18,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ui/dropdown-menu.tsx": {"lines":{"total":33,"covered":0,"skipped":0,"pct":0},"functions":{"total":9,"covered":0,"skipped":0,"pct":0},"statements":{"total":33,"covered":0,"skipped":0,"pct":0},"branches":{"total":7,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ui/menubar.tsx": {"lines":{"total":38,"covered":0,"skipped":0,"pct":0},"functions":{"total":11,"covered":0,"skipped":0,"pct":0},"statements":{"total":38,"covered":0,"skipped":0,"pct":0},"branches":{"total":9,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/components/ui/navigation-menu.tsx": {"lines":{"total":21,"covered":0,"skipped":0,"pct":0},"functions":{"total":6,"covered":0,"skipped":0,"pct":0},"statements":{"total":21,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/data/mockDogBreeds.ts": {"lines":{"total":8,"covered":8,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":8,"covered":8,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/lib/utils.ts": {"lines":{"total":1,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":1,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/style/themes.ts": {"lines":{"total":8,"covered":0,"skipped":0,"pct":0},"functions":{"total":7,"covered":0,"skipped":0,"pct":0},"statements":{"total":8,"covered":0,"skipped":0,"pct":0},"branches":{"total":18,"covered":0,"skipped":0,"pct":0}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/types/DogBreed.ts": {"lines":{"total":4,"covered":4,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":5,"covered":5,"skipped":0,"pct":100},"branches":{"total":2,"covered":2,"skipped":0,"pct":100}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/utils/favoritesUtils.ts": {"lines":{"total":22,"covered":21,"skipped":0,"pct":95.45},"functions":{"total":7,"covered":7,"skipped":0,"pct":100},"statements":{"total":24,"covered":23,"skipped":0,"pct":95.83},"branches":{"total":6,"covered":5,"skipped":0,"pct":83.33}}
+,"C:/Users/synne/webdev/T35-Project-2/frontend/src/utils/userUtils.ts": {"lines":{"total":5,"covered":4,"skipped":0,"pct":80},"functions":{"total":2,"covered":1,"skipped":0,"pct":50},"statements":{"total":5,"covered":4,"skipped":0,"pct":80},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
 }
