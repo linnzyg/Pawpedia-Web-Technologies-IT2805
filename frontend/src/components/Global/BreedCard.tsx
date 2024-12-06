@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Box, Rating, styled } from '@mui/material';
 import { Link } from 'react-router-dom';
+import '../../style/BreedCard.css';
 
 // Define the Breed interface to type the breed prop
 interface Breed {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import AboutUs from '../components/AboutUs';
+import AboutUs from '../components/AboutUs/AboutUs';
 
 // Snapshot test for AboutUs component
 test('AboutUs component renders correctly and matches snapshot', () => {

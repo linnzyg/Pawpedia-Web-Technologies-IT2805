@@ -1,5 +1,4 @@
-import React from 'react';
-import '../style/AboutUs.css';
+import '../../style/AboutUs.css';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';

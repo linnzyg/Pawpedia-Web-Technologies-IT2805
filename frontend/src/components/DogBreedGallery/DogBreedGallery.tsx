@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import '../style/SortOrFilter.css';
-import '../style/DogBreedGallery.css';
+import '../../style/DogBreedGallery.css';
+import '../../style/SortOrFilter.css';
 import { useQuery } from '@apollo/client';
-import { GET_BREEDS } from '../api/queries';
-import { DogBreed } from '../types/DogBreed';
-import SizeFiltering from './SizeFiltering';
-import SortingMenu from './SortingMenu';
-import Search from './Search';
+import { GET_BREEDS } from '../../api/queries';
+import { DogBreed } from '../../types/DogBreed';
+import SizeFiltering from './SortFilterOrSearch/SizeFiltering';
+import SortingMenu from './SortFilterOrSearch/SortingMenu';
+import Search from './SortFilterOrSearch/Search';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter, setSort, setSearch, setStatsFilter } from './redux/actions';
-import { RootState } from './redux/store';
+import { setFilter, setSort, setSearch, setStatsFilter } from '../redux/actions';
+import { RootState } from '../redux/store';
 import { Button, Tooltip } from '@mui/material';
-import BreedCard from './BreedCard';
-import StatsFilterMenu from './StatsFilterMenu';
+import BreedCard from '../Global/BreedCard';
+import StatsFilterMenu from './SortFilterOrSearch/StatsFilterMenu';
 
 const DogBreedGallery: React.FC = () => {
   const dispatch = useDispatch();

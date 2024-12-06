@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { DogBreed } from '../types/DogBreed';
-import '../style/BreedCard.css';
+import { DogBreed } from '../../types/DogBreed';
+import '../../style/DogBreedDetail.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import '../style/DogBreedDetail.css';
 import Commentary from './Comment';
 import { useMutation } from '@apollo/client';
-import { ADD_COMMENT } from '../api/mutations';
-import { GET_BREED } from '../api/queries';
+import { ADD_COMMENT } from '../../api/mutations';
+import { GET_BREED } from '../../api/queries';
 import Box from '@mui/material/Box';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -21,7 +20,7 @@ import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import ScaleIcon from '@mui/icons-material/Scale';
 import HeightIcon from '@mui/icons-material/Height';
-import { toggleFavorite, isFavorite } from '../utils/favoritesUtils';
+import { toggleFavorite, isFavorite } from '../../utils/favoritesUtils';
 
 /**
  * Props interface for the DogBreedDetail component.

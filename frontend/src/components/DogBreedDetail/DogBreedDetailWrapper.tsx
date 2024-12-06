@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import DogBreedDetail from './DogBreedDetail';
 import { useQuery } from '@apollo/client';
-import { DogBreed } from '../types/DogBreed';
-import { GET_BREED } from '../api/queries';
+import { DogBreed } from '../../types/DogBreed';
+import { GET_BREED } from '../../api/queries';
 
 /**
  * DogBreedDetailWrapper Component

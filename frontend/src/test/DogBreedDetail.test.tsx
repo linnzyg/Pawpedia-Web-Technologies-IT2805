@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
-import DogBreedDetail from '../components/DogBreedDetail';
+import DogBreedDetail from '../components/DogBreedDetail/DogBreedDetail';
 import { DogBreed, Size } from '../types/DogBreed';
 import { describe, it, expect } from 'vitest';
 
