@@ -81,7 +81,18 @@
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -103,24 +114,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// src/App.tsx
 &nbsp;
 import { Routes, Route } from 'react-router-dom';
 import DogBreedGallery from './components/DogBreedGallery';
 import DogBreedDetailWrapper from './components/DogBreedDetailWrapper';
-import AboutUs from './components/AboutUs.tsx';
 import Navbar from './components/Navbar.tsx';
+import { FavoritesGrid } from './components/FavoritesGrid.tsx';
+import { ThemeProvider } from '@mui/material/styles';
+import { styletheme } from './style/themes.ts';
+import { CssBaseline } from '@mui/material';
+import AboutUs from './components/AboutUs.tsx';
 &nbsp;
 function <span class="fstat-no" title="function not covered" >App() {</span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;&gt;
-      &lt;Navbar /&gt;
-      &lt;Routes&gt;
-        &lt;Route path="/AboutUs" element={&lt;AboutUs /&gt;} /&gt;
-        &lt;Route path="/" element={&lt;DogBreedGallery /&gt;} /&gt;
-        &lt;Route path="/:slug" element={&lt;DogBreedDetailWrapper /&gt;} /&gt;
-      &lt;/Routes&gt;
-    &lt;/&gt;
+    &lt;ThemeProvider theme={styletheme}&gt;
+      &lt;CssBaseline&gt;
+        &lt;Navbar /&gt;
+        &lt;Routes&gt;
+          &lt;Route path="/about" element={&lt;AboutUs /&gt;} /&gt;
+          &lt;Route path="/" element={&lt;DogBreedGallery /&gt;} /&gt;
+          &lt;Route path="/:id" element={&lt;DogBreedDetailWrapper /&gt;} /&gt;
+          &lt;Route path="/favorites" element={&lt;FavoritesGrid /&gt;} /&gt;
+        &lt;/Routes&gt;
+      &lt;/CssBaseline&gt;
+    &lt;/ThemeProvider&gt;
   );
 }
 &nbsp;
@@ -139,7 +160,7 @@ export default App;
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-10-10T15:15:38.412Z
+      at 2024-12-05T14:43:04.432Z
     </div>
     <script src="../prettify.js"></script>
     <script>

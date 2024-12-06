@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Checkbox, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 
 interface FilteringProps {
   onStatsFilterChange: (filter: string[]) => void;
