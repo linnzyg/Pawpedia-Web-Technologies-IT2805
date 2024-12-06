@@ -8,7 +8,8 @@ import { Provider } from 'react-redux';
 import store from './components/redux/store';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000', // Replace with VM address later
+  uri: 'http://localhost:3001',
+  //uri: 'http://it2810-35.idi.ntnu.no:3001',
   cache: new InMemoryCache(),
 });
 
@@ -16,7 +17,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
       <ApolloProvider client={client}>
-        <BrowserRouter>
+        <BrowserRouter basename='/project2'>
           <App />
         </BrowserRouter>
       </ApolloProvider>
