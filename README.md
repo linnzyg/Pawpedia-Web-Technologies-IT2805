@@ -1,5 +1,7 @@
 # Pawpedia
 
+> **Merk:** Dette skoleprosjektet er ikke lenger deployet/live, men koden ligger her som referanse.
+
 Pawpedia is an application designed to showcase various dog breeds. There is a gallery view displaying dog breeds fetched from a database. The gallery view can lead the user to the detailed view about each dog breed by pressing the pictures of the dogs, where you can also read and leave comments about the bread.
 
 ## Features
